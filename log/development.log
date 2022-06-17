@@ -2,3 +2,10 @@
   ↳ bin/rails:9
   [1m[35m (276.8ms)[0m  [1m[35mCREATE DATABASE "strive_test" ENCODING = 'unicode'[0m
   ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-06-17 14:42:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 1088ms (Views: 1087.2ms | ActiveRecord: 0.0ms)
+
+
