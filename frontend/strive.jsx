@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { signUp, logIn, logOut } from './util/session_api_util';
+import { signup, login, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    window.signUp = signUp;
-    window.logIn = logIn;
-    window.logOut = logOut;
+    window.signup = signup;
+    window.login = login;
+    window.logout = logout;
     ReactDOM.render(<h1>Strive!!!</h1>, root);
 })
