@@ -3,7 +3,9 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
-#  username        :string           not null
+#  name            :string           not null
+#  birthdate       :date             not null
+#  weight          :integer
 #  email           :string           not null
 #  profile_pic_url :string
 #  password_digest :string           not null
