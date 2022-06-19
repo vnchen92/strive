@@ -34,19 +34,12 @@ class SessionForm extends React.Component{
 
     render(){
         const {errors, formType, processForm} = this.props;
-        // const otherLink = () => {
-        //     if (formType === "Sign Up") {
-        //         <Link to='/login'>Log In</Link>
-        //     } else {
-        //         <Link to='/signup'>Sign Up</Link>
-        //     }
-        // }
         return (
             <div>
+                {/* <p>{formType === 'Sign Up' ? <Link to='/login'>Log In</Link> : <Link to='/signup'>Sign Up</Link>}</p> */}
                 <ul>
                     {this.showErrors()}
                 </ul>
-                <p>{formType === 'Sign Up' ? <Link to='/login'>Log In</Link> : <Link to='/signup'>Sign Up</Link>}</p>
                 <form onSubmit={this.handleSubmit}>
                     <label>Email
                         <input 
