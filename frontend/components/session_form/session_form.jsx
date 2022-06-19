@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component{
     constructor(props){
@@ -25,6 +25,11 @@ class SessionForm extends React.Component{
 
     render(){
         const {errors, formType, processForm} = this.props;
+        const showErrors = () => {
+            errors.session.forEach((error, idx) => {
+                <li key={idx}>{error}</li>
+            })
+        }
         const otherLink = () => {
             if (formType === "Sign Up") {
                 <Link to='/login'>Log In</Link>
@@ -34,7 +39,9 @@ class SessionForm extends React.Component{
         }
         return (
             <div>
-                {/* <p>{errors}</p> */}
+                {/* <ul>
+                    {showErrors()}
+                </ul> */}
                 <p>{otherLink()}</p>
                 <form onSubmit={this.handleSubmit}>{formType}
                     <label>Email
