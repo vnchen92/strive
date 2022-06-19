@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
           login!(@user)
           render 'api/users/show'
         else
-          render json: @user.errors.full_messages
+          render json: ['Missing some/all parameters']
         end
     end
 
