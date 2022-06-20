@@ -20,3 +20,11 @@ export const logout = () => {
         method: 'DELETE',
     })
 }
+
+
+// export const fetchAllUsers = () => {
+//     return $.ajax({
+//         url: '/api/users',
+//         method: 'GET'
+//     })
+// }

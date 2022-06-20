@@ -1,5 +1,8 @@
 import React from 'react';
-import { Link, useHistory, useNavigate, withRouter } from 'react-router-dom';
+import { Link, useHistory, useNavigate, withRouter, Switch, Route } from 'react-router-dom';
+import SignupFormContainer from '../session_form/signup_form_container';
+import LoginFormContainer from '../session_form/login_form_container';
+import { AuthRoute } from '../../util/route_util';
 
 const Welcome = ({currentUser, logout, location}) => {
     const currentPath = location.pathname;
@@ -38,6 +41,20 @@ const Welcome = ({currentUser, logout, location}) => {
                             <Link to='/'><h1>Strive</h1></Link>
                             {linkToRender}
                         </nav>
+                        {
+                            currentPath === '/' ? (
+                                <div>
+                                    <Link to='/signup'>Sign Up with email</Link>
+                                    <h1>DEMO USER LOGIN</h1>
+                                </div>
+                            ) : (
+                                <></>
+                            )
+                        }
+                        <Switch>
+                            <AuthRoute exact path="/login" component={LoginFormContainer} />
+                            <AuthRoute exact path="/signup" component={SignupFormContainer} />
+                        </Switch>
                     </div>
                 )
                 }
