@@ -17,8 +17,7 @@ class SessionForm extends React.Component{
         e.preventDefault();
         const user = {...this.state, id: (this.props.amountOfUsers + 1)};
         this.props.processForm(user)
-            .then(() => this.props.history.push('./'));
-            //PLACEHOLDER FOR DASHBOARD- change path to ./dashboard
+            .then(() => this.props.history.push('./dashboard'));
     }
 
     update(field){
