@@ -5,6 +5,7 @@ import SessionForm from './session_form';
 const mapStateToProps = state => {
     return {
         errors: state.errors,
+        amountOfUsers: Object.values(state.entities.users).length - 1,
         formType: 'Sign Up'
     }
 }

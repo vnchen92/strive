@@ -1,18 +1,21 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            name: '',
+            birthdate: '',
+            weight: ''
         }
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const user = {...this.state};
+        const user = {...this.state, id: (this.props.amountOfUsers + 1)};
         this.props.processForm(user)
             .then(() => this.props.history.push('./'));
             //PLACEHOLDER FOR DASHBOARD- change path to ./dashboard
@@ -34,7 +37,23 @@ class SessionForm extends React.Component{
     }
 
     render(){
-        const {errors, formType, processForm} = this.props;
+        const {errors, amountOfUsers, formType, processForm, location} = this.props;
+        let forSignUp;
+        if (location.pathname === '/signup') {
+            forSignUp = (
+                <>
+                    <label>Name
+                        <input type="text" value={this.state.name} onChange={this.update('name')}/>
+                    </label>
+                    <label>Birthday
+                        <input type="date" value={this.state.birthdate} onChange={this.update('birthdate')}/>
+                    </label>
+                    <label>Weight
+                        <input type="text" value={this.state.weight} onChange={this.update('weight')}/>
+                    </label>
+                </>
+            )
+        }
         return (
             <div>
                 {/* <p>{formType === 'Sign Up' ? <Link to='/login'>Log In</Link> : <Link to='/signup'>Sign Up</Link>}</p> */}
@@ -56,6 +75,7 @@ class SessionForm extends React.Component{
                             onChange={this.update('password')}
                         />
                     </label>
+                    {forSignUp}
                     <button type='submit'>{formType}</button>
                 </form>
             </div>
@@ -63,4 +83,4 @@ class SessionForm extends React.Component{
     }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
