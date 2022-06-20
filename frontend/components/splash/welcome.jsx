@@ -1,8 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-const Welcome = ({currentUser, logout}) => {
+const Welcome = ({currentUser, logout, location}) => {
+    const currentPath = location.pathname;
+    let linkToRender;
+    if (currentPath === '/' || currentPath === '/signup') {
+        linkToRender = <Link to='/login'><h1>LoginButton</h1></Link>
+    } else if (currentPath === '/login') {
+        linkToRender = <Link to='/signup'><h1>SignUpButton</h1></Link>
+    }
     const display = currentUser ? (
+        // PLACEHOLDER FOR DASHBOARD
         <div>
             <nav className='nav-bar'>
                 <Link to='/'><h1>Strive</h1></Link>
@@ -10,12 +18,12 @@ const Welcome = ({currentUser, logout}) => {
                 <button onClick={logout}>Log Out</button>
             </nav>
         </div>
+        // PLACEHOLDER FOR DASHBOARD
     ) : (
         <div>
             <nav className='nav-bar'>
                 <Link to='/'><h1>Strive</h1></Link>
-                <Link to='/login'>Log In</Link>
-                <Link to='/signup'>Sign Up</Link>
+                {linkToRender}
             </nav>
         </div>
     )
@@ -29,4 +37,4 @@ const Welcome = ({currentUser, logout}) => {
     )
 }
 
-export default Welcome;
+export default withRouter(Welcome);

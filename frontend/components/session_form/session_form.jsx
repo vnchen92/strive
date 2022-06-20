@@ -15,6 +15,7 @@ class SessionForm extends React.Component{
         const user = {...this.state};
         this.props.processForm(user)
             .then(() => this.props.history.push('./'));
+            //PLACEHOLDER FOR DASHBOARD- change path to ./dashboard
     }
 
     update(field){
