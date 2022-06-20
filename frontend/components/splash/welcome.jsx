@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory, useNavigate, withRouter, Switch, Route } from 'react-router-dom';
+import { Link, useHistory, withRouter, Switch } from 'react-router-dom';
 import SignupFormContainer from '../session_form/signup_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
 import DemoLogin from '../demo_login/demo_login';
@@ -7,11 +7,13 @@ import { AuthRoute } from '../../util/route_util';
 
 const Welcome = ({currentUser, logout, login, location}) => {
     const currentPath = location.pathname;
+
     let linkToRender;
+
     if (currentPath === '/' || currentPath === '/signup') {
-        linkToRender = <Link to='/login'><h1>LoginButton</h1></Link>
+        linkToRender = <Link to='/login'><button className='nav-bar-btn'>LoginButton</button></Link>
     } else if (currentPath === '/login') {
-        linkToRender = <Link to='/signup'><h1>SignUpButton</h1></Link>
+        linkToRender = <Link to='/signup'><button className='nav-bar-btn'>SignUpButton</button></Link>
     }
 
     const history = useHistory();
@@ -28,20 +30,32 @@ const Welcome = ({currentUser, logout, login, location}) => {
                 {
                 currentUser ? (
                     // PLACEHOLDER FOR DASHBOARD
-                    <div>
-                        <nav className='nav-bar'>
-                            <Link to='/'><h1>Strive</h1></Link>
-                            <p>Hello, {currentUser.name}</p>
-                            <button onClick={handleClick}>Log Out</button>
-                        </nav>
-                    </div>
+                    <>
+                        <header class='header-container'>
+                            <nav className='nav-bar'>
+                                <div className='nav-bar-title-container'>
+                                    <Link to='/'><h1 className='nav-bar-title'>Strive</h1></Link>
+                                </div>
+                                <p>Hello, {currentUser.name}</p>
+                                <div>
+                                    <button className='nav-bar-btn' onClick={handleClick}>Log Out</button>
+                                </div>
+                            </nav>
+                        </header>
+                    </>
                     // PLACEHOLDER FOR DASHBOARD
                 ) : (
                     <div>
-                        <nav className='nav-bar'>
-                            <Link to='/'><h1>Strive</h1></Link>
-                            {linkToRender}
-                        </nav>
+                        <header class='header-container'>
+                            <nav className='nav-bar'>
+                                <div className='nav-bar-title-container'>
+                                    <Link to='/'><h1 className='nav-bar-title'>Strive</h1></Link>
+                                </div>
+                                <div className='nav-bar-btn-container'>
+                                    {linkToRender}
+                                </div>
+                            </nav>
+                        </header>
                         {
                             currentPath === '/' ? (
                                 <div>
