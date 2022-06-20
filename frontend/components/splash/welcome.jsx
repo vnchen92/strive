@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useHistory, useNavigate, withRouter } from 'react-router-dom';
 
 const Welcome = ({currentUser, logout, location}) => {
     const currentPath = location.pathname;
@@ -9,29 +9,38 @@ const Welcome = ({currentUser, logout, location}) => {
     } else if (currentPath === '/login') {
         linkToRender = <Link to='/signup'><h1>SignUpButton</h1></Link>
     }
-    const display = currentUser ? (
-        // PLACEHOLDER FOR DASHBOARD
-        <div>
-            <nav className='nav-bar'>
-                <Link to='/'><h1>Strive</h1></Link>
-                <p>Hello, {currentUser.name}</p>
-                <button onClick={logout}>Log Out</button>
-            </nav>
-        </div>
-        // PLACEHOLDER FOR DASHBOARD
-    ) : (
-        <div>
-            <nav className='nav-bar'>
-                <Link to='/'><h1>Strive</h1></Link>
-                {linkToRender}
-            </nav>
-        </div>
-    )
+
+    const history = useHistory();
+
+    const handleClick = e => {
+        e.preventDefault();
+        logout();
+        history.push('/');
+    }
     
     return (
         <header>
             <div>
-                {display}
+                {
+                currentUser ? (
+                    // PLACEHOLDER FOR DASHBOARD
+                    <div>
+                        <nav className='nav-bar'>
+                            <Link to='/'><h1>Strive</h1></Link>
+                            <p>Hello, {currentUser.name}</p>
+                            <button onClick={handleClick}>Log Out</button>
+                        </nav>
+                    </div>
+                    // PLACEHOLDER FOR DASHBOARD
+                ) : (
+                    <div>
+                        <nav className='nav-bar'>
+                            <Link to='/'><h1>Strive</h1></Link>
+                            {linkToRender}
+                        </nav>
+                    </div>
+                )
+                }
             </div>
         </header>
     )
