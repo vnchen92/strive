@@ -2,9 +2,10 @@ import React from 'react';
 import { Link, useHistory, useNavigate, withRouter, Switch, Route } from 'react-router-dom';
 import SignupFormContainer from '../session_form/signup_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
+import DemoLogin from '../demo_login/demo_login';
 import { AuthRoute } from '../../util/route_util';
 
-const Welcome = ({currentUser, logout, location}) => {
+const Welcome = ({currentUser, logout, login, location}) => {
     const currentPath = location.pathname;
     let linkToRender;
     if (currentPath === '/' || currentPath === '/signup') {
@@ -45,7 +46,7 @@ const Welcome = ({currentUser, logout, location}) => {
                             currentPath === '/' ? (
                                 <div>
                                     <Link to='/signup'>Sign Up with email</Link>
-                                    <h1>DEMO USER LOGIN</h1>
+                                    <DemoLogin login={login}/>
                                 </div>
                             ) : (
                                 <></>

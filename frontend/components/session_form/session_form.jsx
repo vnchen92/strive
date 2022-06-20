@@ -1,6 +1,7 @@
 import { current } from '@reduxjs/toolkit';
 import React from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
+import DemoLogin from '../demo_login/demo_login';
 
 class SessionForm extends React.Component{
     constructor(props){
@@ -45,9 +46,11 @@ class SessionForm extends React.Component{
                     <label>Name
                         <input type="text" value={this.state.name} onChange={this.update('name')}/>
                     </label>
+                    <br />
                     <label>Birthday
                         <input type="date" value={this.state.birthdate} onChange={this.update('birthdate')}/>
                     </label>
+                    <br />
                     <label>Weight
                         <input type="text" value={this.state.weight} onChange={this.update('weight')}/>
                     </label>
@@ -56,7 +59,6 @@ class SessionForm extends React.Component{
         }
         return (
             <div>
-                {/* <p>{formType === 'Sign Up' ? <Link to='/login'>Log In</Link> : <Link to='/signup'>Sign Up</Link>}</p> */}
                 <ul>
                     {this.showErrors()}
                 </ul>
@@ -68,6 +70,7 @@ class SessionForm extends React.Component{
                             onChange={this.update('email')}
                         />
                     </label>
+                    <br />
                     <label>Password
                         <input 
                             type="password"
@@ -75,9 +78,14 @@ class SessionForm extends React.Component{
                             onChange={this.update('password')}
                         />
                     </label>
+                    <br />
                     {forSignUp}
+                    <br />
                     <button type='submit'>{formType}</button>
                 </form>
+                {
+                location.pathname === '/login' ? <DemoLogin login={processForm} /> : <></>
+                }
             </div>
         )
     }
