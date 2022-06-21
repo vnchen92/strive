@@ -18,6 +18,10 @@ class User < ApplicationRecord
     validates :email, :session_token, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
 
+    has_many :posts,
+    class_name: :Post,
+    foreign_key: :author_id
+
     attr_reader :password
 
     before_validation :ensure_session_token

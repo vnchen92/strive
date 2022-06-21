@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Post.destroy_all
 
 u1 = User.create(
     id: 1,
@@ -24,4 +25,18 @@ u2 = User.create(
     weight: 125,
     email: 'vnchen92@gmail.com',
     password: "password"
+)
+
+
+p1 = Post.create(
+    id: 1,
+    title: "Need Carbs",
+    author_id: 2
+)
+
+p2 = Post.create(
+    id: 2,
+    title: "Training for 10k!",
+    body: "...halfway there? 🙃",
+    author_id: 2
 )

@@ -7089,3 +7089,790 @@ Processing by Api::SessionsController#destroy as JSON
 Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.8ms)
 
 
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7546527686210991240)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePosts (20220621144004)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7546527686210991240)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7546527686210991240)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePosts (20220621144004)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (59.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "body" character varying, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220621144004_create_posts.rb:3
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_author_id" ON "posts"  ("author_id")[0m
+  ↳ db/migrate/20220621144004_create_posts.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220621144004"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7546527686210991240)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vnchen92/.rbenv/versions/2.5.1/bin/annotate:25
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (132.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "strive_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (135.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "strive_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (466.8ms)[0m  [1m[35mCREATE DATABASE "strive_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (361.7ms)[0m  [1m[35mCREATE DATABASE "strive_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (1.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (16.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "body" character varying, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_author_id" ON "posts"  ("author_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "birthdate" date NOT NULL, "weight" integer, "email" character varying NOT NULL, "profile_pic_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220621144004)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220617192229);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-06-21 14:55:46.356163"], ["updated_at", "2022-06-21 14:55:46.356163"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "body" character varying, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_author_id" ON "posts"  ("author_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "birthdate" date NOT NULL, "weight" integer, "email" character varying NOT NULL, "profile_pic_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220621144004)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220617192229);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-06-21 14:55:46.529111"], ["updated_at", "2022-06-21 14:55:46.529111"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-06-21 14:55:46.539119"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@demo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ieEN77yFW8zKriEVDZ6K8Q"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "birthdate", "weight", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "demouser"], ["birthdate", "2022-06-17"], ["weight", 0], ["email", "demouser@demo.com"], ["password_digest", "$2a$12$WqoV/8pDcBuNJXMgsg9JxulYbMxFyjhOA5JfXx/K9MwLGvil/RFc2"], ["session_token", "ieEN77yFW8zKriEVDZ6K8Q"], ["created_at", "2022-06-21 14:55:46.912724"], ["updated_at", "2022-06-21 14:55:46.912724"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vnchen92@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f2rG0EESNztOeqZDyJLQ4A"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "birthdate", "weight", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 2], ["name", "Vivian Chen"], ["birthdate", "1992-08-09"], ["weight", 125], ["email", "vnchen92@gmail.com"], ["password_digest", "$2a$12$fsQOWSP5vdlLeVSHd09Wze6fpXjDonPHTUhE3MFK3LNH7gQXEPZ9O"], ["session_token", "f2rG0EESNztOeqZDyJLQ4A"], ["created_at", "2022-06-21 14:55:47.232445"], ["updated_at", "2022-06-21 14:55:47.232445"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("id", "title", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["title", "Need Carbs"], ["author_id", 2], ["created_at", "2022-06-21 14:55:47.255333"], ["updated_at", "2022-06-21 14:55:47.255333"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 2]]
+Started GET "/" for ::1 at 2022-06-21 11:27:51 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vnchen92/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 636ms (Views: 635.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/posts/post" for ::1 at 2022-06-21 11:27:55 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"post"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (5.3ms)
+  Rendered api/posts/show.json.jbuilder (6.9ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 5.2ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828369405700'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828369434280'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/bb7276ab704b3a9f/variables" for ::1 at 2022-06-21 11:27:55 -0400
+Started GET "/api/posts/postId" for ::1 at 2022-06-21 11:28:25 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"postId"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/show.json.jbuilder (2.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms)
+
+
+
+ActionView::MissingTemplate - Missing partial api/posts/_postId with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:jbuilder]}. Searched in:
+  * "/home/vnchen92/App_Academy/projects/strive/app/views":
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_47205546822600'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/c13da520a1a0761e/variables" for ::1 at 2022-06-21 11:28:26 -0400
+Started GET "/api/posts/1" for ::1 at 2022-06-21 11:29:12 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (1.7ms)
+  Rendered api/posts/show.json.jbuilder (4.3ms)
+Completed 200 OK in 35ms (Views: 7.8ms | ActiveRecord: 8.5ms)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (152.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "strive_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (127.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "strive_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (378.5ms)[0m  [1m[35mCREATE DATABASE "strive_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (289.8ms)[0m  [1m[35mCREATE DATABASE "strive_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (2.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "body" character varying, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_author_id" ON "posts"  ("author_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "birthdate" date NOT NULL, "weight" integer, "email" character varying NOT NULL, "profile_pic_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (19.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220621144004)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220617192229);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (3.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-06-21 15:35:04.055338"], ["updated_at", "2022-06-21 15:35:04.055338"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying NOT NULL, "body" character varying, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_author_id" ON "posts"  ("author_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:27
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "birthdate" date NOT NULL, "weight" integer, "email" character varying NOT NULL, "profile_pic_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:27
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:27
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220621144004)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220617192229);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-06-21 15:35:04.197237"], ["updated_at", "2022-06-21 15:35:04.197237"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.8ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-06-21 15:35:04.205411"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@demo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9RJnTOKPpOd644LfLRFhGQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "birthdate", "weight", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "demouser"], ["birthdate", "2022-06-17"], ["weight", 0], ["email", "demouser@demo.com"], ["password_digest", "$2a$12$18LrHAHls9Yd1aRbQggYnusKdcrGUS/MOZoosYjvG9tjkOmTPX1bO"], ["session_token", "9RJnTOKPpOd644LfLRFhGQ"], ["created_at", "2022-06-21 15:35:04.617267"], ["updated_at", "2022-06-21 15:35:04.617267"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vnchen92@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "S8fVZhxTNSAINqnQOgAF-g"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "birthdate", "weight", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 2], ["name", "Vivian Chen"], ["birthdate", "1992-08-09"], ["weight", 125], ["email", "vnchen92@gmail.com"], ["password_digest", "$2a$12$Fy3r.nQlQVN0sNpuORUjYu/SbNOq856m4S.1p30G61mZDOeqrHWKy"], ["session_token", "S8fVZhxTNSAINqnQOgAF-g"], ["created_at", "2022-06-21 15:35:04.900014"], ["updated_at", "2022-06-21 15:35:04.900014"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("id", "title", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["id", 1], ["title", "Need Carbs"], ["author_id", 2], ["created_at", "2022-06-21 15:35:04.914905"], ["updated_at", "2022-06-21 15:35:04.914905"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("id", "title", "body", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["id", 2], ["title", "Training for 10k!"], ["body", "...halfway there? 🙃"], ["author_id", 2], ["created_at", "2022-06-21 15:35:04.919303"], ["updated_at", "2022-06-21 15:35:04.919303"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+Started GET "/api/posts/2" for ::1 at 2022-06-21 11:35:16 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (0.9ms)
+  Rendered api/posts/show.json.jbuilder (3.1ms)
+Completed 200 OK in 14ms (Views: 7.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/posts/" for ::1 at 2022-06-21 11:36:11 -0400
+Processing by Api::PostsController#index as JSON
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/posts with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vnchen92/App_Academy/projects/strive/app/views":
+  app/controllers/api/posts_controller.rb:4:in `index'
+
+Started POST "/__better_errors/3bb8c7658ab34051/variables" for ::1 at 2022-06-21 11:36:11 -0400
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/vnchen92/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Started GET "/api/posts" for ::1 at 2022-06-21 11:36:20 -0400
+Processing by Api::PostsController#index as JSON
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/posts with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/vnchen92/App_Academy/projects/strive/app/views":
+  app/controllers/api/posts_controller.rb:4:in `index'
+
+Started POST "/__better_errors/91fb703dd886ce05/variables" for ::1 at 2022-06-21 11:36:21 -0400
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/vnchen92/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:38:02 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (5.4ms)
+  Rendered api/posts/show.json.jbuilder (7.5ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 5.6ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828355624400'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828355959680'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/6e711ecd814ce445/variables" for ::1 at 2022-06-21 11:38:03 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:39:24 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (7.3ms)
+  Rendered api/posts/show.json.jbuilder (9.3ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.6ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828368176820'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828368196280'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/79d2a20eb82b570f/variables" for ::1 at 2022-06-21 11:39:24 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:40:07 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (8.4ms)
+  Rendered api/posts/show.json.jbuilder (10.4ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828368430260'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828368458860'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/c010ff6d2c53a2bf/variables" for ::1 at 2022-06-21 11:40:07 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:42:09 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (9.2ms)
+  Rendered api/posts/show.json.jbuilder (12.4ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.1ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828363613300'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828363520980'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/67bc0a52733684cb/variables" for ::1 at 2022-06-21 11:42:09 -0400
+Started GET "/api/posts/index/" for ::1 at 2022-06-21 11:42:14 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (2.3ms)
+  Rendered api/posts/show.json.jbuilder (3.3ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828369071580'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828369083800'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/05d7e1a33a37f21a/variables" for ::1 at 2022-06-21 11:42:14 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:42:20 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (4.3ms)
+  Rendered api/posts/show.json.jbuilder (6.4ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828369296480'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828369341360'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/57581e212a9b8421/variables" for ::1 at 2022-06-21 11:42:20 -0400
+Started GET "/api/posts/1" for ::1 at 2022-06-21 11:42:42 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (1.3ms)
+  Rendered api/posts/show.json.jbuilder (3.2ms)
+Completed 200 OK in 24ms (Views: 5.4ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:42:52 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (11.4ms)
+  Rendered api/posts/show.json.jbuilder (12.4ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_47205543585480'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_47205543201940'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/7e260c86aeadfb3d/variables" for ::1 at 2022-06-21 11:42:52 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:45:00 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (112.2ms)
+  Rendered api/posts/show.json.jbuilder (114.0ms)
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 0.7ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828369309380'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828369280880'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/9d216cc5514b54e9/variables" for ::1 at 2022-06-21 11:45:01 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:49:17 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (3.8ms)
+  Rendered api/posts/show.json.jbuilder (5.8ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828369403960'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828369435300'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/72bfba65b4f44909/variables" for ::1 at 2022-06-21 11:49:18 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:49:30 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (5.2ms)
+  Rendered api/posts/show.json.jbuilder (6.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 1.5ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828367685200'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828367703100'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/eb2f8389407a2860/variables" for ::1 at 2022-06-21 11:49:30 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:52:38 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:8
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (5.2ms)
+  Rendered api/posts/show.json.jbuilder (10.0ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.6ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828368428660'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828368459100'
+  app/controllers/api/posts_controller.rb:9:in `show'
+
+Started POST "/__better_errors/4ea41a974ec97bfa/variables" for ::1 at 2022-06-21 11:52:38 -0400
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."author_id" = $1[0m  [["author_id", 2]]
+Started GET "/api/posts/index" for ::1 at 2022-06-21 11:57:29 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:10
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (6.6ms)
+  Rendered api/posts/show.json.jbuilder (8.0ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.8ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828368436340'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828368374680'
+  app/controllers/api/posts_controller.rb:11:in `show'
+
+Started POST "/__better_errors/4e08e27ed6f1b7e5/variables" for ::1 at 2022-06-21 11:57:29 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 12:00:41 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:10
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (3.9ms)
+  Rendered api/posts/show.json.jbuilder (5.1ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.8ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_47205543516460'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_47205542970180'
+  app/controllers/api/posts_controller.rb:11:in `show'
+
+Started POST "/__better_errors/92891ffb23517bff/variables" for ::1 at 2022-06-21 12:00:41 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 12:01:16 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:10
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (7.1ms)
+  Rendered api/posts/show.json.jbuilder (9.2ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.0ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828369434840'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828369455760'
+  app/controllers/api/posts_controller.rb:11:in `show'
+
+Started POST "/__better_errors/4ce63ea3747b01d6/variables" for ::1 at 2022-06-21 12:01:16 -0400
+Started GET "/api/posts/2" for ::1 at 2022-06-21 12:01:36 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:10
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (0.7ms)
+  Rendered api/posts/show.json.jbuilder (2.2ms)
+Completed 200 OK in 16ms (Views: 4.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/posts/1" for ::1 at 2022-06-21 12:23:50 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:11
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (1.0ms)
+  Rendered api/posts/show.json.jbuilder (21.0ms)
+Completed 200 OK in 72ms (Views: 28.2ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/api/posts/index" for ::1 at 2022-06-21 12:33:02 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:11
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (15.7ms)
+  Rendered api/posts/show.json.jbuilder (41.5ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 0.8ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828369484040'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828369501420'
+  app/controllers/api/posts_controller.rb:12:in `show'
+
+Started POST "/__better_errors/c475e7fa3648b954/variables" for ::1 at 2022-06-21 12:33:02 -0400
+Started POST "/__better_errors/c475e7fa3648b954/eval" for ::1 at 2022-06-21 12:33:07 -0400
+Started GET "/api/posts/index" for ::1 at 2022-06-21 12:34:21 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"index"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:11
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (2.7ms)
+  Rendered api/posts/show.json.jbuilder (5.0ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/views/api/posts/_post.json.jbuilder:1:in `_app_views_api_posts__post_json_jbuilder___2232680436101727256_69828367435200'
+  app/views/api/posts/show.json.jbuilder:1:in `_app_views_api_posts_show_json_jbuilder___3830740663063645552_69828367449300'
+  app/controllers/api/posts_controller.rb:12:in `show'
+
+Started POST "/__better_errors/c06fb48bdaf81cd4/variables" for ::1 at 2022-06-21 12:34:21 -0400
+Started POST "/__better_errors/c06fb48bdaf81cd4/eval" for ::1 at 2022-06-21 12:34:29 -0400
+Started GET "/api/posts" for ::1 at 2022-06-21 12:35:38 -0400
+Processing by Api::PostsController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:3
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.5ms)
+
+
+
+NoMethodError - undefined method `posts' for nil:NilClass:
+  app/controllers/api/posts_controller.rb:5:in `index'
+
+Started POST "/__better_errors/f8cfcf0245660c43/variables" for ::1 at 2022-06-21 12:35:38 -0400
+Started POST "/__better_errors/f8cfcf0245660c43/eval" for ::1 at 2022-06-21 12:35:51 -0400
+Started POST "/__better_errors/f8cfcf0245660c43/eval" for ::1 at 2022-06-21 12:36:02 -0400
+Started POST "/__better_errors/f8cfcf0245660c43/eval" for ::1 at 2022-06-21 12:36:05 -0400
+Started GET "/api/posts" for ::1 at 2022-06-21 12:36:47 -0400
+Processing by Api::PostsController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:3
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `posts' for nil:NilClass:
+  app/controllers/api/posts_controller.rb:5:in `index'
+
+Started POST "/__better_errors/82381d3835a3dd7f/variables" for ::1 at 2022-06-21 12:36:47 -0400
+Started GET "/api/posts" for ::1 at 2022-06-21 12:37:09 -0400
+Processing by Api::PostsController#index as JSON
+  Rendering api/posts/index.json.jbuilder
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/api/posts/index.json.jbuilder:2
+  Rendered api/posts/_post.json.jbuilder (0.4ms)
+  Rendered api/posts/_post.json.jbuilder (0.1ms)
+  Rendered api/posts/index.json.jbuilder (18.4ms)
+Completed 200 OK in 24ms (Views: 16.1ms | ActiveRecord: 4.4ms)
+
+
