@@ -1,0 +1,33 @@
+.homepage-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.homepage-img-and-btn-container {
+    display: flex;
+}
+
+.homepage-header {
+
+}
+
+.homepage-img {
+
+}
+
+.homepage-btn-container {
+
+}
+
+.demo-btn {
+
+}
+
+.homepage-signup-btn {
+
+}
+
+.homepage-small-text {
+
+}
