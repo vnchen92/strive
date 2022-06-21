@@ -17,7 +17,7 @@ class SessionForm extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const user = {...this.state, id: (this.props.amountOfUsers + 1)};
+        const user = {...this.state};
         this.props.processForm(user)
             .then(() => this.props.history.push('./dashboard'));
     }

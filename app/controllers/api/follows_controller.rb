@@ -1,10 +1,10 @@
 class Api::FollowsController < ApplicationController
     def index
         if current_user #for profile
-            @follows = current_user.follows
+            @follows = current_user.followers
             @users = []
             @follows.each do |follow|
-                @users << follow.follower
+                @users << follow.follows
             end
             render :index
         else #for dashboard

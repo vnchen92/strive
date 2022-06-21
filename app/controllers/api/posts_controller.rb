@@ -4,6 +4,13 @@ class Api::PostsController < ApplicationController
             @posts = current_user.posts
         else #for dashboard
             @user = User.find_by(id: params[:id])
+
+            @followings = @user.follows
+
+            @posts = []
+            @followings.each do |follow|
+                @follwed_user = follow.
+                
             @posts = @user.posts
         end
         render :index

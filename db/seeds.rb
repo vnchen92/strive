@@ -11,7 +11,6 @@ Post.destroy_all
 Follow.destroy_all
 
 u1 = User.create(
-    id: 1,
     name: 'demouser',
     birthdate: '2022/06/17',
     weight: 0,
@@ -20,7 +19,6 @@ u1 = User.create(
 )
 
 u2 = User.create(
-    id: 2,
     name: 'Vivian Chen',
     birthdate: '1992/08/09',
     weight: 125,
@@ -28,22 +26,38 @@ u2 = User.create(
     password: "password"
 )
 
+u3 = User.create(
+    name: 'Daniel Chen',
+    birthdate: '1992/02/19',
+    weight: 145,
+    email: 'danster1992@yahoo.com',
+    password: 'password'
+)
+
 
 p1 = Post.create(
-    id: 1,
     title: "Need Carbs",
     author_id: 2
 )
 
 p2 = Post.create(
-    id: 2,
     title: "Training for 10k!",
     body: "...halfway there? 🙃",
     author_id: 2
 )
 
-f1 = Follow.create( # I am following demouser
-    id: 1,
+p3 = Post.create(
+    title: 'First run of the season',
+    body: 'Is it over yet?',
+    author_id: 3
+)
+
+f1 = Follow.create( # demouser is following me
     follow_id: 1,
     follows_id: 2
+)
+
+f2 = Follow.create(
+    follow_id: 2,
+    follows_id: 3
 )
