@@ -20,7 +20,7 @@ const DemoLogin = ({login}) => {
     }
 
     return (
-        <button class='demo-btn' type='submit' onClick={handleClick}>Demo Log In</button>
+        <button type='submit' onClick={handleClick}>Demo Log In</button>
     )
 }
 

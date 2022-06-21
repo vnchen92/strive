@@ -2,32 +2,68 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: aqua;
+    white-space: none;
 }
 
 .homepage-img-and-btn-container {
     display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+}
+
+.homepage-inner-btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60%;
+    background-color: chartreuse;
 }
 
 .homepage-header {
-
+    font-weight: 500;
+    padding-top: 3%;
+    padding-bottom: 10px;
+    font-size: 19px;
+    top: 10px;
+    background-color: blue;
 }
 
 .homepage-img {
-
+    display: flex;
+    background-color: bisque;
 }
 
 .homepage-btn-container {
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 41%;
+    background-color:darkblue;
 }
 
 .demo-btn {
-
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 20%;
+    margin-bottom: 20%; */
+    width: 100%;
+    background-color: blueviolet;
 }
 
 .homepage-signup-btn {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: brown;
 }
 
 .homepage-small-text {
-
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 10px;
+    background-color: coral;
 }
