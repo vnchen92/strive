@@ -1,18 +1,16 @@
 class Api::PostsController < ApplicationController
-    def index #for dashboard
-
-        @posts = Post.all
-
+    def index
+        if current_user #for profile
+            @posts = current_user.id.posts
+        else #for dashboard
+            @user = User.find_by(id: params[:id])
+            @posts = @user.posts
+        end
         render 'api/posts/index'
     end
 
-    def show #for profile
+    def show 
         @post = Post.find_by(id: params[:id])
-
-        # @user = @post.author
-
-        # @posts = @user.posts
-
         render :show
     end
 
