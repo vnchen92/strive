@@ -1,9 +1,11 @@
 import React from 'react';
+import Post from './posts/post';
 
-const Dashboard = (props) =>{
+
+const Dashboard = (props) => {
     return (
         <div>
-            DashBoard
+            <Post />
         </div>
     )
 }

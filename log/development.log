@@ -7876,3 +7876,74 @@ Processing by Api::PostsController#index as JSON
 Completed 200 OK in 24ms (Views: 16.1ms | ActiveRecord: 4.4ms)
 
 
+Started GET "/" for ::1 at 2022-06-21 12:48:57 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 516ms (Views: 515.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-06-21 12:49:35 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 453ms (Views: 453.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-06-21 12:51:57 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 340ms (Views: 339.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-06-21 12:52:44 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 304ms (Views: 303.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2022-06-21 12:52:51 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"id"=>"1", "name"=>"demouser", "birthdate"=>"2022/06/17", "weight"=>"0", "email"=>"demouser@demo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@demo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+  Rendered api/users/show.json.jbuilder (3.1ms)
+Completed 200 OK in 248ms (Views: 5.4ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/" for ::1 at 2022-06-21 12:53:46 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9RJnTOKPpOd644LfLRFhGQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+Completed 200 OK in 341ms (Views: 340.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/posts" for ::1 at 2022-06-21 13:31:25 -0400
+Processing by Api::PostsController#index as JSON
+  Rendering api/posts/index.json.jbuilder
+  [1m[36mPost Load (2.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/api/posts/index.json.jbuilder:2
+  Rendered api/posts/_post.json.jbuilder (0.6ms)
+  Rendered api/posts/_post.json.jbuilder (0.1ms)
+  Rendered api/posts/index.json.jbuilder (18.1ms)
+Completed 200 OK in 24ms (Views: 12.6ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/api/posts/1" for ::1 at 2022-06-21 13:31:31 -0400
+Processing by Api::PostsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/posts_controller.rb:10
+  Rendering api/posts/show.json.jbuilder
+  Rendered api/posts/_post.json.jbuilder (0.8ms)
+  Rendered api/posts/show.json.jbuilder (2.9ms)
+Completed 200 OK in 10ms (Views: 6.6ms | ActiveRecord: 1.0ms)
+
+

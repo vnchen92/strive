@@ -1,16 +1,18 @@
 class Api::PostsController < ApplicationController
-    def index #get all posts when you go to a users profile, filtered by time created//have to be an array
-        # @user = User.find_by(id: params[:id])
-
-        # @posts = @user.posts
+    def index #for dashboard
 
         @posts = Post.all
 
         render 'api/posts/index'
     end
 
-    def show
+    def show #for profile
         @post = Post.find_by(id: params[:id])
+
+        # @user = @post.author
+
+        # @posts = @user.posts
+
         render :show
     end
 
