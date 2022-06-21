@@ -8,6 +8,7 @@
 
 User.destroy_all
 Post.destroy_all
+Follow.destroy_all
 
 u1 = User.create(
     id: 1,
@@ -39,4 +40,10 @@ p2 = Post.create(
     title: "Training for 10k!",
     body: "...halfway there? 🙃",
     author_id: 2
+)
+
+f1 = Follow.create( # I am following demouser
+    id: 1,
+    follow_id: 1,
+    follows_id: 2
 )

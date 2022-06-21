@@ -1,11 +1,11 @@
 class Follow < ApplicationRecord
-    validates :follower_id, :follows_id, null: false
+    validates :follow_id, :follows_id, null: false
 
     belongs_to :follower, #for profile, user following people
-    foreign_key: :follower_id,
+    foreign_key: :follow_id,
     class_name: :User
 
     belongs_to :follows, #for dashboard, otherpeople following user
     foreign_key: :follows_id,
-    class_name: User
+    class_name: :User
 end

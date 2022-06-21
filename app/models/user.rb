@@ -24,11 +24,11 @@ class User < ApplicationRecord
 
     has_many :followers, #otherpeople following user
     class_name: :Follow,
-    foreign_key: :follow_id
+    foreign_key: :follows_id
 
     has_many :follows, #user following people
     class_name: :Follow,
-    foreign_key: :follower_id
+    foreign_key: :follow_id
 
     attr_reader :password
 

@@ -6,7 +6,7 @@ class Api::PostsController < ApplicationController
             @user = User.find_by(id: params[:id])
             @posts = @user.posts
         end
-        render 'api/posts/index'
+        render :index
     end
 
     def show 
