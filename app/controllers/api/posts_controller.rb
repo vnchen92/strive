@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
     def index
         if current_user #for profile
-            @posts = current_user.id.posts
+            @posts = current_user.posts
         else #for dashboard
             @user = User.find_by(id: params[:id])
             @posts = @user.posts
@@ -34,9 +34,14 @@ class Api::PostsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         @post = Post.find_by(id: params[:id])
-        @post.destroy
+        if @post
+            @post.destroy!
+            render json: {}
+        else
+            render json: 'Post does not exist'
+        end
     end
 
     private

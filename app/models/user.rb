@@ -22,6 +22,14 @@ class User < ApplicationRecord
     class_name: :Post,
     foreign_key: :author_id
 
+    has_many :followers, #otherpeople following user
+    class_name: :Follow,
+    foreign_key: :follow_id
+
+    has_many :follows, #user following people
+    class_name: :Follow,
+    foreign_key: :follower_id
+
     attr_reader :password
 
     before_validation :ensure_session_token
