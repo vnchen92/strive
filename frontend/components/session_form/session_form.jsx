@@ -14,6 +14,10 @@ class SessionForm extends React.Component{
         }
     }
 
+    componentDidMount(){
+        this.props.removeErrors();
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         const user = {...this.state};

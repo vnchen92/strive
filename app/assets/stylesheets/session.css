@@ -6,6 +6,7 @@
     padding-right: 15rem;
     position: relative;
     top: 40px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .session-inner-container {
@@ -17,24 +18,30 @@
     background-color: rgba(0,0,0,0.5);
     min-width: 20rem;
     max-width: 25rem;
-    font-family: 'Open Sans', sans-serif;
 }
 
 .session-title {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 100%;
     height: 5rem;
     background-color: rgba(0,0,0,0.7);;
-    margin-bottom: 10px;
     color: white;
     font-size: 28px;
     font-weight: bold;
 }
 
 .session-errors-container {
+    text-align: center;
+    width: 100%;
+    color:white;
+    background-color: #fc5200;
+}
 
+.session-error {
+    display: block;
 }
 
 .session-btn-container {
