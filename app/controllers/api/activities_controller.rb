@@ -24,7 +24,7 @@ class Api::ActivitiesController < ApplicationController
     end
 
     def create
-        @activity = Activity.new(post_params)
+        @activity = Activity.new(activity_params)
 
         if @activity.save
             render :show

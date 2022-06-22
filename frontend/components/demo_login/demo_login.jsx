@@ -4,7 +4,7 @@ import {useHistory, withRouter} from 'react-router-dom';
 const DemoLogin = ({login}) => {
     const demoUser = {
         id: 1,
-        name: 'demouser',
+        firstName: 'demouser',
         birthdate: '2022/06/17',
         weight: 0,
         email: 'demouser@demo.com',

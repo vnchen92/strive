@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PostItem = (props) => {
+const ActivitiesDashboard = () => {
     return (
         <div>
-            Post
+
         </div>
     )
 }
 
-export default PostItem;
+export default ActivitiesDashboard;

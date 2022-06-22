@@ -10,7 +10,7 @@ const CurrentUser = ({currentUser}) => {
                 <li>Follwers</li>
                 <li>Activities</li>
             </ul>
-            <p>Most Recent Post</p>
+            <p>Most Recent Activity</p>
         </div>
     )
 }

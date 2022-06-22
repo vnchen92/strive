@@ -5,7 +5,7 @@ const mapStateToProps = state => {
     debugger
     return {
         currentUser: state.entities.users[state.session.id],
-        posts: state.posts
+        activities: state.activites
     }
 }
 
