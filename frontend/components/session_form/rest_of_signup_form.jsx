@@ -49,8 +49,11 @@ class RestOfSignupForm extends React.Component{
         return (
         <div>
             <form>
-                <label>Name
-                    <input type="text" value={this.state.name} onChange={this.update('name')}/>
+                <label>First Name
+                    <input type="text" value={this.state.firstName} onChange={this.update('firstName')}/>
+                </label>
+                <label>Last Name
+                    <input type="text" value={this.state.lastName} onChange={this.update('lastName')}/>
                 </label>
                 <label>Birthday
                     <input type="date" value={this.state.birthdate} onChange={this.update('birthdate')}/>

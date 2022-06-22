@@ -11,7 +11,8 @@ Post.destroy_all
 Follow.destroy_all
 
 u1 = User.create(
-    name: 'demouser',
+    firstName: 'demouser',
+    lastName: "",
     birthdate: '2022/06/17',
     weight: 0,
     email: 'demouser@demo.com',
@@ -19,7 +20,8 @@ u1 = User.create(
 )
 
 u2 = User.create(
-    name: 'Vivian Chen',
+    firstName: 'Vivian',
+    lastName: 'Chen',
     birthdate: '1992/08/09',
     weight: 125,
     email: 'vnchen92@gmail.com',
@@ -27,7 +29,8 @@ u2 = User.create(
 )
 
 u3 = User.create(
-    name: 'Daniel Chen',
+    firstName: 'Daniel',
+    lastName: 'Chen',
     birthdate: '1992/02/19',
     weight: 145,
     email: 'danster1992@yahoo.com',

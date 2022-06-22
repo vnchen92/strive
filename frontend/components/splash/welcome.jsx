@@ -37,7 +37,7 @@ const Welcome = ({currentUser, logout, login, location}) => {
                                 <div className='nav-bar-title-container'>
                                     <h1 className='nav-bar-title'><Link to='/'>STRIVE</Link></h1>
                                 </div>
-                                <p>Hello, {currentUser.name}</p>
+                                <p>Hello, {currentUser.firstName} {currentUser.lastName}</p>
                                 <div>
                                     <button className='nav-bar-btn' onClick={handleClick}>Log Out</button>
                                 </div>
