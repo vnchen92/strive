@@ -3,7 +3,7 @@ import CurrentUser from './currentuser';
 import ActivitiesDashboard from '../activities/activities_dashboard';
 
 
-const Dashboard = ({currentUser, posts}) => {
+const Dashboard = ({currentUser, activities}) => {
     debugger
     return (
         <div>

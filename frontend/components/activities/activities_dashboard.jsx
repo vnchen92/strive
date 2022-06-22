@@ -1,6 +1,7 @@
 import React from 'react';
 
-const ActivitiesDashboard = () => {
+const ActivitiesDashboard = ({activities}) => {
+    
     return (
         <div>
 

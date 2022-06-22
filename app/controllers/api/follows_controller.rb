@@ -1,13 +1,16 @@
 class Api::FollowsController < ApplicationController
     def index
-        @followers = current_user.followers #an array of all followers
-        @users = []
-        @follows.each do |follow| #follow is one person
-                #if follower_id == id of user
-            @users << User.find_by(id: params[:follow.follower_id])
-        end
+        # @followers = current_user.followers #an array of all followers
+        # @users = []
+        # @follows.each do |follow| #follow is one person
+        #         #if follower_id == id of user
+        #     @users << User.find_by(id: params[:follow.follower_id])
+        # end
 
-        @follows = 
+        # @follows = 
+
+        @follows = Follow.all
+        render :index
     end
 
     def create

@@ -1,17 +1,15 @@
 import { connect } from 'react-redux';
 import Dashboard from './dashboard';
 
-const mapStateToProps = state => {
-    debugger
+const mapStateToProps = ({entities, session}) => {
     return {
-        currentUser: state.entities.users[state.session.id],
-        activities: state.activites
+        currentUser: entities.users[session.id]
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        
     }
 }
 
