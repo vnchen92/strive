@@ -27,7 +27,7 @@ class Api::PostsController < ApplicationController
         if @post.save
             render :show
         else
-            render json: @post.errors.full_messages
+            render json: @post.errors.full_messages, status: 422
         end
     end
 
@@ -37,7 +37,7 @@ class Api::PostsController < ApplicationController
         if @post.update(post_params)
             render :show
         else
-            render json: @post.errors.full_messages
+            render json: @post.errors.full_messages, status: 422
         end
     end
 
@@ -47,7 +47,7 @@ class Api::PostsController < ApplicationController
             @post.destroy!
             render json: {}
         else
-            render json: 'Post does not exist'
+            render json: ['Post does not exist']
         end
     end
 

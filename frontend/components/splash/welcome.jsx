@@ -65,8 +65,8 @@ const Welcome = ({currentUser, logout, login, location}) => {
                                                 <div className='homepage-inner-btn-container'>
                                                     <div className='demo-btn'><DemoLogin login={login}/></div>
                                                     <button className='homepage-signup-btn'><Link to='/signup'>Sign up with email</Link></button>
-                                                    <p className='homepage-small-text'>By signing up for Strive, you agree to the <span>Terms of Service</span>. View our <span>Private Policy</span>.</p>
-                                                    <p className='homepage-small-text'>Already a Member? <Link to='/login'>Log In</Link></p>
+                                                    <p className='homepage-small-text'>By signing up for Strive, you agree to the<pre> </pre><span>Terms of Service.</span><pre> </pre>View our<pre> </pre><span>Private Policy</span>.</p>
+                                                    <p className='homepage-small-text-last'>Already a Member?<pre> </pre><span><Link to='/login'>Log In</Link></span></p>
                                                 </div>
                                             </div>
                                     </div>

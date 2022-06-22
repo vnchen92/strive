@@ -2,22 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: aqua;
     white-space: none;
 }
 
 .homepage-img-and-btn-container {
     display: flex;
-    justify-content: center;
-    background-color: aquamarine;
-}
-
-.homepage-inner-btn-container {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 60%;
-    background-color: chartreuse;
 }
 
 .homepage-header {
@@ -26,20 +17,30 @@
     padding-bottom: 10px;
     font-size: 19px;
     top: 10px;
-    background-color: blue;
 }
 
 .homepage-img {
     display: flex;
-    background-color: bisque;
 }
 
+
 .homepage-btn-container {
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 41%;
-    background-color:darkblue;
+    align-items: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    width: 45%;
+}
+
+.homepage-inner-btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20%;
+    padding-right: 20%;
+    justify-content: center;
 }
 
 .demo-btn {
@@ -47,23 +48,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 20%;
-    margin-bottom: 20%; */
+    margin-top: 20px;
+    min-width: 10rem;
+    min-height: 4rem;
     width: 100%;
-    background-color: blueviolet;
+    border: 1px solid #dfdfe8;
+    color: #242428;
+    cursor: pointer;
 }
 
 .homepage-signup-btn {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
     width: 100%;
-    background-color: brown;
+    min-width: 15rem;
+    min-height: 4rem;
+    border: 1px solid #dfdfe8;
+    color: #242428;
 }
 
 .homepage-small-text {
     display: flex;
     flex-wrap: wrap;
     font-size: 10px;
-    background-color: coral;
+    justify-content: center;
+    height: fit-content;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.homepage-small-text-last {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: fit-content;
+    width: 100%;
 }
