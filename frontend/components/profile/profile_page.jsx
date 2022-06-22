@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ProfilePage = (props) => {
+const ProfilePage = () => {
     return (
         <div>
-            Profile Page
+            <h1>Profile Page</h1>
         </div>
     )
 }

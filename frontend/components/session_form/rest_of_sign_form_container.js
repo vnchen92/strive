@@ -1,7 +1,7 @@
 import { signup, removeErrors } from '../../actions/session_actions';
 import { connect } from 'react-redux';
-import SessionForm from './session_form';
-import { openModal } from '../../actions/modal_actions';
+import RestOfSignupForm from './rest_of_signup_form';
+import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
     return {
@@ -14,8 +14,8 @@ const mapDispatchToProps = dispatch => {
     return {
         processForm: (user) => dispatch(signup(user)),
         removeErrors: () => dispatch(removeErrors()),
-        openModal: () => dispatch(openModal('restofsignup')),
+        closeModal: () => dispatch(closeModal())
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RestOfSignupForm);

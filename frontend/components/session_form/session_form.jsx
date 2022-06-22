@@ -1,16 +1,18 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
+import ModalContainer from './modal';
+import RestOfSignupForm from './rest_of_signup_form';
 
 class SessionForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             email: '',
-            password: '',
-            name: '',
-            birthdate: '',
-            weight: ''
+            password: ''
+            // name: '',
+            // birthdate: '',
+            // weight: ''
         }
     }
 
@@ -21,8 +23,13 @@ class SessionForm extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault();
         const user = {...this.state};
-        this.props.processForm(user)
-            .then(() => this.props.history.push('./dashboard'));
+        if (this.props.formType === 'Log In') {
+            this.props.processForm(user)
+                .then(() => this.props.history.push('./dashboard'));
+        } else {
+            this.props.openModal();
+            return <RestOfSignupForm user={user} openModel={this.props.openModal} />
+        }
     }
 
     update(field){
@@ -41,7 +48,7 @@ class SessionForm extends React.Component{
     }
 
     render(){
-        const {errors, amountOfUsers, formType, processForm, location} = this.props;
+        const {errors, formType, processForm, location} = this.props;
         // let forSignUp;
         // if (location.pathname === '/signup') {
         //     forSignUp = (
@@ -87,7 +94,9 @@ class SessionForm extends React.Component{
                                 />
                             </label>
                             {/* {forSignUp} */}
-                            <button className='session-submit' type='submit'>{formType}</button>
+                            <button className='session-submit' type='submit'>
+                                {formType}
+                            </button>
                         </form>
                     </div>
                 </div>

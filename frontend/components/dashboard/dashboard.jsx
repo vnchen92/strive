@@ -1,10 +1,13 @@
 import React from 'react';
-import Post from './posts/post';
+import CurrentUser from './currentuser';
+import Post from '../posts/post';
 
 
-const Dashboard = (props) => {
+const Dashboard = ({currentUser, posts}) => {
+    debugger
     return (
         <div>
+            <CurrentUser currentUser={currentUser} />
             <Post />
         </div>
     )
