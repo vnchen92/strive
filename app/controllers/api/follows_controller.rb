@@ -1,22 +1,13 @@
 class Api::FollowsController < ApplicationController
     def index
-        if current_user #for profile
-            @follows = current_user.followers
-            @users = []
-            @follows.each do |follow|
-                @users << follow.follows
-            end
-            render :index
-        else #for dashboard
-            @user = User.find_by(id: params[:id])
-
-            @follows = @user.follows
-            @users = []
-            @follows.each do |follow|
-                @users << follow.follower
-            end
-            render :index
+        @followers = current_user.followers #an array of all followers
+        @users = []
+        @follows.each do |follow| #follow is one person
+                #if follower_id == id of user
+            @users << User.find_by(id: params[:follow.follower_id])
         end
+
+        @follows = 
     end
 
     def create
@@ -40,6 +31,6 @@ class Api::FollowsController < ApplicationController
 
     private
     def follow_params
-        params.require(:follow).permit(:follower_id, :follows_id)
+        params.require(:follow).permit(:follower_id, :following_id)
     end
 end

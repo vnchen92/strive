@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-Post.destroy_all
+Activity.destroy_all
 Follow.destroy_all
 
 u1 = User.create(
@@ -38,29 +38,29 @@ u3 = User.create(
 )
 
 
-p1 = Post.create(
+p1 = Activity.create(
     title: "Need Carbs",
     author_id: 2
 )
 
-p2 = Post.create(
+p2 = Activity.create(
     title: "Training for 10k!",
     body: "...halfway there? 🙃",
     author_id: 2
 )
 
-p3 = Post.create(
+p3 = Activity.create(
     title: 'First run of the season',
     body: 'Is it over yet?',
     author_id: 3
 )
 
-f1 = Follow.create( # demouser is following me
-    follow_id: 1,
-    follows_id: 2
+f1 = Follow.create( # demo user is following me
+    follower_id: 1,
+    following_id: 2
 )
 
-f2 = Follow.create(
-    follow_id: 2,
-    follows_id: 3
+f2 = Follow.create( # I am following daniel
+    follower_id: 2,
+    following_id: 3
 )

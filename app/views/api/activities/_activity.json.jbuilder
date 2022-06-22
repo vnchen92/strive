@@ -1,0 +1,1 @@
+json.extract! activity, :id, :title, :body, :author_id, :created_at

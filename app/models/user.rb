@@ -22,13 +22,13 @@ class User < ApplicationRecord
     class_name: :Post,
     foreign_key: :author_id
 
-    has_many :followers,  #otherpeople following user
+    has_many :followers, 
     class_name: :Follow,
-    foreign_key: :follows_id
+    foreign_key: :following_id
 
-    has_many :follows,  #user following people
+    has_many :follows,
     class_name: :Follow,
-    foreign_key: :follow_id
+    foreign_key: :follower_id
 
     attr_reader :password
 

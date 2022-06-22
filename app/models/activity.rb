@@ -9,7 +9,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Post < ApplicationRecord
+class Activity < ApplicationRecord
     validates :title, :author_id, null: false
 
     belongs_to :author,

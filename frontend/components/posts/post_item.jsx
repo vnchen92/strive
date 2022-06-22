@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Post = (props) => {
+const PostItem = (props) => {
     return (
         <div>
             Post
@@ -8,4 +8,4 @@ const Post = (props) => {
     )
 }
 
-export default Post;
+export default PostItem;

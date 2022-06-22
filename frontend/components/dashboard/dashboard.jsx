@@ -1,6 +1,6 @@
 import React from 'react';
 import CurrentUser from './currentuser';
-import Post from '../posts/post';
+import Posts from '../posts/posts';
 
 
 const Dashboard = ({currentUser, posts}) => {
@@ -8,7 +8,7 @@ const Dashboard = ({currentUser, posts}) => {
     return (
         <div>
             <CurrentUser currentUser={currentUser} />
-            <Post />
+            <Posts posts={posts} />
         </div>
     )
 }
