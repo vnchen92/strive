@@ -6,7 +6,7 @@ const Modal = ({closeModal, firstName, lastName, weight, birthdate, handleSubmit
     return (
         <div className="modal-background">
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                <button onClick={closeModal}>X</button>
+                <button className='modal-exit-x' onClick={closeModal}>X</button>
                     <RestOfSignupForm 
                         firstName={firstName}
                         lastName={lastName}
