@@ -6,7 +6,6 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const REMOVE_ERRORS= 'REMOVE_ERRORS';
 
 const receiveCurrentUser = currentUser => {
-    debugger
     return {
         type: RECEIVE_CURRENT_USER,
         currentUser
@@ -32,6 +31,29 @@ export const removeErrors = () => {
     }
 }
 
+export const signup = user => dispatch => (
+    SessionApiUtil.signup(user).then(user => (
+        dispatch(receiveCurrentUser(user))
+    ), err => (
+      dispatch(receiveErrors(err.responseJSON))
+    ))
+);
+  
+export const login = user => dispatch => (
+    SessionApiUtil.login(user).then(user => (
+        dispatch(receiveCurrentUser(user))
+    ), err => (
+        dispatch(receiveErrors(err.responseJSON))
+    ))
+);
+
+export const logout = () => dispatch => (
+    SessionApiUtil.logout().then(user => (
+        dispatch(logoutCurrentUser())
+    ))
+);
+
+
 // import { createAction } from '@reduxjs/toolkit';
 
 // const receiveCurrentUser = createAction('RECEIVE_CURRENT_USER');
@@ -54,27 +76,3 @@ export const removeErrors = () => {
 //         return dispatch(logoutCurrentUser())
 //     }
 // }
-
-export const signup = user => dispatch => {
-    debugger
-    return SessionApiUtil.signup(user).then(user => {
-        debugger
-      return dispatch(receiveCurrentUser(user))
-    }, err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-    };
-  
-export const login = user => dispatch => (
-    SessionApiUtil.login(user).then(user => (
-        dispatch(receiveCurrentUser(user))
-    ), err => (
-        dispatch(receiveErrors(err.responseJSON))
-    ))
-);
-
-export const logout = () => dispatch => (
-    SessionApiUtil.logout().then(user => (
-        dispatch(logoutCurrentUser())
-    ))
-);

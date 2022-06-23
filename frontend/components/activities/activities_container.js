@@ -6,7 +6,6 @@ import { fetchAllFollows } from '../../actions/follow_actions';
 
 
 const mapStateToProps = ({entities, session , activities, follows}) => {
-    debugger
     return {
         currentUser: entities.users[session.id],
         filteredActivities: fetchDashboardPosts(entities, session, activities, follows)

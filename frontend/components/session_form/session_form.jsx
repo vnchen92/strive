@@ -1,9 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
-//import ModalContainer from './modal';
-//import RestOfSignupForm from './rest_of_signup_form';
-//import RestOfSignupForm from './rest_of_signup_form';
 import Modal from './modal';
 
 class SessionForm extends React.Component{
@@ -17,33 +14,25 @@ class SessionForm extends React.Component{
             birthdate: '',
             weight: ''
         }
-        this.update = this.update.bind(this);
     }
 
     componentDidMount(){
         this.props.removeErrors();
     }
 
-    handleSubmit = (e) => {
-        //e.stopPropagation();
+    handleSubmit = e => {
         e.preventDefault();
         const user = {...this.state};
-        //if (this.props.formType === 'Log In') {
-            this.props.processForm(user)
-                .then(() => this.props.history.push('./dashboard'));
-        //} else {
-            //this.props.openModal();
-            //return <RestOfSignupForm user={user} closeModal={this.props.closeModal} />
-        //}
+        this.props.processForm(user)
+            .then(() => this.props.history.push('./dashboard'));
+        this.props.closeModal();
     }
 
     handleClick = e => {
-        //e.preventDefault();
-        //e.stopPropagation();
         this.props.openModal();
     }
 
-    update(field){
+    update = field => {
         return e => {
             e.preventDefault();
             this.setState({ [field]: e.currentTarget.value })
@@ -59,25 +48,8 @@ class SessionForm extends React.Component{
     }
 
     render(){
-        const {errors, formType, processForm, location, modal} = this.props;
-        // let forSignUp;
-        // if (location.pathname === '/signup') {
-        //     forSignUp = (
-        //         <>
-        //             <label>Name
-        //                 <input type="text" value={this.state.name} onChange={this.update('name')}/>
-        //             </label>
-        //             <br />
-        //             <label>Birthday
-        //                 <input type="date" value={this.state.birthdate} onChange={this.update('birthdate')}/>
-        //             </label>
-        //             <br />
-        //             <label>Weight
-        //                 <input type="text" value={this.state.weight} onChange={this.update('weight')}/>
-        //             </label>
-        //         </>
-        //     )
-        // }
+        const {errors, formType, processForm, location, modal, closeModal} = this.props;
+
         return (
             <div className='session-container'>
                 <div className='session-inner-container'>
@@ -104,28 +76,25 @@ class SessionForm extends React.Component{
                                     onChange={this.update('password')}
                                 />
                             </label>
-                            {/* {forSignUp} */}
-                            { formType === 'Log In' ?
+                            { 
+                            formType === 'Log In' ?
                                 <button className='session-submit' type='submit'>{formType}</button>
                                 :
                                 <div className='session-openModal' onClick={this.handleClick}>{formType}</div>
                             }
-                            {/* <div className='session-modal-container'> */}
-                                {/* <RestOfSignupForm email={this.state.email} password={this.state.password} closeModal={this.props.closeModal} processForm={this.props.processForm}/> */}
-                                {modal && <Modal 
-                                    // email={this.state.email} 
-                                    // password={this.state.password}
-                                    firstName={this.state.firstName}
-                                    lastName={this.state.lastName}
-                                    weight={this.state.weight}
-                                    birthdate={this.state.birthdate} 
-                                    closeModal={this.props.closeModal} 
-                                    // processForm={this.props.processForm} 
-                                    errors={errors}
-                                    handleSubmit={this.handleSubmit}
-                                    update={this.update} />
-                                }
-                            {/* </div> */}
+                            {
+                            modal && 
+                            <Modal 
+                                firstName={this.state.firstName}
+                                lastName={this.state.lastName}
+                                weight={this.state.weight}
+                                birthdate={this.state.birthdate} 
+                                errors={errors}
+                                closeModal={closeModal}
+                                handleSubmit={this.handleSubmit}
+                                update={this.update} 
+                                />
+                            }
                         </form>
                     </div>
                 </div>

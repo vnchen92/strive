@@ -28,7 +28,7 @@ class ActivitiesDashboard extends React.Component{
     render () {
         
         const pot = Object.entries(this.props.filteredActivities).map(activity => {
-            debugger
+
             return <h1>{activity[1].title}</h1>
         })
             {/* {

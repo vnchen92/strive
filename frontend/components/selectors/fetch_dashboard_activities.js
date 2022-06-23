@@ -2,7 +2,7 @@ export const fetchDashboardPosts = (entities, session, allActivities, follows) =
     let currentUser = entities.users[session.id];
     let filteredActivities = {};
     let filteredFollowers = [];
-    debugger
+    //debugger
     Object.entries(follows).map(follow => {
         //debugger
         if (currentUser.id === follow[1].follower_id){
