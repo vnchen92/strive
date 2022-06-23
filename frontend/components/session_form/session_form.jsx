@@ -80,7 +80,7 @@ class SessionForm extends React.Component{
                             formType === 'Log In' ?
                                 <button className='session-submit' type='submit'>{formType}</button>
                                 :
-                                <div className='session-openModal' onClick={this.handleClick}>{formType}</div>
+                                <div className='session-submit' onClick={this.handleClick}>{formType}</div>
                             }
                             {
                             modal && 
@@ -93,7 +93,7 @@ class SessionForm extends React.Component{
                                 closeModal={closeModal}
                                 handleSubmit={this.handleSubmit}
                                 update={this.update} 
-                                />
+                            />
                             }
                         </form>
                     </div>
