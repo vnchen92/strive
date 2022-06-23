@@ -1,16 +1,40 @@
 import React from 'react';
 import CurrentUser from './currentuser';
-import ActivitiesDashboard from '../activities/activities_dashboard';
+import ActivitiesContainer from '../activities/activities_container';
 
 
-const Dashboard = ({currentUser, activities}) => {
-    debugger
-    return (
-        <div>
-            <CurrentUser currentUser={currentUser} />
-            <ActivitiesDashboard activities={activities} />
-        </div>
-    )
+// const Dashboard = ({currentUser, fetchAllActivities, fetchAllFollows}) => {
+
+//     debugger
+
+//     return (
+//         <div>
+//             <CurrentUser currentUser={currentUser} />
+//             <ActivitiesContainer />
+//         </div>
+//     )
+// }
+
+class Dashboard extends React.Component{
+    constructor(props){
+        super(props)
+    }
+
+    // componentDidMount(){
+    //     this.props.fetchAllActivities();
+    //     this.props.fetchAllFollows();
+    //     debugger
+    // }
+
+    render() {
+        const {currentUser} = this.props;
+        return (
+            <div>
+                <CurrentUser currentUser={currentUser} />
+                <ActivitiesContainer />
+            </div>
+        )
+    }
 }
 
 export default Dashboard;

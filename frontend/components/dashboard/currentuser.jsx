@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CurrentUser = ({currentUser}) => {
-    debugger
     return (
         <div>
             <h1>{currentUser.name}</h1>
