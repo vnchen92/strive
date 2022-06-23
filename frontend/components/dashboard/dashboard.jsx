@@ -20,18 +20,27 @@ class Dashboard extends React.Component{
         super(props)
     }
 
-    // componentDidMount(){
-    //     this.props.fetchAllActivities();
-    //     this.props.fetchAllFollows();
-    //     debugger
-    // }
+    componentDidMount(){
+        this.props.fetchAllActivities();
+        this.props.fetchAllFollows();
+        debugger
+    }
 
     render() {
+        debugger
+        let activitiesComponent;
+        if (this.props.firstActivity) {
+            debugger
+            activitiesComponent = <ActivitiesContainer />
+        } else {
+            debugger
+            activitiesComponent = null;
+        }
         const {currentUser} = this.props;
         return (
             <div>
                 <CurrentUser currentUser={currentUser} />
-                <ActivitiesContainer />
+                { activitiesComponent }
             </div>
         )
     }

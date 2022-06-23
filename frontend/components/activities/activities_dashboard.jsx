@@ -20,16 +20,16 @@ class ActivitiesDashboard extends React.Component{
         super(props)
     }
 
-    componentDidMount(){
-        this.props.fetchAllFollows();
-        this.props.fetchAllActivities();
-    }
+    // componentDidMount(){
+    //     this.props.fetchAllFollows();
+    //     this.props.fetchAllActivities();
+    // }
 
     render () {
         
-            const pot = Object.entries(this.props.filteredActivities).map(activity => {
-                debugger
-                return <h1>{activity[1].title}</h1>
+        const pot = Object.entries(this.props.filteredActivities).map(activity => {
+            debugger
+            return <h1>{activity[1].title}</h1>
         })
             {/* {
                 Object.entries(filteredActivities)[1].map(activity => {

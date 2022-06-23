@@ -5,14 +5,15 @@ import { fetchAllActivities } from '../../actions/activities_actions';
 
 const mapStateToProps = ({entities, session}) => {
     return {
-        currentUser: entities.users[session.id]
+        currentUser: entities.users[session.id],
+        firstActivity: Object.values(entities.activities)[0]
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        //fetchAllFollows: () => dispatch(fetchAllFollows()),
-        //fetchAllActivities: () => dispatch(fetchAllActivities())
+        fetchAllFollows: () => dispatch(fetchAllFollows()),
+        fetchAllActivities: () => dispatch(fetchAllActivities())
     }
 }
 

@@ -17,6 +17,7 @@ class SessionForm extends React.Component{
             birthdate: '',
             weight: ''
         }
+        this.update = this.update.bind(this);
     }
 
     componentDidMount(){
@@ -24,6 +25,7 @@ class SessionForm extends React.Component{
     }
 
     handleSubmit = (e) => {
+        //e.stopPropagation();
         e.preventDefault();
         const user = {...this.state};
         //if (this.props.formType === 'Log In') {
@@ -33,6 +35,12 @@ class SessionForm extends React.Component{
             //this.props.openModal();
             //return <RestOfSignupForm user={user} closeModal={this.props.closeModal} />
         //}
+    }
+
+    handleClick = e => {
+        //e.preventDefault();
+        //e.stopPropagation();
+        this.props.openModal();
     }
 
     update(field){
@@ -100,12 +108,24 @@ class SessionForm extends React.Component{
                             { formType === 'Log In' ?
                                 <button className='session-submit' type='submit'>{formType}</button>
                                 :
-                                <button className='session-openModal' type='submit'onClick={() => this.props.openModal()}>{formType}</button>
+                                <div className='session-openModal' onClick={this.handleClick}>{formType}</div>
                             }
-                            <div className='session-modal-container' onClick={this.props.closeModal}>
+                            {/* <div className='session-modal-container'> */}
                                 {/* <RestOfSignupForm email={this.state.email} password={this.state.password} closeModal={this.props.closeModal} processForm={this.props.processForm}/> */}
-                                {modal && <Modal email={this.state.email} password={this.state.password} closeModal={this.props.closeModal} processForm={this.props.processForm}/>}
-                            </div>
+                                {modal && <Modal 
+                                    // email={this.state.email} 
+                                    // password={this.state.password}
+                                    firstName={this.state.firstName}
+                                    lastName={this.state.lastName}
+                                    weight={this.state.weight}
+                                    birthdate={this.state.birthdate} 
+                                    closeModal={this.props.closeModal} 
+                                    // processForm={this.props.processForm} 
+                                    errors={errors}
+                                    handleSubmit={this.handleSubmit}
+                                    update={this.update} />
+                                }
+                            {/* </div> */}
                         </form>
                     </div>
                 </div>

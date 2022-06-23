@@ -23,50 +23,52 @@ import React, { useState } from 'react';
 class RestOfSignupForm extends React.Component{
     constructor(props) {
         super(props)
-            this.state = {
-                email: props.email,
-                password: props.password,
-                firstName: "",
-                lastName: "",
-                birthdate: "",
-                weight: ""
-            }
+            // this.state = {
+            //     email: props.email,
+            //     password: props.password,
+            //     firstName: "",
+            //     lastName: "",
+            //     birthdate: "",
+            //     weight: ""
+            // }
     }
 
-    handleSignUp = e => {
-        e.preventDefault;
-        const user = {...this.state};
-        this.props.processForm(user)
-                .then(() => this.props.history.push('./dashboard'))
-        this.props.closeModal();
-    }
+    // handleSignUp = e => {
+    //     e.preventDefault();
+    //     const user = {...this.state};
+    //     debugger
+    //     this.props.processForm(user)
+    //     this.props.closeModal()
+    //             //.then(() => this.props.history.push('./dashboard')).catch(err => console.log(err))
+    // }
 
-    update(field){
-        return e => {
-            e.preventDefault();
-            this.setState({ [field]: e.currentTarget.value })
-        }
-    }
+    // update(field){
+    //     return e => {
+    //         e.preventDefault();
+    //         this.setState({ [field]: e.currentTarget.value })
+    //     }
+    // }
 
     render() {
         //const {ui} = this.props;
+        //debugger
         return (
                 <div>
-                    <form>
+                    
                         <label>First Name
-                            <input type="text" value={this.state.firstName} onChange={this.update('firstName')}/>
+                            <input type="text" value={this.props.firstName} onChange={this.props.update('firstName')}/>
                         </label>
                         <label>Last Name
-                            <input type="text" value={this.state.lastName} onChange={this.update('lastName')}/>
+                            <input type="text" value={this.props.lastName} onChange={this.props.update('lastName')}/>
                         </label>
                         <label>Birthday
-                            <input type="date" value={this.state.birthdate} onChange={this.update('birthdate')}/>
+                            <input type="date" value={this.props.birthdate} onChange={this.props.update('birthdate')}/>
                         </label>
                         <label>Weight
-                            <input type="text" value={this.state.weight} onChange={this.update('weight')}/>
+                            <input type="text" value={this.props.weight} onChange={this.props.update('weight')}/>
                         </label>
-                        <button type='submit' onSubmit={this.handleSignUp}>Sign Up</button>
-                    </form>
+                        <button type='submit' onSubmit={this.props.handleSubmit}>Sign Up</button>
+                    
                 </div>
         )
     }
