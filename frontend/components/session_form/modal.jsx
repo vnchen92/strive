@@ -2,41 +2,45 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import RestOfSignupForm from './rest_of_signup_form';
+//import RestOfSignupFormContainer from './rest_of_signup_form';
 
-const Modal = ({modal, closeModal}) => {
-    debugger
-    if (!modal) {
-        return null;
-    }
+const Modal = ({modal, closeModal, email, password, processForm}) => {
+    // if (!modal) {
+    //     return null;
+    // }
 
-    let component;
-    switch(modal) {
-        case 'restofsignup':
-            component = <RestOfSignupForm />;
-            break;
-        default:
-            return null;
-    }
+    // let component;
+    // switch(modal) {
+    //     case 'restofsignup':
+    //         component = <RestOfSignupFormContainer />;
+    //         break;
+    //     default:
+    //         return null;
+    // }
     return (
         <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                { component }
+                {/* { component } */}
+                {/* <RestOfSignupFormContainer email={this.props.email} password={props.password} closeModal={closeModal} processForm={props.processForm}/> */}
+                <RestOfSignupForm email={email} password={password} closeModal={closeModal} processForm={processForm}/>
             </div>
         </div>
     )
 }
 
-const mapStateToProps = (state, ownProps) => {
-    debugger
-    return {
-        modal: state.ui.modal
-    }
-}
+export default Modal;
 
-const mapDispatchToProps = dispatch => {
-    return {
-        closeModal: () => dispatch(closeModal())
-    }
-}
+// const mapStateToProps = (state, ownProps) => {
+//     debugger
+//     return {
+//         modal: state.ui.modal
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         closeModal: () => dispatch(closeModal())
+//     }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Modal);

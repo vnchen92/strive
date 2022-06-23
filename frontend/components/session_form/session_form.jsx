@@ -1,18 +1,21 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
-import ModalContainer from './modal';
-import RestOfSignupForm from './rest_of_signup_form';
+//import ModalContainer from './modal';
+//import RestOfSignupForm from './rest_of_signup_form';
+//import RestOfSignupForm from './rest_of_signup_form';
+import Modal from './modal';
 
 class SessionForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
             email: '',
-            password: ''
-            // name: '',
-            // birthdate: '',
-            // weight: ''
+            password: '',
+            firstName: '',
+            lastName: '',
+            birthdate: '',
+            weight: ''
         }
     }
 
@@ -23,13 +26,13 @@ class SessionForm extends React.Component{
     handleSubmit = (e) => {
         e.preventDefault();
         const user = {...this.state};
-        if (this.props.formType === 'Log In') {
+        //if (this.props.formType === 'Log In') {
             this.props.processForm(user)
                 .then(() => this.props.history.push('./dashboard'));
-        } else {
-            this.props.openModal();
-            return <RestOfSignupForm user={user} openModel={this.props.openModal} />
-        }
+        //} else {
+            //this.props.openModal();
+            //return <RestOfSignupForm user={user} closeModal={this.props.closeModal} />
+        //}
     }
 
     update(field){
@@ -48,7 +51,7 @@ class SessionForm extends React.Component{
     }
 
     render(){
-        const {errors, formType, processForm, location} = this.props;
+        const {errors, formType, processForm, location, modal} = this.props;
         // let forSignUp;
         // if (location.pathname === '/signup') {
         //     forSignUp = (
@@ -94,9 +97,15 @@ class SessionForm extends React.Component{
                                 />
                             </label>
                             {/* {forSignUp} */}
-                            <button className='session-submit' type='submit'>
-                                {formType}
-                            </button>
+                            { formType === 'Log In' ?
+                                <button className='session-submit' type='submit'>{formType}</button>
+                                :
+                                <button className='session-openModal' type='submit'onClick={() => this.props.openModal()}>{formType}</button>
+                            }
+                            <div className='session-modal-container' onClick={this.props.closeModal}>
+                                {/* <RestOfSignupForm email={this.state.email} password={this.state.password} closeModal={this.props.closeModal} processForm={this.props.processForm}/> */}
+                                {modal && <Modal email={this.state.email} password={this.state.password} closeModal={this.props.closeModal} processForm={this.props.processForm}/>}
+                            </div>
                         </form>
                     </div>
                 </div>
