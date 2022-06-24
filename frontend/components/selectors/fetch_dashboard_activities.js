@@ -5,9 +5,9 @@ export const fetchDashboardPosts = (entities, session, allActivities, follows) =
     //debugger
     Object.entries(follows).map(follow => {
         //debugger
-        if (currentUser.id === follow[1].follower_id){
+        if (currentUser.id === follow[1].follower_id && !filteredFollowers.includes(follow[1].following_id)){
             //debugger
-            filteredFollowers.push(follow[1].follower_id)
+            filteredFollowers.push(follow[1].following_id)
             //debugger
         }
     })

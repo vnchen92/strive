@@ -4,9 +4,11 @@ import { fetchAllFollows } from '../../actions/follow_actions';
 import { fetchAllActivities } from '../../actions/activities_actions';
 
 const mapStateToProps = ({entities, session}) => {
+    //debugger
     return {
         currentUser: entities.users[session.id],
-        firstActivity: Object.values(entities.activities)[0]
+        firstActivity: Object.values(entities.activities)[0],
+        firstFollow: Object.values(entities.follows)[0]
     }
 }
 

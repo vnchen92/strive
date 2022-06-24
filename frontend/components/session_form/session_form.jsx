@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
 import Modal from './modal';
 
-class SessionForm extends React.Component{
-    constructor(props){
+class SessionForm extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
             email: '',
@@ -25,7 +25,9 @@ class SessionForm extends React.Component{
         const user = {...this.state};
         this.props.processForm(user)
             .then(() => this.props.history.push('./dashboard'));
-        this.props.closeModal();
+        if (formType !== 'Log In') {
+            this.props.closeModal();
+        }
     }
 
     handleClick = e => {

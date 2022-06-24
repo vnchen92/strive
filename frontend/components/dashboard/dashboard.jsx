@@ -26,20 +26,20 @@ class Dashboard extends React.Component{
     }
 
     render() {
-    
-        // let activitiesComponent;
-        // if (this.props.firstActivity) {
-        //     debugger
-        //     activitiesComponent = <ActivitiesContainer />
-        // } else {
-        //     debugger
-        //     activitiesComponent = null;
-        // }
+        debugger
+        let activitiesComponent;
+        if (this.props.firstActivity && this.props.firstFollow) {
+            //debugger
+            activitiesComponent = <ActivitiesContainer />
+        } else {
+            //debugger
+            activitiesComponent = null;
+        }
         const {currentUser} = this.props;
         return (
             <div>
                 <CurrentUser currentUser={currentUser} />
-                {/* { activitiesComponent } */}
+                { activitiesComponent }
             </div>
         )
     }

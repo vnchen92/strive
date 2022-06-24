@@ -26,21 +26,19 @@ class ActivitiesDashboard extends React.Component{
     // }
 
     render () {
-        
-        const pot = Object.entries(this.props.filteredActivities).map(activity => {
-
-            return <h1>{activity[1].title}</h1>
-        })
-            {/* {
-                Object.entries(filteredActivities)[1].map(activity => {
-                    return <h1>{activity.title}</h1>
-                })
-            } */}
-            <div>
-            {
-            pot
-            }
+        return(
+        // const pot = Object.entries(this.props.filteredActivities).map(activity => {
+        //     debugger
+        //     return <h1>{activity[1].title}</h1>
+        // })
+        <div>
+        {
+            Object.entries(this.props.filteredActivities)[1].map(activity => {
+                return <h1>{activity.title}</h1>
+            })
+        }
         </div>
+        )
     }
 }
 

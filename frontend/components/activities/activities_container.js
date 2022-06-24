@@ -5,10 +5,11 @@ import { fetchAllActivities } from '../../actions/activities_actions';
 import { fetchAllFollows } from '../../actions/follow_actions';
 
 
-const mapStateToProps = ({entities, session , activities, follows}) => {
+const mapStateToProps = ({entities, session}) => {
+    //debugger
     return {
         currentUser: entities.users[session.id],
-        filteredActivities: fetchDashboardPosts(entities, session, activities, follows)
+        filteredActivities: fetchDashboardPosts(entities, session, entities.activities, entities.follows)
     }
 }
 
