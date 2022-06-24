@@ -1,3 +1,0 @@
-const filterUser = (allUsers, filteredPosts) => {
-    
-}

@@ -6,16 +6,16 @@ export const fetchDashboardActivities = (entities, session, allActivities, follo
     //debugger
     Object.values(follows).map(follow => {
         //debugger
-        if (currentUser.id === follow.follower_id && !filteredFollowers.includes(follow.following_id)){
+        if (currentUser.id === follow.followerId && !filteredFollowers.includes(follow.followingId)){
             //debugger
-            filteredFollowers.push(follow.following_id)
+            filteredFollowers.push(follow.followingId)
             //debugger
         }
     })
     Object.values(allActivities).map(activity => {
         //debugger
         Object.values(allUsers).map(user => {
-            if (filteredFollowers.includes(activity.author_id) && user.id === activity.author_id) {
+            if (filteredFollowers.includes(activity.authorId) && user.id === activity.authorId) {
                 //filteredActivities[activity.id] = activity;
                 //debugger
 

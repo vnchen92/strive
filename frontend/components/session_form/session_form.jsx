@@ -17,7 +17,9 @@ class SessionForm extends React.Component {
     }
 
     componentDidMount(){
-        this.props.removeErrors();
+        if (this.props.errors.session.length > 0 ){
+            this.props.removeErrors();
+        }
     }
 
     handleSubmit = e => {
