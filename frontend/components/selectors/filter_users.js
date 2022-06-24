@@ -1,0 +1,3 @@
+const filterUser = (allUsers, filteredPosts) => {
+    
+}
