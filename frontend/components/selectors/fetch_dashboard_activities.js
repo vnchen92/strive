@@ -3,19 +3,19 @@ export const fetchDashboardPosts = (entities, session, allActivities, follows) =
     let filteredActivities = {};
     let filteredFollowers = [];
     //debugger
-    Object.entries(follows).map(follow => {
+    Object.values(follows).map(follow => {
         //debugger
-        if (currentUser.id === follow[1].follower_id && !filteredFollowers.includes(follow[1].following_id)){
+        if (currentUser.id === follow.follower_id && !filteredFollowers.includes(follow.following_id)){
             //debugger
-            filteredFollowers.push(follow[1].following_id)
+            filteredFollowers.push(follow.following_id)
             //debugger
         }
     })
-    Object.entries(allActivities).map(activity => {
+    Object.values(allActivities).map(activity => {
         //debugger
-        if (filteredFollowers.includes(activity[1].author_id)) {
+        if (filteredFollowers.includes(activity.author_id)) {
             //debugger
-            filteredActivities[activity[1].id] = activity[1];
+            filteredActivities[activity.id] = activity;
             //debugger
         }
     })

@@ -1,45 +1,17 @@
 import React from 'react';
-import { fetchDashboardPosts } from '../selectors/fetch_dashboard_activities';
+import ActivityItem from './activity_item';
 
-// const ActivitiesDashboard = ({filteredActivities, fetchAllActivities, fetchAllFollows}) => {
-//     fetchAllActivities();
-//     fetchAllFollows();
-//     return (
-//         <div>
-//             {
-//                 Object.entries(filteredActivities)[1].map(activity => {
-//                     return <h1>{activity.title}</h1>
-//                 })
-//             }
-//         </div>
-//     )
-// }
+const ActivitiesDashboard = ({ filteredActivities }) => {
 
-class ActivitiesDashboard extends React.Component{
-    constructor(props){
-        super(props)
+    return(
+    <div>
+    {
+        Object.values(filteredActivities).map(activity => {
+            return <ActivityItem activity={activity} />
+        })
     }
-
-    // componentDidMount(){
-    //     this.props.fetchAllFollows();
-    //     this.props.fetchAllActivities();
-    // }
-
-    render () {
-        return(
-        // const pot = Object.entries(this.props.filteredActivities).map(activity => {
-        //     debugger
-        //     return <h1>{activity[1].title}</h1>
-        // })
-        <div>
-        {
-            Object.entries(this.props.filteredActivities)[1].map(activity => {
-                return <h1>{activity.title}</h1>
-            })
-        }
-        </div>
-        )
-    }
+    </div>
+    )
 }
 
 export default ActivitiesDashboard;

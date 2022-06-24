@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ActivityItem = (props) => {
+const ActivityItem = ({activity}) => {
     return (
         <div>
-            Activity
+            <h1>{activity.title}</h1>
         </div>
     )
 }

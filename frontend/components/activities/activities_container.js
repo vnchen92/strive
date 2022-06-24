@@ -10,6 +10,7 @@ const mapStateToProps = ({entities, session}) => {
     return {
         currentUser: entities.users[session.id],
         filteredActivities: fetchDashboardPosts(entities, session, entities.activities, entities.follows)
+        
     }
 }
 
