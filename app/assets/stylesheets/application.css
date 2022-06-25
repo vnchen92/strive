@@ -18,3 +18,8 @@
 @import "./header.css";
 @import "./homepage.css";
 @import "./session.css";
+
+#map {
+    width: 500px;
+    height: 500px;
+ }

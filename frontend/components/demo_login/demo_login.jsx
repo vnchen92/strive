@@ -3,7 +3,6 @@ import {useHistory, withRouter} from 'react-router-dom';
 
 const DemoLogin = ({login}) => {
     const demoUser = {
-        id: 1,
         firstName: 'demouser',
         birthdate: '2022/06/17',
         weight: 0,
