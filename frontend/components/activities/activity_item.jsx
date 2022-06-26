@@ -3,8 +3,6 @@ import { Link, Route } from 'react-router-dom';
 import Map from '../activity_show/map';
 
 const ActivityItem = ({activity}) => {
-    //const MAP_API_KEY = ENV['MAPS_API_KEY'];
-    debugger
     return (
         <div>
             <div>

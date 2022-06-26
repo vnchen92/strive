@@ -3,7 +3,7 @@ import Map from './map';
 import Elevation from './elevation';
 
 const ActivityShow = ({activity}) => {
-    debugger
+    //debugger
     return (
         <div>
             <Map activity={activity}/>
