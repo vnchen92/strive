@@ -1,18 +1,16 @@
 import { connect } from "react-redux"
 import ActivityShow from "./activity_show"
-import { fetchActivity } from "../../actions/activities_actions";
-
 
 const mapStateToProps = (state, ownProps) => {
+    debugger
     return {
-        activity: ownProps.match.params.id,
-        users: state.entities.users
+        activity: state.entities.activities[ownProps.match.params.id]
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchActivity: (activity) => dispatch(fetchActivity(activity))
+    
     }
 }
 

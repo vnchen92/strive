@@ -31,9 +31,9 @@ export const fetchAllActivities = () => dispatch => {
     )
 }
 
-export const fetchActivity = activity => dispatch => {
+export const fetchActivity = activityId => dispatch => {
     return (
-        ActivityApiUtil.fetchActivity(activity).then(res => dispatch(receiveActivity(res)))
+        ActivityApiUtil.fetchActivity(activityId).then(res => dispatch(receiveActivity(res)))
     )
 }
 
@@ -43,14 +43,14 @@ export const createActivity = activity => dispatch => {
     )
 }
 
-export const updateActivity = activity => dispatch => {
+export const updateActivity = activityId => dispatch => {
     return (
-        ActivityApiUtil.updateActivity(activity).then(res => dispatch(receiveActivity(res)))
+        ActivityApiUtil.updateActivity(activityId).then(res => dispatch(receiveActivity(res)))
     )
 }
 
-export const deleteActivity = activity => dispatch => {
+export const deleteActivity = activityId => dispatch => {
     return (
-        ActivityApiUtil.deleteActivity(activity).then(res => dispatch(removeActivity(res)))
+        ActivityApiUtil.deleteActivity(activityId).then(res => dispatch(removeActivity(res)))
     )
 }

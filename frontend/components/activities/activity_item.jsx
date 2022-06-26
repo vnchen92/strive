@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
-import Map from '../activity_show/activity_show';
+import Map from '../activity_show/map';
 
 const ActivityItem = ({activity}) => {
     //const MAP_API_KEY = ENV['MAPS_API_KEY'];
@@ -15,7 +15,7 @@ const ActivityItem = ({activity}) => {
                 <p>Distance: {activity.distance} mi</p>
                 <p>Pace: {activity.pace}/mi</p>
                 <p>Time: {activity.hours}hr {activity.minutes}m {activity.seconds || 0}s</p>
-                <img src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=`} alt="" />
+                <img src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${ENV['MAPS_API_KEY']}`} alt="" />
             </div>
         </div>
     )

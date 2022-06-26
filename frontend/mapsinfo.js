@@ -1,6 +1,8 @@
 https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF
 
-|40.785107,-73.976891|40.802957,-73.963849|40.800675,-73.958517
+
+//first run of the season
+|40.785107,-73.976891|40.802957,-73.963849|40.800675,-73.958517  
 https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC&key=
 
 
@@ -19,10 +21,12 @@ const startPoint = new google.maps.LatLng(40.665615, -73.976075);
 https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:ioewF|mobMa@]Pk@IGwBcBGGmB{Aa@]HUKGKMEGa@[e@k@KYBk@T[@W@c@Fm@R}@CWMa@DqCT?L}Af@qCJ]Te@l@s@DGTCd@IJ_@Rq@JQr@_Ax@MJE^WI}@@_@R_@HQ?IFGAc@Jk@b@?NkABkAEUAIE?MGEIU{@GY?KLM^[r@c@|@U\IHGXWzAqATc@BS@}@Gk@RMDYAAYg@u@yBXQrAy@VOWQIQ]P&key=
 
 
+//training for 10k
 const startPoint = new google.maps.LatLng(40.638778, -74.036007);
 const endPoint = new google.maps.LatLng(40.616064, -74.038067);
 https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:ig`wF`d{bMCRF@JDx@Jf@D@RFPXX^TLAFJvAl@fBn@p@RPHn@Pd@F^X`@PVH`@@d@G\?XIb@YJQNORM\MTENAn@Nn@T^XVTVTLFLJVNj@Tp@\f@b@|AdBXN|@h@b@b@`AnAh@z@RV\Xb@Vd@N\Ht@L~@JfBHhAXfAHv@@vBC`D`@hBJb@BhAAhBQ|AMHGJBjBJd@EXKZGz@g@hAe@pAYZCHA~@DnDr@`AJp@C~@OhBs@~DuApFuC|BoAFGBWdBgAACAG&key=
 
+//need carbs
 const startPoint = new google.maps.LatLng(40.612184, -73.993990);
 const midPoint = new google.maps.LatLng(40.604206, -73.997509);
 const endPoint = new google.maps.LatLng(40.597221, -73.986136);

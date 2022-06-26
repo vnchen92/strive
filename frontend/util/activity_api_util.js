@@ -5,11 +5,11 @@ export const fetchAllActivities = () => {
     })
 }
 
-export const fetchActivity = activity => {
+export const fetchActivity = activityId => {
     return $.ajax({
-        url: `api/activities/${activity.id}`,
+        url: `api/activities/${activityId}`,
         method: 'GET',
-        data: {activity}
+        data: {activityId}
     })
 }
 
@@ -21,18 +21,18 @@ export const createActivity = activity => {
     })
 }
 
-export const updateActivity = activity => {
+export const updateActivity = activityId => {
     return $.ajax({
-        url: `api/activities/${activity.id}`,
+        url: `api/activities/${activityId}`,
         method: 'PATCH',
-        data: {activity}
+        data: {activityId}
     })
 }
 
-export const deleteActivity = activity => {
+export const deleteActivity = activityId => {
     return $.ajax({
-        url: `api/activities/${activity.id}`,
+        url: `api/activities/${activityId}`,
         method: 'DELETE',
-        data: {activity}
+        data: {activityId}
     })
 }
