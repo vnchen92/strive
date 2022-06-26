@@ -1,7 +1,7 @@
 import React from 'react';
 import CurrentUser from './currentuser';
 import ActivitiesContainer from '../activities/activities_container';
-import Map from '../maps/map';
+import Map from '../activity_show/activity_show';
 
 class Dashboard extends React.Component{
     constructor(props){

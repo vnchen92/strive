@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Map extends React.Component {
+class ActivityShow extends React.Component {
     
     componentDidMount() {
         const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -43,4 +43,4 @@ class Map extends React.Component {
     }
 }
 
-export default Map;
+export default ActivityShow;

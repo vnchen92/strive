@@ -1,11 +1,6 @@
 import React from 'react';
-import { Link, useHistory, withRouter, Switch, Route } from 'react-router-dom';
-import SignupFormContainer from '../session_form/signup_form_container';
-import LoginFormContainer from '../session_form/login_form_container';
+import { Link, useHistory, withRouter } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
-import { AuthRoute } from '../../util/route_util';
-import Dashboard from '../dashboard/dashboard';
-import ProfilePage from '../profile/profile_page';
 
 const Welcome = ({currentUser, logout, login, location}) => {
     const currentPath = location.pathname;

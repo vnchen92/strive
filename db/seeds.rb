@@ -40,19 +40,34 @@ u3 = User.create(
 
 p1 = Activity.create(
     title: "Need Carbs",
-    author_id: 2
+    author_id: 2,
+    distance: 3,
+    pace: 5.53,
+    hours: 1,
+    minutes: 12,
+    static_map_url: 'u`{vFx}rbMrGiMrBxBnBrBzA~ANVzA~ATNnBrB~EdF~EjFbEjEHHd@cAp@kArAkCzA_Db@y@d@_ARWrAsCt@{Av@_B|FuKjD}G|A{C^b@Xg@^u@\q@tAmC|A{CvAoCCDd@}@'
 )
 
 p2 = Activity.create(
     title: "Training for 10k!",
     body: "...halfway there? 🙃",
-    author_id: 2
+    author_id: 2,
+    distance: 6,
+    pace: 9.45,
+    hours: 2,
+    minutes: 34,
+    static_map_url: 'ig`wF`d{bMCRF@JDx@Jf@D@RFPXX^TLAFJvAl@fBn@p@RPHn@Pd@F^X`@PVH`@@d@G\?XIb@YJQNORM\MTENAn@Nn@T^XVTVTLFLJVNj@Tp@\f@b@|AdBXN|@h@b@b@`AnAh@z@RV\Xb@Vd@N\Ht@L~@JfBHhAXfAHv@@vBC`D`@hBJb@BhAAhBQ|AMHGJBjBJd@EXKZGz@g@hAe@pAYZCHA~@DnDr@`AJp@C~@OhBs@~DuApFuC|BoAFGBWdBgAACAG'
 )
 
 p3 = Activity.create(
     title: 'First run of the season',
     body: 'Is it over yet?',
-    author_id: 3
+    author_id: 3,
+    distance: 2,
+    pace: 13.33,
+    minutes: 30,
+    seconds: 49,
+    static_map_url: 'gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC'
 )
 
 f1 = Follow.create( # demo user is following me
