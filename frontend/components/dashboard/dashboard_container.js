@@ -5,7 +5,7 @@ import { fetchAllActivities } from '../../actions/activities_actions';
 import { fetchAllUsers } from '../../actions/users_actions';
 
 const mapStateToProps = ({entities, session}) => {
-    //debugger
+    debugger
     return {
         currentUser: entities.users[session.id],
         firstActivity: Object.values(entities.activities)[0],
