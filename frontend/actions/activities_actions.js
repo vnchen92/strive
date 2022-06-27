@@ -12,7 +12,6 @@ const recieveAllActivities = activities => {
 }
 
 const receiveActivity = activity => {
-    debugger
     return {
         type: RECEIVE_ACTIVITY,
         activity
@@ -39,7 +38,6 @@ export const fetchActivity = activityId => dispatch => {
 }
 
 export const createActivity = activity => dispatch => {
-    debugger
     return (
         ActivityApiUtil.createActivity(activity).then(res => dispatch(receiveActivity(res)))
     )

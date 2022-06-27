@@ -18,9 +18,6 @@ class ActivityForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        //const date = new Date();
-        // this.setState({authorId: this.props.currentUser.id})
-        // this.setState({posted_on: date})
         this.props.createActivity(this.state)
             .then(() => this.props.history.push('/dashboard/my_activities'))
     }
@@ -39,53 +36,94 @@ class ActivityForm extends React.Component {
     render() {
         debugger
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Distance</label>
+            <div className='create-ent-container'>
+            <div className='create-container'>
+                <p className='create-title'>Create a Post</p>
+                <form className='create-form' onSubmit={this.handleSubmit}>
+                    <div className='create-num-input-container'>
+                        <div className='create-label-container'>
+                            <label className='create-label'>Distance</label>
+                            <div className='create-num-container'>
+                                <input 
+                                    className='create-num-input'
+                                    type="text" 
+                                    value={this.state.distance} 
+                                    onChange={this.update('distance')}
+                                />
+                                <abbr title="miles">miles</abbr>
+                            </div>
+                        </div>
+                        <div className='create-label-container'>
+                            <label className='create-label'>Pace</label>
+                            <div className='create-num-container'>
+                                <input 
+                                    className='create-num-input'
+                                    type="text"
+                                    value={this.state.pace}
+                                    onChange={this.update('pace')} 
+                                />
+                                <abbr title="mi/hr">mi/hr</abbr>
+                            </div>
+                        </div>
+                        <div className='create-label-container'>
+                            <label className='create-label'>Time</label>
+                            <div className='create-ent-time-container'>
+                                <div className='create-time-container'>
+                                    <input 
+                                        type="text"
+                                        placeholder='00'
+                                        value={this.state.hours}
+                                        onChange={this.update('hours')}
+                                    />
+                                    <abbr title="hours">hr</abbr>
+                                </div>
+                                <div className='create-time-container'>
+                                    <input 
+                                        type="text"
+                                        placeholder='00'
+                                        value={this.state.minutes}
+                                        onChange={this.update('minutes')}
+                                    />
+                                    <abbr title="minutes">min</abbr>
+                                </div>
+                                <div className='create-time-container'>
+                                    <input 
+                                        type="text" 
+                                        placeholder='00'
+                                        value={this.state.seconds}
+                                        onChange={this.update('seconds')}
+                                    />
+                                    <abbr title="seconds">s</abbr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='create-text-container'>
+                        <label className='create-label'>Title</label>
                         <input 
-                            type="text" 
-                            value={this.state.distance} 
-                            onChange={this.update('distance')}
-                        />
-                    <label>Pace</label>
-                        <input 
-                            type="text"
-                            value={this.state.pace}
-                            onChange={this.update('pace')} 
-                        />
-                    <label>Time</label>
-                        <input 
-                            type="text"
-                            value={this.state.hours}
-                            onChange={this.update('hours')}
-                        />
-                        <input 
-                            type="text" 
-                            value={this.state.minutes}
-                            onChange={this.update('minutes')}
-                        />
-                        <input 
-                            type="text" 
-                            value={this.state.seconds}
-                            onChange={this.update('seconds')}
-                        />
-                    <label>Title</label>
-                        <input 
+                            className='create-title-input'
                             type="text" 
                             value={this.state.title}
                             onChange={this.update('title')}
                         />
-                    <label>Description</label>
-                        <textarea
-                            type="text"
-                            value={this.state.body}
-                            onChange={this.update('body')} 
-                        />
-                    {/* <input type="hidden" value={this.setState({posted_on: new Date()})} />
-                    <input type="hidden" value={this.setState({author_id: this.props.currentUser.id})} /> */}
-                    <button type='submit'>Create</button>
+                    </div>
+                    <div className='create-text-container'>
+                        <label className='create-label'>Description</label>
+                        <div>
+                            <textarea
+                                className='create-description-input'
+                                type="text"
+                                value={this.state.body}
+                                onChange={this.update('body')} 
+                            />
+                        </div>
+                    </div>
+                    <div className='create-btn-container'>
+                        <button className='create-submit-btn' type='submit'>Create</button>
+                        <button className='create-cancel-btn' onClick={this.handleCancel}>Cancel</button>
+                    </div>
                 </form>
-                <button onClick={this.handleCancel}>Cancel</button>
+            </div>
             </div>
         )
     }
