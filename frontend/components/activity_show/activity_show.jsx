@@ -3,11 +3,11 @@ import Map from './map';
 import Elevation from './elevation';
 
 const ActivityShow = ({activity}) => {
-    //debugger
+    debugger
     return (
         <div>
             <Map activity={activity}/>
-            <Elevation polyline={activity.staticMapUrl}/>
+            {/* <Elevation polyline={activity.staticMapUrl}/> */}
         </div>
     )
 }

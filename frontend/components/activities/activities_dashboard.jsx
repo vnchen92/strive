@@ -4,13 +4,13 @@ import ActivityItem from './activity_item';
 const ActivitiesDashboard = ({ filteredActivities, allUsers }) => {
 
     return(
-    <div>
-    {
-        Object.values(filteredActivities).map(activity => {
-            return <ActivityItem activity={activity} allUsers={allUsers} />
-        })
-    }
-    </div>
+        <div>
+        {
+            Object.values(filteredActivities).map(activity => {
+                return <div key={activity.id}><ActivityItem activity={activity} allUsers={allUsers} /></div>
+            })
+        }
+        </div>
     )
 }
 

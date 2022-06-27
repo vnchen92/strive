@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import Map from '../activity_show/map';
+import { Link } from 'react-router-dom';
 
 const ActivityItem = ({activity}) => {
     return (
-        <div>
+        <div className='activity-container'>
             <div>
                 <h1>{`${activity.firstName} ${activity.lastName}`}</h1>
                 <p>{activity.createdAt}</p>

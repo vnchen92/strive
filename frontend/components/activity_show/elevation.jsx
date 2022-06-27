@@ -7,10 +7,27 @@ class Elevation extends React.Component{
     }
 
     componentDidMount() {
-        let response;
-        fetchPathElevation().then(res => response = res);
+        // let response = await fetchPathElevation(this.props.polyline)
+        //     .then(function(res) {
+        //         return res})
+        //     .catch(function(err){
+        //         console.log(err)
+        //     })
+
+        let response = fetchPathElevation(this.props.polyline)
+            .then(
+                result => {
+                debugger
+                return console.log({result});
+            },
+            error => {
+                debugger
+                 return console.log('error');
+            })
+            
+        debugger
         let filteredData = []
-        response.result.forEach(res => {
+        response.results.forEach(res => {
             filteredData.push(res.elevation)
         })
 
