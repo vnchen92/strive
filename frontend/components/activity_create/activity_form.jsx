@@ -11,13 +11,22 @@ class ActivityForm extends React.Component {
             hours: "",
             minutes: "",
             seconds: "",
-            createdAt: ""
+            posted_on: "",
+            author_id: ""
         }
     }
 
     handleSubmit = e => {
         e.preventDefault();
+        const date = new Data();
+        this.setState({authorId: this.props.currentUser.id})
+        this.setState({posted_on: date})
+        this.props.createActivity(this.state)
+            .then(() => this.props.history.push('/dashboard/my_activities'))
+    }
 
+    handleCancel = e => {
+        this.props.history.push('/dashboard/my_activities')
     }
 
     update = (feild) => {
@@ -71,8 +80,9 @@ class ActivityForm extends React.Component {
                             value={this.state.body}
                             onChange={this.update('body')} 
                         />
-                    <button>Create</button>
-                    <button>Cancel</button>
+            
+                    <button type='submit'>Create</button>
+                    <button type='submit' onClick={this.handleCancel}>Cancel</button>
                 </form>
             </div>
         )

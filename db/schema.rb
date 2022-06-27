@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_26_001505) do
+ActiveRecord::Schema.define(version: 2022_06_27_164922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_06_26_001505) do
     t.integer "seconds"
     t.string "static_map_url"
     t.string "points", array: true
+    t.string "posted_on"
     t.index ["author_id"], name: "index_activities_on_author_id"
   end
 

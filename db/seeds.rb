@@ -41,6 +41,7 @@ u3 = User.create(
 p1 = Activity.create(
     title: "Need Carbs",
     author_id: 2,
+    posted_on: "Fri Aug 23 2021",
     distance: 1.5,
     pace: 8.53,
     minutes: 14,
@@ -52,6 +53,7 @@ p1 = Activity.create(
 p2 = Activity.create(
     title: "Training for 10k!",
     body: "...halfway there? 🙃",
+    posted_on: "Tue Jan 1 2021",
     author_id: 2,
     distance: 6,
     pace: 9.45,
@@ -64,6 +66,7 @@ p2 = Activity.create(
 p3 = Activity.create(
     title: 'First run of the season',
     body: 'Is it over yet?',
+    posted_on: "Mon May 5 2021",
     author_id: 3,
     distance: 2,
     pace: 13.33,

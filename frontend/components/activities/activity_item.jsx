@@ -8,7 +8,7 @@ const ActivityItem = ({activity}) => {
                 <img className='activity-icon' src="" alt="" />
                 <div className='activity-content-container'>
                     <p className='activity-user-name'>{`${activity.firstName} ${activity.lastName}`}</p>
-                    <p className='activity-created-at'>{activity.createdAt}</p>
+                    <p className='activity-created-at'>{activity.postedOn}</p>
                     <h1 className='activity-title'><Link to={`/activities/${activity.id}`}>{activity.title}</Link></h1>
                     <p className='activity-body'>{activity.body}</p>
                     <div className='activity-tabs-container'>
