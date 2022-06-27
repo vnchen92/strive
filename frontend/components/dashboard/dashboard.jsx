@@ -15,7 +15,7 @@ class Dashboard extends React.Component{
     }
 
     render() {
-        //debugger
+        debugger
         let activitiesComponent;
         if (this.props.firstActivity && this.props.firstFollow) {
             //debugger

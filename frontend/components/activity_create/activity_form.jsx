@@ -11,16 +11,16 @@ class ActivityForm extends React.Component {
             hours: "",
             minutes: "",
             seconds: "",
-            posted_on: "",
-            author_id: ""
+            posted_on: new Date(),
+            author_id: props.currentUser.id
         }
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        const date = new Data();
-        this.setState({authorId: this.props.currentUser.id})
-        this.setState({posted_on: date})
+        //const date = new Date();
+        // this.setState({authorId: this.props.currentUser.id})
+        // this.setState({posted_on: date})
         this.props.createActivity(this.state)
             .then(() => this.props.history.push('/dashboard/my_activities'))
     }
@@ -37,6 +37,7 @@ class ActivityForm extends React.Component {
 
 
     render() {
+        debugger
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -80,10 +81,11 @@ class ActivityForm extends React.Component {
                             value={this.state.body}
                             onChange={this.update('body')} 
                         />
-            
+                    {/* <input type="hidden" value={this.setState({posted_on: new Date()})} />
+                    <input type="hidden" value={this.setState({author_id: this.props.currentUser.id})} /> */}
                     <button type='submit'>Create</button>
-                    <button type='submit' onClick={this.handleCancel}>Cancel</button>
                 </form>
+                <button onClick={this.handleCancel}>Cancel</button>
             </div>
         )
     }
