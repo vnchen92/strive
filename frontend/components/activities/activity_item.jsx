@@ -14,7 +14,7 @@ const ActivityItem = ({activity}) => {
                     <div className='activity-tabs-container'>
                         <div className='activity-tab-container'>
                             <p className='activity-tab'>Distance</p>
-                            <p className='activity-text'>{activity.distance} mi</p>
+                            <p className='activity-text'>{activity.distance}mi</p>
                         </div>
                         <div className='activity-tab-container'>
                             <p className='activity-tab'>Pace</p>

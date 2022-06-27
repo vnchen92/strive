@@ -17,15 +17,15 @@ class Elevation extends React.Component{
         let response = fetchPathElevation(this.props.polyline)
             .then(
                 result => {
-                debugger
+                //debugger
                 return console.log({result});
             },
             error => {
-                debugger
+                //debugger
                  return console.log('error');
             })
             
-        debugger
+        //debugger
         let filteredData = []
         response.results.forEach(res => {
             filteredData.push(res.elevation)

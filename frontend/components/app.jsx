@@ -7,6 +7,7 @@ import { AuthRoute } from '../util/route_util';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import ActivityShowContainer from './activity_show/activity_show_container';
+import ActivityForm from './activity_create/activity_form';
 
 const App = () => (
     <div>
@@ -16,6 +17,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <Route path='/dashboard' component={DashboardContainer} />
             <Route path='/activities/:id' component={ActivityShowContainer} />
+            <Route path='/atheletes/:id/posts/new' component={ActivityForm} />
             {/* <Route exact path={`/athletes/profilepage`} component={ProfilePage} /> */}
         </Switch>
     </div>

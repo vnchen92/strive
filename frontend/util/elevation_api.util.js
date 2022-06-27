@@ -1,5 +1,5 @@
 export const fetchPathElevation = (staticMapUrl) => {
-    debugger
+    //debugger
     return $.ajax({
         method: 'GET',
         url: `https://maps.googleapis.com/maps/api/elevation/json?path=enc:${staticMapUrl}&samples=50&key=${window.MAPS_API_KEY}`

@@ -87,3 +87,27 @@ h1.nav-bar-title {
     font-size: 24px;
     /* cursor: wait; */
 }
+
+.nav-bar-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-bar-dropdown-btn {
+
+}
+
+.nav-bar-dropdown-container {
+    display: none;
+    position: absolute;
+    width: 150px;
+    z-index: 1;
+}
+
+.nav-bar-dropdown-link {
+    font-size: 13px;
+}
+
+.nav-bar-dropdown:hover .nav-bar-dropdown-container {
+    display: block;
+}

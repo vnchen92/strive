@@ -34325,3 +34325,588 @@ Completed 200 OK in 30ms (Views: 26.6ms | ActiveRecord: 3.4ms)
 Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 3.3ms)
 
 
+Started GET "/" for ::1 at 2022-06-27 09:31:51 -0400
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vnchen92/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 880ms (Views: 879.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/session" for ::1 at 2022-06-27 09:31:56 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"demouser@demo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@demo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:38
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/users/show.json.jbuilder (1.4ms)
+Completed 200 OK in 242ms (Views: 3.1ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/api/users" for ::1 at 2022-06-27 09:31:56 -0400
+Started GET "/api/activities" for ::1 at 2022-06-27 09:31:56 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:31:56 -0400
+Processing by Api::ActivitiesController#index as JSON
+Processing by Api::FollowsController#index as JSON
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/index.json.jbuilder (15.2ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.6ms)
+
+
+  Rendering api/activities/index.json.jbuilder
+  Rendering api/follows/index.json.jbuilder
+  [1m[36mActivity Load (2.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  [1m[36mFollow Load (2.2ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  Rendered api/activities/_activity.json.jbuilder (0.5ms)
+  Rendered api/activities/_activity.json.jbuilder (0.1ms)
+  Rendered api/activities/_activity.json.jbuilder (0.1ms)
+  Rendered api/follows/_follow.json.jbuilder (0.3ms)
+  Rendered api/follows/_follow.json.jbuilder (0.1ms)
+  Rendered api/follows/index.json.jbuilder (19.3ms)
+  Rendered api/activities/index.json.jbuilder (19.7ms)
+Completed 200 OK in 50ms (Views: 9.0ms | ActiveRecord: 12.9ms)
+
+
+Completed 200 OK in 51ms (Views: 16.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:32:48 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 292ms (Views: 291.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/activities" for ::1 at 2022-06-27 09:32:48 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:32:48 -0400
+Started GET "/api/users" for ::1 at 2022-06-27 09:32:48 -0400
+Processing by Api::ActivitiesController#index as JSON
+  Rendering api/activities/index.json.jbuilder
+Processing by Api::FollowsController#index as JSON
+  [1m[36mActivity Load (2.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/views/api/activities/index.json.jbuilder:1
+Processing by Api::UsersController#index as JSON
+  Rendering api/follows/index.json.jbuilder
+  Rendered api/activities/_activity.json.jbuilder (1.5ms)
+  Rendering api/users/index.json.jbuilder
+  Rendered api/activities/_activity.json.jbuilder (0.3ms)
+  [1m[36mFollow Load (3.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  Rendered api/activities/_activity.json.jbuilder (0.3ms)
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/activities/index.json.jbuilder (20.7ms)
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 2.1ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/follows/_follow.json.jbuilder (0.7ms)
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/users/index.json.jbuilder (17.5ms)
+  Rendered api/follows/_follow.json.jbuilder (6.9ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 1.1ms)
+
+
+  Rendered api/follows/index.json.jbuilder (28.9ms)
+Completed 200 OK in 38ms (Views: 34.6ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:33:12 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (1.3ms)
+Completed 200 OK in 326ms (Views: 325.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users" for ::1 at 2022-06-27 09:33:12 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:33:12 -0400
+Started GET "/api/activities" for ::1 at 2022-06-27 09:33:12 -0400
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+Processing by Api::FollowsController#index as JSON
+  Rendering api/follows/index.json.jbuilder
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Processing by Api::ActivitiesController#index as JSON
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendering api/activities/index.json.jbuilder
+  [1m[36mFollow Load (3.8ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  [1m[36mActivity Load (1.4ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/follows/_follow.json.jbuilder (3.0ms)
+  Rendered api/activities/_activity.json.jbuilder (0.8ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/follows/_follow.json.jbuilder (0.1ms)
+  Rendered api/activities/_activity.json.jbuilder (0.3ms)
+  Rendered api/users/index.json.jbuilder (28.9ms)
+Completed 200 OK in 36ms (Views: 31.1ms | ActiveRecord: 4.2ms)
+
+
+  Rendered api/follows/index.json.jbuilder (25.5ms)
+  Rendered api/activities/_activity.json.jbuilder (0.8ms)
+Completed 200 OK in 30ms (Views: 26.1ms | ActiveRecord: 3.8ms)
+
+
+  Rendered api/activities/index.json.jbuilder (20.7ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:35:56 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 385ms (Views: 383.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/activities" for ::1 at 2022-06-27 09:35:57 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:35:57 -0400
+Processing by Api::ActivitiesController#index as JSON
+Started GET "/api/users" for ::1 at 2022-06-27 09:35:57 -0400
+  Rendering api/activities/index.json.jbuilder
+Processing by Api::UsersController#index as JSON
+  [1m[36mActivity Load (2.0ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  Rendering api/users/index.json.jbuilder
+  Rendered api/activities/_activity.json.jbuilder (0.8ms)
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+Processing by Api::FollowsController#index as JSON
+  Rendered api/activities/_activity.json.jbuilder (0.4ms)
+  Rendering api/follows/index.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  Rendered api/activities/index.json.jbuilder (20.3ms)
+  [1m[36mFollow Load (1.2ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 2.0ms)
+
+
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/follows/_follow.json.jbuilder (0.4ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/follows/_follow.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (20.5ms)
+  Rendered api/follows/index.json.jbuilder (9.6ms)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 3.1ms)
+
+
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:41:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+Completed 200 OK in 305ms (Views: 304.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users" for ::1 at 2022-06-27 09:41:31 -0400
+Started GET "/api/activities" for ::1 at 2022-06-27 09:41:31 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:41:31 -0400
+Processing by Api::ActivitiesController#index as JSON
+Processing by Api::FollowsController#index as JSON
+  Rendering api/activities/index.json.jbuilder
+  Rendering api/follows/index.json.jbuilder
+Processing by Api::UsersController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  [1m[36mActivity Load (3.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  [1m[36mFollow Load (3.2ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/follows/_follow.json.jbuilder (0.5ms)
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered api/activities/_activity.json.jbuilder (0.9ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/activities/_activity.json.jbuilder (0.3ms)
+  Rendered api/follows/_follow.json.jbuilder (0.1ms)
+  Rendered api/follows/index.json.jbuilder (15.2ms)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 3.2ms)
+
+
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/activities/index.json.jbuilder (18.3ms)
+  Rendered api/users/index.json.jbuilder (14.6ms)
+Completed 200 OK in 25ms (Views: 21.1ms | ActiveRecord: 3.1ms)
+
+
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:48:15 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 300ms (Views: 298.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users" for ::1 at 2022-06-27 09:48:15 -0400
+Started GET "/api/activities" for ::1 at 2022-06-27 09:48:15 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:48:15 -0400
+Processing by Api::UsersController#index as JSON
+Processing by Api::ActivitiesController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  Rendering api/activities/index.json.jbuilder
+Processing by Api::FollowsController#index as JSON
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering api/follows/index.json.jbuilder
+  [1m[36mActivity Load (2.8ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered api/activities/_activity.json.jbuilder (1.2ms)
+  [1m[36mFollow Load (6.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  Rendered api/follows/_follow.json.jbuilder (0.4ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  Rendered api/activities/_activity.json.jbuilder (0.1ms)
+  Rendered api/follows/_follow.json.jbuilder (0.0ms)
+  Rendered api/follows/index.json.jbuilder (12.7ms)
+Completed 200 OK in 16ms (Views: 9.2ms | ActiveRecord: 6.1ms)
+
+
+  Rendered api/activities/index.json.jbuilder (16.8ms)
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 2.8ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/index.json.jbuilder (24.8ms)
+Completed 200 OK in 29ms (Views: 24.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:50:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/users" for ::1 at 2022-06-27 09:50:31 -0400
+Started GET "/api/activities" for ::1 at 2022-06-27 09:50:31 -0400
+Processing by Api::ActivitiesController#index as JSON
+  Rendering api/activities/index.json.jbuilder
+Started GET "/api/follows" for ::1 at 2022-06-27 09:50:31 -0400
+  [1m[36mActivity Load (0.8ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+Processing by Api::UsersController#index as JSON
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  Rendered api/activities/_activity.json.jbuilder (1.1ms)
+  Rendering api/users/index.json.jbuilder
+Processing by Api::FollowsController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering api/follows/index.json.jbuilder
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  [1m[36mFollow Load (3.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  Rendered api/activities/index.json.jbuilder (21.7ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (13.6ms)
+  Rendered api/follows/_follow.json.jbuilder (0.4ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.8ms)
+
+
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.9ms)
+
+
+  Rendered api/follows/_follow.json.jbuilder (0.1ms)
+  Rendered api/follows/index.json.jbuilder (12.1ms)
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:51:44 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/activities" for ::1 at 2022-06-27 09:51:45 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:51:45 -0400
+Started GET "/api/users" for ::1 at 2022-06-27 09:51:45 -0400
+Processing by Api::ActivitiesController#index as JSON
+  Rendering api/activities/index.json.jbuilder
+Processing by Api::FollowsController#index as JSON
+  [1m[36mActivity Load (1.9ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  Rendering api/follows/index.json.jbuilder
+Processing by Api::UsersController#index as JSON
+  Rendered api/activities/_activity.json.jbuilder (0.5ms)
+  [1m[36mFollow Load (2.6ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  Rendering api/users/index.json.jbuilder
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  Rendered api/follows/_follow.json.jbuilder (0.3ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered api/follows/_follow.json.jbuilder (0.0ms)
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered api/activities/index.json.jbuilder (20.0ms)
+  Rendered api/follows/index.json.jbuilder (9.3ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+Completed 200 OK in 27ms (Views: 24.5ms | ActiveRecord: 1.9ms)
+
+
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 2.6ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (12.6ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:54:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users" for ::1 at 2022-06-27 09:54:39 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:54:39 -0400
+Started GET "/api/activities" for ::1 at 2022-06-27 09:54:39 -0400
+Processing by Api::UsersController#index as JSON
+Processing by Api::FollowsController#index as JSON
+Processing by Api::ActivitiesController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  Rendering api/follows/index.json.jbuilder
+  Rendering api/activities/index.json.jbuilder
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mFollow Load (3.1ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[36mActivity Load (1.0ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/follows/_follow.json.jbuilder (0.3ms)
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  Rendered api/follows/_follow.json.jbuilder (0.0ms)
+  Rendered api/activities/_activity.json.jbuilder (0.5ms)
+  Rendered api/activities/_activity.json.jbuilder (0.1ms)
+  Rendered api/follows/index.json.jbuilder (12.2ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+Completed 200 OK in 19ms (Views: 15.3ms | ActiveRecord: 3.1ms)
+
+
+  Rendered api/activities/index.json.jbuilder (12.7ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 1.0ms)
+
+
+  Rendered api/users/index.json.jbuilder (18.8ms)
+Completed 200 OK in 26ms (Views: 21.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:55:11 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/activities" for ::1 at 2022-06-27 09:55:11 -0400
+Started GET "/api/users" for ::1 at 2022-06-27 09:55:11 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:55:11 -0400
+Processing by Api::UsersController#index as JSON
+Processing by Api::ActivitiesController#index as JSON
+Processing by Api::FollowsController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  Rendering api/activities/index.json.jbuilder
+  Rendering api/follows/index.json.jbuilder
+  [1m[36mActivity Load (1.1ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  [1m[36mFollow Load (0.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  Rendered api/follows/_follow.json.jbuilder (0.2ms)
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/follows/_follow.json.jbuilder (0.0ms)
+  Rendered api/follows/index.json.jbuilder (4.8ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.4ms)
+
+
+  Rendered api/users/_user.json.jbuilder (1.4ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/activities/_activity.json.jbuilder (2.0ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  Rendered api/users/index.json.jbuilder (15.1ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 1.2ms)
+
+
+  Rendered api/activities/index.json.jbuilder (16.2ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 09:55:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+Completed 200 OK in 34ms (Views: 33.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users" for ::1 at 2022-06-27 09:55:24 -0400
+Started GET "/api/activities" for ::1 at 2022-06-27 09:55:24 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 09:55:24 -0400
+Processing by Api::UsersController#index as JSON
+Processing by Api::FollowsController#index as JSON
+Processing by Api::ActivitiesController#index as JSON
+  Rendering api/users/index.json.jbuilder
+  Rendering api/follows/index.json.jbuilder
+  Rendering api/activities/index.json.jbuilder
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mActivity Load (0.5ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  [1m[36mFollow Load (1.4ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  Rendered api/activities/_activity.json.jbuilder (1.0ms)
+  Rendered api/follows/_follow.json.jbuilder (1.0ms)
+  Rendered api/follows/_follow.json.jbuilder (0.0ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/follows/index.json.jbuilder (9.5ms)
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  Rendered api/activities/index.json.jbuilder (13.8ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 1.4ms)
+
+
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/index.json.jbuilder (17.6ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2022-06-27 10:59:11 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (9.8ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZHsQXBu5V4U2CkUyU4dozg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:22
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+Completed 200 OK in 671ms (Views: 666.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/activities" for ::1 at 2022-06-27 10:59:12 -0400
+Started GET "/api/users" for ::1 at 2022-06-27 10:59:12 -0400
+Started GET "/api/follows" for ::1 at 2022-06-27 10:59:12 -0400
+Processing by Api::ActivitiesController#index as JSON
+Processing by Api::FollowsController#index as JSON
+  Rendering api/activities/index.json.jbuilder
+Processing by Api::UsersController#index as JSON
+  Rendering api/follows/index.json.jbuilder
+  [1m[36mActivity Load (3.3ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  Rendering api/users/index.json.jbuilder
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  [1m[36mFollow Load (1.6ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  Rendered api/activities/_activity.json.jbuilder (2.3ms)
+  ↳ app/views/api/follows/index.json.jbuilder:1
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/follows/_follow.json.jbuilder (0.8ms)
+  Rendered api/activities/index.json.jbuilder (26.4ms)
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered api/follows/_follow.json.jbuilder (0.1ms)
+Completed 200 OK in 41ms (Views: 36.9ms | ActiveRecord: 3.3ms)
+
+
+  Rendered api/follows/index.json.jbuilder (27.5ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 1.6ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/users/index.json.jbuilder (30.5ms)
+Completed 200 OK in 34ms (Views: 26.9ms | ActiveRecord: 7.1ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bundle.js-02d8cfb33c7a8f01a4f7138ca06f16696714f3a8cff71fccbe0768e73a1977d0.map"):
+  
+actionpack (5.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.8) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.8) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.8) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.8) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3.1) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3.1) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.8) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'

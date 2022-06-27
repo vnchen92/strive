@@ -33,6 +33,13 @@ const Welcome = ({currentUser, logout, login, location}) => {
                                     <h1 className='nav-bar-title'><Link to='/'>STRIVE</Link></h1>
                                 </div>
                                 <div>
+                                    <div className='nav-bar-dropdown'>
+                                        <button className='nav-bar-dropdown-btn'>Posts+</button>
+                                        <div className='nav-bar-dropdown-container'>
+                                            <p className='nav-bar-dropdown-link'><Link to='/manual'>Add Manual Entry</Link></p>
+                                            <p className='nav-bar-dropdown-link'><Link to={`/athletes/${currentUser.id}/posts/new`}>Create a post</Link></p>
+                                        </div>
+                                    </div>
                                     <button className='nav-bar-btn' onClick={handleClick}>Log Out</button>
                                 </div>
                             </nav>
