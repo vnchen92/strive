@@ -4,16 +4,30 @@ import { Link } from 'react-router-dom';
 const ActivityItem = ({activity}) => {
     return (
         <div className='activity-container'>
-            <div>
-                <h1>{`${activity.firstName} ${activity.lastName}`}</h1>
-                <p>{activity.createdAt}</p>
-                <p><Link to={`/activities/${activity.id}`}>{activity.title}</Link></p>
-                <p>{activity.body}</p>
-                <p>Distance: {activity.distance} mi</p>
-                <p>Pace: {activity.pace}/mi</p>
-                <p>Time: {activity.hours}hr {activity.minutes}m {activity.seconds || 0}s</p>
-                <img src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" />
+            <div className='activity-icon-and-content-container'>
+                <img className='activity-icon' src="" alt="" />
+                <div className='activity-content-container'>
+                    <p className='activity-user-name'>{`${activity.firstName} ${activity.lastName}`}</p>
+                    <p className='activity-created-at'>{activity.createdAt}</p>
+                    <h1 className='activity-title'><Link to={`/activities/${activity.id}`}>{activity.title}</Link></h1>
+                    <p className='activity-body'>{activity.body}</p>
+                    <div className='activity-tabs-container'>
+                        <div className='activity-tab-container'>
+                            <p className='activity-tab'>Distance</p>
+                            <p className='activity-text'>{activity.distance} mi</p>
+                        </div>
+                        <div className='activity-tab-container'>
+                            <p className='activity-tab'>Pace</p>
+                            <p className='activity-text'>{activity.pace}/mi</p>
+                        </div>
+                        <div className='activity-tab-container'>
+                            <p className='activity-tab'>Time</p>
+                            <p className='activity-text'>{activity.hours}hr {activity.minutes}m {activity.seconds || 0}s</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <img className='activity-static-map' src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" />
         </div>
     )
 }
