@@ -1,7 +1,7 @@
 import React from 'react';
 
 class ActivityForm extends React.Component {
-    constructor() {
+    constructor(props) {
         super(props)
         this.state = {
             title: "",
@@ -20,7 +20,7 @@ class ActivityForm extends React.Component {
 
     }
 
-    update(feild){
+    update = (feild) => {
         return e => {
             this.setState({ [feild]: e.currentTarget.value })
         }
