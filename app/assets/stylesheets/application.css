@@ -18,8 +18,13 @@
 @import "./header.css";
 @import "./homepage.css";
 @import "./session.css";
+@import "./modal";
+@import "./profile";
+@import "./dashboard.css";
+@import "./activity.css";
+@import "./activity_show.css";
 
 #map {
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 350px;
  }
