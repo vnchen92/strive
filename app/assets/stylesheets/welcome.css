@@ -43,30 +43,29 @@
     justify-content: center;
 }
 
-.demo-btn {
+.demo-btn button{
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    min-width: 10rem;
     min-height: 4rem;
-    width: 100%;
+    width: 274px;
     border: 1px solid #dfdfe8;
     color: #242428;
     cursor: pointer;
 }
 
-.homepage-signup-btn {
+.homepage-signup-btn a{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    width: 100%;
-    min-width: 15rem;
     min-height: 4rem;
+    width: 274px;
     border: 1px solid #dfdfe8;
     color: #242428;
+    cursor: pointer;
 }
 
 .homepage-small-text {

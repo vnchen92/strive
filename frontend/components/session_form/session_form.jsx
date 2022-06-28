@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
         const user = {...this.state};
         this.props.processForm(user)
             .then(() => this.props.history.push('./dashboard'));
-        if (formType !== 'Log In') {
+        if (this.props.formType !== 'Log In') {
             this.props.closeModal();
         }
     }
@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
                     </ul>
                     <div className='session-btn-container'>
                         {
-                        location.pathname === '/login' ? <button className='session-demo-btn'><DemoLogin login={processForm} /></button> : <></>
+                        location.pathname === '/login' ? <div className='session-demo-btn'><DemoLogin login={processForm} /></div> : <></>
                         }
                         <form className='session-form' onSubmit={this.handleSubmit}>
                             <label>
