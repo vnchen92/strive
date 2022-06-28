@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ActivityForm from './activity_form';
-import { createActivity } from '../../actions/activities_actions';
+import { createActivity } from '../../../actions/activities_actions';
 
 
 const mapStateToProps = ({entities, session})=> {

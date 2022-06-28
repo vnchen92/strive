@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchPathElevation } from '../../util/elevation_api.util';
+import { fetchPathElevation } from '../../../util/elevation_api.util';
 
 class Elevation extends React.Component{
     constructor(props){

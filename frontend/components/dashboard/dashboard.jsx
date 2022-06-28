@@ -1,7 +1,8 @@
 import React from 'react';
 import CurrentUser from './currentuser';
 import ActivitiesContainer from '../activities/activities_container';
-import Map from '../activity_show/map';
+import Map from '../activities/activity_show/map';
+import ProfilePageContainer from '../profile/profile_page_container';
 
 class Dashboard extends React.Component{
     constructor(props){
@@ -19,7 +20,11 @@ class Dashboard extends React.Component{
         let activitiesComponent;
         if (this.props.firstActivity && this.props.firstFollow) {
             //debugger
-            activitiesComponent = <ActivitiesContainer />
+            if (this.props.location.pathname === '/dashboard') {
+                activitiesComponent = <ActivitiesContainer />
+            } else {
+                activitiesComponent = <ProfilePageContainer />
+            }
         } else {
             //debugger
             activitiesComponent = null;
@@ -29,7 +34,10 @@ class Dashboard extends React.Component{
             <div className='dashboard-ent-container'>
                 <CurrentUser currentUser={currentUser} />
                 <div className='dashboard-ent-mid-container'>
-                    <h1 className='dashboard-following'>Following  &or;</h1>
+                    {
+                    this.props.location.pathname === '/dashboard' ? <h1 className='dashboard-following'>Following  &or;</h1>
+                        : <h1 className='dashboard-following'>Activities  &or;</h1>
+                    }
                     <div className='dashboard-img-container'>
                         <img className='dashboard-mid-img' src="https://dorado.strava.com/images/Explore-FreeEligible-D9-NatureWelcomes-Z11_en-US.jpg" alt="" />
                         <div className='dashboard-icon-and-text-container'>
