@@ -9,11 +9,6 @@
 
 }
 
-.dashboard-following {
-    font-size: 20px;
-    padding-bottom: 20px;
-}
-
 .dashboard-img-container {
     max-width: 38rem;
     border: 1px solid black;
@@ -54,4 +49,32 @@
 .dashboard-text {
     font-size: 13px;
     text-align: top;
+}
+
+/* DROPDOWN FOR FOLLOWING/ACTIVITIES */
+
+.dashboard-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dashboard-following {
+    font-size: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+
+.dashboard-dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dashboard-dropdown-content p {
+    font-size: 14px;
+}
+
+.dashboard-dropdown:hover .dashboard-dropdown-content {
+    display: block;
 }

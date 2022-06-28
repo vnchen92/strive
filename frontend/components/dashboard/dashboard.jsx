@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CurrentUser from './currentuser';
 import ActivitiesContainer from '../activities/activities_container';
-import Map from '../activities/activity_show/map';
 import ProfilePageContainer from '../profile/profile_page_container';
 
 class Dashboard extends React.Component{
@@ -35,8 +35,21 @@ class Dashboard extends React.Component{
                 <CurrentUser currentUser={currentUser} />
                 <div className='dashboard-ent-mid-container'>
                     {
-                    this.props.location.pathname === '/dashboard' ? <h1 className='dashboard-following'>Following  &or;</h1>
-                        : <h1 className='dashboard-following'>Activities  &or;</h1>
+                    this.props.location.pathname === '/dashboard' ? (
+                        <div className='dashboard-dropdown'>
+                            <h1 className='dashboard-following'>Following  &or;</h1>
+                            <div className='dashbaord-dropdown-content'>
+                                <p><Link to='/dashboard/my_activities'>Activities</Link></p>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className='dashboard-dropdown'>
+                            <h1 className='dashboard-following'>Activities  &or;</h1>
+                            <div className='dashboard-dropdown-content'>
+                                <p><Link to='/dashboard'>Following</Link></p>
+                            </div>
+                        </div>
+                    )
                     }
                     <div className='dashboard-img-container'>
                         <img className='dashboard-mid-img' src="https://dorado.strava.com/images/Explore-FreeEligible-D9-NatureWelcomes-Z11_en-US.jpg" alt="" />
