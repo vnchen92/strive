@@ -34,7 +34,6 @@ class ActivityForm extends React.Component {
 
 
     render() {
-        debugger
         return (
             <div className='create-ent-container'>
             <div className='create-container'>
