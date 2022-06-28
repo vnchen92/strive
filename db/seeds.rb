@@ -90,6 +90,17 @@ p4 = Activity.create(
     static_map_url: 'airwFrjdbMDYUEi@OgCg@mBUW@_@EaCYcBS{De@k@ISCSC?k@EiA?q@AiASuDa@aHAOGREMNEMJa@G_AMyB[eDg@wLiBoK}A_@GOC?KBQDeA`@_H^oGt@sM~MlBfB`@rCn@lG~BlA^lFlB~B~@bBp@pAh@RPdA\xAh@b@NdB^jCd@lC\t@Bb@DD@?WBwDN?HU`@qAb@qAl@kA`B}C`@}@vBeF\}@Zb@x@lAzB~C`CjD^d@Pi@pBGrBKhCWfDa@dDKdEKjAC`BEXzA^tBd@fCN|@RpAVvA'
 )
 
+p5 = Activity.create(
+    title: 'Just want to tract my progress...',
+    body: "How did I do? 🤩",
+    posted_on: 'Mon April 4 2022',
+    author_id: 1,
+    distance: 2,
+    pace: 9.25,
+    minutes: 19,
+    seconds: 23
+)
+
 f1 = Follow.create( # demo user is following me
     follower_id: 1,
     following_id: 2

@@ -3,7 +3,7 @@ import { updateActivity } from '../../../actions/activities_actions';
 import ActivityForm from './activity_form';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
+    //debugger
     return {
         currentUser: state.entities.users[state.session.id],
         activity: state.entities.activities[ownProps.match.params.id],

@@ -44037,3 +44037,279 @@ Completed 200 OK in 36ms (Views: 30.3ms | ActiveRecord: 5.6ms)
 Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 2.2ms)
 
 
+Started GET "/api/users" for ::1 at 2022-06-28 15:41:24 -0400
+Started GET "/api/activities" for ::1 at 2022-06-28 15:41:24 -0400
+Started GET "/api/follows" for ::1 at 2022-06-28 15:41:24 -0400
+Processing by Api::UsersController#index as JSON
+Processing by Api::FollowsController#index as JSON
+  Rendering api/follows/index.json.jbuilder
+  Rendering api/users/index.json.jbuilder
+  [1m[36mFollow Load (3.0ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ app/views/api/follows/index.json.jbuilder:1
+Processing by Api::ActivitiesController#index as JSON
+  Rendered api/follows/_follow.json.jbuilder (0.6ms)
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering api/activities/index.json.jbuilder
+  Rendered api/follows/_follow.json.jbuilder (0.1ms)
+  ↳ app/views/api/users/index.json.jbuilder:1
+  Rendered api/follows/index.json.jbuilder (13.3ms)
+  [1m[36mActivity Load (2.2ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+Completed 200 OK in 17ms (Views: 13.6ms | ActiveRecord: 3.0ms)
+
+
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  ↳ app/views/api/activities/index.json.jbuilder:1
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered api/activities/_activity.json.jbuilder (1.1ms)
+  Rendered api/activities/_activity.json.jbuilder (0.1ms)
+  Rendered api/users/_user.json.jbuilder (0.1ms)
+  Rendered api/activities/_activity.json.jbuilder (0.2ms)
+  Rendered api/users/index.json.jbuilder (25.2ms)
+  Rendered api/activities/_activity.json.jbuilder (0.1ms)
+Completed 200 OK in 31ms (Views: 28.5ms | ActiveRecord: 2.4ms)
+
+
+  Rendered api/activities/index.json.jbuilder (16.9ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 2.2ms)
+
+
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (141.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "strive_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (122.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "strive_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (294.7ms)[0m  [1m[35mCREATE DATABASE "strive_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (248.3ms)[0m  [1m[35mCREATE DATABASE "strive_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE DATABASE "strive_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE DATABASE "strive_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (3.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "activities" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (69.2ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "title" character varying NOT NULL, "body" character varying, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "distance" integer, "pace" integer, "hours" integer, "minutes" integer, "seconds" integer, "static_map_url" character varying, "points" character varying[], "posted_on" character varying)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_author_id" ON "activities"  ("author_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  ↳ db/schema.rb:35
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "follower_id" integer NOT NULL, "following_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:35
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_follower_id" ON "follows"  ("follower_id")[0m
+  ↳ db/schema.rb:35
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_following_id" ON "follows"  ("following_id")[0m
+  ↳ db/schema.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:44
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "firstName" character varying NOT NULL, "birthdate" date NOT NULL, "weight" integer, "email" character varying NOT NULL, "profile_pic_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "lastName" character varying)[0m
+  ↳ db/schema.rb:44
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:44
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:44
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220627164922)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220622192443),
+(20220621201318),
+(20220625152606),
+(20220626001505),
+(20220622195611),
+(20220622212151),
+(20220617192229),
+(20220621144004);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-06-28 20:09:48.208751"], ["updated_at", "2022-06-28 20:09:48.208751"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "activities" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (19.0ms)[0m  [1m[35mCREATE TABLE "activities" ("id" bigserial primary key, "title" character varying NOT NULL, "body" character varying, "author_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "distance" integer, "pace" integer, "hours" integer, "minutes" integer, "seconds" integer, "static_map_url" character varying, "points" character varying[], "posted_on" character varying)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_activities_on_author_id" ON "activities"  ("author_id")[0m
+  ↳ db/schema.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "follows" CASCADE[0m
+  ↳ db/schema.rb:35
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "follows" ("id" bigserial primary key, "follower_id" integer NOT NULL, "following_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:35
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_follower_id" ON "follows"  ("follower_id")[0m
+  ↳ db/schema.rb:35
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_follows_on_following_id" ON "follows"  ("following_id")[0m
+  ↳ db/schema.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:44
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "firstName" character varying NOT NULL, "birthdate" date NOT NULL, "weight" integer, "email" character varying NOT NULL, "profile_pic_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "lastName" character varying)[0m
+  ↳ db/schema.rb:44
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:44
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:44
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220627164922)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220622192443),
+(20220621201318),
+(20220625152606),
+(20220626001505),
+(20220622195611),
+(20220622212151),
+(20220617192229),
+(20220621144004);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-06-28 20:09:48.318224"], ["updated_at", "2022-06-28 20:09:48.318224"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-06-28 20:09:48.322156"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mActivity Load (0.6ms)[0m  [1m[34mSELECT "activities".* FROM "activities"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mFollow Load (0.9ms)[0m  [1m[34mSELECT "follows".* FROM "follows"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demouser@demo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "CSBxnHlueIrILfBL8-yHpA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "birthdate", "weight", "email", "password_digest", "session_token", "created_at", "updated_at", "lastName") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["firstName", "demouser"], ["birthdate", "2022-06-17"], ["weight", 0], ["email", "demouser@demo.com"], ["password_digest", "$2a$12$FuMqAtA3.Dy.KPALPK51Re7OXDTrSxrtP1I3MxtQvLJyFX/yZX5kC"], ["session_token", "CSBxnHlueIrILfBL8-yHpA"], ["created_at", "2022-06-28 20:09:48.580447"], ["updated_at", "2022-06-28 20:09:48.580447"], ["lastName", ""]]
+  ↳ db/seeds.rb:13
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "vnchen92@gmail.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "dtjJv1hYIS4-jeW7DVyf4A"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "birthdate", "weight", "email", "password_digest", "session_token", "created_at", "updated_at", "lastName") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["firstName", "Vivian"], ["birthdate", "1992-08-09"], ["weight", 125], ["email", "vnchen92@gmail.com"], ["password_digest", "$2a$12$C.9pj39tPBJpB1iAg71lRegFoAaFOVlYl.6zCjHKDEL/dLZDZRFKS"], ["session_token", "dtjJv1hYIS4-jeW7DVyf4A"], ["created_at", "2022-06-28 20:09:48.800755"], ["updated_at", "2022-06-28 20:09:48.800755"], ["lastName", "Chen"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "danster1992@yahoo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Aeuxxzf1OxkNKJKefhEKKw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "birthdate", "weight", "email", "password_digest", "session_token", "created_at", "updated_at", "lastName") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["firstName", "Daniel"], ["birthdate", "1992-02-19"], ["weight", 145], ["email", "danster1992@yahoo.com"], ["password_digest", "$2a$12$O.y8bzCnyZXGpVlMnUCoXuyFevaJuQt36Vx2hBkA7srd2J4YzUUaO"], ["session_token", "Aeuxxzf1OxkNKJKefhEKKw"], ["created_at", "2022-06-28 20:09:49.022438"], ["updated_at", "2022-06-28 20:09:49.022438"], ["lastName", "Chen"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:41
+  [1m[36mActivity Create (0.6ms)[0m  [1m[32mINSERT INTO "activities" ("title", "author_id", "created_at", "updated_at", "distance", "pace", "minutes", "seconds", "static_map_url", "points", "posted_on") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["title", "Need Carbs"], ["author_id", 2], ["created_at", "2022-06-28 20:09:49.037114"], ["updated_at", "2022-06-28 20:09:49.037114"], ["distance", 1], ["pace", 8], ["minutes", 14], ["seconds", 13], ["static_map_url", "u`{vFx}rbMrGiMrBxBnBrBzA~ANVzA~ATNnBrB~EdF~EjFbEjEHHd@cAp@kArAkCzA_Db@y@d@_ARWrAsCt@{Av@_B|FuKjD}G|A{C^b@Xg@^u@\\q@tAmC|A{CvAoCCDd@}@"], ["points", "{{40.612184,-73.993990},{40.604206,-73.997509},{40.597221,-73.986136}}"], ["posted_on", "Fri Aug 23 2021"]]
+  ↳ db/seeds.rb:41
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:53
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("title", "body", "author_id", "created_at", "updated_at", "distance", "pace", "hours", "minutes", "static_map_url", "points", "posted_on") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "Training for 10k!"], ["body", "...halfway there? 🙃"], ["author_id", 2], ["created_at", "2022-06-28 20:09:49.041035"], ["updated_at", "2022-06-28 20:09:49.041035"], ["distance", 6], ["pace", 9], ["hours", 2], ["minutes", 34], ["static_map_url", "ig`wF`d{bMCRF@JDx@Jf@D@RFPXX^TLAFJvAl@fBn@p@RPHn@Pd@F^X`@PVH`@@d@G\\?XIb@YJQNORM\\MTENAn@Nn@T^XVTVTLFLJVNj@Tp@\\f@b@|AdBXN|@h@b@b@`AnAh@z@RV\\Xb@Vd@N\\Ht@L~@JfBHhAXfAHv@@vBC`D`@hBJb@BhAAhBQ|AMHGJBjBJd@EXKZGz@g@hAe@pAYZCHA~@DnDr@`AJp@C~@OhBs@~DuApFuC|BoAFGBWdBgAACAG"], ["points", "{{40.638778,-74.036007},{40.616064,-74.038067}}"], ["posted_on", "Tue Jan 1 2021"]]
+  ↳ db/seeds.rb:53
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:66
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:66
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("title", "body", "author_id", "created_at", "updated_at", "distance", "pace", "minutes", "seconds", "static_map_url", "points", "posted_on") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["title", "First run of the season"], ["body", "Is it over yet?"], ["author_id", 3], ["created_at", "2022-06-28 20:09:49.044415"], ["updated_at", "2022-06-28 20:09:49.044415"], ["distance", 2], ["pace", 13], ["minutes", 30], ["seconds", 49], ["static_map_url", "gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\\o@R_@\\gAp@mBPu@ZaAx@kCQC"], ["points", "{{40.785107,-73.976891},{40.802957,-73.963849},{40.800675,-73.958517}}"], ["posted_on", "Mon May 5 2021"]]
+  ↳ db/seeds.rb:66
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:66
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:79
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:79
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("title", "body", "author_id", "created_at", "updated_at", "distance", "pace", "hours", "minutes", "seconds", "static_map_url", "points", "posted_on") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["title", "Let's GOOOOOOOOO"], ["body", "Let it be known. I am the best of ALL demousers."], ["author_id", 1], ["created_at", "2022-06-28 20:09:49.047894"], ["updated_at", "2022-06-28 20:09:49.047894"], ["distance", 10], ["pace", 6], ["hours", 1], ["minutes", 5], ["seconds", 43], ["static_map_url", "airwFrjdbMDYUEi@OgCg@mBUW@_@EaCYcBS{De@k@ISCSC?k@EiA?q@AiASuDa@aHAOGREMNEMJa@G_AMyB[eDg@wLiBoK}A_@GOC?KBQDeA`@_H^oGt@sM~MlBfB`@rCn@lG~BlA^lFlB~B~@bBp@pAh@RPdA\\xAh@b@NdB^jCd@lC\\t@Bb@DD@?WBwDN?HU`@qAb@qAl@kA`B}C`@}@vBeF\\}@Zb@x@lAzB~C`CjD^d@Pi@pBGrBKhCWfDa@dDKdEKjAC`BEXzA^tBd@fCN|@RpAVvA"], ["points", "{{40.731179,-73.9193351},{40.735542,-73.918354},{40.735916,-73.914556},{40.742277,-73.913054},{40.741342,-73.909127},{40.719728,-73.911273}}"], ["posted_on", "Fri April 20 2022"]]
+  ↳ db/seeds.rb:79
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:79
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:93
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:93
+  [1m[36mActivity Create (0.4ms)[0m  [1m[32mINSERT INTO "activities" ("title", "body", "author_id", "created_at", "updated_at", "distance", "pace", "minutes", "seconds", "posted_on") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Just want to tract my progress..."], ["body", "How did I do? 🤩"], ["author_id", 1], ["created_at", "2022-06-28 20:09:49.051509"], ["updated_at", "2022-06-28 20:09:49.051509"], ["distance", 2], ["pace", 9], ["minutes", 19], ["seconds", 23], ["posted_on", "Mon April 4 2022"]]
+  ↳ db/seeds.rb:93
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:93
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:104
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:104
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:104
+  [1m[36mFollow Create (3.0ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "following_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["follower_id", 1], ["following_id", 2], ["created_at", "2022-06-28 20:09:49.059905"], ["updated_at", "2022-06-28 20:09:49.059905"]]
+  ↳ db/seeds.rb:104
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:104
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:109
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:109
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:109
+  [1m[36mFollow Create (0.6ms)[0m  [1m[32mINSERT INTO "follows" ("follower_id", "following_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["follower_id", 2], ["following_id", 3], ["created_at", "2022-06-28 20:09:49.067689"], ["updated_at", "2022-06-28 20:09:49.067689"]]
+  ↳ db/seeds.rb:109
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:109
