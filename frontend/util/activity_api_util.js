@@ -21,11 +21,11 @@ export const createActivity = activity => {
     })
 }
 
-export const updateActivity = activityId => {
+export const updateActivity = activity => {
     return $.ajax({
-        url: `api/activities/${activityId}`,
+        url: `api/activities/${activity.id}`,
         method: 'PATCH',
-        data: {activityId}
+        data: {activity}
     })
 }
 

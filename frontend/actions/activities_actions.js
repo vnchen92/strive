@@ -43,9 +43,9 @@ export const createActivity = activity => dispatch => {
     )
 }
 
-export const updateActivity = activityId => dispatch => {
+export const updateActivity = activity => dispatch => {
     return (
-        ActivityApiUtil.updateActivity(activityId).then(res => dispatch(receiveActivity(res)))
+        ActivityApiUtil.updateActivity(activity).then(res => dispatch(receiveActivity(res)))
     )
 }
 

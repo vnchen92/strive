@@ -6,7 +6,9 @@ import { createActivity } from '../../../actions/activities_actions';
 const mapStateToProps = ({entities, session})=> {
     debugger
     return {
-        currentUser: entities.users[session.id]
+        currentUser: entities.users[session.id],
+        formType: 'Create a Post',
+        formButton: 'Create'
     }
 }
 

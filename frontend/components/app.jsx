@@ -7,6 +7,7 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import ActivityShowContainer from './activities/activity_show/activity_show_container';
 import CreatePostContainer from './activities/activity_create/create_post_container';
+import EditPostContainer from './activities/activity_create/edit_post_container';
 
 const App = () => (
     <div>
@@ -15,6 +16,7 @@ const App = () => (
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <Route exact path='/dashboard/my_activities' component={DashboardContainer} />
+            <Route exact path='/actitivies/:id/edit' component={EditPostContainer} />
             <Route exact path='/dashboard' component={DashboardContainer} />
             <Route path='/activities/:id' component={ActivityShowContainer} />
             <Route path='/athletes/:id/posts/new' component={CreatePostContainer} />
