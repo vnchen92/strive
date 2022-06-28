@@ -16,7 +16,7 @@
 
 @import "./reset.css";
 @import "./header.css";
-@import "./homepage.css";
+@import "./welcome.css";
 @import "./session.css";
 @import "./modal";
 @import "./profile";
@@ -24,7 +24,11 @@
 @import "./activity.css";
 @import "./activity_show.css";
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 #map {
     width: 600px;
     height: 350px;
- }
+}

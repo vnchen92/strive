@@ -6,10 +6,6 @@ button {
     all: unset;
 }
 
-header {
-    font-family: 'Open Sans', sans-serif;
-}
-
 .header-container {
     display: flex;
     justify-content: center;
