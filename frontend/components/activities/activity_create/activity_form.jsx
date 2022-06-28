@@ -148,6 +148,15 @@ class ActivityForm extends React.Component {
                         </div>
                     </form>
                 </div>
+                <div>
+                    {
+                        this.props.formType === 'Edit Post' && this.props.activity.staticMapUrl ? (
+                            <img src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" />
+                        ) : (
+                            <></>
+                        )
+                    }
+                </div>
             </div>
         )
     }

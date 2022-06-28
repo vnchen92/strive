@@ -5,7 +5,7 @@ https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142F
 |40.785107,-73.976891|40.802957,-73.963849|40.800675,-73.958517  
 https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC&key=
 
-
+//Let's GOOOOO
 const startPoint = new google.maps.LatLng(40.731179,-73.9193351);
 const midPoint = new google.maps.LatLng(40.735542,-73.918354);
 const mid = new google.maps.LatLng(40.735916,-73.914556);
