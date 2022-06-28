@@ -24,6 +24,14 @@
 @import "./activity.css";
 @import "./activity_show.css";
 
+a {
+    text-decoration: none;
+}
+
+button {
+    all: unset;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
