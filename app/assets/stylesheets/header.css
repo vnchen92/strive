@@ -55,6 +55,11 @@
     background-color: #ebebf1;
 }
 
+.nav-bar-btn-login:active {
+    border: 1px solid black;
+    background-color: #d8d8db;
+}
+
 .nav-bar-btn-signup {
     display: flex;
     justify-content: center;
@@ -67,7 +72,16 @@
     border: 1px solid #fc5200;
     background-color: #fc5200;
     border-radius: 3px;
+    transition: 0.5s;
     cursor: pointer;
+}
+
+.nav-bar-btn-signup:hover {
+    background-color: #e34e04;
+}
+
+.nav-bar-btn-signup:active {
+    opacity: 0.8;
 }
 
 .nav-bar-title a {

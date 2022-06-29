@@ -98,5 +98,14 @@
     font-size: 12px;
     margin-top: 15px;
     margin-right: 20px;
+    transition: 0.5s;
     /* margin-bottom: 20px; */
+}
+
+.modal-continue-btn:hover {
+    background-color: #e34e04;
+}
+
+.modal-continue-btn:active {
+    opacity: 0.8;
 }
