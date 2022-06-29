@@ -16,7 +16,8 @@ u1 = User.create(
     birthdate: '2022/06/17',
     weight: 0,
     email: 'demouser@demo.com',
-    password: "demouser"
+    password: "demouser",
+    profile_pic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Bwz8-TWJNKPdLhikrDm97LAOm7OJQgCIgQ&usqp=CAU'
 )
 
 u2 = User.create(
@@ -25,7 +26,8 @@ u2 = User.create(
     birthdate: '1992/08/09',
     weight: 125,
     email: 'vnchen92@gmail.com',
-    password: "password"
+    password: "password",
+    profile_pic: 'https://graph.facebook.com/1435990539770583/picture?height=256&width=256'
 )
 
 u3 = User.create(
@@ -34,7 +36,8 @@ u3 = User.create(
     birthdate: '1992/02/19',
     weight: 145,
     email: 'danster1992@yahoo.com',
-    password: 'password'
+    password: 'password',
+    profile_pic: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.6435-9/31950431_10214801461083787_8093315151425437696_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dEUuWC9wYUQAX_rKVbq&_nc_ht=scontent-lga3-1.xx&oh=00_AT9MABXI-u7C04jUIM5ADBmze_iu6cTjspxASAkSHby78g&oe=62E08605'
 )
 
 

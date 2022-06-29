@@ -1,8 +1,10 @@
 import React from 'react';
 
 const CurrentUser = ({currentUser}) => {
+    debugger
     return (
         <div className='profile-container'>
+            <img src={currentUser.profilePic} alt="" />
             <div className='profile-top-container'>
                 <h1 className='profile-name'>{`${currentUser.firstName} ${currentUser.lastName}`}</h1>
                 <ul className='profile-tabs-container'>

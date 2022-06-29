@@ -5,7 +5,7 @@ const ActivityItem = ({activity, currentUser}) => {
     return (
         <div className='activity-container'>
             <div className='activity-icon-and-content-container'>
-                <img className='activity-icon' src="" alt="" />
+                <img className='activity-icon' src={activity.profilePic} alt="" />
                 <div className='activity-content-container'>
                     <p className='activity-user-name'>{`${activity.firstName || currentUser.firstName} ${activity.lastName || currentUser.lastName}`}</p>
                     <p className='activity-created-at'>{activity.postedOn}</p>
