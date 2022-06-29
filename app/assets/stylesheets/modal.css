@@ -31,8 +31,10 @@
 .modal-container {
     min-width: 500px;
     max-height: 300px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 20px;
-    padding-right: 5px;
+    padding-right: 20px;
 }
 
 .modal-title {
@@ -47,13 +49,13 @@
     margin-bottom: 20px;
 }
 
-/* .modal-inputs-container {
-
-} */
+.modal-inputs-container {
+    width: 100%;
+}
 
 .modal-row {
     display: inline-block;
-    
+    width: 50%;
 }
 
 .modal-input-container {
@@ -70,9 +72,14 @@
 
 .modal-textbox {
     display: flex;
-    /* min-width: 10rem;
-    height: 38px; */
+    height: 38px;
+    width: 400px;
     width: 90%;
+    border: 1px solid black;
+}
+
+.modal-textbox:focus {
+    border: 1px solid black;
 }
 
 .modal-continue-btn-container {
@@ -89,17 +96,14 @@
     align-items: center;
     min-width: 10rem;
     height: 38px;
-    /* width: 100%; */
-    border: 1px solid #fc5200;
     background-color: #fc5200;
     color: white;
     cursor: pointer;
     border-radius: 4px;
     font-size: 12px;
     margin-top: 15px;
-    margin-right: 20px;
+    margin-right: 10px;
     transition: 0.5s;
-    /* margin-bottom: 20px; */
 }
 
 .modal-continue-btn:hover {

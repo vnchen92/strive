@@ -12,11 +12,11 @@ const ActivityItem = ({activity, currentUser}) => {
                     <h1 className='activity-title'><Link to={`/activities/${activity.id}`}>{activity.title}</Link></h1>
                     <p className='activity-body'>{activity.body}</p>
                     <div className='activity-tabs-container'>
-                        <div className='activity-tab-container'>
+                        <div className='activity-dis-container'>
                             <p className='activity-tab'>Distance</p>
                             <p className='activity-text'>{activity.distance}mi</p>
                         </div>
-                        <div className='activity-tab-container'>
+                        <div className='activity-pace-container'>
                             <p className='activity-tab'>Pace</p>
                             <p className='activity-text'>{activity.pace}/mi</p>
                         </div>

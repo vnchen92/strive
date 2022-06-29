@@ -9,7 +9,7 @@ const RestOfSignupForm = ({ firstName, lastName, birthdate, weight, handleSubmit
             <div className='modal-inputs-container'>
                 <div className='modal-row'>
                     <div className='modal-input-container'>
-                    <label className='modal-label'>First Name</label>
+                        <label className='modal-label'>First Name</label>
                         <input
                             className='modal-textbox'
                             type="text" 
@@ -18,7 +18,7 @@ const RestOfSignupForm = ({ firstName, lastName, birthdate, weight, handleSubmit
                         />
                     </div>
                     <div className='modal-input-container'>
-                    <label className='modal-label'>Birthday</label >
+                        <label className='modal-label'>Birthday</label >
                         <input
                             className='modal-textbox'
                             type="date" 

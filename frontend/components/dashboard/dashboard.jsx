@@ -16,17 +16,14 @@ class Dashboard extends React.Component{
     }
 
     render() {
-        //debugger
         let activitiesComponent;
         if (this.props.firstActivity && this.props.firstFollow) {
-            //debugger
             if (this.props.location.pathname === '/dashboard') {
                 activitiesComponent = <ActivitiesContainer />
             } else {
                 activitiesComponent = <ProfilePageContainer />
             }
         } else {
-            //debugger
             activitiesComponent = null;
         }
         const {currentUser} = this.props;
@@ -37,14 +34,14 @@ class Dashboard extends React.Component{
                     {
                     this.props.location.pathname === '/dashboard' ? (
                         <div className='dashboard-dropdown'>
-                            <h1 className='dashboard-following'>Following  &or;</h1>
+                            <div className='dashboard-following'>Following  &or;</div>
                             <div className='dashbaord-dropdown-content'>
                                 <p><Link to='/dashboard/my_activities'>Activities</Link></p>
                             </div>
                         </div>
                     ) : (
                         <div className='dashboard-dropdown'>
-                            <h1 className='dashboard-following'>Activities  &or;</h1>
+                            <div className='dashboard-following'>Activities  &or;</div>
                             <div className='dashboard-dropdown-content'>
                                 <p><Link to='/dashboard'>Following</Link></p>
                             </div>
