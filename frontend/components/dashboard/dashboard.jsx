@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CurrentUser from './currentuser';
 import ActivitiesContainer from '../activities/activities_container';
-import UserProfilePageContainer from '../profile/userprofile_page_container';
-import UserPageContainer from '../profile/user_page_container';
-//import ProfilePageContainer from '../profile/profile_page_container';
+import CurrentUserProfilePageContainer from '../profile/currentuser_profile_container';
+import UserProfileContainer from '../profile/user_profile_container';
 
 class Dashboard extends React.Component{
     constructor(props){
@@ -12,24 +11,39 @@ class Dashboard extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchAllUsers();
-        this.props.fetchAllActivities();
-        this.props.fetchAllFollows();
+        if (this.props.location.pathname === '/dashboard') {
+            this.props.fetchAllUsers();
+            this.props.fetchAllActivities();
+            this.props.fetchAllFollows();
+        }
     }
 
     render() {
         let activitiesComponent;
-        if (this.props.firstActivity && this.props.firstFollow) {
-            if (this.props.location.pathname === '/dashboard') {
+
+        if (this.props.location.pathname === '/dashboard') {
+            if (this.props.firstActivity && this.props.firstFollow) {
                 activitiesComponent = <ActivitiesContainer />
-            } else if (this.props.location.pathname === '/dashboard/my_activities') {
-                activitiesComponent = <UserProfilePageContainer />
             } else {
-                activitiesComponent = <UserPageContainer />
+                activitiesComponent = null;
             }
+        } else if (this.props.location.pathname === '/dashboard/my_activities') {
+                activitiesComponent = <CurrentUserProfilePageContainer />
         } else {
-            activitiesComponent = null;
+                activitiesComponent = <UserProfileContainer />
         }
+
+        // if (this.props.firstActivity && this.props.firstFollow) {
+        //     if (this.props.location.pathname === '/dashboard') {
+        //         activitiesComponent = <ActivitiesContainer />
+        //     } else if (this.props.location.pathname === '/dashboard/my_activities') {
+        //         activitiesComponent = <CurrentUserProfilePageContainer />
+        //     } else {
+        //         activitiesComponent = <UserProfileContainer />
+        //     }
+        // } else {
+        //     activitiesComponent = null;
+        // }
         const {user} = this.props;
         return (
             <div className='dashboard-ent-container'>

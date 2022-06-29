@@ -12,7 +12,7 @@ export const fetchDashboardActivities = (entities, session, allActivities, follo
         Object.values(allUsers).map(user => {
             if (filteredFollowers.includes(activity.authorId) && user.id === activity.authorId) {
     
-                filteredActivities[activity.id] = {userId: user.id, firstName: user.firstName, lastName: user.lastName, profilePic: user.profilePic,...activity}
+                filteredActivities[activity.id] = {firstName: user.firstName, lastName: user.lastName, profilePic: user.profilePic,...activity}
             }  
         })
     })

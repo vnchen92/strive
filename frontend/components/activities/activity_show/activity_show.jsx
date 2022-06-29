@@ -32,7 +32,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
             {
                 currentUser.id === activity.authorId ? (
                     <div>
-                        <Link to={`/actitivies/${activity.id}/edit`}><img src="https://d3nn82uaxijpm6.cloudfront.net/assets/actions_edit_normal_small-8fcf75e32d0b379f379717418769a17bbfefcea124043c0b81417c4926e6e335.svg" alt="" /></Link>
+                        <Link to={`/activities/${activity.id}/edit`}><img src="https://d3nn82uaxijpm6.cloudfront.net/assets/actions_edit_normal_small-8fcf75e32d0b379f379717418769a17bbfefcea124043c0b81417c4926e6e335.svg" alt="" /></Link>
                         <img onClick={handleClick} src="https://d3nn82uaxijpm6.cloudfront.net/assets/navigation_more_normal_small-c15aecd73925298b5d604e07abf813b37392517874644531f08ae1161f3f00b6.svg" alt="" />
                     </div>
                 ) : (

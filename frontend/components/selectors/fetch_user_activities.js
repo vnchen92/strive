@@ -3,7 +3,7 @@ export const fetchUserActivities = (user, activities) => {
 
     Object.values(activities).map(activity => {
         if (user.id === activity.authorId) {
-            filteredActivities[activity.id] = {...activity}
+            filteredActivities[activity.id] = {firstName: user.firstName, lastName: user.lastName, profilePic: user.profilePic,...activity}
         }
     })
 

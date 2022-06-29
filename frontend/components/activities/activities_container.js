@@ -3,7 +3,7 @@ import ActivitiesDashboard from './activities_dashboard';
 import { fetchDashboardActivities } from '../selectors/fetch_dashboard_activities';
 
 const mapStateToProps = ({entities, session}) => {
-    //debugger
+    debugger
     return {
         currentUser: entities.users[session.id],
         user: entities.users[session.id],

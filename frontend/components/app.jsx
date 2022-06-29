@@ -9,7 +9,7 @@ import ActivityShowContainer from './activities/activity_show/activity_show_cont
 import CreatePostContainer from './activities/activity_create/create_post_container';
 import EditPostContainer from './activities/activity_create/edit_post_container';
 import HeaderContainer from './splash/header_container';
-import ProfilePageContainer from './profile/userprofile_page_container';
+import UserDashContainer from './profile/user_dash_container';
 
 const App = props => {
     return(
@@ -20,11 +20,11 @@ const App = props => {
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                 <ProtectedRoute exact path='/dashboard/my_activities' component={DashboardContainer} />
-                <ProtectedRoute exact path='/actitivies/:id/edit' component={EditPostContainer} />
+                <ProtectedRoute exact path='/activities/:id/edit' component={EditPostContainer} />
                 <ProtectedRoute exact path='/dashboard' component={DashboardContainer} />
                 <ProtectedRoute exact path='/athletes/:id/posts/new' component={CreatePostContainer} />
                 <ProtectedRoute path='/activities/:id' component={ActivityShowContainer} />
-                <ProtectedRoute path='/athletes/:id' component={ProfilePageContainer} />
+                <ProtectedRoute path='/athletes/:id' component={UserDashContainer} />
             </Switch>
         </div>
     )

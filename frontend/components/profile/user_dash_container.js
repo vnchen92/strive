@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import Dashboard from '../dashboard/dashboard';
 
 const mapStateToProps = (state, ownProps) => {
+    debugger
     return {
-        currentUser: state.entities.users[ownProps.match.params.id]
+        user: state.entities.users[ownProps.match.params.id]
     }
 }
 
