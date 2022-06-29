@@ -4,8 +4,10 @@ const CurrentUser = ({currentUser}) => {
     debugger
     return (
         <div className='profile-container'>
-            <img src={currentUser.profilePic} alt="" />
             <div className='profile-top-container'>
+            <div className='profile-img-container'>
+                <img className='profile-pic' src={currentUser.profilePic} alt="" />
+            </div>
                 <h1 className='profile-name'>{`${currentUser.firstName} ${currentUser.lastName}`}</h1>
                 <ul className='profile-tabs-container'>
                     <li className='profile-tab-container'>
