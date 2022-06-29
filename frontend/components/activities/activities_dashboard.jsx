@@ -1,13 +1,13 @@
 import React from 'react';
 import ActivityItem from './activity_item';
 
-const ActivitiesDashboard = ({ filteredActivities, currentUser }) => {
+const ActivitiesDashboard = ({ filteredActivities, currentUser, user }) => {
 
     return(
         <div>
         {
             Object.values(filteredActivities).map(activity => {
-                return <div key={activity.id}><ActivityItem activity={activity} currentUser={currentUser} /></div>
+                return <div key={activity.id}><ActivityItem activity={activity} currentUser={currentUser} user={user} /></div>
             })
         }
         </div>

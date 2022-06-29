@@ -1,14 +1,13 @@
 import React from 'react';
 
-const CurrentUser = ({currentUser}) => {
-    debugger
+const CurrentUser = ({user}) => {
     return (
         <div className='profile-container'>
             <div className='profile-top-container'>
             <div className='profile-img-container'>
-                <img className='profile-pic' src={currentUser.profilePic} alt="" />
+                <img className='profile-pic' src={user.profilePic} alt="" />
             </div>
-                <h1 className='profile-name'>{`${currentUser.firstName} ${currentUser.lastName}`}</h1>
+                <h1 className='profile-name'>{`${user.firstName} ${user.lastName}`}</h1>
                 <ul className='profile-tabs-container'>
                     <li className='profile-tab-container'>
                         <p className='profile-tab'>Following</p>

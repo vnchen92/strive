@@ -6,10 +6,10 @@ import Elevation from './elevation';
 const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) => {
     let component;
     if (activity.staticMapUrl !== null) {
-        debugger
+        //debugger
         component = <Map activity={activity} />
     } else {
-        debugger
+        //debugger
         component = <></>
     }
 
@@ -23,8 +23,8 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
     Object.values(users).map(user => {
         if (user.id === activity.authorId) {
             userOfActivity = {...user};
+            return;
         }
-        debugger
     })
 
     return (

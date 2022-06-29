@@ -1,13 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ActivityItem = ({activity, currentUser}) => {
+const ActivityItem = ({activity, currentUser, user}) => {
+    let aProfilePage;
+    if (currentUser.id === user.id) {//if this is currentUser's post
+        aProfilePage = '/dashboard/my_activities';
+    } else { //else this is another users post so will go to their profile page
+        aProfilePage = `/athletes/${user.id}`
+    }
+    
     return (
         <div className='activity-container'>
             <div className='activity-icon-and-content-container'>
                 <img className='activity-icon' src={activity.profilePic} alt="" />
                 <div className='activity-content-container'>
-                    <p className='activity-user-name'>{`${activity.firstName || currentUser.firstName} ${activity.lastName || currentUser.lastName}`}</p>
+                    <p className='activity-user-name'><Link to={aProfilePage}>{`${activity.firstName || currentUser.firstName} ${activity.lastName || currentUser.lastName}`}</Link></p>
                     <p className='activity-created-at'>{activity.postedOn}</p>
                     <h1 className='activity-title'><Link to={`/activities/${activity.id}`}>{activity.title}</Link></h1>
                     <p className='activity-body'>{activity.body}</p>

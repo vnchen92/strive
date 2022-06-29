@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
-import ActivitiesDashboard from '../activities/activities_dashboard';
-import { fetchProfileActivities } from '../selectors/fetch_profile_activities';
+import Dashboard from '../dashboard/dashboard';
 
-const mapStateToProps = ({entities, session}) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        currentUser: entities.users[session.id],
-        filteredActivities: fetchProfileActivities(entities, session, entities.activities)
+        currentUser: state.entities.users[ownProps.match.params.id]
     }
 }
 
@@ -15,4 +13,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ActivitiesDashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

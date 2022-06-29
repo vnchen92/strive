@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CurrentUser from './currentuser';
 import ActivitiesContainer from '../activities/activities_container';
-import ProfilePageContainer from '../profile/profile_page_container';
+import UserProfilePageContainer from '../profile/userprofile_page_container';
+import UserPageContainer from '../profile/user_page_container';
+//import ProfilePageContainer from '../profile/profile_page_container';
 
 class Dashboard extends React.Component{
     constructor(props){
@@ -20,32 +22,38 @@ class Dashboard extends React.Component{
         if (this.props.firstActivity && this.props.firstFollow) {
             if (this.props.location.pathname === '/dashboard') {
                 activitiesComponent = <ActivitiesContainer />
+            } else if (this.props.location.pathname === '/dashboard/my_activities') {
+                activitiesComponent = <UserProfilePageContainer />
             } else {
-                activitiesComponent = <ProfilePageContainer />
+                activitiesComponent = <UserPageContainer />
             }
         } else {
             activitiesComponent = null;
         }
-        const {currentUser} = this.props;
+        const {user} = this.props;
         return (
             <div className='dashboard-ent-container'>
-                <CurrentUser currentUser={currentUser} />
+                <CurrentUser user={user} />
                 <div className='dashboard-ent-mid-container'>
                     {
-                    this.props.location.pathname === '/dashboard' ? (
-                        <div className='dashboard-dropdown'>
-                            <div className='dashboard-following'>Following  &or;</div>
-                            <div className='dashbaord-dropdown-content'>
-                                <p><Link to='/dashboard/my_activities'>Activities</Link></p>
+                    this.props.location.pathname !== '/athletes/:id' ? (
+                        this.props.location.pathname === '/dashboard' ? (
+                            <div className='dashboard-dropdown'>
+                                <div className='dashboard-following'>Following  &or;</div>
+                                <div className='dashbaord-dropdown-content'>
+                                    <p><Link to='/dashboard/my_activities'>Activities</Link></p>
+                                </div>
                             </div>
-                        </div>
+                        ) : (
+                            <div className='dashboard-dropdown'>
+                                <div className='dashboard-following'>Activities  &or;</div>
+                                <div className='dashboard-dropdown-content'>
+                                    <p><Link to='/dashboard'>Following</Link></p>
+                                </div>
+                            </div>
+                        )
                     ) : (
-                        <div className='dashboard-dropdown'>
-                            <div className='dashboard-following'>Activities  &or;</div>
-                            <div className='dashboard-dropdown-content'>
-                                <p><Link to='/dashboard'>Following</Link></p>
-                            </div>
-                        </div>
+                        <></>
                     )
                     }
                     <div className='dashboard-img-container'>
