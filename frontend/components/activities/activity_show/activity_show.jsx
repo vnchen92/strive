@@ -5,9 +5,11 @@ import Elevation from './elevation';
 
 const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) => {
     let component;
-    if (activity.staticMapUrl) {
+    if (activity.staticMapUrl !== null) {
+        debugger
         component = <Map activity={activity} />
     } else {
+        debugger
         component = <></>
     }
 
@@ -15,6 +17,15 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
         deleteActivity(activity.id)
             .then(() => history.push('/dashboard/my_activities'));
     }
+
+    let userOfActivity = {};
+
+    Object.values(users).map(user => {
+        if (user.id === activity.authorId) {
+            userOfActivity = {...user};
+        }
+        debugger
+    })
 
     return (
         <div className='activity-show-ent-container'>
@@ -32,11 +43,11 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
                 <div className='activity-show-top'>
                     <div className='activity-badge-and-name'>
                         <img className='badge' src="https://d3nn82uaxijpm6.cloudfront.net/assets/svg/badges_multicolor_summit_small-a9f1366377ea9bcfb95dd73917f97b674a8c64d9f00bb029d58c23730158b328.svg" alt="" />
-                        <h1 className='activity-show-user-name'>{`${activity.firstName} ${activity.lastName}`}</h1>
+                        <h1 className='activity-show-user-name'>{`${userOfActivity.firstName} ${userOfActivity.lastName}`}</h1>
                     </div>
                     <div className='activity-show-row'>
                         <div className='activity-show-left'>
-                            <img className='activity-show-icon' src="" alt="" />
+                            <img className='activity-show-icon' src={userOfActivity.profilePic} alt="" />
                             <div className='activity-show-text-container'>
                                 <p className='activity-show-postedon'>{activity.postedOn}</p>
                                 <h1 className='activity-show-title'>{activity.title}</h1>

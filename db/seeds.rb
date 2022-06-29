@@ -11,8 +11,8 @@ Activity.destroy_all
 Follow.destroy_all
 
 u1 = User.create(
-    firstName: 'demouser',
-    lastName: "",
+    firstName: 'Demo',
+    lastName: "User",
     birthdate: '2022/06/17',
     weight: 0,
     email: 'demouser@demo.com',
