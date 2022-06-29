@@ -14,7 +14,7 @@ const Welcome = ({login}) => {
                         <div className='demo-btn'><DemoLogin login={login}/></div>
                         <button className='homepage-signup-btn'><Link to='/signup'>Sign up with email</Link></button>
                         <p className='homepage-small-text'>By signing up for Strive, you agree to the&nbsp;<span>Terms of Service.</span>&nbsp;View our&nbsp;<span>Private Policy</span>.</p>
-                        <p className='homepage-small-text-last'>Already a Member?&nbsp;<span><Link to='/login'>Log In</Link></span></p>
+                        <p className='homepage-small-text-last'>Already a Member?&nbsp;<span className='tiny-login'><Link to='/login'>Log In</Link></span></p>
                     </div>
                 </div>
             </div>

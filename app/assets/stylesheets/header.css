@@ -47,7 +47,12 @@
     font-weight: 500;
     border: 1px solid #dfdfe8;
     border-radius: 3px;
+    transition: 0.5s;
     cursor: pointer;
+}
+
+.nav-bar-btn-login:hover {
+    background-color: #ebebf1;
 }
 
 .nav-bar-btn-signup {

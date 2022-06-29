@@ -43,7 +43,7 @@
     justify-content: center;
 }
 
-.demo-btn button{
+.demo-btn button {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -53,10 +53,11 @@
     width: 274px;
     border: 1px solid #dfdfe8;
     color: #242428;
+    transition: 0.3s;
     cursor: pointer;
 }
 
-.homepage-signup-btn a{
+.homepage-signup-btn a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +66,13 @@
     width: 274px;
     border: 1px solid #dfdfe8;
     color: #242428;
+    transition: 0.3s;
     cursor: pointer;
+}
+
+.demo-btn button:hover, .homepage-signup-btn a:hover {
+    border: 1px solid black;
+    background-color: #f6f6fd;
 }
 
 .homepage-small-text {
@@ -89,4 +96,13 @@
     margin-bottom: 20px;
     height: fit-content;
     width: 100%;
+}
+
+.tiny-login a {
+    color: rgb(61, 61, 251);
+}
+
+.tiny-login a:hover {
+    text-decoration: underline black;
+    color: black;
 }
