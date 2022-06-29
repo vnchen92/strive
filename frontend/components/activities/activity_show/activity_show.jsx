@@ -6,7 +6,6 @@ import Elevation from './elevation';
 const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) => {
     let component;
     if (activity.staticMapUrl !== null) {
-        //debugger
         component = <Map activity={activity} />
     } else {
         //debugger

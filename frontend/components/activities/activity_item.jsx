@@ -4,14 +4,9 @@ import { Link } from 'react-router-dom';
 const ActivityItem = ({activity, currentUser, user}) => {
     let aProfilePage;
 
-
-
-    debugger
-    if (currentUser.id === user.id && activity.authorId === currentUser.id) {//if this is currentUser's post
-        debugger
+    if (currentUser.id === user.id && activity.authorId === currentUser.id) {
         aProfilePage = '/dashboard/my_activities';
-    } else { //else this is another users post so will go to their profile page
-        debugger
+    } else {
         aProfilePage = `/athletes/${activity.authorId}`
     }
     

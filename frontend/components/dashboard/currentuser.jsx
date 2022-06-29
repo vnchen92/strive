@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CurrentUser = ({user}) => {
-    debugger
     return (
         <div className='profile-container'>
             <div className='profile-top-container'>
