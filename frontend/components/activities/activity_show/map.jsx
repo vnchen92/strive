@@ -1,4 +1,5 @@
 import React from 'react';
+import Elevation from './elevation';
 
 class Map extends React.Component {
 
@@ -22,7 +23,6 @@ class Map extends React.Component {
             mids.push(wayPoint);
             wayPoint = {};
         }
-        //waypoints is an array of objects
 
         const startPoint = new google.maps.LatLng(first[0] * 1, first[1] * 1);
         const endPoint = new google.maps.LatLng(last[0] * 1, last[1] * 1);
@@ -41,15 +41,19 @@ class Map extends React.Component {
         directionsService.route(request, function(response, status) {
             if (status === 'OK') {
                 directionsRenderer.setDirections(response);
-                //console.log(response);
             }
         });
+
         directionsRenderer.setMap(map);
     }
 
     render(){
+        debugger
         return (
-            <div id='map'></div>
+            <div>
+                <div id='map'></div>
+                <Elevation pathPoints={this.props.activity.points} />
+            </div>
         )
     }
 }

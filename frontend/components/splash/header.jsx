@@ -30,7 +30,7 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                     <div className='nav-bar-dropdown'>
                                         <button className='nav-bar-dropdown-btn'>Posts+</button>
                                         <div className='nav-bar-dropdown-container'>
-                                            <p className='nav-bar-dropdown-link'><Link to='/manual'>Add Manual Entry</Link></p>
+                                            <p className='nav-bar-dropdown-link'><Link to='/manual'>Create a Route</Link></p>
                                             <p className='nav-bar-dropdown-link'><Link to={`/athletes/${currentUser.id}/posts/new`}>Create a post</Link></p>
                                         </div>
                                     </div>
