@@ -54,8 +54,15 @@ class SessionForm extends React.Component {
     render(){
         const {errors, formType, processForm, location, modal, closeModal} = this.props;
 
+        const images = ['jenny-hill-mQVWb7kUoOE-unsplash.jpg', 'pexels-josh-willink-701016.jpg', 'pexels-yogendra-singh-1469880'];
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        
+        const myStyle = {
+            backgroundImage: `url(/assets/${randomImage})`
+        }
+
         return (
-            <div className='session-container'>
+            <div className='session-container' style={myStyle}>
                 <div className='session-inner-container'>
                     <h1 className='session-title'>{location.pathname === '/login' ? formType : "Join Strive today, it's free."}</h1>
                     <ul className='session-errors-container'>
