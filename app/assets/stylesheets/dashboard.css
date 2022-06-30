@@ -80,6 +80,9 @@
 .dashboard-dropdown-content {
     display: none;
     position: absolute;
+    margin-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 119px;
     z-index: 1;
     background: white;

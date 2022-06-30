@@ -42,8 +42,8 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                             <p>&nbsp; &or;</p>
                                         </div>
                                         <div className='nav-bar-dropdown-container'>
-                                            <button className='nav-bar-dropdown-link' onClick={handleClick}>Log Out</button><br/>
                                             <Link className='nav-bar-dropdown-link' to='/dashboard/my_activities'>My Profile</Link>
+                                            <button className='nav-bar-dropdown-link' onClick={handleClick}>Log Out</button><br/>
                                         </div>
                                     </div>
                                 </div>

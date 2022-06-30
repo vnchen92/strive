@@ -54,7 +54,7 @@ class Dashboard extends React.Component{
                         this.props.location.pathname === '/dashboard' ? (
                             <div className='dashboard-dropdown'>
                                 <div className='dashboard-following'>Following  &or;</div>
-                                <div className='dashbaord-dropdown-content'>
+                                <div className='dashboard-dropdown-content'>
                                     <p><Link to='/dashboard/my_activities'>Activities</Link></p>
                                 </div>
                             </div>
