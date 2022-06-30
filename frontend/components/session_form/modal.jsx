@@ -1,7 +1,7 @@
 import React from 'react';
 import RestOfSignupForm from './rest_of_signup_form';
 
-const Modal = ({closeModal, firstName, lastName, weight, birthdate, handleSubmit, update, errors}) => {
+export const Modal = ({closeModal, firstName, lastName, weight, birthdate, handleSubmit, update, errors}) => {
 
     return (
         <div className="modal-background">
@@ -21,5 +21,3 @@ const Modal = ({closeModal, firstName, lastName, weight, birthdate, handleSubmit
         </div>
     )
 }
-
-export default Modal;

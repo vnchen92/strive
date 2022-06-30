@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
-import Modal from './modal';
+import { Modal } from './modal';
 
 class SessionForm extends React.Component {
     constructor(props) {
