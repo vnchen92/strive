@@ -4,7 +4,9 @@
     <title>Strive</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script type="text/javascript">
+      window.homepage_img = "<%= img_url('jenny-hill-mQVWb7kUoOE-unsplash.jpg') %>"
+    </script>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type='text/javascript'>
