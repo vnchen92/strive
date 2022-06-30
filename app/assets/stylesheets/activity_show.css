@@ -1,13 +1,14 @@
 .activity-show-ent-container {
-    margin-top: 20px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     background-color: blue;
 }
 
 .activity-show-container {
-   background-color: aqua;
-   width: 70%;
+    background-color: aqua;
+    border: 1px solid #f0f0f5;
+    width: 700px;
 }
 
 .activity-show-top {
@@ -17,7 +18,8 @@
 
 .activity-badge-and-name {
     display: flex;
-    background-color: red;
+    background-color: #e6e6ed;
+    border-bottom: 1px solid #f0f0f5;
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -29,21 +31,26 @@
 }
 
 .activity-show-row {
-    padding-top: 15px;
     display: flex;
     justify-content:left;
 }
 
 .activity-show-left {
     display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    width: 60%;
     justify-content: space-left;
 }
 
 .activity-show-icon {
-    width: 50px;
-    height: 50px;
-    padding-left: 10px;
-    padding-right: 8px;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* .activity-show-text-container {
@@ -51,7 +58,7 @@
 } */
 
 .activity-show-postedon {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .activity-show-title {
@@ -67,6 +74,8 @@
 
 .activity-show-right {
     padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     display: flex;
     width: 50%;
     border-left: 1px solid black;
@@ -82,4 +91,11 @@
 
 .activity-show-label {
     font-size: 12px;
+}
+
+.activity-map-container {
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    margin-top: 15px;
 }

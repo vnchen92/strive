@@ -8,7 +8,6 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
     if (activity.staticMapUrl !== null) {
         component = <Map activity={activity} />
     } else {
-        //debugger
         component = <></>
     }
 
@@ -69,7 +68,9 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
                         </div>
                     </div>
                 </div>
-                {component}
+                <div className='activity-map-container'>
+                    {component}
+                </div>
                 {/* <Elevation polyline={activity.staticMapUrl}/> */}
             </div>
         </div>
