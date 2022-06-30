@@ -28,7 +28,9 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                 </div>
                                 <div className='nav-right-container'>
                                     <div className='nav-bar-dropdown'>
-                                        <img className='nav-bar-dropdown-btn' src='../../assets/images/add'/>
+                                        <div className='nav-img-container'>
+                                            <img className='nav-bar-dropdown-btn' src='../../assets/images/add'/>
+                                        </div>
                                         <div className='nav-bar-dropdown-container'>
                                             <Link className='nav-bar-dropdown-link' to='/manual'>Create a Route</Link><br/>
                                             <Link className='nav-bar-dropdown-link' to={`/athletes/${currentUser.id}/posts/new`}>Create a post</Link>
@@ -36,7 +38,8 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                     </div>
                                     <div className='nav-bar-dropdown'>
                                         <div className='nav-img-container'>
-                                            <img className='nav-bar-dropdown-btn' src={currentUser.profilePic} alt="" />&nbsp; &or;
+                                            <img className='nav-bar-dropdown-btn' src={currentUser.profilePic} alt="" />
+                                            <p>&nbsp; &or;</p>
                                         </div>
                                         <div className='nav-bar-dropdown-container'>
                                             <button className='nav-bar-dropdown-link' onClick={handleClick}>Log Out</button><br/>

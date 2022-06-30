@@ -20,7 +20,7 @@ class Elevation extends React.Component{
                 samples: 10
             }, function(results, status){
                 if (status === 'OK') {
-                    debugger
+                    //debugger
                     return results;
                 } else {
                     console.log(status);

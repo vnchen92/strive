@@ -48,7 +48,7 @@ class Map extends React.Component {
     }
 
     render(){
-        debugger
+        //debugger
         return (
             <div>
                 <div id='map'></div>
