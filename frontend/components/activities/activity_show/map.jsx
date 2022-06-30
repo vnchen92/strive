@@ -42,7 +42,7 @@ class Map extends React.Component {
             if (status === 'OK') {
                 directionsRenderer.setDirections(response);
             }
-        });
+        }); 
 
         directionsRenderer.setMap(map);
     }
@@ -50,8 +50,8 @@ class Map extends React.Component {
     render(){
         //debugger
         return (
-            <div>
-                <div id='map'></div>
+            <div className='activity-map-container'>
+                <div className='activity-active-map' id='map'></div>
                 <Elevation pathPoints={this.props.activity.points} />
             </div>
         )

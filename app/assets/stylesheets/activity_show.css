@@ -2,24 +2,23 @@
     padding-top: 20px;
     display: flex;
     justify-content: center;
-    background-color: blue;
 }
 
 .activity-show-container {
-    background-color: aqua;
-    border: 1px solid #f0f0f5;
-    width: 700px;
+    /* border: 1px solid #d8d8dd; */
+    width: 800px;
+    margin-bottom: 50px;
 }
 
 .activity-show-top {
-    border: 1px solid black;
+    border-bottom: 1px solid #d8d8dd;
     margin-bottom: 10px;
 }
 
 .activity-badge-and-name {
     display: flex;
     background-color: #e6e6ed;
-    border-bottom: 1px solid #f0f0f5;
+    border: 1px solid #d8d8dd;
     padding-left: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -27,12 +26,15 @@
 
 .activity-show-user-name {
     font-size: 20px;
-    padding-left: 5px;
+    padding-left: 15px;
 }
 
 .activity-show-row {
     display: flex;
     justify-content:left;
+    border-right: 1px solid #d8d8dd;
+    border-left: 1px solid #d8d8dd;
+    border-bottom: 1px solid #d8d8dd;;
 }
 
 .activity-show-left {
@@ -40,6 +42,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     padding-right: 20px;
+    border-right: 1px solid #d8d8dd;
     width: 60%;
     justify-content: space-left;
 }
@@ -78,7 +81,6 @@
     padding-bottom: 20px;
     display: flex;
     width: 50%;
-    border-left: 1px solid black;
 }
 
 .activity-num-container {
@@ -95,7 +97,23 @@
 
 .activity-map-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    background-color: red;
     margin-top: 15px;
+    border: 1px solid #d8d8dd;
+}
+
+.activity-active-map {
+
+}
+
+.activity-chart-container {
+    margin-top: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    border-top: 1px solid #d8d8dd;
 }

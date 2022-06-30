@@ -68,7 +68,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
                         </div>
                     </div>
                 </div>
-                <div className='activity-map-container'>
+                <div>
                     {component}
                 </div>
                 {/* <Elevation polyline={activity.staticMapUrl}/> */}

@@ -113,7 +113,7 @@ class Elevation extends React.Component{
     render() {
         debugger
         return (
-            <div>
+            <div className='activity-chart-container'>
                 <canvas id="myChart"></canvas>
             </div>
         )

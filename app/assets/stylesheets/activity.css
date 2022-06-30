@@ -23,7 +23,7 @@
 
 .activity-content-container {
     padding-left: 20px;
-    width: 100%;
+    width: fit-content;
 }
 
 .activity-user-name > a {
