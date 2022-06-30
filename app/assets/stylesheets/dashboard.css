@@ -14,7 +14,7 @@
     margin-top: 20px;
     padding-bottom: 5px;
     background: white;
-    /* box-shadow: 0px 2px 20px rgb(13 13 18/0.2); */
+    box-shadow: 0px 2px 20px rgba(13, 13, 18, 0.2);
     border-radius: 4px;
 }
 
@@ -73,7 +73,7 @@
 
 .dashboard-following:hover, .dashboard-following:focus {
     background: white;
-    /* box-shadow: 0px 2px 20px rgb(13 13 18/0.2); */
+    box-shadow: 0px 2px 20px rgba(13, 13, 18, 0.2);
 }
 
 .dashboard-dropdown-content {
@@ -85,7 +85,7 @@
     width: 119px;
     z-index: 1;
     background: white;
-    /* box-shadow: 0px 2px 20px rgb(13 13 18/0.2); */
+    box-shadow: 0px 2px 20px rgba(13, 13, 18, 0.2);
 }
 
 .dashboard-dropdown-content > p > a{

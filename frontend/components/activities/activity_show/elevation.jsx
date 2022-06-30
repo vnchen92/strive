@@ -90,8 +90,8 @@ class Elevation extends React.Component{
 
         const data = {
             datasets: [{
-            //   backgroundColor: 'rgb(255, 99, 132)',
-            //   borderColor: 'rgb(255, 99, 132)',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
               data: [1, 2, 5],
             }]
         };
