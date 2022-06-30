@@ -8,6 +8,8 @@
     box-shadow: 0px 2px 20px rgb(13 13 18/ 0.2);
     width: 250px;
     height: fit-content;
+    position: relative;
+    top: 56px;
 }
 
 .profile-top-container {
@@ -20,17 +22,21 @@
 }
 
 .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     border-radius: 50%;
+    position: relative;
+    bottom: 50px;
 }
 
 .profile-name {
     text-align: center;
     font-size: 20px;
     font-weight: bold;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
+    position: relative;
+    bottom: 20px;
 }
 
 .profile-tabs-container {
