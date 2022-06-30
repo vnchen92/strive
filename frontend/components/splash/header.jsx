@@ -26,15 +26,23 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                 <div className='nav-bar-title-container'>
                                     <h1 className='nav-bar-title'><Link to='/'>STRIVE</Link></h1>
                                 </div>
-                                <div>
+                                <div className='nav-right-container'>
                                     <div className='nav-bar-dropdown'>
-                                        <button className='nav-bar-dropdown-btn'>Posts+</button>
+                                        <img className='nav-bar-dropdown-btn' src='../../assets/images/add'/>
                                         <div className='nav-bar-dropdown-container'>
-                                            <p className='nav-bar-dropdown-link'><Link to='/manual'>Create a Route</Link></p>
-                                            <p className='nav-bar-dropdown-link'><Link to={`/athletes/${currentUser.id}/posts/new`}>Create a post</Link></p>
+                                            <Link className='nav-bar-dropdown-link' to='/manual'>Create a Route</Link><br/>
+                                            <Link className='nav-bar-dropdown-link' to={`/athletes/${currentUser.id}/posts/new`}>Create a post</Link>
                                         </div>
                                     </div>
-                                    <button className='nav-bar-btn' onClick={handleClick}>Log Out</button>
+                                    <div className='nav-bar-dropdown'>
+                                        <div className='nav-img-container'>
+                                            <img className='nav-bar-dropdown-btn' src={currentUser.profilePic} alt="" />&nbsp; &or;
+                                        </div>
+                                        <div className='nav-bar-dropdown-container'>
+                                            <button className='nav-bar-dropdown-link' onClick={handleClick}>Log Out</button><br/>
+                                            <Link className='nav-bar-dropdown-link' to='/dashboard/my_activities'>My Profile</Link>
+                                        </div>
+                                    </div>
                                 </div>
                             </nav>
                         </header>
