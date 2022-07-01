@@ -60,8 +60,9 @@ p2 = Activity.create(
     author_id: 2,
     distance: 6,
     pace: 9.45,
-    hours: 2,
-    minutes: 34,
+    hours: 01,
+    minutes: 01,
+    seconds: 01,
     points: [['40.638778', '-74.036007'],['40.616064','-74.038067']],
     static_map_url: 'ig`wF`d{bMCRF@JDx@Jf@D@RFPXX^TLAFJvAl@fBn@p@RPHn@Pd@F^X`@PVH`@@d@G\?XIb@YJQNORM\MTENAn@Nn@T^XVTVTLFLJVNj@Tp@\f@b@|AdBXN|@h@b@b@`AnAh@z@RV\Xb@Vd@N\Ht@L~@JfBHhAXfAHv@@vBC`D`@hBJb@BhAAhBQ|AMHGJBjBJd@EXKZGz@g@hAe@pAYZCHA~@DnDr@`AJp@C~@OhBs@~DuApFuC|BoAFGBWdBgAACAG'
 )
@@ -73,7 +74,7 @@ p3 = Activity.create(
     author_id: 3,
     distance: 2,
     pace: 13.33,
-    minutes: 30,
+    minutes: 26,
     seconds: 49,
     points: [['40.785107','-73.976891'],['40.802957','-73.963849'],['40.800675','-73.958517']],
     static_map_url: 'gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC'
@@ -86,15 +87,15 @@ p4 = Activity.create(
     author_id: 1,
     distance: 10.6,
     pace: 6.35,
-    hours: 1,
-    minutes: 5,
+    hours: 01,
+    minutes: 05,
     seconds: 43,
     points: [['40.731179','-73.9193351'], ['40.735542','-73.918354'],['40.735916','-73.914556'],['40.742277','-73.913054'],['40.741342', '-73.909127'],['40.719728', '-73.911273']],
     static_map_url: 'airwFrjdbMDYUEi@OgCg@mBUW@_@EaCYcBS{De@k@ISCSC?k@EiA?q@AiASuDa@aHAOGREMNEMJa@G_AMyB[eDg@wLiBoK}A_@GOC?KBQDeA`@_H^oGt@sM~MlBfB`@rCn@lG~BlA^lFlB~B~@bBp@pAh@RPdA\xAh@b@NdB^jCd@lC\t@Bb@DD@?WBwDN?HU`@qAb@qAl@kA`B}C`@}@vBeF\}@Zb@x@lAzB~C`CjD^d@Pi@pBGrBKhCWfDa@dDKdEKjAC`BEXzA^tBd@fCN|@RpAVvA'
 )
 
 p5 = Activity.create(
-    title: 'Just want to tract my progress...',
+    title: 'Just want to track my progress...',
     body: "How did I do? 🤩",
     posted_on: 'Mon April 4 2022',
     author_id: 1,
@@ -104,6 +105,29 @@ p5 = Activity.create(
     seconds: 23
 )
 
+p6 = Activity.create(
+    title: 'WOOHOO',
+    body: "WHO RUN THE WORLD? GIRLS.",
+    posted_on: 'Fri May 4 2022',
+    author_id: 2,
+    distance: 10,
+    pace: 9.30,
+    hours: 01,
+    minutes: 34,
+    seconds: 23
+)
+
+p7 = Activity.create(
+    title: 'Think I finally broke in my sneakers',
+    posted_on: 'Fri May 4 2022',
+    author_id: 3,
+    distance: 7,
+    pace: 8.30,
+    hours: 01,
+    minutes: 04,
+    seconds: 44
+)
+
 f1 = Follow.create( # demo user is following me
     follower_id: 1,
     following_id: 2
@@ -111,5 +135,10 @@ f1 = Follow.create( # demo user is following me
 
 f2 = Follow.create( # I am following daniel
     follower_id: 2,
+    following_id: 3
+)
+
+f3 = Follow.create( # demo user is following daniel
+    follower_id: 1,
     following_id: 3
 )
