@@ -95,16 +95,19 @@
     font-size: 12px;
 }
 
-.activity-map-container {
+.activity-map-and-chart-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 15px;
-    border: 1px solid #d8d8dd;
+    margin-bottom: 15px;
 }
 
-.activity-active-map {
-
+.activity-map-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid #d8d8dd;
 }
 
 .activity-chart-container {
@@ -115,5 +118,40 @@
     padding-left: 10px;
     padding-right: 10px;
     width: 100%;
-    border-top: 1px solid #d8d8dd;
+    border: 1px solid #d8d8dd;
+}
+
+.activity-tools-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d8d8dd;
+    margin-right: 10px;
+    width: 125px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.tool-container, .tool-container-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.tool-container-edit {
+    border-right: 1px solid #d8d8dd;
+}
+
+img.edit-tool, img.delete-tool {
+    width: 23px;
+    height: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.tool-container:hover, .tool-container-edit:hover {
+    background-color: #d5d5da;
+    border: 1px solid #d5d5da;
 }

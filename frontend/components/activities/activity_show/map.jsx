@@ -50,8 +50,10 @@ class Map extends React.Component {
     render(){
         //debugger
         return (
-            <div className='activity-map-container'>
-                <div className='activity-active-map' id='map'></div>
+            <div className='activity-map-and-chart-container'>
+                <div className='activity-map-container'>
+                    <div id='map'></div>
+                </div>
                 <Elevation pathPoints={this.props.activity.points} />
             </div>
         )

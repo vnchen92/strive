@@ -5,6 +5,9 @@ import { Line } from 'react-chartjs-2';
 class Elevation extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            elevation: []
+        }
     }
 
     componentDidMount() {
@@ -13,6 +16,7 @@ class Elevation extends React.Component{
             elevationPoints.push(new google.maps.LatLng(point[0] * 1, point[1] * 1))
         })
 
+        this.setState({elevation: elevationPoints});
 
         let elevator = new google.maps.ElevationService()
             .getElevationAlongPath({
@@ -40,54 +44,6 @@ class Elevation extends React.Component{
 
         console.log(elevationData);
 
-        //polyline.points
-        // const elevator = new google.maps.ElevationService();
-
-        // const elevationData = elevator.getElevationAlongPath({
-        //         path: 'gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC',
-        //         samples: 50
-        // }).then(({data}) => {
-        //         debugger
-        //         return data;
-        //     })
-        //     .catch(err => console.log(err));
-
-        // let elevationData = elevator.getElevationAlongPath({
-        //         path: this.props.elevationPoints,
-        //         samples: 10,
-        //      }, function(elevations, status) {
-        //             debugger
-        //             console.log(elevations);
-        //      })
-
-        //      debugger
-        // let response =fetchPathElevation()
-        //     .then((response) => {
-        //     debugger
-        //     console.log(JSON.stringify(response.data));
-        //   })
-        //   .catch((error) => {
-        //     debugger
-        //     console.log(error);
-        //   });
-
-        // let response = fetchPathElevation(this.props.polyline)
-        //     .then(
-        //         result => {
-        //         //debugger
-        //         return console.log({result});
-        //     },
-        //     error => {
-        //         //debugger
-        //          return console.log('error');
-        //     })
-            
-        // //debugger
-        // let filteredData = []
-        // response.results.forEach(res => {
-        //     filteredData.push(res.elevation)
-        // })
-
         const data = {
             datasets: [{
               backgroundColor: 'rgb(255, 99, 132)',
@@ -107,8 +63,6 @@ class Elevation extends React.Component{
             config
           );
     }
-
-
 
     render() {
         debugger
@@ -180,3 +134,51 @@ class Elevation extends React.Component{
 // }
 
 export default Elevation;
+
+        //polyline.points
+        // const elevator = new google.maps.ElevationService();
+
+        // const elevationData = elevator.getElevationAlongPath({
+        //         path: 'gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC',
+        //         samples: 50
+        // }).then(({data}) => {
+        //         debugger
+        //         return data;
+        //     })
+        //     .catch(err => console.log(err));
+
+        // let elevationData = elevator.getElevationAlongPath({
+        //         path: this.props.elevationPoints,
+        //         samples: 10,
+        //      }, function(elevations, status) {
+        //             debugger
+        //             console.log(elevations);
+        //      })
+
+        //      debugger
+        // let response =fetchPathElevation()
+        //     .then((response) => {
+        //     debugger
+        //     console.log(JSON.stringify(response.data));
+        //   })
+        //   .catch((error) => {
+        //     debugger
+        //     console.log(error);
+        //   });
+
+        // let response = fetchPathElevation(this.props.polyline)
+        //     .then(
+        //         result => {
+        //         //debugger
+        //         return console.log({result});
+        //     },
+        //     error => {
+        //         //debugger
+        //          return console.log('error');
+        //     })
+            
+        // //debugger
+        // let filteredData = []
+        // response.results.forEach(res => {
+        //     filteredData.push(res.elevation)
+        // })
