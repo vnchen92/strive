@@ -9,7 +9,7 @@
     width: 250px;
     height: fit-content;
     position: relative;
-    top: 56px;
+    top: 46px;
 }
 
 .profile-top-container {
@@ -27,7 +27,7 @@
     object-fit: cover;
     border-radius: 50%;
     position: relative;
-    bottom: 50px;
+    bottom: 40px;
 }
 
 .profile-name {

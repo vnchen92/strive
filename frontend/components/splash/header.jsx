@@ -32,8 +32,12 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                             <img className='nav-bar-dropdown-btn' src='/assets/add'/>
                                         </div>
                                         <div className='nav-bar-dropdown-container'>
-                                            <Link className='nav-bar-dropdown-link' to='/manual'>Create a Route</Link><br/>
-                                            <Link className='nav-bar-dropdown-link' to={`/athletes/${currentUser.id}/posts/new`}>Create a post</Link>
+                                            <div className='drop-down-link-container'>
+                                                <Link className='nav-bar-dropdown-link' to='/manual'>Create a Route</Link>
+                                            </div>
+                                            <div className='drop-down-link-container'>
+                                                <Link className='nav-bar-dropdown-link' to={`/athletes/${currentUser.id}/posts/new`}>Create a post</Link>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className='nav-bar-dropdown'>
@@ -42,8 +46,12 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                             <p>&nbsp; &or;</p>
                                         </div>
                                         <div className='nav-bar-dropdown-container'>
-                                            <Link className='nav-bar-dropdown-link' to='/dashboard/my_activities'>My Profile</Link>
-                                            <button className='nav-bar-dropdown-link' onClick={handleClick}>Log Out</button><br/>
+                                            <div className='drop-down-link-container'>
+                                                <Link className='nav-bar-dropdown-link' to='/dashboard/my_activities'>My Profile</Link>
+                                            </div>
+                                            <div className='drop-down-link-container'>
+                                                <button className='nav-bar-dropdown-link' onClick={handleClick}>Log Out</button><br/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
