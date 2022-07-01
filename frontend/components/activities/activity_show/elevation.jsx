@@ -11,7 +11,7 @@ class Elevation extends React.Component{
     }
 
     componentDidMount() {
-        debugger
+        //debugger
         let elevationPoints = [];
         this.props.pathPoints.forEach(point => {
             elevationPoints.push(new google.maps.LatLng(point[0] * 1, point[1] * 1))
@@ -58,17 +58,17 @@ class Elevation extends React.Component{
         }
 
         // this.context = this.chartRef.current.getContext('2d');
-        // const ctx = document.getElementById("myChart").getContext("2d");
+        const ctx = document.getElementById("myChart");
 
-        //const myChart = new Chart(document.getElementById('myChart'),config);
+        const myChart = new Chart(document.getElementById('myChart'),config);
 
         return (
-            // <div className='activity-chart-container'>
-            //     <canvas id="myChart"></canvas>
-            // </div>
-            <div>
-                {component}
+            <div className='activity-chart-container'>
+                <canvas id="myChart"></canvas>
             </div>
+            // <div>
+            //     {component}
+            // </div>
         )
     }
 }

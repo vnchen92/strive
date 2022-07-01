@@ -6,19 +6,26 @@ class LineChart extends React.Component {
     chartRef = React.createRef();
 
     componentDidMount() {
-        debugger
+        //debugger
 		const ctx = this.chartRef.current.getContext("2d");
 
-		new Chart(ctx, {
-			type: 'line',
-            data: {
-                datasets: [{
-                    data: this.props.elevation,
-                    borderColor: "#3e95cd",
-					backgroundColor: "#7bb6dd",
-                }]
-            },
-		});
+		console.log(this.props.elevation);
+
+		const data = {
+            datasets: [{
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: this.props.elevation,
+            }]
+        };
+
+		const config = {
+            type: 'line',
+            data: data,
+            options: {},
+        };
+
+		new Chart(ctx, config);
 	}
 
 	render() {
