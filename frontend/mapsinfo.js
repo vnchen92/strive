@@ -108,6 +108,6 @@ const request = {
 directionsService.route(request, function(response, status) {
     if (status === 'OK') {
         directionsRenderer.setDirections(response);
-        console.log(response);
+        // console.log(response);
     }
 });

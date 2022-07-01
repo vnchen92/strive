@@ -108,7 +108,7 @@ class ActivityForm extends React.Component {
                                         />
                                         <abbr title="minutes">min</abbr>
                                     </div>
-                                    <div className='create-time-container'>
+                                    <div className='create-time-container-s'>
                                         <input 
                                             type="text" 
                                             placeholder='00'
@@ -121,7 +121,7 @@ class ActivityForm extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='create-text-container'>
+                        <div className='create-text-container-top'>
                             <label className='create-label'>Title</label>
                             <input 
                                 className='create-title-input'
