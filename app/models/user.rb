@@ -30,6 +30,10 @@ class User < ApplicationRecord
     class_name: :Follow,
     foreign_key: :follower_id
 
+    has_many :comments,
+    class_name: :Comment,
+    foreign_key: :activity_id
+
     attr_reader :password
 
     before_validation :ensure_session_token
