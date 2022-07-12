@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
     def show
-        @comment = Comment.find_by(id: params[id])
+        @comment = Comment.find_by(id: params[:id])
         render :show
     end
 
@@ -15,7 +15,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def update
-        @comment = Comment.find_by(:id: params[:id])
+        @comment = Comment.find_by(id: params[:id])
 
         if @comment.update(comment_params)
             render :show
