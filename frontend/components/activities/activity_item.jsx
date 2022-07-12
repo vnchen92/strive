@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
 
-const ActivityItem = ({activity, currentUser, user}) => {
+const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments}) => {
     let aProfilePage;
 
     if (currentUser.id === user.id && activity.authorId === currentUser.id) {
@@ -40,7 +40,7 @@ const ActivityItem = ({activity, currentUser, user}) => {
             activity.staticMapUrl ? <img className='activity-static-map' src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" /> : <></>
             }
             <div>
-                <Comments activityId={activity.id} />
+                <Comments activityId={activity.id} fetchAllComments={fetchAllComments} comments={comments}/>
             </div>
         </div>
     )

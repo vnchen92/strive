@@ -1,4 +1,5 @@
 export const fetchAllComments = () => {
+    debugger
     return $.ajax({
         url: 'api/comments',
         method: 'GET'

@@ -5,6 +5,7 @@ export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 const receiveComments = comments => {
+    debugger
     return {
         type: RECEIVE_COMMENTS,
         comments
@@ -25,35 +26,36 @@ const removeComment = comment => {
     }
 }
 
-export const fetchAllComments = () => {
+export const fetchAllComments = () => dispatch => {
+    debugger
     return (
         CommentApiUtil.fetchAllComments()
             .then(res => dispatch(receiveComments(res)))
     )
 }
 
-export const fetchComment = commentId => {
+export const fetchComment = commentId => dispatch => {
     return (
         CommentApiUtil.fetchComment(commentId)
             .then(res => dispatch(receiveComment(res)))
     )
 }
 
-export const createComment = comment => {
+export const createComment = comment => dispatch => {
     return (
         CommentApiUtil.createComment(comment)
             .then(res => dispatch(receiveComment(res)))
     )
 }
 
-export const updateComment = comment => {
+export const updateComment = comment => dispatch => {
     return (
         CommentApiUtil.updateComment(comment)
             .then(res => dispatch(receiveComment(res)))
     )
 }
 
-export const deleteComment = commentId => {
+export const deleteComment = commentId => dispatch => {
     return (
         CommentApiUtil.deleteComment(commentId)
             .then(res => disptach(removeComment(res)))
