@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
     def index
         @activities = Activity.all
-
+        @users = User.all
         # @comments = Hash.new { |h, k| h[k] = [] }
 
         # @activities.each do |activity|
