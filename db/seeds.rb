@@ -9,6 +9,7 @@
 User.destroy_all
 Activity.destroy_all
 Follow.destroy_all
+Comment.destroy_all
 
 u1 = User.create(
     firstName: 'Demo',
@@ -141,4 +142,21 @@ f2 = Follow.create( # I am following daniel
 f3 = Follow.create( # demo user is following daniel
     follower_id: 1,
     following_id: 3
+)
+
+f4 = Follow.create( # I am following demo user
+    follower_id: 2,
+    following_id: 1
+)
+
+c1 = Comment.create(
+    body: 'YOU GOT THIS!!!',
+    user_id: 1,
+    activity_id: 2
+)
+
+c2 = Comment.create(
+    body: 'I agree, YOU DA BEST',
+    user_id: 2,
+    activity_id: 4
 )
