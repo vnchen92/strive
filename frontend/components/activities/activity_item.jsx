@@ -10,7 +10,6 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments})
     } else {
         aProfilePage = `/athletes/${activity.authorId}`
     }
-    
     return (
         <div className='activity-container'>
             <div className='activity-icon-and-content-container'>

@@ -5,7 +5,6 @@ export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 const receiveComments = comments => {
-    debugger
     return {
         type: RECEIVE_COMMENTS,
         comments
@@ -27,7 +26,6 @@ const removeComment = comment => {
 }
 
 export const fetchAllComments = () => dispatch => {
-    debugger
     return (
         CommentApiUtil.fetchAllComments()
             .then(res => dispatch(receiveComments(res)))

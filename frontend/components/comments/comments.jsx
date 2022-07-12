@@ -10,15 +10,17 @@ const Comments = ({activityId, fetchAllComments, comments}) => {
     let component;
 
     for(const postId in comments) {
-        if (postId === activityId){
+        if (parseInt(postId) === activityId){
+            debugger
             Object.values(comments[postId]).map((com => {
-                component = <Comment comment={com}/>
+                debugger
+                return component = <Comment comment={com}/>
             }))
         } else {
             component = <></>
         }
     }
-
+    debugger
     return (
         <div>
             {component}

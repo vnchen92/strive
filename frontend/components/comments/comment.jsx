@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Comment = ({comment}) => {
+    //debugger
     return (
         <div>
             <p>{comment.firstName}&nbsp;{comment.lastName}</p>

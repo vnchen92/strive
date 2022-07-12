@@ -9,7 +9,6 @@ const commentsReducer = (state = initialState, action) => {
     let nextState = {...state};
     switch(action.type){
         case RECEIVE_COMMENTS:
-            debugger
             nextState = {...action.comments};
             return nextState;
         case RECEIVE_COMMENT:
