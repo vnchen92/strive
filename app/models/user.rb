@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
     has_many :comments,
     class_name: :Comment,
-    foreign_key: :activity_id
+    foreign_key: :user_id
 
     attr_reader :password
 

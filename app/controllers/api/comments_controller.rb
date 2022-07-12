@@ -1,4 +1,15 @@
 class Api::CommentsController < ApplicationController
+    def index
+        @activities = Activity.all
+
+        # @comments = Hash.new { |h, k| h[k] = [] }
+
+        # @activities.each do |activity|
+        #     @comments[activity.id] = activity.comments
+        # end
+
+        render :index
+    end
     def show
         @comment = Comment.find_by(id: params[:id])
         render :show

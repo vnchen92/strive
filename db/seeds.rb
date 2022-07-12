@@ -149,6 +149,11 @@ f4 = Follow.create( # I am following demo user
     following_id: 1
 )
 
+f5 = Follow.create(
+    follower_id: 3,
+    following_id: 1
+)
+
 c1 = Comment.create(
     body: 'YOU GOT THIS!!!',
     user_id: 1,
@@ -158,5 +163,11 @@ c1 = Comment.create(
 c2 = Comment.create(
     body: 'I agree, YOU DA BEST',
     user_id: 2,
+    activity_id: 4
+)
+
+c3 = Comment.create(
+    body: "TIME FOR THE OLYMPICS? 🤣",
+    user_id: 3,
     activity_id: 4
 )
