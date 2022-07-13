@@ -12,6 +12,18 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         aProfilePage = `/athletes/${activity.authorId}`
     }
 
+    const handleClick = e => {
+        let showDivs = document.getElementsByClassName("comment-create-container");
+        for (let i = 0; i < showDivs.length; i++) {
+            let showDiv = showDivs.item(i);
+            if (showDiv.style.display === "none") {
+                showDiv.style.display = "block";
+            } else {
+                showDiv.style.display = "none";
+            }
+        }
+    }
+
     //debugger
     return (
         <div className='activity-container'>
@@ -42,8 +54,10 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
             activity.staticMapUrl ? <img className='activity-static-map' src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" /> : <></>
             }
             <div className='comments-ent-container'>
-                <div className='comments-icon-container'>
-                    <img className='comment-icon' src="/assets/comment" alt="" />
+                <div className='comments-icon-outer-container'>
+                    <div className='comments-icon-container'>
+                        <img className='comment-icon' src="/assets/comment" alt="" onClick={handleClick}/>
+                    </div>
                 </div>
                 <div className='comments-container'>
                     <Comments 
