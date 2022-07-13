@@ -54,7 +54,6 @@ export const updateComment = comment => dispatch => {
 }
 
 export const deleteComment = commentId => dispatch => {
-    debugger
     return (
         CommentApiUtil.deleteComment(commentId)
             .then(res => dispatch(removeComment(res)))

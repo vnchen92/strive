@@ -3,7 +3,8 @@ import Dashboard from '../dashboard/dashboard';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        user: state.entities.users[ownProps.match.params.id]
+        user: state.entities.users[ownProps.match.params.id],
+        follows: state.entities.follows
     }
 }
 

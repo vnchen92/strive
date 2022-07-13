@@ -9,7 +9,8 @@ const mapStateToProps = ({entities, session}) => {
         currentUser: entities.users[session.id],
         user: entities.users[session.id],
         firstActivity: Object.values(entities.activities)[0],
-        firstFollow: Object.values(entities.follows)[0]
+        firstFollow: Object.values(entities.follows)[0],
+        follows: entities.follows || {}
     }
 }
 
