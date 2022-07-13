@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form';
 
-const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments}) => {
+const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment}) => {
     let aProfilePage;
 
     if (currentUser.id === user.id && activity.authorId === currentUser.id) {
@@ -46,7 +46,13 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments})
                 <CommentFormContainer activityId={activity.id} />
             </div>
             <div>
-                <Comments activityId={activity.id} fetchAllComments={fetchAllComments} comments={comments}/>
+                <Comments 
+                    activityId={activity.id} 
+                    fetchAllComments={fetchAllComments} 
+                    comments={comments} 
+                    currentUser={currentUser}
+                    deleteComment={deleteComment}
+                />
             </div>
         </div>
     )
