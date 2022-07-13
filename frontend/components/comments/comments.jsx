@@ -1,29 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Comment from './comment';
 
 const Comments = ({activityId, fetchAllComments, comments}) => {
 
+    let currentComments = [];
+
     useEffect(() => {
         fetchAllComments();
+        //debugger
     }, [])
 
-    let component;
-
     for(const postId in comments) {
+        //debugger
         if (parseInt(postId) === activityId){
-            debugger
+            //debugger
             Object.values(comments[postId]).map((com => {
-                debugger
-                return component = <Comment comment={com}/>
+                currentComments.push(com);
             }))
-        } else {
-            component = <></>
         }
     }
-    debugger
+    //debugger
     return (
         <div>
-            {component}
+            {
+            currentComments.map(comment => {
+                return <Comment comment={comment} />
+            })
+            }
         </div>
     )
 }

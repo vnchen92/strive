@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
+import CommentFormContainer from '../comments/comment_form';
 
 const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments}) => {
     let aProfilePage;
@@ -10,6 +11,8 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments})
     } else {
         aProfilePage = `/athletes/${activity.authorId}`
     }
+
+    //debugger
     return (
         <div className='activity-container'>
             <div className='activity-icon-and-content-container'>
@@ -38,6 +41,10 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments})
             {
             activity.staticMapUrl ? <img className='activity-static-map' src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" /> : <></>
             }
+            <div>
+                <img className='comment-icon' src="/assets/comment" alt="" />
+                <CommentFormContainer activityId={activity.id} />
+            </div>
             <div>
                 <Comments activityId={activity.id} fetchAllComments={fetchAllComments} comments={comments}/>
             </div>

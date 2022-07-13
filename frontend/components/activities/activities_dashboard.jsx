@@ -2,7 +2,7 @@ import React from 'react';
 import ActivityItem from './activity_item';
 
 const ActivitiesDashboard = ({ filteredActivities, currentUser, user, fetchAllComments, comments }) => {
-
+    //debugger
     return(
         <div>
         {

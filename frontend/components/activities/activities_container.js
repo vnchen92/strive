@@ -4,12 +4,13 @@ import { fetchDashboardActivities } from '../selectors/fetch_dashboard_activitie
 import { fetchAllComments } from '../../actions/comments_actions';
 
 const mapStateToProps = ({entities, session}) => {
+    //debugger
     return {
         currentUser: entities.users[session.id],
         user: entities.users[session.id],
         filteredActivities: fetchDashboardActivities(entities, session, entities.activities, entities.follows),
         allUsers: entities.users,
-        comments: entities.comments || {}
+        comments: entities.comments
     }
 }
 
