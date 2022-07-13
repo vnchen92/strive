@@ -21,13 +21,19 @@ const Comments = ({activityId, fetchAllComments, comments, currentUser, deleteCo
     }
     //debugger
     return (
-        <div>
+        <>
             {
             currentComments.map(comment => {
-                return <Comment comment={comment} currentUser={currentUser} deleteComment={deleteComment}/>
+                return <div className='comment-container'>
+                    <Comment 
+                        comment={comment} 
+                        currentUser={currentUser} 
+                        deleteComment={deleteComment}
+                    />
+                </div>
             })
             }
-        </div>
+        </>
     )
 }
 

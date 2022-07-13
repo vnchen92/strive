@@ -1,0 +1,62 @@
+.comments-ent-container {
+
+}
+
+.comments-icon-container {
+    text-align: right;
+}
+
+.comment-icon {
+    width: 20px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.comments-container {
+
+}
+
+.comment-container {
+
+}
+
+.comment-name {
+
+}
+
+.comment-delete-btn {
+
+}
+
+.comment-time {
+
+}
+
+.comment-body {
+
+}
+
+.comment-create-container {
+    background-color: blue;
+    border-top: 1px solid black;
+    margin-top: 10px;
+}
+
+.comment-create-form {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-create-form-input {
+    border: 1px solid black;
+}
+
+.comment-create-form-input:focus {
+    border: 1px solid black;
+}
+
+.comment-post-btn {
+    background-color: red;
+}

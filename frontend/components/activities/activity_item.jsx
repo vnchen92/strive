@@ -41,18 +41,20 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
             {
             activity.staticMapUrl ? <img className='activity-static-map' src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" /> : <></>
             }
-            <div>
-                <img className='comment-icon' src="/assets/comment" alt="" />
+            <div className='comments-ent-container'>
+                <div className='comments-icon-container'>
+                    <img className='comment-icon' src="/assets/comment" alt="" />
+                </div>
+                <div className='comments-container'>
+                    <Comments 
+                        activityId={activity.id} 
+                        fetchAllComments={fetchAllComments} 
+                        comments={comments} 
+                        currentUser={currentUser}
+                        deleteComment={deleteComment}
+                    />
+                </div>
                 <CommentFormContainer activityId={activity.id} />
-            </div>
-            <div>
-                <Comments 
-                    activityId={activity.id} 
-                    fetchAllComments={fetchAllComments} 
-                    comments={comments} 
-                    currentUser={currentUser}
-                    deleteComment={deleteComment}
-                />
             </div>
         </div>
     )
