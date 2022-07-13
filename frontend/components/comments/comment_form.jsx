@@ -17,7 +17,7 @@ const CommentForm = props => {
     return (
         <div className='comment-create-container'>
             <form className='comment-create-form' onSubmit={handleSubmit}>
-                <input className='comment-create-form-input' type="text" value={state.body} onChange={(e) => setState({...state, body: e.target.value})} />
+                <input className='comment-create-form-input' type="text" placeholder='Add a comment' value={state.body} onChange={(e) => setState({...state, body: e.target.value})} />
                 <button className='comment-post-btn'>Post</button>
             </form>
         </div>

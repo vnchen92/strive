@@ -39,24 +39,46 @@
 
 .comment-create-container {
     background-color: blue;
-    border-top: 1px solid black;
+    border-top: 1px solid #f0f0f5;
     margin-top: 10px;
 }
 
 .comment-create-form {
     background-color: aqua;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
 .comment-create-form-input {
-    border: 1px solid black;
+    border: 1px solid #f0f0f5;
+    background-color: #f7f7fa;
+    border-radius: 2px;
+    width: 100%;
 }
 
 .comment-create-form-input:focus {
-    border: 1px solid black;
+    border: 1px solid #f0f0f5;
+
 }
 
 .comment-post-btn {
     background-color: red;
+    border-radius: 2px;
+    color: #fc5200;
+    font-weight: bold;
+    margin-left: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.comment-post-btn:hover {
+    background-color: #fc5400b2;
+    margin-left: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    cursor: pointer;
 }
