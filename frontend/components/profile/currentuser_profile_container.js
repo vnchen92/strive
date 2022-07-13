@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllComments } from '../../actions/comments_actions';
+import { fetchAllComments, deleteComment } from '../../actions/comments_actions';
 import ActivitiesDashboard from '../activities/activities_dashboard';
 import { fetchProfileActivities } from '../selectors/fetch_profile_activities';
 
@@ -14,7 +14,8 @@ const mapStateToProps = ({entities, session}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchAllComments : () => dispatch(fetchAllComments())
+        fetchAllComments : () => dispatch(fetchAllComments()),
+        deleteComment: (commentId) => dispatch(deleteComment(commentId))
     }
 }
 

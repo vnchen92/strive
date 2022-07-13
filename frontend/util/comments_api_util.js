@@ -30,6 +30,7 @@ export const updateComment = comment => {
 }
 
 export const deleteComment = commentId => {
+    debugger
     return $.ajax({
         url: `api/comments/${commentId}`,
         method: 'DELETE',

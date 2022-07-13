@@ -40,7 +40,7 @@ class Api::CommentsController < ApplicationController
 
         if @comment
             @comment.destroy!
-            render json: {}
+            render :show
         else
             render json: ['Comment does not exist']
         end
