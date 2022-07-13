@@ -13,14 +13,15 @@ const commentsReducer = (state = initialState, action) => {
             return nextState;
         case RECEIVE_COMMENT:
             //debugger
-            let newComment = {};
-            newComment[action.comment.id] = action.comment;
+            // let newComment = {};
+            // newComment[action.comment.id] = action.comment;
+            // debugger
+            let currentState = nextState[action.comment.activityId][action.comment.id];
+            nextState[action.comment.activityId][action.comment.id] = {...currentState, ...action.comment};
             debugger
-            nextState[action.comment.postId] = {...state, newComment};
-
             return nextState;
         case REMOVE_COMMENT:
-            delete nextState[action.comment.postId].action.comment.id
+            delete nextState[action.comment.activityId].action.comment.id
             return nextState;
         default:
             return nextState;
