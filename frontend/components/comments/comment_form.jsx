@@ -17,6 +17,7 @@ const CommentForm = props => {
     return (
         <div className='comment-create-container'>
             <form className='comment-create-form' onSubmit={handleSubmit}>
+                <img className='comment-form-user-icon' src={props.currentUser.profilePic} alt="" />
                 <input className='comment-create-form-input' type="text" placeholder='Add a comment' value={state.body} onChange={(e) => setState({...state, body: e.target.value})} />
                 <button className='comment-post-btn'>Post</button>
             </form>

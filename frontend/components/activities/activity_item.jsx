@@ -54,7 +54,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                         deleteComment={deleteComment}
                     />
                 </div>
-                <CommentFormContainer activityId={activity.id} />
+                <CommentFormContainer activityId={activity.id} currentUser={currentUser} />
             </div>
         </div>
     )

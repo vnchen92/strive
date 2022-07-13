@@ -3,7 +3,9 @@
 }
 
 .comments-icon-container {
-    text-align: right;
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
 
 .comment-icon {
@@ -14,40 +16,74 @@
 }
 
 .comments-container {
-
 }
 
 .comment-container {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.comment-right-container {
+    width: 100%;
+}
+
+.comment-name-time-delete-container {
+    display: flex;
+    justify-content: space-between;
 
 }
 
 .comment-name {
+    font-weight: bold;
+    font-size: 11px;
+}
 
+.comment-time-delete-container {
+    display: flex;
+    justify-content: space-between;
+    width: 175px;
 }
 
 .comment-delete-btn {
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.807);
+    cursor: pointer;
+}
 
+.comment-delete-btn:hover {
+    color: #fc5200;
+    font-size: 11px;
+    cursor: pointer;
 }
 
 .comment-time {
-
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.807);
 }
 
 .comment-body {
-
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.807);
 }
 
 .comment-create-container {
-    background-color: blue;
     border-top: 1px solid #f0f0f5;
     margin-top: 10px;
+    height: 80px;
 }
 
 .comment-create-form {
-    background-color: aqua;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    height: 60px;
+}
+
+.comment-form-user-icon, .comment-user-icon {
+    width: 25px;
+    height: 25px;
+    padding-right: 10px;
 }
 
 .comment-create-form-input {
@@ -55,6 +91,7 @@
     background-color: #f7f7fa;
     border-radius: 2px;
     width: 100%;
+    height: 100%;
 }
 
 .comment-create-form-input:focus {
@@ -63,16 +100,16 @@
 }
 
 .comment-post-btn {
-    background-color: red;
     border-radius: 2px;
     color: #fc5200;
     font-weight: bold;
-    margin-left: 5px;
+    margin-left: 10px;
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 5px;
     padding-bottom: 5px;
     cursor: pointer;
+    height: 20px;
 }
 
 .comment-post-btn:hover {
