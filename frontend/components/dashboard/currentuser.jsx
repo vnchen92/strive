@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CurrentUser = ({user, follows}) => {
+const CurrentUser = ({user, followers, followings}) => {
     return (
         <div className='profile-container'>
             <div className='profile-top-container'>
@@ -11,11 +11,11 @@ const CurrentUser = ({user, follows}) => {
                 <ul className='profile-tabs-container'>
                     <li className='profile-tab-container'>
                         <p className='profile-tab'>Following</p>
-                        <p className='profile-num'>#5</p>
+                        <p className='profile-num'>{followings}</p>
                     </li>
                     <li className='profile-tab-container'>
                         <p className='profile-tab'>Followers</p>
-                        <p className='profile-num'>#5</p>
+                        <p className='profile-num'>{followers}</p>
                     </li>
                     <li className='profile-tab-container'>
                         <p className='profile-tab'>Activities</p>

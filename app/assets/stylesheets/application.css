@@ -24,6 +24,7 @@
 @import "./create.css";
 @import "./activity.css";
 @import "./activity_show.css";
+@import "./comment.css";
 
 a {
     text-decoration: none;
