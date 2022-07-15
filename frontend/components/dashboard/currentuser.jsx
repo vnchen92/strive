@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CurrentUser = ({user, followers, followings}) => {
+const CurrentUser = ({user, followers, followings, activitiesNum}) => {
     return (
         <div className='profile-container'>
             <div className='profile-top-container'>
@@ -19,7 +19,7 @@ const CurrentUser = ({user, followers, followings}) => {
                     </li>
                     <li className='profile-tab-container'>
                         <p className='profile-tab'>Activities</p>
-                        <p className='profile-num'>#5</p>
+                        <p className='profile-num'>{activitiesNum}</p>
                     </li>
                 </ul>
             </div>
