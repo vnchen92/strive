@@ -24,7 +24,7 @@ const Comments = ({activityId, fetchAllComments, comments, currentUser, deleteCo
         <>
             {
             currentComments.map(comment => {
-                return <div className='comment-container'>
+                return <div key={comment._id} className='comment-container'>
                     <Comment 
                         comment={comment} 
                         currentUser={currentUser} 
