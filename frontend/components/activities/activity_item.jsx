@@ -56,6 +56,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
             <div className='comments-ent-container'>
                 <div className='comments-icon-outer-container'>
                     <div className='comments-icon-container'>
+                        <img className='like-icon' src="/assets/like" alt="" />
                         <img className='comment-icon' src="/assets/comment" alt="" onClick={handleClick}/>
                     </div>
                 </div>
