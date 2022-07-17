@@ -12,6 +12,7 @@ const CommentForm = props => {
     const handleSubmit = e => {
         e.preventDefault();
         props.createComment(state);
+        setState({...state, body: ""})
     }
 
     return (

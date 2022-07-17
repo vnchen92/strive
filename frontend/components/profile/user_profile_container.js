@@ -8,8 +8,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         currentUser: state.entities.users[state.session.id],
         user: state.entities.users[ownProps.match.params.id],
-        filteredActivities: fetchUserActivities(state.entities.users[ownProps.match.params.id], state.entities.activities)
-        
+        filteredActivities: fetchUserActivities(state.entities.users[ownProps.match.params.id], state.entities.activities),
+        comments: state.entities.comments
     }
 }
 
