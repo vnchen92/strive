@@ -34,9 +34,13 @@ export const fetchAllKudos = () => dispatch => {
 }
 
 export const createKudo = kudo => dispatch => {
+    debugger
     return (
         KudoApiUtil.createKudo(kudo)
-            .then(res => dispatch(receiveKudo(res)))
+            .then(res => {
+                debugger
+                return dispatch(receiveKudo(res))
+            })
     )
 }
 

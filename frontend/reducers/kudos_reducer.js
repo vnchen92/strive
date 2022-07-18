@@ -13,8 +13,12 @@ const kudosReducer = (state = initialState, action) => {
             return nextState;
         case RECEIVE_KUDO:
             debugger
-            let currentState = nextState[action.kudo.activityId][action.kudo.id];
-            nextState[action.kudo.activityId][action.kudo.id] = {...currentState, ...action.kudo};
+            if (nextState[action.kudo.activityId] === undefined) {
+                nextState[action.kudo.activityId][action.kudo.id] = action.kudo
+            } else {
+                let currentState = nextState[action.kudo.activityId][action.kudo.id]
+                nextState[action.kudo.activityId][action.kudo.id] = {...currentState, ...action.kudo};
+            }
             return nextState;
         case REMOVE_KUDO:
             delete nextState[action.kudo.activityId][action.kudo.id]
