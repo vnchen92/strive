@@ -10,6 +10,7 @@ User.destroy_all
 Activity.destroy_all
 Follow.destroy_all
 Comment.destroy_all
+Kudo.destroy_all
 
 u1 = User.create(
     firstName: 'Demo',
@@ -170,4 +171,24 @@ c3 = Comment.create(
     body: "TIME FOR THE OLYMPICS? 🤣",
     user_id: 3,
     activity_id: 4
+)
+
+k1 = Kudo.create(
+    user_id: 2,
+    activity_id: 4
+)
+
+k2 = Kudo.create(
+    user_id: 3,
+    activity_id: 4
+)
+
+k3 = Kudo.create(
+    user_id: 2,
+    activity_id: 5
+)
+
+k4 = Kudo.create(
+    user_id: 1,
+    activity_id: 1
 )
