@@ -10,14 +10,15 @@ const mapStateToProps = ({entities, session}) => {
         user: entities.users[session.id],
         filteredActivities: fetchDashboardActivities(entities, session, entities.activities, entities.follows),
         allUsers: entities.users,
-        comments: entities.comments
+        comments: entities.comments,
+        kudos: entities.kudos
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         fetchAllComments: () => dispatch(fetchAllComments()),
-        deleteComment: (commentId) =>  dispatch(deleteComment(commentId))
+        deleteComment: (commentId) =>  dispatch(deleteComment(commentId)),
     }
 }
 

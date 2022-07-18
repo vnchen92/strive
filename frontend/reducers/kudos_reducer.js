@@ -1,4 +1,4 @@
-import { RECEIVE_KUDOS, RECEIVE_KUDO, REMOVE_KUDO } from "../actions/kudo_actions"
+import { RECEIVE_ALL_KUDOS, RECEIVE_KUDO, REMOVE_KUDO } from "../actions/kudo_actions"
 
 const initialState = {
 
@@ -8,7 +8,8 @@ const kudosReducer = (state = initialState, action) => {
     Object.freeze(state);
     let nextState = {...state};
     switch(action.type){
-        case RECEIVE_KUDOS:
+        case RECEIVE_ALL_KUDOS:
+            debugger
             nextState = {...action.kudos};
             return nextState;
         case RECEIVE_KUDO:

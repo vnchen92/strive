@@ -2,7 +2,6 @@ class Api::KudosController < ApplicationController
     def index
         @activities = Activity.all
         @kudos = Kudo.all
-
         render :index
     end
 

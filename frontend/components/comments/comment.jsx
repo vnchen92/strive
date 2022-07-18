@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Comment = ({comment, currentUser, deleteComment}) => {
-    debugger
+    //debugger
     return (
         <>
             <img className='comment-user-icon' src={comment.profilePic} alt="" />

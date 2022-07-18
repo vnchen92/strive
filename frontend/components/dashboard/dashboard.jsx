@@ -13,6 +13,7 @@ class Dashboard extends React.Component{
     componentDidMount(){
         if (this.props.location.pathname === '/dashboard') {
             this.props.fetchAllUsers();
+            this.props.fetchAllKudos();
             this.props.fetchAllActivities();
             this.props.fetchAllFollows();
         }

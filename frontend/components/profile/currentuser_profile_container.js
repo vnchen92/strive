@@ -8,7 +8,8 @@ const mapStateToProps = ({entities, session}) => {
         currentUser: entities.users[session.id],
         user: entities.users[session.id],
         filteredActivities: fetchProfileActivities(entities, session, entities.activities),
-        comments: entities.comments
+        comments: entities.comments,
+        kudos: entities.kudos
     }
 }
 

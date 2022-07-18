@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form';
+import Kudos from '../kudos/kudos';
 
-const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment}) => {
+const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos}) => {
     let aProfilePage;
 
     if (currentUser.id === user.id && activity.authorId === currentUser.id) {
@@ -56,6 +57,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
             <div className='comments-ent-container'>
                 <div className='comments-icon-outer-container'>
                     <div className='comments-icon-container'>
+                        <Kudos kudos={kudos} activityId={activity.id}/>
                         <img className='like-icon' src="/assets/like" alt="" />
                         <img className='comment-icon' src="/assets/comment" alt="" onClick={handleClick}/>
                     </div>

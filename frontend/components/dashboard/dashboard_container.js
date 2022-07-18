@@ -6,6 +6,7 @@ import { fetchAllUsers } from '../../actions/users_actions';
 import { fetchFollowings } from '../selectors/fetch_followings';
 import { fetchFollowers } from '../selectors/fetch_followers';
 import { fetchProfileActivities } from '../selectors/fetch_profile_activities';
+import { fetchAllKudos } from '../../actions/kudo_actions';
 
 const mapStateToProps = ({entities, session}) => {
     return {
@@ -23,7 +24,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchAllFollows: () => dispatch(fetchAllFollows()),
         fetchAllActivities: () => dispatch(fetchAllActivities()),
-        fetchAllUsers: () => dispatch(fetchAllUsers())
+        fetchAllUsers: () => dispatch(fetchAllUsers()),
+        fetchAllKudos: () => dispatch(fetchAllKudos())
     }
 }
 
