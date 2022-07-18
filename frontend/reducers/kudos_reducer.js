@@ -12,9 +12,10 @@ const kudosReducer = (state = initialState, action) => {
             nextState = {...action.kudos};
             return nextState;
         case RECEIVE_KUDO:
-            debugger
             if (nextState[action.kudo.activityId] === undefined) {
-                nextState[action.kudo.activityId][action.kudo.id] = action.kudo
+                let newActivityId = {};
+                newActivityId[action.kudo.id] = action.kudo;
+                nextState[action.kudo.activityId] = newActivityId;
             } else {
                 let currentState = nextState[action.kudo.activityId][action.kudo.id]
                 nextState[action.kudo.activityId][action.kudo.id] = {...currentState, ...action.kudo};

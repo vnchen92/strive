@@ -12,8 +12,14 @@ const commentsReducer = (state = initialState, action) => {
             nextState = {...action.comments};
             return nextState;
         case RECEIVE_COMMENT:
-            let currentState = nextState[action.comment.activityId][action.comment.id];
-            nextState[action.comment.activityId][action.comment.id] = {...currentState, ...action.comment};
+            if (nextState[action.comment.activityId] === undefined) {
+                let newActivityId = {}
+                newActivityId[action.comment.id] = action.comment;
+                nextState[action.comment.activityId] = newActivityId;
+            } else {
+                let currentState = nextState[action.comment.activityId][action.comment.id];
+                nextState[action.comment.activityId][action.comment.id] = {...currentState, ...action.comment};
+            }
             return nextState;
         case REMOVE_COMMENT:
             delete nextState[action.comment.activityId][action.comment.id]

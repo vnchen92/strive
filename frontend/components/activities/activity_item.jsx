@@ -31,9 +31,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
             user_id: currentUser.id,
             activity_id: activity.id
         };
-        debugger
         if (isAlreadyLiked !== true) {
-            debugger
             createKudo(currentKudo)
         }
     }

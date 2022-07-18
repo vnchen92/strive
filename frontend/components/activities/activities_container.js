@@ -5,7 +5,6 @@ import { fetchAllComments, deleteComment } from '../../actions/comments_actions'
 import { createKudo } from '../../actions/kudo_actions';
 
 const mapStateToProps = ({entities, session}) => {
-    //debugger
     return {
         currentUser: entities.users[session.id],
         user: entities.users[session.id],
