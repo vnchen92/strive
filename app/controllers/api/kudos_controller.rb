@@ -9,6 +9,7 @@ class Api::KudosController < ApplicationController
         @kudo = Kudo.new(kudo_params)
 
         if @kudo.save
+            #render json: 'success'
             render :show
         else
             render json: @kudo.errors.full_messages, status: 401

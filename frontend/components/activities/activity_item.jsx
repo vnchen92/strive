@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form';
 import Kudos from '../kudos/kudos';
+import isLiked from '../selectors/isLiked';
 
 const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo}) => {
     let aProfilePage;
@@ -25,15 +26,28 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         }
     }
 
+    let kudoIcon;
+
+    let isAlreadyLiked = isLiked(currentUser, kudos, activity.id)
+
+    if (isAlreadyLiked) {
+        kudoIcon = <img className='like-icon-orange' src="/assets/like_orange" alt="" onClick={handleLike} />
+    } else { //no likes on this post
+        kudoIcon = <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} />
+    }
+
     const handleLike = e => {
         let currentKudo = {
             user_id: currentUser.id,
             activity_id: activity.id
         };
-        createKudo(currentKudo)
+        debugger
+        if (isAlreadyLiked !== true) {
+            debugger
+            createKudo(currentKudo)
+        }
     }
 
-    //debugger
     return (
         <div className='activity-container'>
             <div className='activity-icon-and-content-container'>
@@ -66,7 +80,8 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                 <div className='comments-icon-outer-container'>
                     <div className='comments-icon-container'>
                         <Kudos kudos={kudos} activityId={activity.id} />
-                        <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} />
+                        {/* <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} /> */}
+                        {kudoIcon}
                         <img className='comment-icon' src="/assets/comment" alt="" onClick={handleClick} />
                     </div>
                 </div>

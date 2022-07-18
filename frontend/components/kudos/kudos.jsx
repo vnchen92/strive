@@ -5,7 +5,6 @@ const Kudos = ({kudos, activityId}) => {
     if (kudos[activityId]) {
         kudoCount = Object.values(kudos[activityId]).length;
     }
-    //debugger
     return (
         <div>
             {

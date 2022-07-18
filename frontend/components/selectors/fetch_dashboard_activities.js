@@ -16,6 +16,5 @@ export const fetchDashboardActivities = (entities, session, allActivities, follo
             }  
         })
     })
-    
     return filteredActivities;
 }
