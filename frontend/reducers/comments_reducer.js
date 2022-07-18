@@ -19,7 +19,7 @@ const commentsReducer = (state = initialState, action) => {
             delete nextState[action.comment.activityId][action.comment.id]
             return nextState;
         default:
-            return nextState;
+            return state;
     }
 }
 

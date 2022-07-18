@@ -12,6 +12,7 @@ const receiveAllKudos = kudos => {
 }
 
 const receiveKudo = kudo => {
+    debugger
     return {
         type: RECEIVE_KUDO,
         kudo
@@ -32,10 +33,10 @@ export const fetchAllKudos = () => dispatch => {
     )
 }
 
-export const createKudo = kudo => {
+export const createKudo = kudo => dispatch => {
     return (
         KudoApiUtil.createKudo(kudo)
-            .then(res => dispatch(receiveKudo(kudo)))
+            .then(res => dispatch(receiveKudo(res)))
     )
 }
 

@@ -4,7 +4,7 @@ import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form';
 import Kudos from '../kudos/kudos';
 
-const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos}) => {
+const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo}) => {
     let aProfilePage;
 
     if (currentUser.id === user.id && activity.authorId === currentUser.id) {
@@ -23,6 +23,14 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                 showDiv.style.display = "none";
             }
         }
+    }
+
+    const handleLike = e => {
+        let currentKudo = {
+            user_id: currentUser.id,
+            activity_id: activity.id
+        };
+        createKudo(currentKudo)
     }
 
     //debugger
@@ -57,9 +65,9 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
             <div className='comments-ent-container'>
                 <div className='comments-icon-outer-container'>
                     <div className='comments-icon-container'>
-                        <Kudos kudos={kudos} activityId={activity.id}/>
-                        <img className='like-icon' src="/assets/like" alt="" />
-                        <img className='comment-icon' src="/assets/comment" alt="" onClick={handleClick}/>
+                        <Kudos kudos={kudos} activityId={activity.id} />
+                        <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} />
+                        <img className='comment-icon' src="/assets/comment" alt="" onClick={handleClick} />
                     </div>
                 </div>
                 <div className='comments-container'>

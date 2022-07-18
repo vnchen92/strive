@@ -6,6 +6,7 @@ export const fetchAllKudos = () => {
 }
 
 export const createKudo = kudo => {
+    debugger
     return $.ajax({
         url: 'api/kudos',
         method: 'POST',
