@@ -26,16 +26,6 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         }
     }
 
-    let kudoIcon;
-
-    let isAlreadyLiked = isLiked(currentUser, kudos, activity.id)
-
-    if (isAlreadyLiked) {
-        kudoIcon = <img className='like-icon-orange' src="/assets/like_orange" alt="" onClick={handleLike} />
-    } else { //no likes on this post
-        kudoIcon = <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} />
-    }
-
     const handleLike = e => {
         let currentKudo = {
             user_id: currentUser.id,
@@ -46,6 +36,16 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
             debugger
             createKudo(currentKudo)
         }
+    }
+
+    let kudoIcon;
+
+    let isAlreadyLiked = isLiked(currentUser, kudos, activity.id)
+
+    if (isAlreadyLiked) {
+        kudoIcon = <img className='like-icon-orange' src="/assets/like_orange" alt="" onClick={handleLike} />
+    } else { //no likes on this post
+        kudoIcon = <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} />
     }
 
     return (
