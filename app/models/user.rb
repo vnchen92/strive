@@ -34,6 +34,10 @@ class User < ApplicationRecord
     class_name: :Comment,
     foreign_key: :user_id
 
+    has_many :kudos,
+    class_name: :Kudo,
+    foreign_key: :user_id
+
     attr_reader :password
 
     before_validation :ensure_session_token

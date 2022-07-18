@@ -19,4 +19,8 @@ class Activity < ApplicationRecord
     has_many :comments,
     class_name: :Comment,
     foreign_key: :activity_id
+
+    has_many :likes,
+    class_name: :Kudo,
+    foreign_key: :activity_idls
 end
