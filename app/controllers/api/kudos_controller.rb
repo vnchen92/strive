@@ -21,7 +21,7 @@ class Api::KudosController < ApplicationController
 
         if @kudo
             @kudo.destroy!
-            render json: 'Success!'
+            render :show
         end
     end
 

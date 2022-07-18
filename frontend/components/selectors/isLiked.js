@@ -3,12 +3,15 @@ const isLiked = (currentUser, kudos, activityId) => {
         let kudosArray = Object.values(kudos[activityId])
         for (let i = 0; i < kudosArray.length; i++) {
             if (kudosArray[i].userId === currentUser.id) {
-                return true
+                return {
+                    type: true,
+                    kudoId: kudosArray[i].id
+                }
             }
         }
-        return false;
+        return { type: false };
     } else { //if there are no likes on this post
-        return false;
+        return { type: false };
     }
 }
 

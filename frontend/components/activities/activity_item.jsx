@@ -5,7 +5,7 @@ import CommentFormContainer from '../comments/comment_form';
 import Kudos from '../kudos/kudos';
 import isLiked from '../selectors/isLiked';
 
-const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo}) => {
+const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo}) => {
     let aProfilePage;
 
     if (currentUser.id === user.id && activity.authorId === currentUser.id) {
@@ -33,12 +33,15 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         };
         if (isAlreadyLiked !== true) {
             createKudo(currentKudo)
+        } else {
+            deleteKudo(filteredLikes.kudoId)
         }
     }
 
     let kudoIcon;
 
-    let isAlreadyLiked = isLiked(currentUser, kudos, activity.id)
+    let filteredLikes = isLiked(currentUser, kudos, activity.id);
+    let isAlreadyLiked = filteredLikes.type;
 
     if (isAlreadyLiked) {
         kudoIcon = <img className='like-icon-orange' src="/assets/like_orange" alt="" onClick={handleLike} />

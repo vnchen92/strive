@@ -1,7 +1,7 @@
 import React from 'react';
 import ActivityItem from './activity_item';
 
-const ActivitiesDashboard = ({ filteredActivities, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo }) => {
+const ActivitiesDashboard = ({ filteredActivities, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo }) => {
     //debugger
     return(
         <div>
@@ -17,6 +17,7 @@ const ActivitiesDashboard = ({ filteredActivities, currentUser, user, fetchAllCo
                         deleteComment={deleteComment}
                         kudos={kudos}
                         createKudo={createKudo}
+                        deleteKudo={deleteKudo}
                     />
                 </div>
             })
