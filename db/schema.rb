@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_18_013002) do
+ActiveRecord::Schema.define(version: 2022_07_19_005108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,12 @@ ActiveRecord::Schema.define(version: 2022_07_18_013002) do
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "distance"
-    t.integer "pace"
-    t.integer "hours"
-    t.integer "minutes"
-    t.integer "seconds"
+    t.float "distance"
+    t.float "pace"
     t.string "static_map_url"
     t.string "points", array: true
     t.string "posted_on"
+    t.string "time", default: "00:00:00"
     t.index ["author_id"], name: "index_activities_on_author_id"
   end
 

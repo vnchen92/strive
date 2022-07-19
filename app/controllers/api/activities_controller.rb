@@ -56,7 +56,7 @@ class Api::ActivitiesController < ApplicationController
     private
 
     def activity_params
-        params.require(:activity).permit(:title, :body, :author_id, :distance, :pace, :hours, :minutes, :seconds, :posted_on)
+        params.require(:activity).permit(:title, :body, :author_id, :distance, :pace, :time, :posted_on)
     end
 
 end

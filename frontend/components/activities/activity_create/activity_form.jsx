@@ -13,7 +13,8 @@ class ActivityForm extends React.Component {
                 minutes: "",
                 seconds: "",
                 posted_on: new Date(),
-                author_id: props.currentUser.id
+                author_id: props.currentUser.id,
+                errors: []
             }
         } else {
             this.state = {
@@ -25,18 +26,43 @@ class ActivityForm extends React.Component {
                 minutes: props.activity.minutes,
                 seconds: props.activity.seconds,
                 posted_on: props.activity.posted_on,
-                author_id: props.activity.author_id
+                author_id: props.activity.author_id,
+                errors: []
+            }
+        }
+    }
+
+    checkTime = (feild) => {
+        return e => {
+            if (parseInt(e.currentTarget.value) > 60) {
+                this.setState({ errors: [...this.state.errors, "Please insert a number under 60"]})
+            } else if (typeof parseInt(e.currentTarget.value) !== Number) {
+                this.setState({ errors: [...this.state.errors, "Please enter a number"]})
+            } else if (parseInt(e.currentTarget.value) < 10) {
+                let currentNum = "0" + e.currentTarget.value;
+                this.setState({ [feild]: currentNum})
             }
         }
     }
 
     handleSubmit = e => {
         e.preventDefault();
+        let newTime = `${this.state.hours}:${this.state.minutes}:${this.state.seconds}`;
+        let newActivity = {
+            title: this.state.title,
+            body: this.state.body,
+            distance: this.state.distance,
+            pace: this.state.pace,
+            time: newTime,
+            posted_on: this.state.posted_on,
+            author_id: this.state.author_id
+        }
+
         if (this.props.formType === 'Create a Post') {
-            this.props.createActivity(this.state)
+            this.props.createActivity(newActivity)
                 .then(() => this.props.history.push('/dashboard/my_activities'))
         } else {
-            this.props.updateActivity({...this.state, id: this.props.match.params.id})
+            this.props.updateActivity({...newActivity, id: this.props.match.params.id})
                 .then(() => this.props.history.push('/dashboard/my_activities'))
         }
     }
@@ -94,7 +120,7 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.hours}
-                                            onChange={this.update('hours')}
+                                            onChange={this.checkTime('hours')}
                                         />
                                         <abbr title="hours">hr</abbr>
                                     </div>
@@ -104,7 +130,7 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.minutes}
-                                            onChange={this.update('minutes')}
+                                            onChange={this.checkTime('minutes')}
                                         />
                                         <abbr title="minutes">min</abbr>
                                     </div>
@@ -114,7 +140,7 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.seconds}
-                                            onChange={this.update('seconds')}
+                                            onChange={this.checkTime('seconds')}
                                         />
                                         <abbr title="seconds">s</abbr>
                                     </div>

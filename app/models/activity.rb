@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 class Activity < ApplicationRecord
-    validates :title, :author_id, :posted_on, presence: true
+    validates :title, :author_id, :posted_on, :distance, :pace, :time, presence: true
 
     belongs_to :author,
     class_name: :User,
