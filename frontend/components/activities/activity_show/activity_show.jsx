@@ -11,6 +11,8 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
         component = <></>
     }
 
+    const timeArray = activity.time.split(":");
+
     const handleClick = e => {
         deleteActivity(activity.id)
             .then(() => history.push('/dashboard/my_activities'));
@@ -60,7 +62,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
                                 <p className='activity-show-label'>Distance</p>
                             </div>
                             <div className='activity-num-container'>
-                                <p className='activity-show-num'>{activity.hours || '00'}:{activity.minutes}:{activity.seconds || '00'}</p>
+                                <p className='activity-show-num'>{timeArray[0] || '00'}:{timeArray[1] || '00'}:{timeArray[2] || '00'}</p>
                                 <p className='activity-show-label'>Moving Time</p>
                             </div>
                             <div className='activity-num-container'>
