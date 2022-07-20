@@ -49,7 +49,9 @@ p1 = Activity.create(
     posted_on: "Fri Aug 23 2021",
     distance: 1.5,
     pace: 8.53,
-    time: "00:14:13",
+    hours: 0,
+    minutes: 14,
+    seconds: 13,
     points: [['40.612184', '-73.993990'],['40.604206', '-73.997509'],['40.597221', '-73.986136']],
     static_map_url: 'u`{vFx}rbMrGiMrBxBnBrBzA~ANVzA~ATNnBrB~EdF~EjFbEjEHHd@cAp@kArAkCzA_Db@y@d@_ARWrAsCt@{Av@_B|FuKjD}G|A{C^b@Xg@^u@\q@tAmC|A{CvAoCCDd@}@'
 )
@@ -61,7 +63,9 @@ p2 = Activity.create(
     author_id: 2,
     distance: 6,
     pace: 9.45,
-    time: "01:01:01",
+    hours: 1,
+    minutes: 1,
+    seconds: 1,
     points: [['40.638778', '-74.036007'],['40.616064','-74.038067']],
     static_map_url: 'ig`wF`d{bMCRF@JDx@Jf@D@RFPXX^TLAFJvAl@fBn@p@RPHn@Pd@F^X`@PVH`@@d@G\?XIb@YJQNORM\MTENAn@Nn@T^XVTVTLFLJVNj@Tp@\f@b@|AdBXN|@h@b@b@`AnAh@z@RV\Xb@Vd@N\Ht@L~@JfBHhAXfAHv@@vBC`D`@hBJb@BhAAhBQ|AMHGJBjBJd@EXKZGz@g@hAe@pAYZCHA~@DnDr@`AJp@C~@OhBs@~DuApFuC|BoAFGBWdBgAACAG'
 )
@@ -73,7 +77,9 @@ p3 = Activity.create(
     author_id: 3,
     distance: 2,
     pace: 13.33,
-    time: "00:26:49",
+    hours: 0,
+    minutes: 26,
+    seconds: 49,
     points: [['40.785107','-73.976891'],['40.802957','-73.963849'],['40.800675','-73.958517']],
     static_map_url: 'gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC'
 )
@@ -85,7 +91,9 @@ p4 = Activity.create(
     author_id: 1,
     distance: 10.6,
     pace: 6.35,
-    time: "01:05:43",
+    hours: 1,
+    minutes: 5,
+    seconds: 43,
     points: [['40.731179','-73.9193351'], ['40.735542','-73.918354'],['40.735916','-73.914556'],['40.742277','-73.913054'],['40.741342', '-73.909127'],['40.719728', '-73.911273']],
     static_map_url: 'airwFrjdbMDYUEi@OgCg@mBUW@_@EaCYcBS{De@k@ISCSC?k@EiA?q@AiASuDa@aHAOGREMNEMJa@G_AMyB[eDg@wLiBoK}A_@GOC?KBQDeA`@_H^oGt@sM~MlBfB`@rCn@lG~BlA^lFlB~B~@bBp@pAh@RPdA\xAh@b@NdB^jCd@lC\t@Bb@DD@?WBwDN?HU`@qAb@qAl@kA`B}C`@}@vBeF\}@Zb@x@lAzB~C`CjD^d@Pi@pBGrBKhCWfDa@dDKdEKjAC`BEXzA^tBd@fCN|@RpAVvA'
 )
@@ -97,7 +105,9 @@ p5 = Activity.create(
     author_id: 1,
     distance: 2,
     pace: 9.25,
-    time: "00:19:23"
+    hours: 0,
+    minutes: 19,
+    seconds: 23
 )
 
 p6 = Activity.create(
@@ -107,7 +117,9 @@ p6 = Activity.create(
     author_id: 2,
     distance: 10,
     pace: 9.30,
-    time: "01:34:23",
+    hours: 1,
+    minutes: 34,
+    seconds: 23
 )
 
 p7 = Activity.create(
@@ -116,7 +128,9 @@ p7 = Activity.create(
     author_id: 3,
     distance: 7,
     pace: 8.30,
-    time: "01:04:44"
+    hours: 1,
+    minutes: 4,
+    seconds: 44
 )
 
 f1 = Follow.create( # demo user is following me

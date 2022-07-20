@@ -34,7 +34,7 @@ class ActivityForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        // if (this.state.errors.length === 0) {
+        if (this.state.errors.length === 0) {
             let newTime = `${this.state.hours}:${this.checkForSingles(this.state.minutes)}:${this.checkForSingles(this.state.seconds)}`;
             let newActivity = {
                 title: this.state.title,
@@ -53,7 +53,7 @@ class ActivityForm extends React.Component {
                 this.props.updateActivity({...newActivity, id: this.props.match.params.id})
                     .then(() => this.props.history.push('/dashboard/my_activities'))
             }
-        // }
+        }
     }
 
     checkForSingles = (num) => {
@@ -79,6 +79,7 @@ class ActivityForm extends React.Component {
         return e => {
             this.setState({ [field]: e.currentTarget.value })
             if (field === 'hours'){
+                debugger
                 this.checkTime(field, this.state.hours)
             } else if (field === 'minutes') {
                 this.checkTime(field, this.state.minutes)
@@ -93,6 +94,7 @@ class ActivityForm extends React.Component {
             let additionalErrors = [...this.state.errors];
             additionalErrors.push(`Please insert a valid number below 60 for ${field}`);
             this.setState({ errors: additionalErrors })
+            debugger
         }
     }
 

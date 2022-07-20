@@ -1,1 +1,1 @@
-json.extract! activity, :id, :title, :body, :author_id, :distance, :pace, :time, :points, :static_map_url, :posted_on
+json.extract! activity, :id, :title, :body, :author_id, :distance, :pace, :hours, :minutes, :seconds, :points, :static_map_url, :posted_on
