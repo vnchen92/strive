@@ -53,8 +53,6 @@ class ActivityForm extends React.Component {
                 this.props.updateActivity({...newActivity, id: this.props.match.params.id})
                     .then(() => this.props.history.push('/dashboard/my_activities'))
             }
-        } else {
-            this.renderErrors();
         }
     }
 
@@ -80,22 +78,27 @@ class ActivityForm extends React.Component {
     checkTime = (field) => {
         if (field > 59) {
             let additionalErrors = [...this.state.errors];
-            additionalErrors.push("Please insert a number");
+            additionalErrors.push(`Please insert a valid number below 59 for ${field}`);
             this.setState({ errors: additionalErrors })
-            debugger
         } else if (field < 10) {
             let currentNum = "0" + field;
             this.setState({ [field]: currentNum})
-            debugger
         }
     }
 
     renderErrors = () => {
-        this.state.errors.forEach(error => {
-            <div>
+        // return (
+        //     this.props.errors.session.map((error, idx) => {
+        //         return <li className='session-error' key={idx}>{error}</li>
+        //     })
+        // )
+        return (
+        this.state.errors.map(error => {
+            return <div>
                 {error}
             </div>
         })
+        )
     }
 
 

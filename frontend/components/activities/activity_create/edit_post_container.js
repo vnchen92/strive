@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         currentUser: state.entities.users[state.session.id],
         activity: state.entities.activities[ownProps.match.params.id],
+        errors: state.errors.activity,
         formType: 'Edit Activity',
         formButton: 'Save'
     }
