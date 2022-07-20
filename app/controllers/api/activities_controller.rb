@@ -1,19 +1,5 @@
 class Api::ActivitiesController < ApplicationController
     def index
-        # if current_user #for profile
-        #     @posts = current_user.posts
-        # else #for dashboard
-        #     @user = User.find_by(id: params[:id])
-
-        #     @followings = @user.follows
-
-        #     @posts = []
-        #     @followings.each do |follow|
-        #         @follwed_user = follow.
-                
-        #     @posts = @user.posts
-        # end
-
         @activities = Activity.all
         render :index
     end
@@ -47,7 +33,7 @@ class Api::ActivitiesController < ApplicationController
         @activity = Activity.find_by(id: params[:id])
         if @activity
             @activity.destroy!
-            render json: {}
+            render :show
         else
             render json: ['Activity does not exist']
         end

@@ -1,13 +1,19 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: activities
 #
-#  id         :bigint           not null, primary key
-#  title      :string           not null
-#  body       :string
-#  author_id  :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id             :bigint           not null, primary key
+#  title          :string           not null
+#  body           :string
+#  author_id      :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  distance       :float
+#  pace           :float
+#  static_map_url :string
+#  points         :string           is an Array
+#  posted_on      :string
+#  time           :string           default("00:00:00")
 #
 class Activity < ApplicationRecord
     validates :title, :author_id, :posted_on, :distance, :pace, :time, presence: true

@@ -1,8 +1,10 @@
 import * as ActivityApiUtil from '../util/activity_api_util';
 
 export const RECEIVE_ALL_ACTIVITIES = 'RECEIVE_ALL_ACTIVITIES';
-export const RECEIVE_ACTIVITY = 'RECEIVEACTIVITY';
-export const REMOVE_ACTIVITY = 'REMOVEACTIVITY';
+export const RECEIVE_ACTIVITY = 'RECEIVE_ACTIVITY';
+export const REMOVE_ACTIVITY = 'REMOVE_ACTIVITY';
+export const RECEIVE_ACTIVITY_ERRORS = 'RECEIVE_ACTIVITY_ERRORS';
+export const REMOVE_ACTIVITY_ERRORS = 'REMOVE_ACTIVITY_ERRORS';
 
 const recieveAllActivities = activities => {
     return {
@@ -22,6 +24,19 @@ const removeActivity = activity => {
     return {
         type: REMOVE_ACTIVITY,
         activity
+    }
+}
+
+const receiveActivityErrors = errors => {
+    return {
+        type: RECEIVE_ACTIVITY_ERRORS,
+        errors
+    }
+}
+
+export const removeActivityErrors = () => {
+    return {
+        type: REMOVE_ACTIVITY_ERRORS
     }
 }
 

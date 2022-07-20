@@ -30,27 +30,10 @@ class ActivityForm extends React.Component {
                 errors: []
             }
         }
-        this.checkTime = this.checkTime.bind(this);
-    }
-
-    checkTime = (field) => {
-        if (field > 59) {
-            let additionalErrors = [...this.state.errors];
-            additionalErrors.push("Please insert a number");
-            this.setState({ errors: additionalErrors })
-            debugger
-        } else if (field < 10) {
-            let currentNum = "0" + field;
-            this.setState({ [field]: currentNum})
-            debugger
-        }
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        this.checkTime(this.state.hours);
-        this.checkTime(this.state.minutes);
-        this.checkTime(this.state.seconds);
         if (this.state.errors.length === 0) {
             let newTime = `${this.state.hours}:${this.state.minutes}:${this.state.seconds}`;
             let newActivity = {
@@ -70,6 +53,8 @@ class ActivityForm extends React.Component {
                 this.props.updateActivity({...newActivity, id: this.props.match.params.id})
                     .then(() => this.props.history.push('/dashboard/my_activities'))
             }
+        } else {
+            this.renderErrors();
         }
     }
 
@@ -80,6 +65,28 @@ class ActivityForm extends React.Component {
     update = (field) => {
         return e => {
             this.setState({ [field]: e.currentTarget.value })
+        }
+    }
+
+    updateTime = (field) => {
+        return e => {
+            this.setState({ [field]: e.currentTarget.value })
+            this.checkTime(this.state.hours);
+            this.checkTime(this.state.minutes);
+            this.checkTime(this.state.seconds);
+        }
+    }
+
+    checkTime = (field) => {
+        if (field > 59) {
+            let additionalErrors = [...this.state.errors];
+            additionalErrors.push("Please insert a number");
+            this.setState({ errors: additionalErrors })
+            debugger
+        } else if (field < 10) {
+            let currentNum = "0" + field;
+            this.setState({ [field]: currentNum})
+            debugger
         }
     }
 
@@ -137,7 +144,7 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.hours}
-                                            onChange={this.update('hours')}
+                                            onChange={this.updateTime('hours')}
                                         />
                                         <abbr title="hours">hr</abbr>
                                     </div>
@@ -148,7 +155,7 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.minutes}
-                                            onChange={this.update('minutes')}
+                                            onChange={this.updateTime('minutes')}
                                         />
                                         <abbr title="minutes">min</abbr>
                                     </div>
@@ -159,16 +166,14 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.seconds}
-                                            onChange={this.update('seconds')}
+                                            onChange={this.updateTime('seconds')}
                                         />
                                         <abbr title="seconds">s</abbr>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {
-                            this.state.errors.length > 0 ? this.renderErrors() : <></>
-                        }
+                        {this.renderErrors()}
                         <div className='create-text-container-top'>
                             <label className='create-label'>Title</label>
                             <input 
