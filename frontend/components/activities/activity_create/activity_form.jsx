@@ -32,38 +32,43 @@ class ActivityForm extends React.Component {
         }
     }
 
-    checkTime = (feild) => {
-        return e => {
-            if (parseInt(e.currentTarget.value) > 60) {
-                this.setState({ errors: [...this.state.errors, "Please insert a number under 60"]})
-            } else if (typeof parseInt(e.currentTarget.value) !== Number) {
-                this.setState({ errors: [...this.state.errors, "Please enter a number"]})
-            } else if (parseInt(e.currentTarget.value) < 10) {
-                let currentNum = "0" + e.currentTarget.value;
-                this.setState({ [feild]: currentNum})
-            }
+    checkTime = (field) => {
+        if (field > 59) {
+            // let additionalErrors = [...this.state.errors];
+            // additionalErrors.push("Please insert a number");
+            this.setState({ errors: this.state.errors.concat(['Please insert a number'])})
+            debugger
+        } else if (field < 10) {
+            let currentNum = "0" + field;
+            this.setState({ [field]: currentNum})
+            debugger
         }
     }
 
     handleSubmit = e => {
         e.preventDefault();
-        let newTime = `${this.state.hours}:${this.state.minutes}:${this.state.seconds}`;
-        let newActivity = {
-            title: this.state.title,
-            body: this.state.body,
-            distance: this.state.distance,
-            pace: this.state.pace,
-            time: newTime,
-            posted_on: this.state.posted_on,
-            author_id: this.state.author_id
-        }
+        this.checkTime(this.state.hours);
+        this.checkTime(this.state.minutes);
+        this.checkTime(this.state.seconds);
+        if (this.state.errors.length === 0) {
+            let newTime = `${this.state.hours}:${this.state.minutes}:${this.state.seconds}`;
+            let newActivity = {
+                title: this.state.title,
+                body: this.state.body,
+                distance: this.state.distance,
+                pace: this.state.pace,
+                time: newTime,
+                posted_on: this.state.posted_on,
+                author_id: this.state.author_id
+            }
 
-        if (this.props.formType === 'Create a Post') {
-            this.props.createActivity(newActivity)
-                .then(() => this.props.history.push('/dashboard/my_activities'))
-        } else {
-            this.props.updateActivity({...newActivity, id: this.props.match.params.id})
-                .then(() => this.props.history.push('/dashboard/my_activities'))
+            if (this.props.formType === 'Create a Post') {
+                this.props.createActivity(newActivity)
+                    .then(() => this.props.history.push('/dashboard/my_activities'))
+            } else {
+                this.props.updateActivity({...newActivity, id: this.props.match.params.id})
+                    .then(() => this.props.history.push('/dashboard/my_activities'))
+            }
         }
     }
 
@@ -71,10 +76,18 @@ class ActivityForm extends React.Component {
         this.props.history.push('/dashboard/my_activities')
     }
 
-    update = (feild) => {
+    update = (field) => {
         return e => {
-            this.setState({ [feild]: e.currentTarget.value })
+            this.setState({ [field]: e.currentTarget.value })
         }
+    }
+
+    renderErrors = () => {
+        this.state.errors.forEach(error => {
+            <div>
+                {error}
+            </div>
+        })
     }
 
 
@@ -90,7 +103,8 @@ class ActivityForm extends React.Component {
                                 <div className='create-num-container'>
                                     <input 
                                         className='create-num-input'
-                                        type="text"
+                                        type="number"
+                                        min="0"
                                         disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                         value={this.state.distance}
                                         onChange={this.update('distance')}
@@ -103,7 +117,8 @@ class ActivityForm extends React.Component {
                                 <div className='create-num-container'>
                                     <input 
                                         className='create-num-input'
-                                        type="text"
+                                        type="number"
+                                        min="0"
                                         disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                         value={this.state.pace}
                                         onChange={this.update('pace')} 
@@ -116,37 +131,43 @@ class ActivityForm extends React.Component {
                                 <div className='create-ent-time-container'>
                                     <div className='create-time-container'>
                                         <input 
-                                            type="text"
+                                            type="number"
+                                            min="0"
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.hours}
-                                            onChange={this.checkTime('hours')}
+                                            onChange={this.update('hours')}
                                         />
                                         <abbr title="hours">hr</abbr>
                                     </div>
                                     <div className='create-time-container'>
                                         <input 
-                                            type="text"
+                                            type="number"
+                                            min="0"
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.minutes}
-                                            onChange={this.checkTime('minutes')}
+                                            onChange={this.update('minutes')}
                                         />
                                         <abbr title="minutes">min</abbr>
                                     </div>
                                     <div className='create-time-container-s'>
                                         <input 
-                                            type="text" 
+                                            type="number"
+                                            min="0" 
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.seconds}
-                                            onChange={this.checkTime('seconds')}
+                                            onChange={this.update('seconds')}
                                         />
                                         <abbr title="seconds">s</abbr>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {
+                            this.state.errors.length > 0 ? this.renderErrors() : <></>
+                        }
                         <div className='create-text-container-top'>
                             <label className='create-label'>Title</label>
                             <input 
