@@ -14,6 +14,8 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         aProfilePage = `/athletes/${activity.authorId}`
     }
 
+    const timeArray = activity.time.split(":");
+
     const handleClick = e => {
         let showDivs = document.getElementsByClassName("comment-create-container");
         for (let i = 0; i < showDivs.length; i++) {
@@ -69,7 +71,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                         </div>
                         <div className='activity-tab-container'>
                             <p className='activity-tab'>Time</p>
-                            <p className='activity-text'>{activity.hours}hr {activity.minutes}m {activity.seconds || 0}s</p>
+                            <p className='activity-text'>{timeArray[0] || "00"}hr {timeArray[1] || "00"}m {timeArray[2] || "00"}s</p>
                         </div>
                     </div>
                 </div>

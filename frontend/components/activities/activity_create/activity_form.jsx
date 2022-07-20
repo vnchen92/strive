@@ -30,13 +30,14 @@ class ActivityForm extends React.Component {
                 errors: []
             }
         }
+        this.checkTime = this.checkTime.bind(this);
     }
 
     checkTime = (field) => {
         if (field > 59) {
-            // let additionalErrors = [...this.state.errors];
-            // additionalErrors.push("Please insert a number");
-            this.setState({ errors: this.state.errors.concat(['Please insert a number'])})
+            let additionalErrors = [...this.state.errors];
+            additionalErrors.push("Please insert a number");
+            this.setState({ errors: additionalErrors })
             debugger
         } else if (field < 10) {
             let currentNum = "0" + field;
