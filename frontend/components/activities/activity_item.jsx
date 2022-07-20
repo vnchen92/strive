@@ -16,6 +16,8 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
 
     const timeArray = activity.time.split(":");
 
+    const postedOnConverted = activity.postedOn.split(" ").splice(0, 4).join(" ")
+
     const handleClick = e => {
         let showDivs = document.getElementsByClassName("comment-create-container");
         for (let i = 0; i < showDivs.length; i++) {
@@ -57,7 +59,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                 <img className='activity-icon' src={activity.profilePic} alt="" />
                 <div className='activity-content-container'>
                     <p className='activity-user-name'><Link to={aProfilePage}>{activity.firstName}&nbsp;{activity.lastName}</Link></p>
-                    <p className='activity-created-at'>{activity.postedOn}</p>
+                    <p className='activity-created-at'>{postedOnConverted}</p>
                     <h1 className='activity-title'><Link to={`/activities/${activity.id}`}>{activity.title}</Link></h1>
                     <p className='activity-body'>{activity.body}</p>
                     <div className='activity-tabs-container'>

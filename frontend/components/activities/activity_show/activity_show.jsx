@@ -13,6 +13,8 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
 
     const timeArray = activity.time.split(":");
 
+    const postedOnConverted = activity.postedOn.split(" ").splice(0, 4).join(" ")
+
     const handleClick = e => {
         deleteActivity(activity.id)
             .then(() => history.push('/dashboard/my_activities'));
@@ -51,7 +53,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
                         <div className='activity-show-left'>
                             <img className='activity-show-icon' src={userOfActivity.profilePic} alt="" />
                             <div className='activity-show-text-container'>
-                                <p className='activity-show-postedon'>{activity.postedOn}</p>
+                                <p className='activity-show-postedon'>{postedOnConverted}</p>
                                 <h1 className='activity-show-title'>{activity.title}</h1>
                                 <p className='activity-show-body'>{activity.body}</p>
                             </div>
