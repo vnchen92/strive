@@ -16,7 +16,7 @@
 #  time           :string           default("00:00:00")
 #
 class Activity < ApplicationRecord
-    validates :title, :author_id, :posted_on, :distance, :pace, :hours, :minutes, :seconds, presence: true
+    validates :title, :author_id, :posted_on, :distance, :pace, :hours, :minutes, :seconds, :time, presence: true
     validates :hours, :minutes, :seconds, :numericality => { :greater_than_or_equal_to => 0 }
     validates :minutes, :seconds, :numericality => { :less_than_or_equal_to => 59 }
 

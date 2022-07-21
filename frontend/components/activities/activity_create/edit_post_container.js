@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateActivity } from '../../../actions/activities_actions';
+import { removeActivityErrors, updateActivity } from '../../../actions/activities_actions';
 import ActivityForm from './activity_form';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateActivity: (activity) => dispatch(updateActivity(activity))
+        updateActivity: (activity) => dispatch(updateActivity(activity)),
+        removeActivityErrors: () => dispatch(removeActivityErrors)
     }
 }
 

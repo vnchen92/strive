@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_20_161613) do
+ActiveRecord::Schema.define(version: 2022_07_20_162906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2022_07_20_161613) do
     t.integer "hours"
     t.integer "minutes"
     t.integer "seconds"
+    t.string "time", default: "00:00:00", null: false
     t.index ["author_id"], name: "index_activities_on_author_id"
   end
 

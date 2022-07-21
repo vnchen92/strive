@@ -4,6 +4,7 @@ class ActivityForm extends React.Component {
     constructor(props) {
         super(props)
         if (props.formType === 'Create a Post') {
+            debugger
             this.state = {
                 title: "",
                 body: "",
@@ -12,9 +13,9 @@ class ActivityForm extends React.Component {
                 hours: "",
                 minutes: "",
                 seconds: "",
+                time: "",
                 posted_on: new Date(),
                 author_id: props.currentUser.id,
-                errors: []
             }
         } else {
             this.state = {
@@ -25,41 +26,49 @@ class ActivityForm extends React.Component {
                 hours: props.activity.hours,
                 minutes: props.activity.minutes,
                 seconds: props.activity.seconds,
+                time: props.activity.time,
                 posted_on: props.activity.posted_on,
                 author_id: props.activity.author_id,
-                errors: []
             }
         }
     }
 
+    componentDidMount(){
+        this.props.removeActivityErrors()
+    }
+
     handleSubmit = e => {
         e.preventDefault();
-        if (this.state.errors.length === 0) {
-            let newTime = `${this.state.hours}:${this.checkForSingles(this.state.minutes)}:${this.checkForSingles(this.state.seconds)}`;
+        // if (this.state.errors.length === 0) {
+            let newTime = `${this.checkForSingles(this.state.hours)}:${this.checkForSingles(this.state.minutes)}:${this.checkForSingles(this.state.seconds)}`;
             let newActivity = {
                 title: this.state.title,
                 body: this.state.body,
                 distance: this.state.distance,
                 pace: this.state.pace,
+                hours: this.state.hours,
+                minutes: this.state.minutes,
+                seconds: this.state.seconds,
                 time: newTime,
                 posted_on: this.state.posted_on,
                 author_id: this.state.author_id
             }
-
+            //debugger
             if (this.props.formType === 'Create a Post') {
+                //debugger
                 this.props.createActivity(newActivity)
                     .then(() => this.props.history.push('/dashboard/my_activities'))
             } else {
                 this.props.updateActivity({...newActivity, id: this.props.match.params.id})
                     .then(() => this.props.history.push('/dashboard/my_activities'))
             }
-        }
+        // }
     }
 
     checkForSingles = (num) => {
         if (num < 10) {
             let currentNum = "0" + num;
-            debugger
+            //debugger
             return currentNum;
         }
         return num;
@@ -75,33 +84,33 @@ class ActivityForm extends React.Component {
         }
     }
 
-    updateTime = (field) => {
-        return e => {
-            this.setState({ [field]: e.currentTarget.value })
-            if (field === 'hours'){
-                debugger
-                this.checkTime(field, this.state.hours)
-            } else if (field === 'minutes') {
-                this.checkTime(field, this.state.minutes)
-            } else {
-                this.checkTime(field, this.state.seconds)
-            }
-        }
-    }
+    // updateTime = (field) => {
+    //     return e => {
+    //         this.setState({ [field]: e.currentTarget.value })
+    //         if (field === 'hours'){
+    //             debugger
+    //             this.checkTime(field, this.state.hours)
+    //         } else if (field === 'minutes') {
+    //             this.checkTime(field, this.state.minutes)
+    //         } else {
+    //             this.checkTime(field, this.state.seconds)
+    //         }
+    //     }
+    // }
 
-    checkTime = (field, num) => {
-        if (num > 59) {
-            let additionalErrors = [...this.state.errors];
-            additionalErrors.push(`Please insert a valid number below 60 for ${field}`);
-            this.setState({ errors: additionalErrors })
-            debugger
-        }
-    }
+    // checkTime = (field, num) => {
+    //     if (num > 59) {
+    //         let additionalErrors = [...this.state.errors];
+    //         additionalErrors.push(`Please insert a valid number below 60 for ${field}`);
+    //         this.setState({ errors: additionalErrors })
+    //         debugger
+    //     }
+    // }
 
     renderErrors = () => {
         debugger
         return (
-            this.state.errors.concat(this.props.errors).map((error, idx) => {
+            this.props.errors.map((error, idx) => {
                 return <li key={idx}>{error}</li>
             })
         )
@@ -153,7 +162,7 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.hours}
-                                            onChange={this.updateTime('hours')}
+                                            onChange={this.update('hours')}
                                         />
                                         <abbr title="hours">hr</abbr>
                                     </div>
@@ -164,7 +173,7 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.minutes}
-                                            onChange={this.updateTime('minutes')}
+                                            onChange={this.update('minutes')}
                                         />
                                         <abbr title="minutes">min</abbr>
                                     </div>
@@ -175,7 +184,7 @@ class ActivityForm extends React.Component {
                                             placeholder='00'
                                             disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                             value={this.state.seconds}
-                                            onChange={this.updateTime('seconds')}
+                                            onChange={this.update('seconds')}
                                         />
                                         <abbr title="seconds">s</abbr>
                                     </div>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ActivityForm from './activity_form';
-import { createActivity } from '../../../actions/activities_actions';
+import { createActivity, removeActivityErrors } from '../../../actions/activities_actions';
 
 
 const mapStateToProps = ({entities, session, errors})=> {
@@ -14,7 +14,8 @@ const mapStateToProps = ({entities, session, errors})=> {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createActivity: (activity) => dispatch(createActivity(activity))
+        createActivity: (activity) => dispatch(createActivity(activity)),
+        removeActivityErrors: () => dispatch(removeActivityErrors())
     }
 }
 

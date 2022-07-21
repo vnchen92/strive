@@ -14,6 +14,7 @@ const recieveAllActivities = activities => {
 }
 
 const receiveActivity = activity => {
+    debugger
     return {
         type: RECEIVE_ACTIVITY,
         activity
@@ -28,6 +29,7 @@ const removeActivity = activity => {
 }
 
 const receiveActivityErrors = errors => {
+    debugger
     return {
         type: RECEIVE_ACTIVITY_ERRORS,
         errors
@@ -54,13 +56,26 @@ export const fetchActivity = activityId => dispatch => {
 
 export const createActivity = activity => dispatch => {
     return (
-        ActivityApiUtil.createActivity(activity).then(res => dispatch(receiveActivity(res)))
+        ActivityApiUtil.createActivity(activity)
+            .then((res) => { 
+                debugger
+                return dispatch(receiveActivity(res))
+            },
+            err => {
+                debugger
+                return dispatch(receiveActivityErrors(err.responseJSON))
+            }
+
     )
-}
+)}
 
 export const updateActivity = activity => dispatch => {
     return (
-        ActivityApiUtil.updateActivity(activity).then(res => dispatch(receiveActivity(res)))
+        ActivityApiUtil.updateActivity(activity)
+            .then(res => dispatch(receiveActivity(res))),
+            err => (
+                dispatch(receiveActivityErrors(err.responseJSON))
+            )
     )
 }
 
