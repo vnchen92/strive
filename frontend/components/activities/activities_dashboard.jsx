@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ActivityItem from './activity_item';
 
 const ActivitiesDashboard = ({ filteredActivities, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo }) => {
-    //debugger
+    const [activities] = useState(filteredActivities);
     return(
         <div>
         {

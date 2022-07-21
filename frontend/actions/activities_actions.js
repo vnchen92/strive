@@ -55,9 +55,11 @@ export const fetchActivity = activityId => dispatch => {
 }
 
 export const createActivity = activity => dispatch => {
+    debugger
     return (
         ActivityApiUtil.createActivity(activity)
             .then((res) => { 
+                debugger
                 return dispatch(receiveActivity(res))
             },
             err => {

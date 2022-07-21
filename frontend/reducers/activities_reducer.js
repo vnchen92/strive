@@ -12,7 +12,9 @@ const activitiesReducer = (state = initialState, action) => {
             nextState = {...action.activities}
             return nextState;
         case RECEIVE_ACTIVITY:
+            debugger
             nextState[action.activity.id] = action.activity
+            return nextState
         case REMOVE_ACTIVITY:
             delete nextState[action.activity.id]
             return nextState;
