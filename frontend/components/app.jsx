@@ -21,7 +21,7 @@ const App = props => {
                 <AuthRoute exact path='/' component={WelcomeContainer} />
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
-                <ProtectedRoute exact path='/dashboard/my_activities' component={DashboardContainer} />
+                <ProtectedRoute path='/dashboard/my_activities' component={DashboardContainer} />
                 <ProtectedRoute exact path='/activities/:id/edit' component={EditPostContainer} />
                 <ProtectedRoute exact path='/dashboard' component={DashboardContainer} />
                 <ProtectedRoute exact path='/athletes/:id/posts/new' component={CreatePostContainer} />
