@@ -29,7 +29,6 @@ const removeActivity = activity => {
 }
 
 const receiveActivityErrors = errors => {
-    debugger
     return {
         type: RECEIVE_ACTIVITY_ERRORS,
         errors
@@ -58,11 +57,9 @@ export const createActivity = activity => dispatch => {
     return (
         ActivityApiUtil.createActivity(activity)
             .then((res) => { 
-                debugger
                 return dispatch(receiveActivity(res))
             },
             err => {
-                debugger
                 return dispatch(receiveActivityErrors(err.responseJSON))
             }
 
@@ -72,12 +69,14 @@ export const createActivity = activity => dispatch => {
 export const updateActivity = activity => dispatch => {
     return (
         ActivityApiUtil.updateActivity(activity)
-            .then(res => dispatch(receiveActivity(res))),
-            err => (
-                dispatch(receiveActivityErrors(err.responseJSON))
-            )
+            .then((res) => {
+                return dispatch(receiveActivity(res))
+            },
+            err => {
+                return dispatch(receiveActivityErrors(err.responseJSON))
+            }
     )
-}
+)}
 
 export const deleteActivity = activityId => dispatch => {
     return (

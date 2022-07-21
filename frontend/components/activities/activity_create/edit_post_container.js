@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         updateActivity: (activity) => dispatch(updateActivity(activity)),
-        removeActivityErrors: () => dispatch(removeActivityErrors)
+        removeActivityErrors: () => dispatch(removeActivityErrors())
     }
 }
 
