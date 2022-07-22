@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Comment = ({ comment, currentUser, deleteComment}) => {
-    console.log(comment);
     const monthNameToNum = {
         "Jan": '01',
         "Feb": '02',

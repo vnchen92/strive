@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
         fetchAllFollows: () => dispatch(fetchAllFollows()),
         fetchAllActivities: () => dispatch(fetchAllActivities()),
         fetchAllUsers: () => dispatch(fetchAllUsers()),
-        fetchAllKudos: () => dispatch(fetchAllKudos())
+        fetchAllKudos: () => dispatch(fetchAllKudos()),
     }
 }
 

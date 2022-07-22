@@ -32,10 +32,10 @@ class Dashboard extends React.Component{
                 activitiesComponent = <UserProfileContainer />
         }
 
-        const {user} = this.props;
+        const {user, followers, followings, activitiesNum} = this.props;
         return (
             <div className='dashboard-ent-container'>
-                <CurrentUser user={user} followers={this.props.followers} followings={this.props.followings} activitiesNum={this.props.activitiesNum}/>
+                <CurrentUser user={user} followers={followers} followings={followings} activitiesNum={activitiesNum} />
                 <div className='dashboard-ent-mid-container'>
                     {
                     this.props.location.pathname !== '/athletes/:id' ? (
