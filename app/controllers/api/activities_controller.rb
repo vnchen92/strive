@@ -5,7 +5,9 @@ class Api::ActivitiesController < ApplicationController
     end
 
     def show 
-        @activity = Activity.find_by(id: params[:id])
+        @user = User.find_by(id: params[:id])
+
+        @activity = @user.activities.order("posted_on DESC").limit(1)[0]
         render :show
     end
 
