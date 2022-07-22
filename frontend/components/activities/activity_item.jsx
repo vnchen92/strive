@@ -18,16 +18,10 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
 
     const postedOnConverted = activity.postedOn.split(" ").splice(0, 4).join(" ")
 
-    const handleClick = e => {
-        let showDivs = document.getElementsByClassName("comment-create-container");
-        for (let i = 0; i < showDivs.length; i++) {
-            let showDiv = showDivs.item(i);
-            if (showDiv.style.display === "none") {
-                showDiv.style.display = "block";
-            } else {
-                showDiv.style.display = "none";
-            }
-        }
+    const [showDiv, setShowDiv] = useState(false)
+
+    const toggleCommentForm = () => {
+        setShowDiv(!showDiv)
     }
 
     const handleLike = e => {
@@ -87,19 +81,21 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                         <Kudos kudos={kudos} activityId={activity.id} />
                         {/* <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} /> */}
                         {kudoIcon}
-                        <img className='comment-icon' src="/assets/comment" alt="" onClick={handleClick} />
+                        <img className='comment-icon' src="/assets/comment" alt="" onClick={toggleCommentForm} />
                     </div>
                 </div>
                 <div className='comments-container'>
-                    <Comments 
-                        activityId={activity.id} 
-                        fetchAllComments={fetchAllComments} 
-                        comments={comments} 
-                        currentUser={currentUser}
-                        deleteComment={deleteComment}
-                    />
+                        <Comments 
+                            activityId={activity.id} 
+                            fetchAllComments={fetchAllComments} 
+                            comments={comments} 
+                            currentUser={currentUser}
+                            deleteComment={deleteComment}
+                        />
                 </div>
-                <CommentFormContainer activityId={activity.id} currentUser={currentUser} />
+                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                    <CommentFormContainer activityId={activity.id} currentUser={currentUser} />
+                </div>
             </div>
         </div>
     )
