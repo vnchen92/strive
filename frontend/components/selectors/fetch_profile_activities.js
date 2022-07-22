@@ -8,5 +8,5 @@ export const fetchProfileActivities = (entities, session, activities) => {
         }
     })
 
-    return filteredActivities;
+    return Object.values(filteredActivities).sort((a,b) => new Date(b.postedOn) - new Date(a.postedOn));
 }

@@ -46,7 +46,8 @@ u3 = User.create(
 p1 = Activity.create(
     title: "Need Carbs",
     author_id: 2,
-    posted_on: "Fri Aug 23 2021",
+    # posted_on: "Fri Aug 23 2021",
+    posted_on: '2021-08-23 00:00:01 UTC',
     distance: 1.5,
     pace: 8.53,
     hours: 0,
@@ -60,7 +61,8 @@ p1 = Activity.create(
 p2 = Activity.create(
     title: "Training for 10k!",
     body: "...halfway there? 🙃",
-    posted_on: "Tue Jan 1 2021",
+    # posted_on: "Tue Jan 1 2021",
+    posted_on: '2021-01-01 00:00:01 UTC',
     author_id: 2,
     distance: 6,
     pace: 9.45,
@@ -75,7 +77,8 @@ p2 = Activity.create(
 p3 = Activity.create(
     title: 'First run of the season',
     body: 'Is it over yet?',
-    posted_on: "Mon May 5 2021",
+    # posted_on: "Mon May 5 2021",
+    posted_on: '2021-05-05 00:00:01 UTC',
     author_id: 3,
     distance: 2,
     pace: 13.33,
@@ -90,7 +93,8 @@ p3 = Activity.create(
 p4 = Activity.create(
     title: "Let's GOOOOOOOOO",
     body: 'Let it be known. I am the best of ALL demousers.',
-    posted_on: 'Fri April 20 2022',
+    # posted_on: 'Fri April 20 2022',
+    posted_on: '2021-04-20 00:00:01 UTC',
     author_id: 1,
     distance: 10.6,
     pace: 6.35,
@@ -105,7 +109,8 @@ p4 = Activity.create(
 p5 = Activity.create(
     title: 'Just want to track my progress...',
     body: "How did I do? 🤩",
-    posted_on: 'Mon April 4 2022',
+    # posted_on: 'Mon April 4 2022',
+    posted_on: '2022-04-04 00:00:01 UTC',
     author_id: 1,
     distance: 2,
     pace: 9.25,
@@ -118,7 +123,8 @@ p5 = Activity.create(
 p6 = Activity.create(
     title: 'WOOHOO',
     body: "WHO RUN THE WORLD? GIRLS.",
-    posted_on: 'Fri May 4 2022',
+    # posted_on: 'Fri May 4 2022',
+    posted_on: '2022-05-04 00:00:01 UTC',
     author_id: 2,
     distance: 10,
     pace: 9.30,
@@ -130,7 +136,8 @@ p6 = Activity.create(
 
 p7 = Activity.create(
     title: 'Think I finally broke in my sneakers',
-    posted_on: 'Fri May 4 2022',
+    # posted_on: 'Fri May 4 2022',
+    posted_on: '2022-05-13 00:00:01 UTC',
     author_id: 3,
     distance: 7,
     pace: 8.30,
