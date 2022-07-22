@@ -86,9 +86,10 @@
 
 }
 
-.comment-name {
+.comment-name > a {
     font-weight: bold;
     font-size: 11px;
+    color: black;
 }
 
 .comment-time-delete-container {

@@ -29,6 +29,10 @@
     padding-left: 15px;
 }
 
+.activity-show-user-name > a {
+    color: black;
+}
+
 .activity-show-row {
     display: flex;
     justify-content:left;
