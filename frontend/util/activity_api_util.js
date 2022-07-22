@@ -5,12 +5,12 @@ export const fetchAllActivities = () => {
     })
 }
 
-export const fetchActivity = activityId => {
+export const fetchActivity = userId => {
     debugger
     return $.ajax({
-        url: `api/activities/${activityId}`,
+        url: `api/activities/${userId}`,
         method: 'GET',
-        data: {activityId}
+        data: {userId}
     })
 }
 

@@ -5,8 +5,7 @@ const CurrentUser = ({user, followers, followings, activitiesNum}) => {
     const [latest, setLatest] = useState({})
     const [isLoaded, setLoaded] = useState(false)
 
-    
-    // useEffect(() => {
+    useEffect(() => {
         fetchActivity(user.id)
             .then(res => {
                 setLatest({res})
@@ -14,9 +13,10 @@ const CurrentUser = ({user, followers, followings, activitiesNum}) => {
             .then(() => {
                 setLoaded(true)
             })
-    // }, [])
+    }, [])
 
     if (isLoaded) {
+        const postedOnConverted = new Date(latest.res.postedOn).toString().split(" ").splice(0, 4).join(" ")
         return (
             <div className='profile-container'>
                 <div className='profile-top-container'>
@@ -41,7 +41,8 @@ const CurrentUser = ({user, followers, followings, activitiesNum}) => {
                 </div>
                 <div className='profile-bottom-container'>
                     <p className='profile-latest'>Latest Activity</p>
-                    <p className='profile-latest-bold'>{latest.res.title}&#9679;{latest.res.postedOn}</p>
+                    <p className='profile-latest-date'>{postedOnConverted}</p>
+                    <p className='profile-latest-bold'>{latest.res.title}</p>
                 </div>
             </div>
         )

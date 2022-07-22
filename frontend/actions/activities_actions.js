@@ -46,12 +46,10 @@ export const fetchAllActivities = () => dispatch => {
     )
 }
 
-export const fetchActivity = activityId => {
-    debugger
+export const fetchActivity = userId => {
     return (
-        ActivityApiUtil.fetchActivity(activityId)
+        ActivityApiUtil.fetchActivity(userId)
             .then(res => {
-                debugger
                 return res
             })
     )
