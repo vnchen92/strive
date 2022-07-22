@@ -7,13 +7,18 @@
     margin-top: 10px;
     padding-top: 10px;
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .comments-icon-container {
     display: flex;
     justify-content: right;
     align-items: center;
+}
+
+.kudo-num {
+    font-size: 11px;
 }
 
 .comment-icon {

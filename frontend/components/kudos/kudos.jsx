@@ -6,10 +6,10 @@ const Kudos = ({kudos, activityId}) => {
         kudoCount = Object.values(kudos[activityId]).length;
     }
     return (
-        <div>
+        <div className='kudo-num'>
             {
             kudoCount !== 0 ? (
-                `${kudoCount} kudos`
+                kudoCount === 1 ? `${kudoCount} kudo` : `${kudoCount} kudos`
             ) : (
                 <></>
             )
