@@ -4,7 +4,6 @@ class ActivityForm extends React.Component {
     constructor(props) {
         super(props)
         if (props.formType === 'Create a Post') {
-            debugger
             this.state = {
                 title: "",
                 body: "",
@@ -108,7 +107,7 @@ class ActivityForm extends React.Component {
     // }
 
     renderErrors = () => {
-        debugger
+
         return (
             this.props.errors.map((error, idx) => {
                 return <li key={idx}>{error}</li>

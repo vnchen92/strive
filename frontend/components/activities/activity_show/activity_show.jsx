@@ -11,9 +11,9 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
     //     component = <Map activity={activity} />
     // }
 
-    if (activity === undefined) {
-        history.push('/dashboard/my_activities');
-    }
+    // if (activity === undefined) {
+    //     history.push('/dashboard/my_activities');
+    // }
 
     const timeArray = activity.time.split(":");
 
@@ -21,7 +21,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
 
     const handleClick = e => {
         deleteActivity(activity.id)
-            .then(() => history.push('/dashboard/my_activities'));
+        history.push('/dashboard/my_activities')
     }
 
     let userOfActivity = {};

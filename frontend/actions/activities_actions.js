@@ -14,7 +14,6 @@ const recieveAllActivities = activities => {
 }
 
 const receiveActivity = activity => {
-    debugger
     return {
         type: RECEIVE_ACTIVITY,
         activity
@@ -22,7 +21,6 @@ const receiveActivity = activity => {
 }
 
 const removeActivity = activity => {
-    debugger
     return {
         type: REMOVE_ACTIVITY,
         activity
@@ -83,7 +81,6 @@ export const deleteActivity = activityId => dispatch => {
     return (
         ActivityApiUtil.deleteActivity(activityId)
             .then(res => {
-                debugger
                 return dispatch(removeActivity(res))
             })
     )
