@@ -17,7 +17,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
 
     const timeArray = activity.time.split(":");
 
-    const postedOnConverted = activity.postedOn.split(" ").splice(0, 4).join(" ")
+    const postedOnConverted = new Date(activity.postedOn).toString().split(" ").splice(0, 4).join(" ")
 
     const handleClick = e => {
         deleteActivity(activity.id)
@@ -51,7 +51,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
                 <div className='activity-show-top'>
                     <div className='activity-badge-and-name'>
                         <img className='badge' src="https://d3nn82uaxijpm6.cloudfront.net/assets/svg/badges_multicolor_summit_small-a9f1366377ea9bcfb95dd73917f97b674a8c64d9f00bb029d58c23730158b328.svg" alt="" />
-                        <h1 className='activity-show-user-name'>{`${userOfActivity.firstName} ${userOfActivity.lastName}`}</h1>
+                        <h1 className='activity-show-user-name'><Link to={`/athletes/${userOfActivity.id}`}>{`${userOfActivity.firstName} ${userOfActivity.lastName}`}</Link></h1>
                     </div>
                     <div className='activity-show-row'>
                         <div className='activity-show-left'>

@@ -22,7 +22,6 @@ const kudosReducer = (state = initialState, action) => {
             }
             return nextState;
         case REMOVE_KUDO:
-            debugger
             delete nextState[action.kudo.activityId][action.kudo.id]
             return nextState;
         default:

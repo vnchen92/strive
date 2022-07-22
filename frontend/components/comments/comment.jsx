@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Comment = ({ comment, currentUser, deleteComment}) => {
-
+    console.log(comment);
     const monthNameToNum = {
         "Jan": '01',
         "Feb": '02',
@@ -20,7 +21,6 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
     const convertMonthNametoNum = date => {
         let newDate = new Date(date).toString().split(" ").splice(1, 3)
         let month = monthNameToNum[newDate[0]]
-        debugger
         newDate[0] = month;
         return new Date(newDate[2], newDate[0], newDate[1]);
     }
@@ -40,9 +40,9 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
             <img className='comment-user-icon' src={comment.profilePic} alt="" />
             <div className='comment-right-container'>
                 <div className='comment-name-time-delete-container'>
-                    <p className='comment-name'>{comment.firstName}&nbsp;{comment.lastName}</p>
+                    <p className='comment-name'><Link to={currentUser.id === comment.userId ? `/dashboard/my_activities` : `/athletes/${comment.userId}`}>{comment.firstName}&nbsp;{comment.lastName}</Link></p>
                     <div className='comment-time-delete-container'>
-                        <p className='comment-time'>{daysAgo} days ago
+                        <p className='comment-time'>{daysAgo}&nbsp;{daysAgo === 1 ? 'day ago' : 'days ago'}
                         {
                         currentUser.id === comment.userId ? (
                             <button className='comment-delete-btn' onClick={() => deleteComment(comment.id)}>&nbsp;| Delete</button>
