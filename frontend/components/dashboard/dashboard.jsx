@@ -32,17 +32,6 @@ class Dashboard extends React.Component{
                 activitiesComponent = <UserProfileContainer />
         }
 
-        // if (this.props.firstActivity && this.props.firstFollow) {
-        //     if (this.props.location.pathname === '/dashboard') {
-        //         activitiesComponent = <ActivitiesContainer />
-        //     } else if (this.props.location.pathname === '/dashboard/my_activities') {
-        //         activitiesComponent = <CurrentUserProfilePageContainer />
-        //     } else {
-        //         activitiesComponent = <UserProfileContainer />
-        //     }
-        // } else {
-        //     activitiesComponent = null;
-        // }
         const {user} = this.props;
         return (
             <div className='dashboard-ent-container'>

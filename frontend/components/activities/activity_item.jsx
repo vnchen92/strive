@@ -16,7 +16,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
 
     const timeArray = activity.time.split(":");
 
-    const postedOnConverted = activity.postedOn.split(" ").splice(0, 4).join(" ")
+    const postedOnConverted = new Date(activity.postedOn).toString().split(" ").splice(0, 4).join(" ")
 
     const [showDiv, setShowDiv] = useState(false)
 
