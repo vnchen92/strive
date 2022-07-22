@@ -4,6 +4,7 @@ import CurrentUser from './currentuser';
 import ActivitiesContainer from '../activities/activities_container';
 import CurrentUserProfilePageContainer from '../profile/currentuser_profile_container';
 import UserProfileContainer from '../profile/user_profile_container';
+import MyInfo from '../my_info/my_info';
 
 class Dashboard extends React.Component{
     constructor(props){
@@ -35,7 +36,10 @@ class Dashboard extends React.Component{
         const {user, followers, followings, activitiesNum} = this.props;
         return (
             <div className='dashboard-ent-container'>
-                <CurrentUser user={user} followers={followers} followings={followings} activitiesNum={activitiesNum} />
+                <div className='dashboard-user-and-myinfo-container'>
+                    <CurrentUser user={user} followers={followers} followings={followings} activitiesNum={activitiesNum} />
+                    <MyInfo />
+                </div>
                 <div className='dashboard-ent-mid-container'>
                     {
                     this.props.location.pathname !== '/athletes/:id' ? (

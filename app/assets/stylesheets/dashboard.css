@@ -6,6 +6,10 @@
     padding-bottom: 60px;
 }
 
+.dashboard-user-and-myinfo-container {
+    display: block;
+}
+
 .dashboard-ent-mid-container {
     max-width: 38rem;
 }
