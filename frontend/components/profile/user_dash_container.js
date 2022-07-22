@@ -3,6 +3,10 @@ import Dashboard from '../dashboard/dashboard';
 import { fetchFollowers } from '../selectors/fetch_followers';
 import { fetchFollowings } from '../selectors/fetch_followings';
 import { fetchUserActivities } from '../selectors/fetch_user_activities';
+import { fetchAllFollows } from '../../actions/follow_actions';
+import { fetchAllActivities } from '../../actions/activities_actions';
+import { fetchAllUsers } from '../../actions/users_actions';
+import { fetchAllKudos } from '../../actions/kudo_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -15,7 +19,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        fetchAllFollows: () => dispatch(fetchAllFollows()),
+        fetchAllActivities: () => dispatch(fetchAllActivities()),
+        fetchAllUsers: () => dispatch(fetchAllUsers()),
+        fetchAllKudos: () => dispatch(fetchAllKudos())
     }
 }
 
