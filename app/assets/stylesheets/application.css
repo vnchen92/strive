@@ -14,7 +14,7 @@
  *= require_self
  */
 
-/* @import "./reset.css";
+@import "./reset.css";
 @import "./header.css";
 @import "./welcome.css";
 @import "./session.css";
@@ -24,7 +24,7 @@
 @import "./create.css";
 @import "./activity.css";
 @import "./activity_show.css";
-@import "./comment.css"; */
+@import "./comment.css";
 
 a {
     text-decoration: none;
