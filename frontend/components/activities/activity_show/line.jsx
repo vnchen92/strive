@@ -9,7 +9,7 @@ class LineChart extends React.Component {
         //debugger
 		const ctx = this.chartRef.current.getContext("2d");
 
-		console.log(this.props.elevation);
+		//console.log(this.props.elevation);
 
 		const data = {
             datasets: [{

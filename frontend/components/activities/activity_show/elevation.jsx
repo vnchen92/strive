@@ -25,7 +25,7 @@ class Elevation extends React.Component{
                 if (status === 'OK') {
                     this.setState({ elevations: results })
                 } else {
-                    console.log(status);
+                    //console.log(status);
                 }
             })
     }

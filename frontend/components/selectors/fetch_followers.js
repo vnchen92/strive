@@ -4,6 +4,5 @@ export const fetchFollowers = (user, follows) => {
         if (user.id === follow.followingId)
         followerCount += 1;
     })
-    //debugger
     return followerCount;
 }

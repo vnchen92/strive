@@ -6,7 +6,6 @@ export const fetchAllActivities = () => {
 }
 
 export const fetchActivity = userId => {
-    debugger
     return $.ajax({
         url: `api/activities/${userId}`,
         method: 'GET',

@@ -52,9 +52,8 @@ class ActivityForm extends React.Component {
                 posted_on: this.state.posted_on,
                 author_id: this.state.author_id
             }
-            //debugger
+
             if (this.props.formType === 'Create a Post') {
-                //debugger
                 this.props.createActivity(newActivity)
                     .then(() => this.props.history.push('/dashboard/my_activities'))
             } else {
@@ -67,7 +66,6 @@ class ActivityForm extends React.Component {
     checkForSingles = (num) => {
         if (num < 10) {
             let currentNum = "0" + num;
-            //debugger
             return currentNum;
         }
         return num;
@@ -83,38 +81,13 @@ class ActivityForm extends React.Component {
         }
     }
 
-    // updateTime = (field) => {
-    //     return e => {
-    //         this.setState({ [field]: e.currentTarget.value })
-    //         if (field === 'hours'){
-    //             debugger
-    //             this.checkTime(field, this.state.hours)
-    //         } else if (field === 'minutes') {
-    //             this.checkTime(field, this.state.minutes)
-    //         } else {
-    //             this.checkTime(field, this.state.seconds)
-    //         }
-    //     }
-    // }
-
-    // checkTime = (field, num) => {
-    //     if (num > 59) {
-    //         let additionalErrors = [...this.state.errors];
-    //         additionalErrors.push(`Please insert a valid number below 60 for ${field}`);
-    //         this.setState({ errors: additionalErrors })
-    //         debugger
-    //     }
-    // }
-
     renderErrors = () => {
-
         return (
             this.props.errors.map((error, idx) => {
                 return <li key={idx}>{error}</li>
             })
         )
     }
-
 
     render() {
         return (
