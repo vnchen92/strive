@@ -6,7 +6,8 @@ const CommentForm = props => {
     const [state, setState] = useState({
         activity_id: props.activityId, 
         user_id: props.currentUser.id,
-        body: ""
+        body: "",
+        posted_on: new Date()
     })
 
     const handleSubmit = e => {

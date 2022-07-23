@@ -25,7 +25,7 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
     }
 
     const oneDay = 24 * 60 * 60 * 1000;
-    const presentDate = convertMonthNametoNum(comment.createdAt)
+    const presentDate = convertMonthNametoNum(comment.postedOn)
     const activityDate = convertMonthNametoNum(new Date())
     const daysAgo = Math.round(Math.abs((presentDate - activityDate) / oneDay));
 

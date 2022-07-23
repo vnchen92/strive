@@ -7,19 +7,18 @@ const Comments = ({activityId, fetchAllComments, comments, currentUser, deleteCo
 
     useEffect(() => {
         fetchAllComments();
-        //debugger
     }, [])
 
     for(const postId in comments) {
-        //debugger
         if (parseInt(postId) === activityId){
-            //debugger
             Object.values(comments[postId]).map((com => {
                 currentComments.push(com);
             }))
         }
     }
-    //debugger
+
+    currentComments.sort((a,b) => new Date(a.postedOn) - new Date(b.postedOn));
+    
     return (
         <>
             {
