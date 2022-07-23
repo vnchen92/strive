@@ -42,9 +42,9 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
     let isAlreadyLiked = filteredLikes.type;
 
     if (isAlreadyLiked) {
-        kudoIcon = <img className='like-icon-orange' src="/assets/like_orange" alt="" onClick={handleLike} />
+        kudoIcon = <img className='like-icon-orange' src="/images/assets/like_orange" alt="" onClick={handleLike} />
     } else { //no likes on this post
-        kudoIcon = <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} />
+        kudoIcon = <img className='like-icon' src="/images/assets/like" alt="" onClick={handleLike} />
     }
 
     return (
@@ -81,7 +81,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                     <div className='comments-icon-container'>
                         {/* <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} /> */}
                         {kudoIcon}
-                        <img className='comment-icon' src="/assets/comment" alt="" onClick={toggleCommentForm} />
+                        <img className='comment-icon' src="/images/assets/comment" alt="" onClick={toggleCommentForm} />
                     </div>
                 </div>
                 <div className='comments-container'>

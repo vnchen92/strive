@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
         const randomImage = images[Math.floor(Math.random() * images.length)];
         
         const myStyle = {
-            backgroundImage: `url(/assets/${randomImage})`
+            backgroundImage: `url(/images/assets/${randomImage})`
         }
 
         return (
