@@ -54,11 +54,11 @@ class SessionForm extends React.Component {
     render(){
         const {errors, formType, processForm, location, modal, closeModal} = this.props;
 
-        const images = ['https://github.com/vnchen92/strive/blob/main/app/assets/images/jenny-hill-mQVWb7kUoOE-unsplash.jpg?raw=true', 'https://github.com/vnchen92/strive/blob/main/app/assets/images/pexels-josh-willink-701016.jpg?raw=true', 'https://github.com/vnchen92/strive/blob/main/app/assets/images/pexels-yogendra-singh-1469880.jpg?raw=true'];
+        const images = ['jenny-hill-mQVWb7kUoOE-unsplash.jpg', 'pexels-josh-willink-701016.jpg', 'pexels-yogendra-singh-1469880'];
         const randomImage = images[Math.floor(Math.random() * images.length)];
         
         const myStyle = {
-            backgroundImage: `url(${randomImage})`
+            backgroundImage: `url(/assets/${randomImage})`
         }
 
         return (
