@@ -29,7 +29,7 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                 <div className='nav-right-container'>
                                     <div className='nav-bar-dropdown'>
                                         <div className='nav-img-container'>
-                                            {/* <img className='nav-bar-dropdown-btn' src='/assets/add'/> */}
+                                            <img className='nav-bar-dropdown-btn' src='/assets/add'/>
                                         </div>
                                         <div className='nav-bar-dropdown-container'>
                                             <div className='drop-down-link-container'>
