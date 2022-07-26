@@ -29,7 +29,7 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                 <div className='nav-right-container'>
                                     <div className='nav-bar-dropdown'>
                                         <div className='nav-img-container'>
-                                            <img className='nav-bar-dropdown-btn' src='https://github.com/vnchen92/strive/blob/main/app/assets/images/add.png?raw=true'/>
+                                            {/* <img className='nav-bar-dropdown-btn' src='/assets/add'/> */}
                                         </div>
                                         <div className='nav-bar-dropdown-container'>
                                             <div className='drop-down-link-container'>
