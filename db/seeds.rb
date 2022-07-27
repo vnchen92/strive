@@ -39,7 +39,7 @@ u3 = User.create(
     weight: 145,
     email: 'danster1992@yahoo.com',
     password: 'password',
-    profile_pic: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.6435-9/31950431_10214801461083787_8093315151425437696_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_BDJ53pDiusAX8hB-DZ&_nc_ht=scontent-lga3-1.xx&oh=00_AT8KAI4WSNaUrxZQsDIheceITzjlp8no0RnnWtIUll0aSg&oe=63081305'
+    profile_pic: 'https://cdn.discordapp.com/attachments/1001881129546158254/1001881393577611344/31950431_10214801461083787_8093315151425437696_n.jpg'
 )
 
 
