@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchActivity } from '../../actions/activities_actions';
 
 const CurrentUser = ({user, followers, followings, activitiesNum}) => {
@@ -16,7 +17,12 @@ const CurrentUser = ({user, followers, followings, activitiesNum}) => {
     }, [])
 
     if (isLoaded) {
-        const postedOnConverted = new Date(latest.res.postedOn).toString().split(" ").splice(0, 4).join(" ")
+        let postedOnConverted;
+        if (Object.values(latest.res).length > 0) { 
+            postedOnConverted = new Date(latest.res.postedOn).toString().split(" ").splice(0, 4).join(" ");
+        } else {
+            postedOnConverted = "";
+        }
         return (
             <div className='profile-container'>
                 <div className='profile-top-container'>
@@ -42,7 +48,7 @@ const CurrentUser = ({user, followers, followings, activitiesNum}) => {
                 <div className='profile-bottom-container'>
                     <p className='profile-latest'>Latest Activity</p>
                     <p className='profile-latest-date'>{postedOnConverted}</p>
-                    <p className='profile-latest-bold'>{latest.res.title}</p>
+                    <p className='profile-latest-bold'>{latest.res.title || <Link to={`/athletes/${user.id}/posts/new`}>~Create your first activity~</Link>}</p>
                 </div>
             </div>
         )

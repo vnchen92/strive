@@ -8,7 +8,12 @@ class Api::ActivitiesController < ApplicationController
         @user = User.find_by(id: params[:id])
 
         @activity = @user.activities.order("posted_on DESC").limit(1)[0]
-        render :show
+
+        if @activity
+            render :show
+        else
+            render json: {}
+        end
     end
 
     def create

@@ -1,119 +1,109 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
 import { Modal } from './modal';
 
-class SessionForm extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            email: '',
-            password: '',
-            firstName: '',
-            lastName: '',
-            birthdate: '',
-            weight: ''
-        }
-    }
+const SessionForm = ({errors, formType, processForm, location, modal, closeModal, openModal, removeErrors}) => {
+    const [state, setState] = useState({email: '', password: '', firstName: '', lastName: '', birthdate: '', weight: ''})
 
-    componentDidMount(){
-        if (this.props.errors.session.length > 0 ){
-            this.props.removeErrors();
-        }
-    }
+    const [myStyle, setMyStyle] = useState({})
 
-    handleSubmit = e => {
+    useEffect(() => {
+        removeErrors();
+
+        const generateRandomImage = () => {
+            const images = ['jenny-hill-mQVWb7kUoOE-unsplash.jpg', 'pexels-josh-willink-701016.jpg', 'pexels-yogendra-singh-1469880'];
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            
+            setMyStyle ({
+                backgroundImage: `url(/assets/${randomImage})`
+            })
+        }
+
+        generateRandomImage();
+
+    },[])
+
+    const handleSubmit = e => {
         e.preventDefault();
-        const user = {...this.state};
-        this.props.processForm(user)
+        processForm({...state})
             .then(() => this.props.history.push('./dashboard'));
-        if (this.props.formType !== 'Log In') {
-            this.props.closeModal();
+        if (formType !== 'Log In') {
+            closeModal();
         }
     }
 
-    handleClick = e => {
-        this.props.openModal();
+    const handleClick = e => {
+        openModal();
     }
 
-    update = field => {
+    const update = field => {
         return e => {
             e.preventDefault();
-            this.setState({ [field]: e.currentTarget.value })
+            setState({ ...state, [field]: e.currentTarget.value })
         }
     }
 
-    showErrors = () => {
+    const showErrors = () => {
         return (
-            this.props.errors.session.map((error, idx) => {
+            errors.session.map((error, idx) => {
                 return <li className='session-error' key={idx}>{error}</li>
             })
         )
     }
 
-    render(){
-        const {errors, formType, processForm, location, modal, closeModal} = this.props;
-
-        const images = ['jenny-hill-mQVWb7kUoOE-unsplash.jpg', 'pexels-josh-willink-701016.jpg', 'pexels-yogendra-singh-1469880'];
-        const randomImage = images[Math.floor(Math.random() * images.length)];
-        
-        const myStyle = {
-            backgroundImage: `url(/assets/${randomImage})`
-        }
-
-        return (
-            <div className='session-container' style={myStyle}>
-                <div className='session-inner-container'>
-                    <h1 className='session-title'>{location.pathname === '/login' ? formType : "Join Strive today, it's free."}</h1>
-                    <ul className='session-errors-container'>
-                        {this.showErrors()}
-                    </ul>
-                    <div className='session-btn-container'>
-                        {
-                        location.pathname === '/login' ? <div className='session-demo-btn'><DemoLogin login={processForm} /></div> : <></>
-                        }
-                        <form className='session-form' onSubmit={this.handleSubmit}>
-                            <label>
-                                <input className='session-email'
-                                    type="text"
-                                    placeholder='email'
-                                    value={this.state.email}
-                                    onChange={this.update('email')}
-                                />
-                            </label>
-                            <label>
-                                <input className='session-password'
-                                    type="password"
-                                    placeholder='password'
-                                    value={this.state.password}
-                                    onChange={this.update('password')}
-                                />
-                            </label>
-                            { 
-                            formType === 'Log In' ?
-                                <button className='session-submit' type='submit'>{formType}</button>
-                                :
-                                <div className='session-submit' onClick={this.handleClick}>{formType}</div>
-                            }
-                            {
-                            modal && 
-                            <Modal 
-                                firstName={this.state.firstName}
-                                lastName={this.state.lastName}
-                                weight={this.state.weight}
-                                birthdate={this.state.birthdate} 
-                                errors={errors}
-                                closeModal={closeModal}
-                                handleSubmit={this.handleSubmit}
-                                update={this.update} 
+    return (
+        <div className='session-container' style={myStyle}>
+            <div className='session-inner-container'>
+                <h1 className='session-title'>{location.pathname === '/login' ? formType : "Join Strive today, it's free."}</h1>
+                <ul className='session-errors-container'>
+                    {showErrors()}
+                </ul>
+                <div className='session-btn-container'>
+                    {
+                    location.pathname === '/login' ? <div className='session-demo-btn'><DemoLogin login={processForm} /></div> : <></>
+                    }
+                    <form className='session-form' onSubmit={handleSubmit}>
+                        <label>
+                            <input className='session-email'
+                                type="text"
+                                placeholder='email'
+                                value={state.email}
+                                onChange={update('email')}
                             />
-                            }
-                        </form>
-                    </div>
+                        </label>
+                        <label>
+                            <input className='session-password'
+                                type="password"
+                                placeholder='password'
+                                value={state.password}
+                                onChange={update('password')}
+                            />
+                        </label>
+                        { 
+                        formType === 'Log In' ?
+                            <button className='session-submit' type='submit'>{formType}</button>
+                            :
+                            <div className='session-submit' onClick={handleClick}>{formType}</div>
+                        }
+                        {
+                        modal && 
+                        <Modal 
+                            firstName={state.firstName}
+                            lastName={state.lastName}
+                            weight={state.weight}
+                            birthdate={state.birthdate} 
+                            errors={errors}
+                            closeModal={closeModal}
+                            handleSubmit={handleSubmit}
+                            update={update} 
+                        />
+                        }
+                    </form>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default withRouter(SessionForm);
