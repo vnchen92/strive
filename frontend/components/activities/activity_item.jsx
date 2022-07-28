@@ -87,7 +87,6 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                 <div className='comments-icon-outer-container'>
                     <Kudos kudos={kudos} activityId={activity.id} />
                     <div className='comments-icon-container'>
-                        {/* <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} /> */}
                         {kudoIcon}
                         <img className='comment-icon' src="/assets/comment" alt="" onClick={toggleCommentForm} />
                     </div>

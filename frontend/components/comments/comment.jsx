@@ -34,6 +34,12 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
     // const activityDate = new Date(activityPostedOn)
     // const daysAgo = Math.round(Math.abs((presentDate - activityDate) / oneDay));
 
+    // const [showDiv, setShowDiv] = useState(false)
+
+    // const toggleCommentForm = () => {
+    //     setShowDiv(!showDiv)
+    // }
+
     return (
         <>
             <img className='comment-user-icon' src={comment.profilePic} alt="" />
@@ -44,7 +50,10 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
                         <p className='comment-time'>{daysAgo}&nbsp;{daysAgo === 1 ? 'day ago' : 'days ago'}
                         {
                         currentUser.id === comment.userId ? (
-                            <button className='comment-delete-btn' onClick={() => deleteComment(comment.id)}>&nbsp;| Delete</button>
+                            <>
+                                <button className='comment-delete-btn' onClick={() => deleteComment(comment.id)}>&nbsp;| Delete</button>
+                                {/* <button className='comment-delete-btn' onClick={toggleCommentForm}>&nbsp;| Edit</button> */}
+                            </>
                         ) : (
                             <></>
                         )
@@ -53,6 +62,9 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
                     </div>
                 </div>
                 <p className='comment-body'>{comment.body}</p>
+                {/* <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                    <EditCommentFormContainer activityId={comment.activityId} currentUserId={currentUser.id} postedOn={comment.postedOn} body={comment.body} />
+                </div> */}
             </div>
         </>
     )

@@ -71,12 +71,14 @@ export const createComment = comment => dispatch => {
 export const updateComment = comment => dispatch => {
     return (
         CommentApiUtil.updateComment(comment)
-            .then(res => dispatch(receiveComment(res))),
+            .then((res) => {
+                dispatch(receiveComment(res))
+            },
             err => {
                 return dispatch(receiveCommentErrors(err.responseJSON))
             }
     )
-}
+)}
 
 export const deleteComment = commentId => dispatch => {
     return (
