@@ -39,7 +39,7 @@
     justify-content: center;
 }
 
-.myinfo-icon-and-label-inner-container > img {
+.myinfo-icon-and-label-inner-container > a > img {
     width: 50px;
     height: auto;
 }
