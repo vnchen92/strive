@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ActivitiesDashboard from '../activities/activities_dashboard';
 import { fetchUserActivities } from '../selectors/fetch_user_activities';
-import { fetchAllComments, deleteComment } from '../../actions/comments_actions';
+import { fetchAllComments, deleteComment, removeCommentErrors } from '../../actions/comments_actions';
 import { createKudo, deleteKudo } from '../../actions/kudo_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,7 +20,8 @@ const mapDispatchToProps = dispatch => {
         fetchAllComments : () => dispatch(fetchAllComments()),
         deleteComment: (commentId) => dispatch(deleteComment(commentId)),
         createKudo: (kudo) => dispatch(createKudo(kudo)),
-        deleteKudo: kudoId => dispatch(deleteKudo(kudoId))
+        deleteKudo: kudoId => dispatch(deleteKudo(kudoId)),
+        removeCommentErrors: () => dispatch(removeCommentErrors())
     }
 }
 

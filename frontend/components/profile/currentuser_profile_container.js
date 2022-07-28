@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllComments, deleteComment } from '../../actions/comments_actions';
+import { fetchAllComments, deleteComment, removeCommentErrors } from '../../actions/comments_actions';
 import { createKudo, deleteKudo } from '../../actions/kudo_actions';
 import ActivitiesDashboard from '../activities/activities_dashboard';
 import { fetchProfileActivities } from '../selectors/fetch_profile_activities';
@@ -19,7 +19,8 @@ const mapDispatchToProps = dispatch => {
         fetchAllComments : () => dispatch(fetchAllComments()),
         deleteComment: (commentId) => dispatch(deleteComment(commentId)),
         createKudo: (kudo) => dispatch(createKudo(kudo)),
-        deleteKudo: (kudoId) => dispatch(deleteKudo(kudoId))
+        deleteKudo: (kudoId) => dispatch(deleteKudo(kudoId)),
+        removeCommentErrors: () => dispatch(removeCommentErrors())
     }
 }
 

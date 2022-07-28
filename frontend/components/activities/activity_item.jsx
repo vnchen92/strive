@@ -5,7 +5,7 @@ import CommentFormContainer from '../comments/comment_form';
 import Kudos from '../kudos/kudos';
 import isLiked from '../selectors/isLiked';
 
-const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo}) => {
+const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo, removeCommentErrors}) => {
     let aProfilePage;
 
     if (currentUser.id === user.id && activity.authorId === currentUser.id) {
@@ -27,6 +27,10 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
     useEffect(() => {
         toggleCommentForm()
     }, [comments])
+
+    useEffect(() => {
+        removeCommentErrors()
+    }, [showDiv])
 
     const handleLike = e => {
         let currentKudo = {
