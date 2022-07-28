@@ -1,8 +1,11 @@
 .homepage-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     white-space: none;
+}
+
+.homepage-inner-container {
+    text-align: center;
 }
 
 .homepage-img-and-btn-container {
@@ -13,14 +16,15 @@
 
 .homepage-header {
     font-weight: 500;
-    padding-top: 3%;
+    padding-top: 40px;
     padding-bottom: 10px;
     font-size: 19px;
     top: 10px;
 }
 
 .homepage-img {
-    display: flex;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 
@@ -30,16 +34,14 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    width: 45%;
+    width: 400px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .homepage-inner-btn-container {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 20%;
-    padding-right: 20%;
     justify-content: center;
 }
 
@@ -50,7 +52,7 @@
     align-items: center;
     margin-top: 20px;
     min-height: 4rem;
-    width: 274px;
+    width: 315px;
     border: 1px solid #dfdfe8;
     color: #242428;
     transition: 0.3s;
@@ -63,7 +65,7 @@
     align-items: center;
     margin-top: 20px;
     min-height: 4rem;
-    width: 274px;
+    width: 315px;
     border: 1px solid #dfdfe8;
     color: #242428;
     transition: 0.3s;
