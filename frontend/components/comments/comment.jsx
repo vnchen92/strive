@@ -6,7 +6,7 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
 
     const [showDiv, setShowDiv] = useState(false)
 
-    const toggleCommentForm = () => {
+    const toggleEditCommentForm = () => {
         setShowDiv(!showDiv)
     }
 
@@ -60,7 +60,7 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
                         currentUser.id === comment.userId ? (
                             <>
                                 <button className='comment-delete-btn' onClick={() => deleteComment(comment.id)}>&nbsp;| Delete</button>
-                                <button className='comment-delete-btn' onClick={() => toggleCommentForm()}>&nbsp;| Edit</button>
+                                <button className='comment-delete-btn' onClick={() => toggleEditCommentForm()}>&nbsp;| Edit</button>
                                 {/* <button className='comment-delete-btn' onClick={toggleCommentForm}>&nbsp;| Edit</button> */}
                             </>
                         ) : (
@@ -72,7 +72,14 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
                 </div>
                 <p className='comment-body'>{comment.body}</p>
                 <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
-                    <EditCommentFormContainer activityId={comment.activityId} currentUser={currentUser} postedOn={comment.postedOn} body={comment.body} />
+                    <EditCommentFormContainer 
+                        id={comment.id} 
+                        activityId={comment.activityId} 
+                        currentUser={currentUser} 
+                        postedOn={comment.postedOn} 
+                        body={comment.body}
+                        toggleEditCommentForm={toggleEditCommentForm}
+                    />
                 </div>
             </div>
         </>

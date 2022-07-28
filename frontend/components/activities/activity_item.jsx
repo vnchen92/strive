@@ -24,13 +24,13 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         setShowDiv(!showDiv)
     }
 
-    useEffect(() => {
-        toggleCommentForm()
-    }, [comments])
+    // useEffect(() => {
+    //     toggleCommentForm()
+    // }, [comments])
 
-    useEffect(() => {
-        removeCommentErrors()
-    }, [showDiv])
+    // useEffect(() => {
+    //     removeCommentErrors()
+    // }, [showDiv])
 
     const handleLike = e => {
         let currentKudo = {
@@ -98,6 +98,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                             comments={comments} 
                             currentUser={currentUser}
                             deleteComment={deleteComment}
+                            toggleCommentForm={toggleCommentForm}
                         />
                 </div>
                 <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>

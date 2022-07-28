@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Comment from './comment';
 
-const Comments = ({activityId, fetchAllComments, comments, currentUser, deleteComment}) => {
+const Comments = ({activityId, fetchAllComments, comments, currentUser, deleteComment, toggleCommentForm}) => {
 
     let currentComments = [];
 
     useEffect(() => {
         fetchAllComments();
     }, [])
+
+    useEffect(() => {
+        toggleCommentForm()
+    }, [comments])
 
     for(const postId in comments) {
         if (parseInt(postId) === activityId){

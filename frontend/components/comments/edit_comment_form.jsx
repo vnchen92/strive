@@ -4,6 +4,7 @@ import { updateComment } from '../../actions/comments_actions';
 
 const CommentForm = props => {
     const [state, setState] = useState({
+        id: props.id,
         activity_id: props.activityId, 
         user_id: props.currentUser.id,
         body: props.body,
@@ -14,6 +15,7 @@ const CommentForm = props => {
         e.preventDefault();
         props.updateComment(state);
         setState({...state, body: ""})
+        props.toggleEditCommentForm();
     }
 
     const renderErrors = () => {
