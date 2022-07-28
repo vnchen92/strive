@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import EditCommentFormContainer from './edit_comment_form';
 
 const Comment = ({ comment, currentUser, deleteComment}) => {
+
+    const [showDiv, setShowDiv] = useState(false)
+
+    const toggleCommentForm = () => {
+        setShowDiv(!showDiv)
+    }
+
     const monthNameToNum = {
         "Jan": '01',
         "Feb": '02',
@@ -52,6 +60,7 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
                         currentUser.id === comment.userId ? (
                             <>
                                 <button className='comment-delete-btn' onClick={() => deleteComment(comment.id)}>&nbsp;| Delete</button>
+                                <button className='comment-delete-btn' onClick={() => toggleCommentForm()}>&nbsp;| Edit</button>
                                 {/* <button className='comment-delete-btn' onClick={toggleCommentForm}>&nbsp;| Edit</button> */}
                             </>
                         ) : (
@@ -62,9 +71,9 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
                     </div>
                 </div>
                 <p className='comment-body'>{comment.body}</p>
-                {/* <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
-                    <EditCommentFormContainer activityId={comment.activityId} currentUserId={currentUser.id} postedOn={comment.postedOn} body={comment.body} />
-                </div> */}
+                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                    <EditCommentFormContainer activityId={comment.activityId} currentUser={currentUser} postedOn={comment.postedOn} body={comment.body} />
+                </div>
             </div>
         </>
     )
