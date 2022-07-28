@@ -12,8 +12,11 @@
 #  pace           :float
 #  static_map_url :string
 #  points         :string           is an Array
-#  posted_on      :string
-#  time           :string           default("00:00:00")
+#  hours          :integer
+#  minutes        :integer
+#  seconds        :integer
+#  time           :string           default("00:00:00"), not null
+#  posted_on      :datetime
 #
 class Activity < ApplicationRecord
     validates :title, :author_id, :posted_on, :distance, :pace, :hours, :minutes, :seconds, :time, presence: true
