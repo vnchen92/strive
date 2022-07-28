@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import { createComment } from '../../actions/comments_actions';
 
@@ -16,20 +16,30 @@ const CommentForm = props => {
         setState({...state, body: ""})
     }
 
+    const renderErrors = () => {
+        return (
+            props.errors.map((error, idx) => {
+                return error
+            })
+        )
+    }
+
     return (
         <>
             <form className='comment-create-form' onSubmit={handleSubmit}>
                 <img className='comment-form-user-icon' src={props.currentUser.profilePic} alt="" />
-                <input className='comment-create-form-input' type="text" placeholder='Add a comment' value={state.body} onChange={(e) => setState({...state, body: e.target.value})} />
+                <input className='comment-create-form-input' type="text" placeholder={props.errors.length > 0 ? renderErrors() : "Add a comment"} value={state.body} onChange={(e) => setState({...state, body: e.target.value})} />
                 <button className='comment-post-btn'>Post</button>
             </form>
         </>
     )
 }
 
-const mapStateToProps = ({entities, session}) => {
+const mapStateToProps = ({entities, session, errors}) => {
+    debugger
     return {
-        currentUser: entities.users[session.id]
+        currentUser: entities.users[session.id],
+        errors: errors.comment
     }
 }
 

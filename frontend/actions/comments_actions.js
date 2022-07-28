@@ -57,12 +57,16 @@ export const fetchComment = commentId => dispatch => {
 export const createComment = comment => dispatch => {
     return (
         CommentApiUtil.createComment(comment)
-            .then(res => dispatch(receiveComment(res))),
+            .then((res) => {
+                debugger
+                return dispatch(receiveComment(res))
+            },
             err => {
+                debugger
                 return dispatch(receiveCommentErrors(err.responseJSON))
             }
     )
-}
+)}
 
 export const updateComment = comment => dispatch => {
     return (

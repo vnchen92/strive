@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form';
@@ -23,6 +23,10 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
     const toggleCommentForm = () => {
         setShowDiv(!showDiv)
     }
+
+    useEffect(() => {
+        toggleCommentForm()
+    }, [comments])
 
     const handleLike = e => {
         let currentKudo = {
