@@ -36,7 +36,6 @@ const CommentForm = props => {
 }
 
 const mapStateToProps = ({entities, session, errors}) => {
-    debugger
     return {
         currentUser: entities.users[session.id],
         errors: errors.comment
