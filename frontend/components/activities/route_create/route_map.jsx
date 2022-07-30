@@ -11,6 +11,7 @@ const RouteMap = (props) => {
         seconds: "",
         time: "",
         static_map_url: "",
+        points: [],
         posted_on: new Date(),
         author_id: props.currentUser.id,
     })
@@ -37,6 +38,7 @@ const RouteMap = (props) => {
 
         google.maps.event.addListener(map.current, "click", (event) => {
             setCoords(coord => [...coord, event.latLng])
+            debugger
             addMarker(event.latLng, map.current);
         });
 
@@ -84,6 +86,7 @@ const RouteMap = (props) => {
         }
 
         if (coords.length > 1) {
+            debugger
             renderPath();
         }
     }, [coords])
@@ -96,14 +99,24 @@ const RouteMap = (props) => {
         return num;
     }
 
+    const convertPoints = (arrayOfLatLngObjects) => {
+        const coordinates = [];
+        for (let i = 0; i < arrayOfLatLngObjects.length; i++) {
+            let point = arrayOfLatLngObjects[i];
+            let lat = point.lat();
+            let lng = point.lng();
+            coordinates.push([lat.toString(), lng.toString()])
+        }
+        return coordinates;
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
         let newTime = `${checkForSingles(activityState.hours)}:${checkForSingles(activityState.minutes)}:${checkForSingles(activityState.seconds)}`;
-        //setActivityState({...activityState, time: newTime})
-        //setActivityState({...activityState, distance: distance})
-        debugger
-        props.createActivity({...activityState, time: newTime, distance: dis, static_map_url: polyline})
-            .then(() => props.history.push('/dashboard/my_activities'))
+        let convertedPoints = convertPoints(coords)
+        props.createActivity({...activityState, time: newTime, distance: dis, static_map_url: polyline, points: convertedPoints})
+            debugger
+            //.then(() => props.history.push('/dashboard/my_activities'))
     }
 
     const update = field => {
