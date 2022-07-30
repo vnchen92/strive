@@ -34,9 +34,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
     }, [currentComment])
 
     const checkComment = () => {
-        debugger
         if (Object.values(currentComment).length === 0) { //create comment
-            debugger
             setHiddenDiv(
                 <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
                     <CommentFormContainer 
@@ -44,11 +42,11 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                         currentUser={currentUser} 
                         setShowDiv={setShowDiv}
                         setHiddenDiv={setHiddenDiv}
+                        showDiv={showDiv}
                     />
                 </div>
             )
         } else { //edit comment
-            debugger
             setHiddenDiv(
                 <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
                     <EditCommentFormContainer 
@@ -60,6 +58,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                         setShowDiv={setShowDiv}
                         setComment={setComment}
                         setHiddenDiv={setHiddenDiv}
+                        showDiv={showDiv}
                     />
                 </div>
             )
@@ -70,10 +69,6 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         checkComment()
         removeCommentErrors()
     }, [showDiv])
-
-    // useEffect(() => {
-    //     removeCommentErrors()
-    // }, [showDiv])
 
     const handleLike = e => {
         let currentKudo = {
@@ -96,14 +91,6 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         kudoIcon = <img className='like-icon-orange' src="/assets/like_orange" alt="" onClick={handleLike} />
     } else { //no likes on this post
         kudoIcon = <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} />
-    }
-
-    const renderErrors = () => {
-        return (
-            errors.map((error, idx) => {
-                return <li key={idx}>{error}</li>
-            })
-        )
     }
 
     return (
@@ -152,7 +139,6 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                             setComment={setComment}
                         />
                 </div>
-                {renderErrors()}
                 {hiddenDiv}
             </div>
         </div>

@@ -45,12 +45,6 @@ const Comment = ({ comment, currentUser, deleteComment, setComment}) => {
     // const activityDate = new Date(activityPostedOn)
     // const daysAgo = Math.round(Math.abs((presentDate - activityDate) / oneDay));
 
-    // const [showDiv, setShowDiv] = useState(false)
-
-    // const toggleCommentForm = () => {
-    //     setShowDiv(!showDiv)
-    // }
-
     return (
         <>
             <img className='comment-user-icon' src={comment.profilePic} alt="" />

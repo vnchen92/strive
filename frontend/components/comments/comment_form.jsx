@@ -23,15 +23,15 @@ const CommentForm = props => {
     const renderErrors = () => {
         return (
             props.errors.map((error, idx) => {
-                return <li key={idx}>{error}</li>
+                return <li className="comment-error" key={idx}>{error}</li>
             })
         )
     }
 
     return (
         <>
-            <div>
-                {/* {renderErrors()} */}
+            <div className="comment-error-container">
+                {renderErrors()}
             </div>
             <form className='comment-create-form' onSubmit={handleSubmit}>
                 <img className='comment-form-user-icon' src={props.currentUser.profilePic} alt="" />
