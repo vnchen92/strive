@@ -14,7 +14,7 @@ const RouteMap = (props) => {
         author_id: props.currentUser.id,
     })
     const [coords, setCoords] = useState([])
-    const [distance, setDistance] = useState(0)
+    const [dis, setDistance] = useState(0)
     const map = useRef()
 
     const mapCenter = {
@@ -84,6 +84,24 @@ const RouteMap = (props) => {
         }
     }, [coords])
 
+    const checkForSingles = (num) => {
+        if (num < 10) {
+            let currentNum = "0" + num;
+            return currentNum;
+        }
+        return num;
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        let newTime = `${checkForSingles(activityState.hours)}:${checkForSingles(activityState.minutes)}:${checkForSingles(activityState.seconds)}`;
+        //setActivityState({...activityState, time: newTime})
+        //setActivityState({...activityState, distance: distance})
+        debugger
+        props.createActivity({...activityState, time: newTime, distance: dis})
+            .then(() => props.history.push('/dashboard/my_activities'))
+    }
+
     const update = field => {
         return e => {
             e.preventDefault();
@@ -116,86 +134,92 @@ const RouteMap = (props) => {
                         <div>
                             {renderErrors()}
                         </div>
-                        <div className='create-label-container'>
-                            <label className='create-label'>Distance</label>
-                            <div className='create-num-container'>
-                                <input 
-                                    className='create-num-input'
-                                    type="number"
-                                    disabled='disabled'
-                                    value={distance}
-                                />
-                                <abbr title="miles">miles</abbr>
-                            </div>
-                        </div>
-                        <div className='create-label-container'>
-                            <label className='create-label'>Pace Goal</label>
-                            <div className='create-num-container'>
-                                <input 
-                                    className='create-num-input'
-                                    type="number"
-                                    min="0"
-                                    value={activityState.pace}
-                                    onChange={update('pace')} 
-                                />
-                                <abbr title="mi/hr">mi/hr</abbr>
-                            </div>
-                        </div>
-                        <div className='create-label-container'>
-                            <label className='create-label'>Time Goal</label>
-                            <div className='create-ent-time-container'>
-                                <div className='create-time-container'>
+                        <form onSubmit={handleSubmit}>
+                            <div className='create-label-container'>
+                                <label className='create-label'>Distance</label>
+                                <div className='create-num-container'>
                                     <input 
+                                        className='create-num-input'
+                                        type="number"
+                                        disabled='disabled'
+                                        value={dis}
+                                    />
+                                    <abbr title="miles">miles</abbr>
+                                </div>
+                            </div>
+                            <div className='create-label-container'>
+                                <label className='create-label'>Pace Goal</label>
+                                <div className='create-num-container'>
+                                    <input 
+                                        className='create-num-input'
                                         type="number"
                                         min="0"
-                                        placeholder='00'
-                                        value={activityState.hours}
-                                        onChange={update('hours')}
+                                        value={activityState.pace}
+                                        onChange={update('pace')} 
                                     />
-                                    <abbr title="hours">hr</abbr>
-                                </div>
-                                <div className='create-time-container'>
-                                    <input 
-                                        type="number"
-                                        min="0"
-                                        placeholder='00'
-                                        value={activityState.minutes}
-                                        onChange={update('minutes')}
-                                    />
-                                    <abbr title="minutes">min</abbr>
-                                </div>
-                                <div className='create-time-container-s'>
-                                    <input 
-                                        type="number"
-                                        min="0" 
-                                        placeholder='00'
-                                        value={activityState.seconds}
-                                        onChange={update('seconds')}
-                                    />
-                                    <abbr title="seconds">s</abbr>
+                                    <abbr title="mi/hr">mi/hr</abbr>
                                 </div>
                             </div>
-                        </div>
-                        <div className='create-text-container-top'>
-                            <label className='create-label'>Title</label>
-                            <input 
-                                className='create-title-input'
-                                type="text" 
-                                value={activityState.title}
-                                onChange={update('title')}
-                            />
-                        </div>
-                        <div className='create-text-container'>
-                            <label className='create-label'>Description</label>
-                            <div>
-                                <textarea
-                                    className='create-description-input'
-                                    type="text"
-                                    value={activityState.body}
-                                    onChange={update('body')} 
+                            <div className='create-label-container'>
+                                <label className='create-label'>Time Goal</label>
+                                <div className='create-ent-time-container'>
+                                    <div className='create-time-container'>
+                                        <input 
+                                            type="number"
+                                            min="0"
+                                            placeholder='00'
+                                            value={activityState.hours}
+                                            onChange={update('hours')}
+                                        />
+                                        <abbr title="hours">hr</abbr>
+                                    </div>
+                                    <div className='create-time-container'>
+                                        <input 
+                                            type="number"
+                                            min="0"
+                                            placeholder='00'
+                                            value={activityState.minutes}
+                                            onChange={update('minutes')}
+                                        />
+                                        <abbr title="minutes">min</abbr>
+                                    </div>
+                                    <div className='create-time-container-s'>
+                                        <input 
+                                            type="number"
+                                            min="0" 
+                                            placeholder='00'
+                                            value={activityState.seconds}
+                                            onChange={update('seconds')}
+                                        />
+                                        <abbr title="seconds">s</abbr>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='create-text-container-top'>
+                                <label className='create-label'>Title</label>
+                                <input 
+                                    className='create-title-input'
+                                    type="text" 
+                                    value={activityState.title}
+                                    onChange={update('title')}
                                 />
                             </div>
-                        </div>
+                            <div className='create-text-container'>
+                                <label className='create-label'>Description</label>
+                                <div>
+                                    <textarea
+                                        className='create-description-input'
+                                        type="text"
+                                        value={activityState.body}
+                                        onChange={update('body')} 
+                                    />
+                                </div>
+                            </div>
+                            <div className='create-btn-container'>
+                                <button className='create-submit-btn' type='submit'>Submit</button>
+                                <button className='create-cancel-btn'>Cancel</button>
+                            </div>
+                        </form>
                     </div>
                     <div id='usermap'></div>
                 </div>
