@@ -33,7 +33,7 @@ const Header = ({currentUser, currentPath, renderLogin, renderSignup, logout, hi
                                         </div>
                                         <div className='nav-bar-dropdown-container'>
                                             <div className='drop-down-link-container'>
-                                                <Link className='nav-bar-dropdown-link' to='/manual'>Create a Route</Link>
+                                                <Link className='nav-bar-dropdown-link' to={`/athletes/${currentUser.id}/create_route`}>Create a Route</Link>
                                             </div>
                                             <div className='drop-down-link-container'>
                                                 <Link className='nav-bar-dropdown-link' to={`/athletes/${currentUser.id}/posts/new`}>Create a post</Link>

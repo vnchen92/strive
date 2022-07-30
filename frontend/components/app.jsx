@@ -11,6 +11,7 @@ import EditPostContainer from './activities/activity_create/edit_post_container'
 import HeaderContainer from './splash/header_container';
 import UserDashContainer from './profile/user_dash_container';
 import Elevation from './activities/activity_show/elevation';
+import RouteMapContainer from './activities/route_create/route_map_container';
 
 const App = props => {
     return(
@@ -25,6 +26,7 @@ const App = props => {
                 <ProtectedRoute exact path='/activities/:id/edit' component={EditPostContainer} />
                 <ProtectedRoute exact path='/dashboard' component={DashboardContainer} />
                 <ProtectedRoute exact path='/athletes/:id/posts/new' component={CreatePostContainer} />
+                <ProtectedRoute exact path='/athletes/:id/create_route' component={RouteMapContainer} />
                 <ProtectedRoute path='/activities/:id' component={ActivityShowContainer} />
                 <ProtectedRoute path='/athletes/:id' component={UserDashContainer} />
             </Switch>

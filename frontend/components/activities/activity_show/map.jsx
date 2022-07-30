@@ -19,7 +19,7 @@ class Map extends React.Component {
             let point = pathPoints[i];
             let wayPoint = {};
             wayPoint['location'] = new google.maps.LatLng(point[0] * 1, point[1] * 1);
-            wayPoint['stopover'] = false;
+            //wayPoint['stopover'] = false;
             mids.push(wayPoint);
             wayPoint = {};
         }
@@ -33,7 +33,7 @@ class Map extends React.Component {
             travelMode: 'WALKING',
             unitSystem: google.maps.UnitSystem.IMPERIAL,
             waypoints: mids,
-            optimizeWaypoints: false
+            //optimizeWaypoints: false
         }
 
         const directionsRenderer = new google.maps.DirectionsRenderer();
