@@ -78,6 +78,12 @@ const CommentForm = props => {
         //props.toggleEditCommentForm();
     }
 
+    const handleCancel = e => {
+        props.setComment({})
+        props.setHiddenDiv(<></>)
+        props.setShowDiv(false)
+    }
+
     const renderErrors = () => {
         return (
             props.errors.map((error, idx) => {
@@ -98,6 +104,7 @@ const CommentForm = props => {
                     onChange={(e) => setState({...state, body: e.target.value})} 
                 />
                 <button className='comment-post-btn'>Edit</button>
+                <button className='comment-post-btn' onClick={handleCancel}>Cancel</button>
             </form>
         </>
     )

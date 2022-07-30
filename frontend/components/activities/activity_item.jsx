@@ -52,6 +52,9 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                         body={currentComment.body} 
                         commentId={currentComment.commentId} 
                         postedOn={currentComment.postedOn}
+                        setShowDiv={setShowDiv}
+                        setComment={setComment}
+                        setHiddenDiv={setHiddenDiv}
                     />
                 </div>
             )
