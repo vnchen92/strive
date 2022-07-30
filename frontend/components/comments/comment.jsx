@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EditCommentFormContainer from './edit_comment_form';
 
-const Comment = ({ comment, currentUser, deleteComment}) => {
+const Comment = ({ comment, currentUser, deleteComment, setComment}) => {
 
     const [showDiv, setShowDiv] = useState(false)
 
+    // const toggleEditCommentForm = () => {
+    //     setShowDiv(!showDiv)
+    // }
+
     const toggleEditCommentForm = () => {
-        setShowDiv(!showDiv)
+        //sendComment(comment.id, currentUser, comment.postedOn, comment.activityId, comment.body)
+        setComment({
+            commentId: comment.id,
+            activityId: comment.activityId,
+            postedOn: comment.postedOn,
+            body: comment.body,
+            currentUser: currentUser
+        })
     }
 
     const monthNameToNum = {
@@ -60,7 +71,7 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
                         currentUser.id === comment.userId ? (
                             <>
                                 <button className='comment-delete-btn' onClick={() => deleteComment(comment.id)}>&nbsp;| Delete</button>
-                                <button className='comment-delete-btn' onClick={() => toggleEditCommentForm()}>&nbsp;| Edit</button>
+                                <button id="edit" className='comment-delete-btn' onClick={toggleEditCommentForm}>&nbsp;| Edit</button>
                                 {/* <button className='comment-delete-btn' onClick={toggleCommentForm}>&nbsp;| Edit</button> */}
                             </>
                         ) : (
@@ -71,16 +82,16 @@ const Comment = ({ comment, currentUser, deleteComment}) => {
                     </div>
                 </div>
                 <p className='comment-body'>{comment.body}</p>
-                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                {/* <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
                     <EditCommentFormContainer 
                         id={comment.id} 
                         activityId={comment.activityId} 
                         currentUser={currentUser} 
                         postedOn={comment.postedOn} 
                         body={comment.body}
-                        toggleEditCommentForm={toggleEditCommentForm}
+                        //toggleEditCommentForm={toggleEditCommentForm}
                     />
-                </div>
+                </div> */}
             </div>
         </>
     )

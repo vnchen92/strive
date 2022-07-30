@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form';
+import EditCommentFormContainer from '../comments/edit_comment_form';
 import Kudos from '../kudos/kudos';
 import isLiked from '../selectors/isLiked';
 
@@ -19,10 +20,47 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
     const postedOnConverted = new Date(activity.postedOn).toString().split(" ").splice(0, 4).join(" ")
 
     const [showDiv, setShowDiv] = useState(false)
+    const [currentComment, setComment] = useState({})
+    const [hiddenDiv, setHiddenDiv] = useState(<></>)
 
     const toggleCommentForm = () => {
         setShowDiv(!showDiv)
     }
+
+    useEffect(() => {
+        if (Object.values(currentComment).length > 0) {
+            setShowDiv(true)
+        }
+    }, [currentComment])
+
+    const checkComment = () => {
+        debugger
+        if (Object.values(currentComment).length === 0) { //create comment
+            debugger
+            setHiddenDiv(
+                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                    <CommentFormContainer activityId={activity.id} currentUser={currentUser} />
+                </div>
+            )
+        } else { //edit comment
+            debugger
+            setHiddenDiv(
+                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                    <EditCommentFormContainer 
+                        activityId={currentComment.activityId} 
+                        currentUser={currentComment.currentUser} 
+                        body={currentComment.body} 
+                        commentId={currentComment.commentId} 
+                        postedOn={currentComment.postedOn}
+                    />
+                </div>
+            )
+        }
+    }
+
+    useEffect(() => {
+        checkComment()
+    }, [showDiv])
 
     // useEffect(() => {
     //     toggleCommentForm()
@@ -88,7 +126,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                     <Kudos kudos={kudos} activityId={activity.id} />
                     <div className='comments-icon-container'>
                         {kudoIcon}
-                        <img className='comment-icon' src="/assets/comment" alt="" onClick={toggleCommentForm} />
+                        <img id="comment" className='comment-icon' src="/assets/comment" alt="" onClick={toggleCommentForm} />
                     </div>
                 </div>
                 <div className='comments-container'>
@@ -98,12 +136,16 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                             comments={comments} 
                             currentUser={currentUser}
                             deleteComment={deleteComment}
-                            toggleCommentForm={toggleCommentForm}
+                            setComment={setComment}
+                            //toggleCommentForm={toggleCommentForm}
                         />
                 </div>
-                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                {/* <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
                     <CommentFormContainer activityId={activity.id} currentUser={currentUser} />
-                </div>
+                </div> */}
+                {
+                    hiddenDiv
+                }
             </div>
         </div>
     )
