@@ -137,7 +137,17 @@
     display: none;
     border-top: 1px solid #f0f0f5;
     margin-top: 10px;
-    height: 80px;
+    height: 100%;
+}
+
+.comment-error-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.comment-error {
+    color: red;
 }
 
 .comment-create-form {

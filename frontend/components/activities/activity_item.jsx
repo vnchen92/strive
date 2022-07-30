@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form';
+import EditCommentFormContainer from '../comments/edit_comment_form';
 import Kudos from '../kudos/kudos';
 import isLiked from '../selectors/isLiked';
 
-const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo, removeCommentErrors}) => {
+const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo, errors, removeCommentErrors}) => {
     let aProfilePage;
 
     if (currentUser.id === user.id && activity.authorId === currentUser.id) {
@@ -19,16 +20,53 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
     const postedOnConverted = new Date(activity.postedOn).toString().split(" ").splice(0, 4).join(" ")
 
     const [showDiv, setShowDiv] = useState(false)
+    const [currentComment, setComment] = useState({})
+    const [hiddenDiv, setHiddenDiv] = useState(<></>)
 
     const toggleCommentForm = () => {
         setShowDiv(!showDiv)
     }
 
     useEffect(() => {
-        toggleCommentForm()
-    }, [comments])
+        if (Object.values(currentComment).length > 0) {
+            setShowDiv(true)
+        }
+    }, [currentComment])
+
+    const checkComment = () => {
+        if (Object.values(currentComment).length === 0) { //create comment
+            setHiddenDiv(
+                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                    <CommentFormContainer 
+                        activityId={activity.id} 
+                        currentUser={currentUser} 
+                        setShowDiv={setShowDiv}
+                        setHiddenDiv={setHiddenDiv}
+                        showDiv={showDiv}
+                    />
+                </div>
+            )
+        } else { //edit comment
+            setHiddenDiv(
+                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
+                    <EditCommentFormContainer 
+                        activityId={currentComment.activityId} 
+                        currentUser={currentComment.currentUser} 
+                        body={currentComment.body} 
+                        commentId={currentComment.commentId} 
+                        postedOn={currentComment.postedOn}
+                        setShowDiv={setShowDiv}
+                        setComment={setComment}
+                        setHiddenDiv={setHiddenDiv}
+                        showDiv={showDiv}
+                    />
+                </div>
+            )
+        }
+    }
 
     useEffect(() => {
+        checkComment()
         removeCommentErrors()
     }, [showDiv])
 
@@ -88,7 +126,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                     <Kudos kudos={kudos} activityId={activity.id} />
                     <div className='comments-icon-container'>
                         {kudoIcon}
-                        <img className='comment-icon' src="/assets/comment" alt="" onClick={toggleCommentForm} />
+                        <img id="comment" className='comment-icon' src="/assets/comment" alt="" onClick={toggleCommentForm} />
                     </div>
                 </div>
                 <div className='comments-container'>
@@ -98,11 +136,10 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                             comments={comments} 
                             currentUser={currentUser}
                             deleteComment={deleteComment}
+                            setComment={setComment}
                         />
                 </div>
-                <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
-                    <CommentFormContainer activityId={activity.id} currentUser={currentUser} />
-                </div>
+                {hiddenDiv}
             </div>
         </div>
     )

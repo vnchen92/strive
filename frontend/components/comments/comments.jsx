@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Comment from './comment';
 
-const Comments = ({activityId, fetchAllComments, comments, currentUser, deleteComment}) => {
+const Comments = ({activityId, fetchAllComments, comments, currentUser, deleteComment, setComment}) => {
 
     let currentComments = [];
 
@@ -28,6 +28,7 @@ const Comments = ({activityId, fetchAllComments, comments, currentUser, deleteCo
                         comment={comment} 
                         currentUser={currentUser} 
                         deleteComment={deleteComment}
+                        setComment={setComment}
                     />
                 </div>
             })
