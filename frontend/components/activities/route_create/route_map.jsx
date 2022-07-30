@@ -10,11 +10,13 @@ const RouteMap = (props) => {
         minutes: "",
         seconds: "",
         time: "",
+        static_map_url: "",
         posted_on: new Date(),
         author_id: props.currentUser.id,
     })
     const [coords, setCoords] = useState([])
     const [dis, setDistance] = useState(0)
+    const [polyline, setPolyline] = useState("")
     const map = useRef()
 
     const mapCenter = {
@@ -64,6 +66,7 @@ const RouteMap = (props) => {
             directionsService.route(request, function(response, status) {
                 if (status === 'OK') {
                     const distanceArray = response.routes[0].legs;
+                    const poly = response.routes[0].overview_polyline
                     debugger
                     let totalDistance = 0;
                     distanceArray.forEach(dis => {
@@ -71,6 +74,7 @@ const RouteMap = (props) => {
                         totalDistance += parseFloat(stringNum);
                     })
                     setDistance(totalDistance);
+                    setPolyline(poly)
                     directionsRenderer.setDirections(response);
                 }
             }); 
@@ -98,7 +102,7 @@ const RouteMap = (props) => {
         //setActivityState({...activityState, time: newTime})
         //setActivityState({...activityState, distance: distance})
         debugger
-        props.createActivity({...activityState, time: newTime, distance: dis})
+        props.createActivity({...activityState, time: newTime, distance: dis, static_map_url: polyline})
             .then(() => props.history.push('/dashboard/my_activities'))
     }
 

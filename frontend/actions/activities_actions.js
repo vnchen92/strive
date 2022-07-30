@@ -14,7 +14,6 @@ const recieveAllActivities = activities => {
 }
 
 const receiveActivity = activity => {
-    debugger
     return {
         type: RECEIVE_ACTIVITY,
         activity
@@ -60,11 +59,9 @@ export const createActivity = activity => dispatch => {
     return (
         ActivityApiUtil.createActivity(activity)
             .then((res) => { 
-                debugger
                 return dispatch(receiveActivity(res))
             },
             err => {
-                debugger
                 return dispatch(receiveActivityErrors(err.responseJSON))
             }
 
