@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import EditCommentFormContainer from './edit_comment_form';
 
 const Comment = ({ comment, currentUser, deleteComment, setComment}) => {
 
-    const [showDiv, setShowDiv] = useState(false)
-
-    // const toggleEditCommentForm = () => {
-    //     setShowDiv(!showDiv)
-    // }
-
     const toggleEditCommentForm = () => {
-        //sendComment(comment.id, currentUser, comment.postedOn, comment.activityId, comment.body)
         setComment({
             commentId: comment.id,
             activityId: comment.activityId,
@@ -64,7 +56,9 @@ const Comment = ({ comment, currentUser, deleteComment, setComment}) => {
             <img className='comment-user-icon' src={comment.profilePic} alt="" />
             <div className='comment-right-container'>
                 <div className='comment-name-time-delete-container'>
-                    <p className='comment-name'><Link to={currentUser.id === comment.userId ? `/dashboard/my_activities` : `/athletes/${comment.userId}`}>{comment.firstName}&nbsp;{comment.lastName}</Link></p>
+                    <p className='comment-name'>
+                        <Link to={currentUser.id === comment.userId ? `/dashboard/my_activities` : `/athletes/${comment.userId}`}>{comment.firstName}&nbsp;{comment.lastName}</Link>
+                    </p>
                     <div className='comment-time-delete-container'>
                         <p className='comment-time'>{daysAgo}&nbsp;{daysAgo === 1 ? 'day ago' : 'days ago'}
                         {
@@ -72,7 +66,6 @@ const Comment = ({ comment, currentUser, deleteComment, setComment}) => {
                             <>
                                 <button className='comment-delete-btn' onClick={() => deleteComment(comment.id)}>&nbsp;| Delete</button>
                                 <button id="edit" className='comment-delete-btn' onClick={toggleEditCommentForm}>&nbsp;| Edit</button>
-                                {/* <button className='comment-delete-btn' onClick={toggleCommentForm}>&nbsp;| Edit</button> */}
                             </>
                         ) : (
                             <></>
@@ -82,16 +75,6 @@ const Comment = ({ comment, currentUser, deleteComment, setComment}) => {
                     </div>
                 </div>
                 <p className='comment-body'>{comment.body}</p>
-                {/* <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
-                    <EditCommentFormContainer 
-                        id={comment.id} 
-                        activityId={comment.activityId} 
-                        currentUser={currentUser} 
-                        postedOn={comment.postedOn} 
-                        body={comment.body}
-                        //toggleEditCommentForm={toggleEditCommentForm}
-                    />
-                </div> */}
             </div>
         </>
     )

@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
         user: state.entities.users[ownProps.match.params.id],
         filteredActivities: fetchUserActivities(state.entities.users[ownProps.match.params.id], state.entities.activities),
         comments: state.entities.comments,
-        kudos: state.entities.kudos
+        kudos: state.entities.kudos,
+        errors: state.errors.comment
     }
 }
 

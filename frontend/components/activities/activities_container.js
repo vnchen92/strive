@@ -4,14 +4,15 @@ import { fetchDashboardActivities } from '../selectors/fetch_dashboard_activitie
 import { fetchAllComments, deleteComment, removeCommentErrors } from '../../actions/comments_actions';
 import { createKudo, deleteKudo } from '../../actions/kudo_actions';
 
-const mapStateToProps = ({entities, session}) => {
+const mapStateToProps = ({entities, session, errors}) => {
     return {
         currentUser: entities.users[session.id],
         user: entities.users[session.id],
         filteredActivities: fetchDashboardActivities(entities, session, entities.activities, entities.follows),
         allUsers: entities.users,
         comments: entities.comments,
-        kudos: entities.kudos
+        kudos: entities.kudos,
+        errors: errors.comment
     }
 }
 

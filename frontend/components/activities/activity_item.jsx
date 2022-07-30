@@ -6,7 +6,7 @@ import EditCommentFormContainer from '../comments/edit_comment_form';
 import Kudos from '../kudos/kudos';
 import isLiked from '../selectors/isLiked';
 
-const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo, removeCommentErrors}) => {
+const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, deleteComment, kudos, createKudo, deleteKudo, errors, removeCommentErrors}) => {
     let aProfilePage;
 
     if (currentUser.id === user.id && activity.authorId === currentUser.id) {
@@ -39,7 +39,12 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
             debugger
             setHiddenDiv(
                 <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
-                    <CommentFormContainer activityId={activity.id} currentUser={currentUser} />
+                    <CommentFormContainer 
+                        activityId={activity.id} 
+                        currentUser={currentUser} 
+                        setShowDiv={setShowDiv}
+                        setHiddenDiv={setHiddenDiv}
+                    />
                 </div>
             )
         } else { //edit comment
@@ -63,11 +68,8 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
 
     useEffect(() => {
         checkComment()
+        removeCommentErrors()
     }, [showDiv])
-
-    // useEffect(() => {
-    //     toggleCommentForm()
-    // }, [comments])
 
     // useEffect(() => {
     //     removeCommentErrors()
@@ -94,6 +96,14 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         kudoIcon = <img className='like-icon-orange' src="/assets/like_orange" alt="" onClick={handleLike} />
     } else { //no likes on this post
         kudoIcon = <img className='like-icon' src="/assets/like" alt="" onClick={handleLike} />
+    }
+
+    const renderErrors = () => {
+        return (
+            errors.map((error, idx) => {
+                return <li key={idx}>{error}</li>
+            })
+        )
     }
 
     return (
@@ -140,15 +150,10 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                             currentUser={currentUser}
                             deleteComment={deleteComment}
                             setComment={setComment}
-                            //toggleCommentForm={toggleCommentForm}
                         />
                 </div>
-                {/* <div className={`comment-create-container`} style={{display: showDiv ? 'block' : 'none'}}>
-                    <CommentFormContainer activityId={activity.id} currentUser={currentUser} />
-                </div> */}
-                {
-                    hiddenDiv
-                }
+                {renderErrors()}
+                {hiddenDiv}
             </div>
         </div>
     )
