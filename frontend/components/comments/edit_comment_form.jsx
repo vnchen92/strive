@@ -75,7 +75,9 @@ const CommentForm = props => {
         e.preventDefault();
         props.updateComment(state);
         setState({...state, body: ""})
-        //props.toggleEditCommentForm();
+        props.setComment({})
+        props.setHiddenDiv(<></>)
+        props.setShowDiv(false)
     }
 
     const handleCancel = e => {
