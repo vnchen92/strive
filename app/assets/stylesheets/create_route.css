@@ -10,7 +10,6 @@
 }
 
 .route-title {
-    text-align: center;
     padding-top: 30px;
     font-weight: bold;
     font-size: 25px;
@@ -45,14 +44,6 @@
     display: flex;
     padding-bottom: 10px;
 }
-
-/* .route-btn-container > .create-submit-btn {
-    cursor: pointer;
-}
-
-.route-btn-container > .create-cancel-btn {
-    cursor: pointer;
-} */
 
 .route-instruction-container {
     width: 778px;
