@@ -33,6 +33,10 @@
     color: black;
 }
 
+.activity-show-user-name > a:hover {
+    color: #fc5200;
+}
+
 .activity-show-row {
     display: flex;
     justify-content:left;

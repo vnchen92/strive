@@ -97,6 +97,10 @@
     color: black;
 }
 
+.comment-name > a:hover {
+    color: #fc5200;
+}
+
 .comment-time-delete-container {
     display: flex;
     justify-content: left;

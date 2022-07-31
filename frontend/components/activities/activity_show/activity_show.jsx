@@ -4,16 +4,6 @@ import Map from './map';
 import Elevation from './elevation';
 
 const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) => {
-    // let component;
-    // if (activity.staticMapUrl === null || activity.staticMapUrl === undefined) {
-    //     component = <></>
-    // } else {
-    //     component = <Map activity={activity} />
-    // }
-
-    // if (activity === undefined) {
-    //     history.push('/dashboard/my_activities');
-    // }
 
     const timeArray = activity.time.split(":");
 

@@ -85,3 +85,7 @@
     font-weight: bold;
     color: black;
 }
+
+.profile-latest-bold > a:hover {
+    color: #fc5200;
+}

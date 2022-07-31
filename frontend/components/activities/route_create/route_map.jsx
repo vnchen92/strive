@@ -134,6 +134,11 @@ const RouteMap = (props) => {
         )
     }
 
+    const handleCancel = e => {
+        e.preventDefault();
+        props.history.push('/dashboard/my_activities')
+    }
+
     return (
         <div className="route-ent-container">
             <div className="route-inner-container">
@@ -228,7 +233,7 @@ const RouteMap = (props) => {
                             </div>
                             <div className='route-btn-container'>
                                 <button className='create-submit-btn' type='submit'>Submit</button>
-                                <button className='create-cancel-btn'>Cancel</button>
+                                <button className='create-cancel-btn' onClick={handleCancel}>Cancel</button>
                             </div>
                         </form>
                     </div>

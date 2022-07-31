@@ -48,7 +48,7 @@ const CurrentUser = ({user, followers, followings, activitiesNum}) => {
                 <div className='profile-bottom-container'>
                     <p className='profile-latest'>Latest Activity</p>
                     <p className='profile-latest-date'>{postedOnConverted}</p>
-                    <p className='profile-latest-bold'>{latest.res.title || <Link to={`/athletes/${user.id}/posts/new`}>~Create your first activity~</Link>}</p>
+                    <p className='profile-latest-bold'>{<Link to={`/activities/${latest.res.id}`}>{latest.res.title}</Link> || <Link to={`/athletes/${user.id}/posts/new`}>~Create your first activity~</Link>}</p>
                 </div>
             </div>
         )

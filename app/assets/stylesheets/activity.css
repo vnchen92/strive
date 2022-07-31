@@ -32,6 +32,10 @@
     color: black;
 }
 
+.activity-user-name > a:hover {
+    color: #fc5200;
+}
+
 .activity-created-at {
     font-size: 11px;
 }
@@ -45,6 +49,10 @@
     font-size: 20px;
     font-weight: bold;
     color: black;
+}
+
+.activity-title > a:hover {
+    color: #fc5200;
 }
 
 .activity-body {

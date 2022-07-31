@@ -119,7 +119,7 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
                 </div>
             </div>
             {
-            activity.staticMapUrl ? <img className='activity-static-map' src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" /> : <></>
+            activity.staticMapUrl ? <Link to={`activities/${activity.id}`}><img className='activity-static-map' src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" /></Link> : <></>
             }
             <div className='comments-ent-container'>
                 <div className='comments-icon-outer-container'>
