@@ -1,4 +1,66 @@
 #usermap {
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: 393px;
+}
+
+.route-ent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.route-inner-container {
+    display: block;
+    padding-bottom: 30px;
+}
+
+.route-title {
+    text-align: center;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: 25px;
+    padding-bottom: 15px;
+}
+
+.route-left-right-container {
+    display: flex;
+}
+
+.route-form-container {
+    margin-right: 20px;
+    border: 1px solid #b7b7c1;
+    width: 550px;
+    height: fit-content;
+    padding: 10px;
+}
+
+.route-errors {
+    margin-bottom: 10px;
+}
+
+.route-errors > li {
+    color: #fc5200;
+}
+
+.route-dis-pace-container {
+    display: flex;
+}
+
+.route-btn-container {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+/* .route-btn-container > .create-submit-btn {
+    cursor: pointer;
+}
+
+.route-btn-container > .create-cancel-btn {
+    cursor: pointer;
+} */
+
+.route-instruction-container {
+    width: 778px;
+    padding: 10px;
+    border: 1px solid #b7b7c1;
 }

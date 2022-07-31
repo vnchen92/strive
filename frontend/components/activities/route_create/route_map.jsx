@@ -135,46 +135,40 @@ const RouteMap = (props) => {
     }
 
     return (
-        <div>
-            <div>
-                <h1>Create a Customized Route</h1>
-                <div>
-                    <div>
-                        <div>
-                            <p>Plan the perfect run or ride with features that help you find new roads or trails, flat or hilly options, nearby segments, and the most popular ways to get around.</p>
-                        </div>
-                        <div>
-                            <p>Click anywhere on the map as your starting point.</p>
-                            <p>Add as many markers as you would like.</p>
-                            <p>Click 'Start Over' if you would like to restart.</p>
-                        </div>
-                        <div>
+        <div className="route-ent-container">
+            <div className="route-inner-container">
+                <h1 className="route-title">Create a Customized Route</h1>
+                <div className="route-left-right-container">
+                    <div className="route-form-container">
+                        <div className="route-errors">
                             {renderErrors()}
                         </div>
                         <form onSubmit={handleSubmit}>
-                            <div className='create-label-container'>
-                                <label className='create-label'>Distance</label>
-                                <div className='create-num-container'>
-                                    <input 
-                                        className='create-num-input'
-                                        type="number"
-                                        disabled='disabled'
-                                        value={dis}
-                                    />
-                                    <abbr title="miles">miles</abbr>
+                            <div className="route-dis-pace-container">
+                                <div className='create-label-container'>
+                                    <label className='create-label'>Distance</label>
+                                    <div className='create-num-container'>
+                                        <input 
+                                            className='create-num-input'
+                                            type="number"
+                                            disabled='disabled'
+                                            value={dis}
+                                        />
+                                        <abbr title="miles">miles</abbr>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='create-label-container'>
-                                <label className='create-label'>Pace Goal</label>
-                                <div className='create-num-container'>
-                                    <input 
-                                        className='create-num-input'
-                                        type="number"
-                                        min="0"
-                                        value={activityState.pace}
-                                        onChange={update('pace')} 
-                                    />
-                                    <abbr title="mi/hr">mi/hr</abbr>
+                                <div className='create-label-container'>
+                                    <label className='create-label'>Pace Goal</label>
+                                    <div className='create-num-container'>
+                                        <input 
+                                            className='create-num-input'
+                                            type="number"
+                                            min="0"
+                                            value={activityState.pace}
+                                            onChange={update('pace')} 
+                                        />
+                                        <abbr title="mi/hr">mi/hr</abbr>
+                                    </div>
                                 </div>
                             </div>
                             <div className='create-label-container'>
@@ -232,13 +226,21 @@ const RouteMap = (props) => {
                                     />
                                 </div>
                             </div>
-                            <div className='create-btn-container'>
+                            <div className='route-btn-container'>
                                 <button className='create-submit-btn' type='submit'>Submit</button>
                                 <button className='create-cancel-btn'>Cancel</button>
                             </div>
                         </form>
                     </div>
-                    <div id='usermap'></div>
+                    <div className="route-instruction-map-container">
+                        <div className="route-instruction-container">
+                            <p>Plan the perfect run or ride with features that help you find new roads or trails, flat or hilly options, nearby segments, and the most popular ways to get around.</p>
+                            <p>Click anywhere on the map as your starting point.</p>
+                            <p>Add as many markers as you would like.</p>
+                            <p>Click 'Start Over' if you would like to restart.</p>
+                        </div>
+                        <div id='usermap'></div>
+                    </div>
                 </div>
             </div>
         </div>
