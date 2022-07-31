@@ -81,6 +81,14 @@ class ActivityForm extends React.Component {
         }
     }
 
+    // renderStaticMap = () => {
+    //     if (this.props.formType === "Edit Activity") {
+    //         if (this.props.activity.staticMapUrl) {
+    //             return <img src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" />
+    //         }
+    //     }
+    // }
+
     renderErrors = () => {
         return (
             this.props.errors.map((error, idx) => {
@@ -163,7 +171,9 @@ class ActivityForm extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        {this.renderErrors()}
+                        <div className="create-error-container">
+                            {this.renderErrors()}
+                        </div>
                         <div className='create-text-container-top'>
                             <label className='create-label'>Title</label>
                             <input 
@@ -190,13 +200,14 @@ class ActivityForm extends React.Component {
                         </div>
                     </form>
                 </div>
-                <div>
+                <div className="create-static-map">
                     {
-                        this.props.formType === 'Edit Post' && this.props.activity.staticMapUrl ? (
-                            <img src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" />
+                        this.props.formType === 'Edit Activity' && this.props.activity.staticMapUrl ? (
+                            <img src={`https://maps.googleapis.com/maps/api/staticmap?size=500x250&path=color:0xf55142FF|enc:${this.props.activity.staticMapUrl}&key=${window.MAPS_API_KEY}`} alt="" />
                         ) : (
                             <></>
                         )
+                        //this.renderStaticMap
                     }
                 </div>
             </div>

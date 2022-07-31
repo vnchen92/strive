@@ -5,7 +5,7 @@
 
 .create-container {
     font-family: 'Open Sans', sans-serif;
-    width: 700px;
+    width: 617px;
     padding-top: 30px;
 }
 
@@ -177,4 +177,14 @@ abbr[title] {
     font-size:14px;
     color: rgb(32, 32, 133);
     cursor: pointer;
+}
+
+.create-error-container {
+    padding-bottom: 10px;
+    color: #fc5200;
+}
+
+.create-static-map {
+    margin-top: 64px;
+    margin-left: 20px;
 }

@@ -70,7 +70,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
                 </div>
                 <div>
                     {
-                        activity.staticMapUrl === null ? <></> : <Map activity={activity} />
+                    activity.staticMapUrl === null ? <></> : <Map activity={activity} />
                     }
                 </div>
                 {/* <Elevation polyline={activity.staticMapUrl}/> */}
