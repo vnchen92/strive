@@ -70,6 +70,12 @@ const ActivityItem = ({activity, currentUser, user, fetchAllComments, comments, 
         removeCommentErrors()
     }, [showDiv])
 
+    useEffect(() => {
+        if (!showDiv) {
+            setHiddenDiv(<></>)
+        }
+    })
+
     const handleLike = e => {
         let currentKudo = {
             user_id: currentUser.id,

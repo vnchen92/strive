@@ -16,9 +16,11 @@ const RouteMap = (props) => {
         author_id: props.currentUser.id,
     })
     const [coords, setCoords] = useState([])
+    const [allMarkers, setMarkers] = useState([])
     const [dis, setDistance] = useState(0)
     const [polyline, setPolyline] = useState("")
     const map = useRef()
+    const directionsRenderer = useRef()
 
     const mapCenter = {
         center: {lat: 40.783254, lng: -73.974529},
@@ -34,11 +36,11 @@ const RouteMap = (props) => {
               position: location,
               map: map,
             });
+            setMarkers(mark => [...mark, marker])
         }
 
         google.maps.event.addListener(map.current, "click", (event) => {
             setCoords(coord => [...coord, event.latLng])
-            debugger
             addMarker(event.latLng, map.current);
         });
 
@@ -63,7 +65,7 @@ const RouteMap = (props) => {
                 waypoints: mids
             }
 
-            const directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.current = new google.maps.DirectionsRenderer();
             const directionsService = new google.maps.DirectionsService();
             directionsService.route(request, function(response, status) {
                 if (status === 'OK') {
@@ -77,16 +79,14 @@ const RouteMap = (props) => {
                     })
                     setDistance(totalDistance);
                     setPolyline(poly)
-                    directionsRenderer.setDirections(response);
+                    directionsRenderer.current.setDirections(response);
                 }
             }); 
-            debugger
-            directionsRenderer.setMap(map.current);
+            directionsRenderer.current.setMap(map.current);
 
         }
 
         if (coords.length > 1) {
-            debugger
             renderPath();
         }
     }, [coords])
@@ -137,6 +137,17 @@ const RouteMap = (props) => {
     const handleCancel = e => {
         e.preventDefault();
         props.history.push('/dashboard/my_activities')
+    }
+
+    const clearMarkers = e => {
+        e.preventDefault();
+        for (let i = 0; i < allMarkers.length; i++) {
+            allMarkers[i].setMap(nullls)
+        }
+        directionsRenderer.current.setMap(null)
+        setCoords([])
+        setDistance(0)
+        setPolyline("")
     }
 
     return (
@@ -234,6 +245,7 @@ const RouteMap = (props) => {
                             <div className='route-btn-container'>
                                 <button className='create-submit-btn' type='submit'>Submit</button>
                                 <button className='create-cancel-btn' onClick={handleCancel}>Cancel</button>
+                                <button className='create-cancel-btn' onClick={clearMarkers}>Restart</button>
                             </div>
                         </form>
                     </div>
