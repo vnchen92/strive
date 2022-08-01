@@ -175,8 +175,13 @@ abbr[title] {
 
 .create-cancel-btn {
     font-size:14px;
+    margin-right: 20px;
     color: rgb(32, 32, 133);
     cursor: pointer;
+}
+
+.create-cancel-btn:hover {
+    color: #fc5200;
 }
 
 .create-error-container {

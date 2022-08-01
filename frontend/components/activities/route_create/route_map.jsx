@@ -252,9 +252,9 @@ const RouteMap = (props) => {
                     <div className="route-instruction-map-container">
                         <div className="route-instruction-container">
                             <p>Plan the perfect run or ride with features that help you find new roads or trails, flat or hilly options, nearby segments, and the most popular ways to get around.</p>
-                            <p>Click anywhere on the map as your starting point.</p>
+                            <p>Click anywhere on the map as your starting point. Watch the distance add up as you create your path.</p>
                             <p>Add as many markers as you would like.</p>
-                            <p>Click 'Start Over' if you would like to restart.</p>
+                            <p>Click 'Restart' if you would like to start over.</p>
                         </div>
                         <div id='usermap'></div>
                     </div>
