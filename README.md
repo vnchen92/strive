@@ -2,7 +2,7 @@
 
 ### [Strive](https://strive-for-strides.herokuapp.com/#/)
 
-Strive is what the free version of Strava would encompass. It is a full stack clone of a social networking application for athletes.
+Strive is the free version of what Strava would encompass. It is a full stack clone of a social networking application for athletes.
 
 ## Functionality & MVPs
 
