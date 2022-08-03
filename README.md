@@ -2,6 +2,8 @@
 
 ### [Strive](https://strive-for-strides.herokuapp.com/#/)
 
+![alt text](https://github.com/vnchen92/strive/commit/fd7ccf595f0b25fcecb4de43764a7514c7be821c)
+
 Strive is the free version of what Strava would encompass. It is a full stack clone of a social networking application for athletes.
 
 ## Functionality & MVPs
