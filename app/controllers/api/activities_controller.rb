@@ -49,7 +49,20 @@ class Api::ActivitiesController < ApplicationController
     private
 
     def activity_params
-        params.require(:activity).permit(:title, :body, :author_id, :distance, :pace, :hours, :minutes, :seconds, :time, :posted_on, :static_map_url, :points)
+        params.require(:activity).permit(
+            :title, 
+            :body, 
+            :author_id, 
+            :distance, 
+            :pace, 
+            :hours, 
+            :minutes, 
+            :seconds, 
+            :time, 
+            :posted_on, 
+            :static_map_url, 
+            {points: {each_coord: []}}
+        )
     end
 
 end

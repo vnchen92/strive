@@ -43,19 +43,28 @@ u3 = User.create(
 )
 
 
-p1 = Activity.create(
-    title: "Need Carbs",
-    author_id: 2,
-    posted_on: '2022-07-23 00:00:01 UTC',
-    distance: 1.5,
-    pace: 8.53,
-    hours: 0,
-    minutes: 14,
-    seconds: 13,
-    time: "00:14:13",
-    points: [['40.612184', '-73.993990'],['40.604206', '-73.997509'],['40.597221', '-73.986136']],
-    static_map_url: 'u`{vFx}rbMrGiMrBxBnBrBzA~ANVzA~ATNnBrB~EdF~EjFbEjEHHd@cAp@kArAkCzA_Db@y@d@_ARWrAsCt@{Av@_B|FuKjD}G|A{C^b@Xg@^u@\q@tAmC|A{CvAoCCDd@}@'
-)
+# p1 = Activity.create(
+#     title: "Need Carbs",
+#     author_id: 2,
+#     posted_on: '2022-07-23 00:00:01 UTC',
+#     distance: 1.5,
+#     pace: 8.53,
+#     hours: 0,
+#     minutes: 14,
+#     seconds: 13,
+#     time: "00:14:13",
+#     points: [['40.612184','73.993990'],['40.604206','-73.997509'],['40.597221','-73.986136']],
+#     #     'lat': 40.612184, 
+#     #     'lng': 73.993990
+#     #     },{
+#     #     'lat': 40.604206,
+#     #     'lng': -73.997509
+#     #     },{
+#     #     'lat': 40.597221,
+#     #     'lng': -73.986136
+#     # }],
+#     static_map_url: 'u`{vFx}rbMrGiMrBxBnBrBzA~ANVzA~ATNnBrB~EdF~EjFbEjEHHd@cAp@kArAkCzA_Db@y@d@_ARWrAsCt@{Av@_B|FuKjD}G|A{C^b@Xg@^u@\q@tAmC|A{CvAoCCDd@}@'
+# )
 
 p2 = Activity.create(
     title: "Training for 10k!",
@@ -68,52 +77,55 @@ p2 = Activity.create(
     minutes: 1,
     seconds: 1,
     time: "01:01:01",
-    points: [['40.638778', '-74.036007'],['40.616064','-74.038067']],
+    points: {
+        "each_coord": [['40.638778', '-74.036007'],['40.616064','-74.038067']]
+    },
+    # points: [['40.638778', '-74.036007'],['40.616064','-74.038067']],
     static_map_url: 'ig`wF`d{bMCRF@JDx@Jf@D@RFPXX^TLAFJvAl@fBn@p@RPHn@Pd@F^X`@PVH`@@d@G\?XIb@YJQNORM\MTENAn@Nn@T^XVTVTLFLJVNj@Tp@\f@b@|AdBXN|@h@b@b@`AnAh@z@RV\Xb@Vd@N\Ht@L~@JfBHhAXfAHv@@vBC`D`@hBJb@BhAAhBQ|AMHGJBjBJd@EXKZGz@g@hAe@pAYZCHA~@DnDr@`AJp@C~@OhBs@~DuApFuC|BoAFGBWdBgAACAG'
 )
 
-p3 = Activity.create(
-    title: 'First run of the season',
-    body: 'Is it over yet?',
-    posted_on: '2022-07-01 00:00:01 UTC',
-    author_id: 3,
-    distance: 2,
-    pace: 13.33,
-    hours: 0,
-    minutes: 26,
-    seconds: 49,
-    time: "00:26:49",
-    points: [['40.785107','-73.976891'],['40.802957','-73.963849'],['40.800675','-73.958517']],
-    static_map_url: 'gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC'
-)
+# p3 = Activity.create(
+#     title: 'First run of the season',
+#     body: 'Is it over yet?',
+#     posted_on: '2022-07-01 00:00:01 UTC',
+#     author_id: 3,
+#     distance: 2,
+#     pace: 13.33,
+#     hours: 0,
+#     minutes: 26,
+#     seconds: 49,
+#     time: "00:26:49",
+#     points: [['40.785107','-73.976891'],['40.802957','-73.963849'],['40.800675','-73.958517']],
+#     static_map_url: 'gz|wFjrobMHYw@g@o@c@}BwAyAaA{@o@eAq@mCcBaHsEwJqG{B}AaCyAQIgBqAeAo@}CsBaHsEuJqGuOeKqAy@i@[e@_@wA}@SKQSq@c@oAy@cAq@bAaDxBeHJ]L]\o@R_@\gAp@mBPu@ZaAx@kCQC'
+# )
 
-p4 = Activity.create(
-    title: "Let's GOOOOOOOOO",
-    body: 'Let it be known. I am the best of ALL demousers.',
-    posted_on: '2022-07-20 00:00:01 UTC',
-    author_id: 1,
-    distance: 10.6,
-    pace: 6.35,
-    hours: 1,
-    minutes: 5,
-    seconds: 43,
-    time: "01:05:43",
-    points: [['40.731179','-73.9193351'], ['40.735542','-73.918354'],['40.735916','-73.914556'],['40.742277','-73.913054'],['40.741342', '-73.909127'],['40.719728', '-73.911273']],
-    static_map_url: 'airwFrjdbMDYUEi@OgCg@mBUW@_@EaCYcBS{De@k@ISCSC?k@EiA?q@AiASuDa@aHAOGREMNEMJa@G_AMyB[eDg@wLiBoK}A_@GOC?KBQDeA`@_H^oGt@sM~MlBfB`@rCn@lG~BlA^lFlB~B~@bBp@pAh@RPdA\xAh@b@NdB^jCd@lC\t@Bb@DD@?WBwDN?HU`@qAb@qAl@kA`B}C`@}@vBeF\}@Zb@x@lAzB~C`CjD^d@Pi@pBGrBKhCWfDa@dDKdEKjAC`BEXzA^tBd@fCN|@RpAVvA'
-)
+# p4 = Activity.create(
+#     title: "Let's GOOOOOOOOO",
+#     body: 'Let it be known. I am the best of ALL demousers.',
+#     posted_on: '2022-07-20 00:00:01 UTC',
+#     author_id: 1,
+#     distance: 10.6,
+#     pace: 6.35,
+#     hours: 1,
+#     minutes: 5,
+#     seconds: 43,
+#     time: "01:05:43",
+#     points: [['40.731179','-73.9193351'], ['40.735542','-73.918354'],['40.735916','-73.914556'],['40.742277','-73.913054'],['40.741342', '-73.909127'],['40.719728', '-73.911273']],
+#     static_map_url: 'airwFrjdbMDYUEi@OgCg@mBUW@_@EaCYcBS{De@k@ISCSC?k@EiA?q@AiASuDa@aHAOGREMNEMJa@G_AMyB[eDg@wLiBoK}A_@GOC?KBQDeA`@_H^oGt@sM~MlBfB`@rCn@lG~BlA^lFlB~B~@bBp@pAh@RPdA\xAh@b@NdB^jCd@lC\t@Bb@DD@?WBwDN?HU`@qAb@qAl@kA`B}C`@}@vBeF\}@Zb@x@lAzB~C`CjD^d@Pi@pBGrBKhCWfDa@dDKdEKjAC`BEXzA^tBd@fCN|@RpAVvA'
+# )
 
-p5 = Activity.create(
-    title: 'Just want to track my progress...',
-    body: "How did I do? 🤩",
-    posted_on: '2022-07-04 00:00:01 UTC',
-    author_id: 1,
-    distance: 2,
-    pace: 9.25,
-    hours: 0,
-    minutes: 19,
-    seconds: 23,
-    time: "00:19:23"
-)
+# p5 = Activity.create(
+#     title: 'Just want to track my progress...',
+#     body: "How did I do? 🤩",
+#     posted_on: '2022-07-04 00:00:01 UTC',
+#     author_id: 1,
+#     distance: 2,
+#     pace: 9.25,
+#     hours: 0,
+#     minutes: 19,
+#     seconds: 23,
+#     time: "00:19:23"
+# )
 
 p6 = Activity.create(
     title: 'WOOHOO',

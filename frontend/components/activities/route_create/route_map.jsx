@@ -100,6 +100,9 @@ const RouteMap = (props) => {
     }
 
     const convertPoints = (arrayOfLatLngObjects) => {
+        let allPoints = {
+            "each_coord": []
+        }
         const coordinates = [];
         for (let i = 0; i < arrayOfLatLngObjects.length; i++) {
             let point = arrayOfLatLngObjects[i];
@@ -107,7 +110,8 @@ const RouteMap = (props) => {
             let lng = point.lng();
             coordinates.push([lat.toString(), lng.toString()])
         }
-        return coordinates;
+        allPoints.each_coord = coordinates;
+        return allPoints;
     }
 
     const handleSubmit = e => {
@@ -115,8 +119,7 @@ const RouteMap = (props) => {
         let newTime = `${checkForSingles(activityState.hours)}:${checkForSingles(activityState.minutes)}:${checkForSingles(activityState.seconds)}`;
         let convertedPoints = convertPoints(coords)
         props.createActivity({...activityState, time: newTime, distance: dis, static_map_url: polyline, points: convertedPoints})
-            debugger
-            //.then(() => props.history.push('/dashboard/my_activities'))
+            .then(() => props.history.push('/dashboard/my_activities'))
     }
 
     const update = field => {
