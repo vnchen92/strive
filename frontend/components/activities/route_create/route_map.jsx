@@ -181,6 +181,7 @@ const RouteMap = (props) => {
                                         <input 
                                             className='create-num-input'
                                             type="number"
+                                            step="any"
                                             min="0"
                                             value={activityState.pace}
                                             onChange={update('pace')} 

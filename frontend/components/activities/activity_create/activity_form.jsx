@@ -110,6 +110,7 @@ class ActivityForm extends React.Component {
                                     <input 
                                         className='create-num-input'
                                         type="number"
+                                        step="any"
                                         min="0"
                                         disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                         value={this.state.distance}
@@ -124,6 +125,7 @@ class ActivityForm extends React.Component {
                                     <input 
                                         className='create-num-input'
                                         type="number"
+                                        step="any"
                                         min="0"
                                         disabled={(this.props.activity === undefined || this.props.activity.staticMapUrl === null) ? '' : 'disabled'}
                                         value={this.state.pace}
