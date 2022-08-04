@@ -5,7 +5,6 @@ class Map extends React.Component {
 
     componentDidMount() {
         let pathPoints = this.props.activity.points.each_coord;
-        debugger
         const mapCenter = {
             center: {lat: 40.783254, lng: -73.974529},
             zoom: 13,    

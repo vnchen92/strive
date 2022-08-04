@@ -71,7 +71,6 @@ const RouteMap = (props) => {
                 if (status === 'OK') {
                     const distanceArray = response.routes[0].legs;
                     const poly = response.routes[0].overview_polyline
-                    debugger
                     let totalDistance = 0;
                     distanceArray.forEach(dis => {
                         let stringNum = dis.distance.text.split(" ")[0];
