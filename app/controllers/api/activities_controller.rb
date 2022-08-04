@@ -19,6 +19,15 @@ class Api::ActivitiesController < ApplicationController
     def create
         @activity = Activity.new(activity_params)
 
+        coord_array = []
+
+        if @activity.points
+            @activity.points["each_coord"].each do |k, v|
+                coord_array << v
+            end
+            @activity.points["each_coord"] = coord_array
+        end
+
 
         if @activity.save
             render :show
