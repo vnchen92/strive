@@ -78,7 +78,7 @@ p2 = Activity.create(
     seconds: 1,
     time: "01:01:01",
     points: {
-        "each_coord": [['40.638778', '-74.036007'],['40.616064','-74.038067']]
+        each_coord: [['40.638778', '-74.036007'],['40.616064','-74.038067']]
     },
     # points: [['40.638778', '-74.036007'],['40.616064','-74.038067']],
     static_map_url: 'ig`wF`d{bMCRF@JDx@Jf@D@RFPXX^TLAFJvAl@fBn@p@RPHn@Pd@F^X`@PVH`@@d@G\?XIb@YJQNORM\MTENAn@Nn@T^XVTVTLFLJVNj@Tp@\f@b@|AdBXN|@h@b@b@`AnAh@z@RV\Xb@Vd@N\Ht@L~@JfBHhAXfAHv@@vBC`D`@hBJb@BhAAhBQ|AMHGJBjBJd@EXKZGz@g@hAe@pAYZCHA~@DnDr@`AJp@C~@OhBs@~DuApFuC|BoAFGBWdBgAACAG'

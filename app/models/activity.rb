@@ -22,8 +22,6 @@ class Activity < ApplicationRecord
     validates :title, :author_id, :posted_on, :distance, :pace, :hours, :minutes, :seconds, :time, presence: true
     validates :hours, :minutes, :seconds, :numericality => { :greater_than_or_equal_to => 0 }
     validates :minutes, :seconds, :numericality => { :less_than_or_equal_to => 59 }
-    #accepts_nested_attributes_for :points
-    #store :points, accessors: [:each_coord], coder: JSON
 
     belongs_to :author,
     class_name: :User,
