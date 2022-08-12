@@ -13,12 +13,9 @@ class Elevation extends React.Component{
     componentDidMount() {
         //debugger
         let elevationPoints = [];
-        debugger
         this.props.pathPoints.forEach(point => {
             elevationPoints.push(new google.maps.LatLng(point[0] * 1, point[1] * 1))
         })
-
-        debugger
 
         new google.maps.ElevationService()
             .getElevationAlongPath({
@@ -26,6 +23,7 @@ class Elevation extends React.Component{
                 samples: 10
             }, (results, status) => {
                 if (status === 'OK') {
+                    debugger
                     this.setState({ elevations: results })
                 } else {
                     //console.log(status);
