@@ -5,42 +5,63 @@ import LineChart from './chart';
 
 const Elevation = props => {
     const [elevationData, setElevation] = useState([])
-    const [allElevation, setAllElevation] = useState([])
+    //const [allElevation, setAllElevation] = useState([])
 
     let elevationPoints = [];
     props.pathPoints.forEach(point => {
         elevationPoints.push(new google.maps.LatLng(point[0] * 1, point[1] * 1))
     })
 
-    new google.maps.ElevationService()
-        .getElevationAlongPath({
-            path: elevationPoints,
-            samples: 10
-        }, (results, status) => {
-            if (status === 'OK') {
-                setElevation([...results])
-            } else {
-                //console.log(status);
-            }
-        })
-    
     useEffect(() => {
-        if (elevationData.length !== 0) {
-            for (let i = 0; i < elevationData.length; i++) {
-                setAllElevation(data => [...data, elevationData[i].elevation])
-            }
-        }
+        new google.maps.ElevationService()
+            .getElevationAlongPath({
+                path: elevationPoints,
+                samples: 10
+            }, (results, status) => {
+                if (status === 'OK') {
+                    let allPoints = []
+                    results.forEach(obj => {
+                        allPoints.push(obj.elevation)
+                    })
+                    setElevation([...allPoints])
+                } else {
+                    //console.log(status);
+                }
+            })
     }, [])
+    
+    
+    // useEffect(() => {
+    //     if (elevationData.length !== 0) {
+    //         for (let i = 0; i < elevationData.length; i++) {
+    //             setAllElevation([...allElevation, elevationData[i].elevation])
+    //         }
+    //     }
+    // }, [elevationData])
 
-    if (allElevation) {
-        return (
-            <div>
-                <LineChart elevationData={allElevation} />
-            </div>
-        )
-    } else {
-        <></>
-    }
+    let lineChartDiv = <></>
+
+    useEffect(() => {
+        if (elevationData.length > 0) {
+            lineChartDiv = <LineChart elevationData={elevationData} />
+        }
+    }, [elevationData])
+
+    // if (elevationData.length !== 0) {
+    //     return (
+    //         <div>
+    //             <LineChart elevationData={elevationData} />
+    //         </div>
+    //     )
+    // } else {
+    //     <></>
+    // }
+
+    return (
+        <div>
+            {lineChartDiv}
+        </div>
+    )
 }
 
 // class Elevation extends React.Component{
