@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Map from './map';
 import Elevation from './elevation';
@@ -73,7 +73,7 @@ const ActivityShow = ({activity, users, currentUser, deleteActivity, history}) =
                     activity.staticMapUrl === null ? <></> : <Map activity={activity} />
                     }
                 </div>
-                {/* <Elevation polyline={activity.staticMapUrl}/> */}
+                <Elevation polyline={activity.staticMapUrl} pathPoints={activity.points.each_coord}/>
             </div>
         </div>
     )
