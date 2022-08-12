@@ -1,6 +1,7 @@
+import { Chart } from 'chart.js';
 import React, { useEffect, useState } from 'react';
 import { fetchPathElevation } from '../../../util/elevation_api.util';
-import LineChart from './line';
+import LineChart from './chart';
 
 const Elevation = props => {
     const [elevationData, setElevation] = useState([])
@@ -17,7 +18,6 @@ const Elevation = props => {
             samples: 10
         }, (results, status) => {
             if (status === 'OK') {
-                debugger
                 setElevation([...results])
             } else {
                 //console.log(status);
@@ -35,7 +35,7 @@ const Elevation = props => {
     if (allElevation) {
         return (
             <div>
-                Its here
+                <LineChart elevationData={allElevation} />
             </div>
         )
     } else {
