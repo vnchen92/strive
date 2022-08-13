@@ -22,28 +22,31 @@ import {
 import { Line } from "react-chartjs-2";
 
 const LineChart = ({elevationData}) => {
-	debugger
+	//debugger
+	const data = {
+		labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+		datasets: [{
+			data: elevationData,
+			//backgroundColor: 'rgb(255, 99, 132)',
+			borderColor: 'rgb(255, 99, 132)'
+		  }]
+	}
+	console.log(data.datasets[0].data)
 	return (
 		<div>
 			<Line
-				data={
-					{datasets: [{
-						backgroundColor: 'rgb(255, 99, 132)',
-						borderColor: 'rgb(255, 99, 132)',
-						data: elevationData,
-					  }]}
-				}
+				data={data}
 				options={{
-				//   plugins: {
+				   plugins: {
 				// 	title: {
 				// 	  display: true,
 				// 	  text: "Cryptocurrency prices"
 				// 	},
-				// 	legend: {
-				// 	  display: true,
-				// 	  position: "bottom"
-				//    }
-				  //}
+					legend: {
+					  display: false
+					  //position: "bottom"
+				   }
+				  }
 				}}
 			/>
 		</div>
