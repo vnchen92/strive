@@ -53,7 +53,6 @@ class Map extends React.Component {
                 <div className='activity-map-container'>
                     <div id='map'></div>
                 </div>
-                {/* <Elevation pathPoints={this.props.activity.points} /> */}
             </div>
         )
     }

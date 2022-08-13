@@ -1,6 +1,4 @@
-import { Chart } from 'chart.js';
 import React, { useEffect, useState } from 'react';
-import { fetchPathElevation } from '../../../util/elevation_api.util';
 import LineChart from './chart';
 
 const Elevation = props => {
