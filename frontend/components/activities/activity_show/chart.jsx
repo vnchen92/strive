@@ -38,10 +38,10 @@ const LineChart = ({elevationData}) => {
 				data={data}
 				options={{
 				   plugins: {
-				// 	title: {
-				// 	  display: true,
-				// 	  text: "Cryptocurrency prices"
-				// 	},
+					title: {
+					  display: true,
+					  text: "Elevation"
+					},
 					legend: {
 					  display: false
 					  //position: "bottom"
