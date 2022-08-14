@@ -36,6 +36,11 @@ const LineChart = ({elevationData}) => {
 			<Line
 				data={data}
 				options={{
+				   scales: {
+					y: {
+						beginAtZero: true
+					}
+				   },
 				   plugins: {
 					title: {
 					  display: true,
