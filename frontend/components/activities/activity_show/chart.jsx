@@ -22,25 +22,37 @@ import {
 import { Line } from "react-chartjs-2";
 
 const LineChart = ({elevationData}) => {
+	const labels = Array(100).fill("")
+
 	const data = {
-		labels: ["", "", "", "", "", "", "", "", "", ""],
+		labels: labels,
 		datasets: [{
 			data: elevationData,
 			//backgroundColor: 'rgb(255, 99, 132)',
-			borderColor: 'rgb(255, 99, 132)'
+			borderColor: '#fc5200'
 		  }]
 	}
 
 	const options = {
 		scales: {
 			y: {
-				beginAtZero: true
+				title: {
+					display: true,
+					text: "Meters"
+				},
+				beginAtZero: true,
+			},
+			x: {
+				// title: {
+				// 	display: true,
+				// 	text: "Path from start to finish"
+				// }
 			}
 		},
 		plugins: {
 			title: {
 			  display: true,
-			  text: "Elevation"
+			  text: "Elevation in meters"
 			},
 			legend: {
 			  display: false

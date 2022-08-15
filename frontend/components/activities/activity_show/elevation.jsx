@@ -14,7 +14,7 @@ const Elevation = props => {
         new google.maps.ElevationService()
             .getElevationAlongPath({
                 path: elevationPoints,
-                samples: 10
+                samples: 100
             }, (results, status) => {
                 if (status === 'OK') {
                     let allPoints = []
