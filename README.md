@@ -14,7 +14,7 @@ Users can log in and sign up. Only logged in users will be able to use site func
 
 ### Activities
 
-Users can create, read, update, and delete their own posts. Distance, time, and pace cannot be edited if a google map is present.
+Users can create, read, update, and delete their own posts. Distance, time, and pace cannot be edited if a google map is present. Users are also able to create their own route on a google map which will update the distance dynamically as the route gets longer.
 
 ### Feed & Profile
 
@@ -42,22 +42,12 @@ React is used to render each component efficiently with Redux to manage the glob
 
 Ruby on Rails handles user authentication via session tokens. It serves as another validation for any CRUD features before it is saved in the PostgreSQL database. Jbuilder is used to structure the JSON object when returned to the frontend using Ajax requests.
 
-### Google Directions API
+### Google Directions API & Google Elevations API
 
-Used to render the routes on all google maps correctly. Lattitude and longitude points need to be fed into this API to render a polyline showing correct running routes. This way, paths take into consideration of other objects (such as buildings, highways, etc.) instead of rending a straight path from one point to another.
+The Directions API is used to render the routes on all google maps correctly. Lattitude and longitude points need to be fed into this API to render a polyline showing correct running routes. This way, paths take into consideration of other objects (such as buildings, highways, etc.) instead of rending a straight path from one point to another. These lattitude and longitude points are then fed into the Elevations API to gather elevation data from when the path started to when the path ends. Each path renders 100 points maximum as to not slow down the loading time on the chart.
 
 ### Google Maps API & Google Static Maps API
 
 Google Static Maps API is used for map snippet of route on the dashboard and profile pages. Google Maps API is used when a user clicks to show an activity so users are able to move the map dynamically to see where the route is as well as zoom in and out.
-
-## Future Features
-
-### Elevation Graph
-
-Any activities with a google map will also have a graph showing the elevation points of the path.
-
-### Create a Route
-
-Users will be able to create their own path on a dynaic google map to share with other users. They can update and delete this as well. Dynamic marker placement will create this customized route. Distance and elevation will also be shown.
 
 
