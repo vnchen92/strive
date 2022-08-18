@@ -1,0 +1,22 @@
+.footer-container {
+    background-color: #242428;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-container > h1 {
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 40px;
+}
+
+.footer-onlinepresence-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px;
+}
+
+.footer-onlinepresence-container > li {
+    color: white;
+}

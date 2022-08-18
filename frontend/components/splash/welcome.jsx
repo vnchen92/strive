@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
+import Footer from './footer';
 
 const Welcome = ({login}) => {
     
     return (
+        <div>
         <div className='homepage-container'>
             <div className='homepage-inner-container'>
                 <h2 className='homepage-header'>The #1 app for runners and cyclists</h2>
@@ -20,6 +22,8 @@ const Welcome = ({login}) => {
                     </div>
                 </div>
             </div>
+        </div>
+        <Footer />
         </div>
     )
 }

@@ -14,7 +14,7 @@ import RouteMapContainer from './activities/route_create/route_map_container';
 
 const App = props => {
     return(
-        <div>
+        <>
             <HeaderContainer />
             <Switch>
                 <AuthRoute exact path='/' component={WelcomeContainer} />
@@ -28,7 +28,7 @@ const App = props => {
                 <ProtectedRoute path='/activities/:id' component={ActivityShowContainer} />
                 <ProtectedRoute path='/athletes/:id' component={UserDashContainer} />
             </Switch>
-        </div>
+        </>
     )
 }
 
