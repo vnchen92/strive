@@ -10,14 +10,12 @@ import CreatePostContainer from './activities/activity_create/create_post_contai
 import EditPostContainer from './activities/activity_create/edit_post_container';
 import HeaderContainer from './splash/header_container';
 import UserDashContainer from './profile/user_dash_container';
-import Elevation from './activities/activity_show/elevation';
 import RouteMapContainer from './activities/route_create/route_map_container';
 
 const App = props => {
     return(
         <div>
             <HeaderContainer />
-            {/* <Elevation /> */}
             <Switch>
                 <AuthRoute exact path='/' component={WelcomeContainer} />
                 <AuthRoute exact path="/login" component={LoginFormContainer} />
