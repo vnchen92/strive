@@ -22,3 +22,7 @@
     color: white;
     padding-left: 10px;
 }
+
+.footer-onlinepresence-container > li > a:hover {
+    color: gray;
+}
