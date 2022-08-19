@@ -2,6 +2,7 @@ import React from 'react'
 
 const Footer = props => {
     return (
+        <div className='footer-ent-container'> 
         <div className='footer-container'>
             <h1>STRIVE</h1>
             <div className='footer-onlinepresence-container'>
@@ -10,6 +11,7 @@ const Footer = props => {
                 <li><a href="https://angel.co/u/vivian-chen-42" target="_blank">AngelList</a></li>
                 <li><a href="https://vnchen92.github.io/" target="_blank">Portfolio</a></li>
             </div>
+        </div>
         </div>
     )
 }
