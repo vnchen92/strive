@@ -1,7 +1,7 @@
 .homepage-container {
     display: flex;
     justify-content: center;
-    white-space: none;
+    align-items: center;
 }
 
 .homepage-inner-container {
