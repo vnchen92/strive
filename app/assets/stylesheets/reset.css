@@ -24,3 +24,13 @@ time, mark, audio, video {
 	vertical-align: baseline;
     list-style: none;
 }
+
+html, body {
+	min-height: 100vh;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-content: space-between;
+}
