@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import DemoLogin from '../demo_login/demo_login';
+import Footer from '../splash/footer';
 import { Modal } from './modal';
 
 const SessionForm = ({errors, formType, processForm, location, modal, closeModal, openModal, removeErrors}) => {
@@ -53,56 +54,59 @@ const SessionForm = ({errors, formType, processForm, location, modal, closeModal
     }
 
     return (
-        <div className='session-container' style={myStyle}>
-            <div className='session-inner-container'>
-                <h1 className='session-title'>{location.pathname === '/login' ? formType : "Join Strive today, it's free."}</h1>
-                <ul className='session-errors-container'>
-                    {showErrors()}
-                </ul>
-                <div className='session-btn-container'>
-                    {
-                    location.pathname === '/login' ? <div className='session-demo-btn'><DemoLogin login={processForm} /></div> : <></>
-                    }
-                    <form className='session-form' onSubmit={handleSubmit}>
-                        <label>
-                            <input className='session-email'
-                                type="text"
-                                placeholder='email'
-                                value={state.email}
-                                onChange={update('email')}
-                            />
-                        </label>
-                        <label>
-                            <input className='session-password'
-                                type="password"
-                                placeholder='password'
-                                value={state.password}
-                                onChange={update('password')}
-                            />
-                        </label>
-                        { 
-                        formType === 'Log In' ?
-                            <button className='session-submit' type='submit'>{formType}</button>
-                            :
-                            <div className='session-submit' onClick={handleClick}>{formType}</div>
-                        }
+        <>
+            <div className='session-container' style={myStyle}>
+                <div className='session-inner-container'>
+                    <h1 className='session-title'>{location.pathname === '/login' ? formType : "Join Strive today, it's free."}</h1>
+                    <ul className='session-errors-container'>
+                        {showErrors()}
+                    </ul>
+                    <div className='session-btn-container'>
                         {
-                        modal && 
-                        <Modal 
-                            firstName={state.firstName}
-                            lastName={state.lastName}
-                            weight={state.weight}
-                            birthdate={state.birthdate} 
-                            errors={errors}
-                            closeModal={closeModal}
-                            handleSubmit={handleSubmit}
-                            update={update} 
-                        />
+                        location.pathname === '/login' ? <div className='session-demo-btn'><DemoLogin login={processForm} /></div> : <></>
                         }
-                    </form>
+                        <form className='session-form' onSubmit={handleSubmit}>
+                            <label>
+                                <input className='session-email'
+                                    type="text"
+                                    placeholder='email'
+                                    value={state.email}
+                                    onChange={update('email')}
+                                />
+                            </label>
+                            <label>
+                                <input className='session-password'
+                                    type="password"
+                                    placeholder='password'
+                                    value={state.password}
+                                    onChange={update('password')}
+                                />
+                            </label>
+                            { 
+                            formType === 'Log In' ?
+                                <button className='session-submit' type='submit'>{formType}</button>
+                                :
+                                <div className='session-submit' onClick={handleClick}>{formType}</div>
+                            }
+                            {
+                            modal && 
+                            <Modal 
+                                firstName={state.firstName}
+                                lastName={state.lastName}
+                                weight={state.weight}
+                                birthdate={state.birthdate} 
+                                errors={errors}
+                                closeModal={closeModal}
+                                handleSubmit={handleSubmit}
+                                update={update} 
+                            />
+                            }
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 

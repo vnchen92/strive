@@ -44,10 +44,6 @@ input:focus {
     outline: none;
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
-}
-
 #map {
     width: 600px;
     height: 350px;

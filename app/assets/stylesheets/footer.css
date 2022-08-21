@@ -1,9 +1,4 @@
-.footer-ent-container {
-    /* box-shadow: 0 50vh 0 50vh #000; */
-}
-
 .footer-container {
-    margin-top: 20px;
     background-color: #242428;
     display: flex;
     justify-content: space-between;
@@ -13,13 +8,13 @@
     color: white;
     font-size: 20px;
     font-weight: bolder;
-    padding: 40px;
+    padding: 20px;
 }
 
 .footer-onlinepresence-container {
     display: flex;
     justify-content: space-evenly;
-    padding: 40px;
+    padding: 20px;
 }
 
 .footer-onlinepresence-container > li > a {

@@ -1,7 +1,9 @@
 .homepage-container {
+    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .homepage-inner-container {

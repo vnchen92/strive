@@ -23,14 +23,5 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
     list-style: none;
-}
-
-html, body {
-	min-height: 100vh;
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-	align-content: space-between;
+	font-family: 'Open Sans', sans-serif;
 }
