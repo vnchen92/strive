@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: strive_production
-  username: strive
-  password: <%= ENV['STRIVE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
