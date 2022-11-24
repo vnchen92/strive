@@ -1,6 +1,6 @@
 # Strive
 
-### [Strive](https://strive-for-strides.herokuapp.com/#/)
+### [Strive](https://strive-service.onrender.com/#/)
 
 ![](https://github.com/vnchen92/strive/blob/main/app/assets/images/strive-screenshot.jpg?raw=true)
 
