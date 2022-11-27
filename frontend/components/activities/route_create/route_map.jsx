@@ -49,12 +49,11 @@ const RouteMap = (props) => {
     useEffect(() => {
         const renderPath = () => {
             let mids = []
-            for(let i = 1; i < coords.length - 1; i++) {
+            for (let i = 1; i < coords.length - 1; i++) {
                 let point = coords[i];
                 let wayPoint = {};
                 wayPoint['location'] = new google.maps.LatLng(point);
                 mids.push(wayPoint);
-                wayPoint = {}
             }
 
             const request = {
@@ -65,9 +64,15 @@ const RouteMap = (props) => {
                 waypoints: mids
             }
 
+            if (directionsRenderer.current){
+                directionsRenderer.current.setMap(null);
+            }
+
             directionsRenderer.current = new google.maps.DirectionsRenderer();
             const directionsService = new google.maps.DirectionsService();
-            directionsService.route(request, function(response, status) {
+
+            directionsService.route(request, function(response, status) {           //response is a DirectionsService Object
+                                                                                    //request is a DirectionsRequest Object
                 if (status === 'OK') {
                     const distanceArray = response.routes[0].legs;
                     const poly = response.routes[0].overview_polyline
@@ -78,9 +83,10 @@ const RouteMap = (props) => {
                     })
                     setDistance(totalDistance);
                     setPolyline(poly)
-                    directionsRenderer.current.setDirections(response);
+                    directionsRenderer.current.setDirections(response);             //updates the display polyline on the map
                 }
             }); 
+
             directionsRenderer.current.setMap(map.current);
 
         }
@@ -143,13 +149,23 @@ const RouteMap = (props) => {
 
     const clearMarkers = e => {
         e.preventDefault();
-        for (let i = 0; i < allMarkers.length; i++) {
-            allMarkers[i].setMap(nullls)
+
+        if (allMarkers.length > 2) {
+            const marker = allMarkers[allMarkers.length-1]
+            marker.setMap(null)
+
+            setMarkers([...allMarkers.slice(0, allMarkers.length-1)])
+            setCoords([...coords.slice(0, coords.length-1)])
+        } else {
+            for (let i = 0; i < allMarkers.length; i++) {
+                allMarkers[i].setMap(null)                          //removes each marker from map
+            }
+            setMarkers([])
+            setCoords([])
+            setDistance(0)
+            setPolyline("")
+            directionsRenderer.current.setMap(null)
         }
-        directionsRenderer.current.setMap(null)
-        setCoords([])
-        setDistance(0)
-        setPolyline("")
     }
 
     return (
@@ -248,7 +264,7 @@ const RouteMap = (props) => {
                             <div className='route-btn-container'>
                                 <button className='create-submit-btn' type='submit'>Submit</button>
                                 <button className='create-cancel-btn' onClick={handleCancel}>Cancel</button>
-                                <button className='create-cancel-btn' onClick={clearMarkers}>Restart</button>
+                                <button className='create-cancel-btn' onClick={clearMarkers}>Delete</button>
                             </div>
                         </form>
                     </div>
@@ -257,7 +273,7 @@ const RouteMap = (props) => {
                             <p>Plan the perfect run or ride with features that help you find new roads or trails, flat or hilly options, nearby segments, and the most popular ways to get around.</p>
                             <p>Click anywhere on the map as your starting point. Watch the distance add up as you create your path.</p>
                             <p>Add as many markers as you would like.</p>
-                            <p>Click 'Restart' if you would like to start over.</p>
+                            <p>Click 'Delete' to go back to the most recent starting point.</p>
                         </div>
                         <div id='usermap'></div>
                     </div>
