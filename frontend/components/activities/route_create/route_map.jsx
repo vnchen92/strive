@@ -78,8 +78,8 @@ const RouteMap = (props) => {
                     const poly = response.routes[0].overview_polyline
                     let totalDistance = 0;
                     distanceArray.forEach(dis => {
-                        let stringNum = dis.distance.text.split(" ")[0];
-                        totalDistance += parseFloat(stringNum);
+                        let num = parseFloat(parseFloat(dis.distance.text.split(" ")[0]).toFixed(2));
+                        totalDistance += num;
                     })
                     setDistance(totalDistance);
                     setPolyline(poly)
