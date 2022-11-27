@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-Activity.destroy_all
-Follow.destroy_all
-Comment.destroy_all
-Kudo.destroy_all
+# User.destroy_all
+# Activity.destroy_all
+# Follow.destroy_all
+# Comment.destroy_all
+# Kudo.destroy_all
 
 u1 = User.create(
     firstName: 'Demo',
@@ -73,7 +73,6 @@ p2 = Activity.create(
     points: {
         each_coord: [['40.638778', '-74.036007'],['40.616064','-74.038067']]
     },
-    # points: [['40.638778', '-74.036007'],['40.616064','-74.038067']],
     static_map_url: 'ig`wF`d{bMCRF@JDx@Jf@D@RFPXX^TLAFJvAl@fBn@p@RPHn@Pd@F^X`@PVH`@@d@G\?XIb@YJQNORM\MTENAn@Nn@T^XVTVTLFLJVNj@Tp@\f@b@|AdBXN|@h@b@b@`AnAh@z@RV\Xb@Vd@N\Ht@L~@JfBHhAXfAHv@@vBC`D`@hBJb@BhAAhBQ|AMHGJBjBJd@EXKZGz@g@hAe@pAYZCHA~@DnDr@`AJp@C~@OhBs@~DuApFuC|BoAFGBWdBgAACAG'
 )
 
